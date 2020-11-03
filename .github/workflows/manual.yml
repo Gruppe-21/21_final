@@ -11,6 +11,7 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   contributer:
+    runs-on: ubuntu-18.04
     steps:
       - name: Contribute List
         uses: akhilmhdh/contributors-readme-action@v2.0.2
