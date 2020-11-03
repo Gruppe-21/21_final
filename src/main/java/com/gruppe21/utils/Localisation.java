@@ -1,11 +1,13 @@
 package com.gruppe21.utils;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Localisation {
 
     // Singleton pattern
-
     private static Localisation instance;
 
     public static Localisation getInstance() {
@@ -20,8 +22,7 @@ public class Localisation {
             String filePath = "/" + lang + ".txt";
             String charSetName = "UTF-8";
             InputStream inputStream = getClass().getResourceAsStream(filePath);
-
-            InputStreamReader inputStreamReader  = new InputStreamReader(inputStream,  charSetName);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charSetName);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             // Iterate until no lines.
