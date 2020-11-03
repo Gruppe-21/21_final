@@ -9,5 +9,5 @@
  * @author Troels Christoffersen
 ```
 
-## CDIO del 2
-Dette er vores repo til del 2 af CDIO :)
+## CDIO del 3
+Dette er vores repo til del 3 af CDIO :)
