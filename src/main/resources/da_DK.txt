@@ -1,0 +1,1 @@
+textLabel Dette er en text på dansk.
