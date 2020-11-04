@@ -17,7 +17,8 @@ Dette er vores repo til del 3 af CDIO :)
 https://github.com/Gruppe-21/21_del3/projects/2?fullscreen=true
 
 ## Planner board
-
-
 [![Planner Link](https://www.it.miami.edu/_assets/images/Planner_1.png)](https://tasks.office.com/dtudk.onmicrosoft.com/Home/PlanViews/oXirMDo-8UyZ8moVGzBCy5YAGFc5?Type=PlanLink&Channel=Link&CreatedTime=637400067516520000)
 
+## Overleaf Link + Git Repository
+- https://github.com/Gruppe-21/CDIO-3-Rapport
+- https://www.overleaf.com/project/5fa03f64efe54a000131cc69 
