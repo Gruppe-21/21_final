@@ -1,6 +1,7 @@
 package com.gruppe21.utils;
 
 import com.gruppe21.Square;
+import com.gruppe21.SquareType;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -14,59 +15,62 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+
+/**
+ * Used for getting board configurations by parsing xml documents
+ */
 public class BoardLoader {
 
-    public static ArrayList<String> loadBoardFromFile(String fileName) throws ParserConfigurationException, IOException, SAXException {
+    public static ArrayList<Square> loadBoardFromFile(String fileName) throws ParserConfigurationException, IOException, SAXException {
         NodeList nList = getBoardNodeList(fileName);
 
         ArrayList<Square> squares = new ArrayList<Square>();
-        ArrayList<String> squareNames = new ArrayList<String>();
 
         for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
 
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
-                addXMLSquareToArrayList(squareNames, eElement);
+                addXMLSquareToArrayList(squares, eElement);
             }
 
         }
-
-        for (String squareName : squareNames) {
-            System.out.println(squareName);
-        }
-
-        return squareNames;
+        return squares;
     }
 
-    private static void addXMLSquareToArrayList(ArrayList<String> squareNames, Element eElement) {
+    private static void addXMLSquareToArrayList(ArrayList<Square> squares, Element eElement) {
         String elementName = eElement.getNodeName();
         switch (elementName) {
             case "StartSquare":
                 // Add square
-                squareNames.add("Start");
+                squares.add(new Square("Start", "", 0, SquareType.Normal));
                 break;
             case "PropertySquare":
                 // Add square
-                squareNames.add(elementName + ": " + eElement.getAttribute("name") + " - " + eElement.getAttribute("price"));
+                String name = eElement.getAttribute("name");
+                squares.add(new Square(name, "", 0, SquareType.Normal));
                 break;
             case "ChanceSquare":
                 // Add square
-                squareNames.add("Chance");
+                squares.add(new Square("Chance", "", 0, SquareType.Normal));
+
                 break;
             case "FreeParkingSquare":
                 // Add square
-                squareNames.add("Free Parking");
+                squares.add(new Square("Free parking", "", 0, SquareType.Normal));
+
 
                 break;
             case "GoToPrisonSquare":
                 // Add square
-                squareNames.add("Go To Prison");
+                squares.add(new Square("Go to prison", "", 0, SquareType.Normal));
+
 
                 break;
             case "PrisonSquare":
                 // Add square
-                squareNames.add("Prison / Visit Prison");
+                squares.add(new Square("Prison / Visit prison", "", 0, SquareType.Normal));
+
 
                 break;
             default:
