@@ -2,7 +2,9 @@ package com.gruppe21.gui;
 
 import com.gruppe21.Player;
 import com.gruppe21.Square;
-import gui_fields.*;
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Player;
+import gui_fields.GUI_Street;
 import gui_main.GUI;
 
 import java.awt.*;
@@ -16,10 +18,6 @@ public class GUIWrapper {
 
     public GUIWrapper() {
         fields = new ArrayList<GUI_Field>();
-        GUI_Field start = new GUI_Start();
-        start.setTitle("Start");
-        start.setSubText("");
-        fields.add(start);
         players = new ArrayList<GUI_Player>();
     }
 
