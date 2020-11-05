@@ -22,12 +22,20 @@ import java.util.ArrayList;
 public class BoardLoader {
 
     public static ArrayList<Square> loadBoardFromFile(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        NodeList nList = getBoardNodeList(fileName);
+        Document doc = getXMLDocument(fileName);
+        NodeList boardNodes = getNodeListFromTag(doc, "board");
+        NodeList cardNodes = getNodeListFromTag(doc, "cards");
 
+        ArrayList<Square> squares = getSquaresFromNodeList(boardNodes);
+        //   ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
+        return squares;
+    }
+
+    private static ArrayList<Square> getSquaresFromNodeList(NodeList boardNodes) {
         ArrayList<Square> squares = new ArrayList<Square>();
 
-        for (int i = 0; i < nList.getLength(); i++) {
-            Node nNode = nList.item(i);
+        for (int i = 0; i < boardNodes.getLength(); i++) {
+            Node nNode = boardNodes.item(i);
 
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
@@ -36,6 +44,27 @@ public class BoardLoader {
 
         }
         return squares;
+    }
+
+    /**
+     * SKAL ÆNDRES TIL TYPEN CHANCECARD NÅR DET ER IMPLEMENTERET
+     *
+     * @param nodelist
+     * @return cards created from xml data
+     */
+    private static ArrayList<String> getCardsFromNodeList(NodeList nodelist) {
+        ArrayList<String> cards = new ArrayList<String>();
+
+        for (int i = 0; i < nodelist.getLength(); i++) {
+            Node nNode = nodelist.item(i);
+
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                // Add card to list
+            }
+
+        }
+        return cards;
     }
 
     private static void addXMLSquareToArrayList(ArrayList<Square> squares, Element eElement) {
@@ -79,7 +108,11 @@ public class BoardLoader {
         }
     }
 
-    private static NodeList getBoardNodeList(String fileName) throws ParserConfigurationException, SAXException, IOException {
+    private static NodeList getNodeListFromTag(Document doc, String tagName) throws ParserConfigurationException, SAXException, IOException {
+        return doc.getElementsByTagName(tagName).item(0).getChildNodes();
+    }
+
+    private static Document getXMLDocument(String fileName) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -87,6 +120,7 @@ public class BoardLoader {
         InputStream inputStream = BoardLoader.class.getResourceAsStream("/boards/" + fileName + ".xml");
         Document doc = builder.parse(inputStream);
         doc.getDocumentElement().normalize();
-        return doc.getElementsByTagName("board").item(0).getChildNodes();
+        return doc;
     }
+
 }
