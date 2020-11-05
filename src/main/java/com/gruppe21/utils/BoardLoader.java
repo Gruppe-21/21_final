@@ -24,7 +24,7 @@ public class BoardLoader {
     public static ArrayList<Square> loadBoardFromFile(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document doc = getXMLDocument(fileName);
         NodeList boardNodes = getNodeListFromTag(doc, "board");
-        NodeList cardNodes = getNodeListFromTag(doc, "cards");
+        // NodeList cardNodes = getNodeListFromTag(doc, "cards");
 
         ArrayList<Square> squares = getSquaresFromNodeList(boardNodes);
         //   ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
@@ -46,12 +46,8 @@ public class BoardLoader {
         return squares;
     }
 
-    /**
-     * SKAL ÆNDRES TIL TYPEN CHANCECARD NÅR DET ER IMPLEMENTERET
-     *
-     * @param nodelist
-     * @return cards created from xml data
-     */
+
+    //TODO SKAL ÆNDRES TIL TYPEN CHANCECARD NÅR DET ER IMPLEMENTERET
     private static ArrayList<String> getCardsFromNodeList(NodeList nodelist) {
         ArrayList<String> cards = new ArrayList<String>();
 
