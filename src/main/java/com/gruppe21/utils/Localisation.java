@@ -19,7 +19,7 @@ public class Localisation {
     public String getStringValue(String lang, String label) {
         try {
 
-            String filePath = "/" + lang + ".txt";
+            String filePath = "/lang/" + lang + ".txt";
             String charSetName = "UTF-8";
             InputStream inputStream = getClass().getResourceAsStream(filePath);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charSetName);
