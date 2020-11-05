@@ -84,10 +84,9 @@ public class BoardLoader {
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         String charSetName = "UTF-8";
-        InputStream inputStream = BoardLoader.class.getResourceAsStream("/" + fileName + ".xml");
+        InputStream inputStream = BoardLoader.class.getResourceAsStream("/boards/" + fileName + ".xml");
         Document doc = builder.parse(inputStream);
         doc.getDocumentElement().normalize();
-        NodeList nList = doc.getElementsByTagName("board").item(0).getChildNodes();
-        return nList;
+        return doc.getElementsByTagName("board").item(0).getChildNodes();
     }
 }
