@@ -1,13 +1,11 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.Board;
 import com.gruppe21.Player;
+import com.gruppe21.utils.stringutils.RandomNameGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-
-import static org.junit.Assert.*;
 
 public class RandomNameGeneratorTest {
 

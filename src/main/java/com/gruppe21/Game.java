@@ -1,7 +1,7 @@
 package com.gruppe21;
 
 import com.gruppe21.gui.GUIWrapper;
-import com.gruppe21.utils.RandomNameGenerator;
+import com.gruppe21.utils.stringutils.RandomNameGenerator;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -17,6 +17,18 @@ public class Game {
     private int currentPlayer;
     private Die[] dice;
 
+
+    public Game(Player[] players) {
+        initGame(players, new Die[]{new Die(), new Die()}, false);
+    }
+
+    public Game(Player[] players, Die[] dice) {
+        initGame(players, dice, false);
+    }
+
+    public Game(Player[] players, Die[] dice, boolean isTest) {
+        initGame(players, dice, isTest);
+    }
 
     public Player[] getPlayers() {
         return players;
@@ -38,20 +50,6 @@ public class Game {
         return currentPlayer;
     }
 
-
-
-    public Game(Player[] players) {
-        initGame(players, new Die[] {new Die(), new Die()}, false);
-    }
-
-    public Game(Player[] players, Die[] dice) {
-        initGame(players, dice, false);
-    }
-
-    public Game(Player[] players, Die[] dice, boolean isTest) {
-        initGame(players, dice, isTest);
-    }
-
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
         //Should make sure that players.length > 1 and dice.length > 0
 
@@ -69,7 +67,7 @@ public class Game {
             while (players[i].getName().isEmpty()) {
                 try {
                     String providedPlayerName = waitForUserTextInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
-                    if (providedPlayerName == null){
+                    if (providedPlayerName == null) {
                         //It should not be possible to get here
                         throw new Exception("providedPlayerName is null");
                     }
@@ -114,23 +112,23 @@ public class Game {
         return false;
     }
 
-    public void startGame(){
+    public void startGame() {
         do {
             for (Die die : dice) {
                 die.rollDie();
             }
-        }while (!playRound());
+        } while (!playRound());
         Player winner = players[currentPlayer];
         waitForUserAcknowledgement(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
-                                    + " and won the game");
+                + " and won the game");
         waitForUserButtonPress("The game will now close.", "That's fine'");
         closeGUI();
     }
 
-    private void movePlayer(int playerIndex, Square square){
+    private void movePlayer(int playerIndex, Square square) {
         int squareIndex = board.getSquareIndex(square);
 
-        if(!isTest) guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex );
+        if (!isTest) guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex);
 
         players[playerIndex].setCurrentSquareIndex(squareIndex);
     }
@@ -140,15 +138,13 @@ public class Game {
     }
 
 
-
-
-    private void initGUI(){
-        if(isTest) return;
+    private void initGUI() {
+        if (isTest) return;
         guiWrapper = new GUIWrapper();
         guiWrapper.reloadGUI(board.getSquares());
     }
 
-    private void closeGUI(){
+    private void closeGUI() {
         if (guiWrapper != null) guiWrapper.close();
     }
 
@@ -175,30 +171,29 @@ public class Game {
         }
     }
 
-    private void setGUIDice(Die[] dice){
-        if(isTest) return;
+    private void setGUIDice(Die[] dice) {
+        if (isTest) return;
         //Should make sure that at least 2 dice in dice
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
     }
 
-    private void setGUIPlayerBalance(int playerindex, int newBalance){
+    private void setGUIPlayerBalance(int playerindex, int newBalance) {
         if (isTest) return;
         guiWrapper.updatePlayerBalance(playerindex, newBalance);
     }
 
 
-
-    private void waitForUserAcknowledgement(String message){
+    private void waitForUserAcknowledgement(String message) {
         if (isTest) return;
         guiWrapper.showMessage(message);
     }
 
-    private void waitForUserButtonPress(String message, String buttonText){
+    private void waitForUserButtonPress(String message, String buttonText) {
         if (isTest) return;
         guiWrapper.getButtonPress(message, buttonText);
     }
 
-    private String waitForUserTextInput(String message){
+    private String waitForUserTextInput(String message) {
         if (isTest) return null;
         return guiWrapper.getStringInput(message);
     }

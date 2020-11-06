@@ -1,4 +1,4 @@
-package com.gruppe21.utils;
+package com.gruppe21.utils.localisation;
 
 import java.io.BufferedReader;
 import java.io.IOException;

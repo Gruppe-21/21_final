@@ -1,4 +1,4 @@
-package com.gruppe21.utils;
+package com.gruppe21.utils.stringutils;
 
 import com.gruppe21.Player;
 
