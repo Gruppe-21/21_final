@@ -7,7 +7,7 @@ public class Board {
     private List<Square> squares;
 
 
-    Board() {
+    public Board() {
         squares = new ArrayList<Square>();
         squares.add(new Square("Tower", "You have reached the tower!", +250, SquareType.Normal));
         squares.add(new Square("Crater", "You have found an enormous crater!", -100, SquareType.Normal));
