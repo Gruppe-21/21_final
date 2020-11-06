@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<board>
+    <startSquare/>
+
+    <PropertySquare name="BURGERBAREN" price="1" />
+    <PropertySquare name="PIZZERIAET" price="1" />
+    <ChanceSquare/>
+    <PropertySquare name="SLIKBUTIKKEN" price="1" />
+    <PropertySquare name="ISKIOSKEN" price="1" />
+
+    <PrisonSquare/>
+
+    <PropertySquare name="MUSEET" price="2" />
+    <PropertySquare name="BIBLIOTEKET" price="2" />
+    <ChanceSquare/>
+    <PropertySquare name="SKATERPARKEN" price="2" />
+    <PropertySquare name="SWIMMINGPOOLEN" price="2" />
+
+    <FreeParkingSquare/>
+
+    <PropertySquare name="SPILLEHALLEN" price="3" />
+    <PropertySquare name="BIOGRAFEN" price="3" />
+    <ChanceSquare/>
+    <PropertySquare name="LEGETØJSBUTIKkEN" price="3"/>
+    <PropertySquare name="DYREHANDLEN" price="3" />
+
+    <GoToPrisonSquare/>
+
+    <PropertySquare name="BOWLINGHALLEN" price="4"/>
+    <PropertySquare name="ZOO" price="4" />
+    <ChanceSquare/>
+    <PropertySquare name="VANDLANDET" price="5" />
+    <PropertySquare name="STRANDPROMENADEN" price="5" />
+
+</board>
