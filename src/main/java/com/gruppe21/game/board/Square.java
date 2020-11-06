@@ -1,4 +1,6 @@
-package com.gruppe21;
+package com.gruppe21.game.board;
+
+import com.gruppe21.player.Player;
 
 public class Square {
 

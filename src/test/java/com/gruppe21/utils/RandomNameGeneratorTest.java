@@ -1,6 +1,6 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.Player;
+import com.gruppe21.player.Player;
 import com.gruppe21.utils.stringutils.RandomNameGenerator;
 import org.junit.Assert;
 import org.junit.Test;

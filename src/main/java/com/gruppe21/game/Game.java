@@ -1,6 +1,10 @@
-package com.gruppe21;
+package com.gruppe21.game;
 
+import com.gruppe21.game.board.Board;
+import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.SquareType;
 import com.gruppe21.gui.GUIWrapper;
+import com.gruppe21.player.Player;
 import com.gruppe21.utils.stringutils.RandomNameGenerator;
 
 import java.awt.*;

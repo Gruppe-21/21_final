@@ -1,6 +1,8 @@
-package com.gruppe21;
+package com.gruppe21.game;
 
-/** Repræsenterer en virtuel terning
+/**
+ * Repræsenterer en virtuel terning
+ *
  * @author Hildibjørg Didriksen,
  * @author Marcus Rappenborg Kjærsgaard
  * @author Frederik Lundsbjerg
@@ -30,6 +32,7 @@ public class Die {
         faceValue = -1;
         faceAmount = 6;
     }
+
     public Die(int faceAmount) {
         faceValue = -1;
         this.faceAmount = Math.max(2, faceAmount);
@@ -45,19 +48,19 @@ public class Die {
     }
 
     /**
+     * Get face value of die.
+     * @return Die value
+     */
+    public int getValue() {
+        return faceValue;
+    }
+
+    /**
      * Sets die value to a given integer.
      * @param value Value which die is set to
      */
     public void setValue(int value) {
         this.faceValue = value;
-    }
-
-    /**
-     * Get face value of die.
-     * @return  Die value
-     */
-    public int getValue() {
-        return faceValue;
     }
 
     /**

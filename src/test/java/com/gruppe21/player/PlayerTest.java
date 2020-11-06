@@ -1,8 +1,8 @@
-package com.gruppe21;
+package com.gruppe21.player;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PlayerTest {
     @Test
@@ -44,6 +44,7 @@ public class PlayerTest {
 
         assertEquals(true, player.isNameEndsWithS());
     }
+
     @Test
     public void changeNameContainsSTest() {
         Player player = new Player();  // make instance of Player called player
@@ -54,4 +55,4 @@ public class PlayerTest {
         assertEquals(true, player.isNameEndsWithS());
     }
 
-    }
+}
