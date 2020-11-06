@@ -1,4 +1,4 @@
-package com.gruppe21;
+package com.gruppe21.game;
 
 import com.gruppe21.game.board.Square;
 import com.gruppe21.game.board.SquareType;

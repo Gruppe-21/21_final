@@ -1,6 +1,5 @@
-package com.gruppe21;
+package com.gruppe21.player;
 
-import com.gruppe21.player.Player;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
