@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <board>
-    <startSquare/>
+    <StartSquare label="go"/>
 
-    <PropertySquare name="BURGERBAREN" price="1" />
-    <PropertySquare name="PIZZERIAET" price="1" />
+    <PropertySquare label="burgerjoint" price="1" color="weird-green"/>
+    <PropertySquare label="pizzeria" price="1" color="weird-green"/>
     <ChanceSquare/>
-    <PropertySquare name="SLIKBUTIKKEN" price="1" />
-    <PropertySquare name="ISKIOSKEN" price="1" />
+    <PropertySquare label="candystore" price="1" color="cyan"/>
+    <PropertySquare label="icecreamparlor" price="1" color="cyan"/>
 
     <PrisonSquare/>
 
-    <PropertySquare name="MUSEET" price="2" />
-    <PropertySquare name="BIBLIOTEKET" price="2" />
+    <PropertySquare label="museum" price="2" color="pink"/>
+    <PropertySquare label="library" price="2" color="pink"/>
     <ChanceSquare/>
-    <PropertySquare name="SKATERPARKEN" price="2" />
-    <PropertySquare name="SWIMMINGPOOLEN" price="2" />
+    <PropertySquare label="skatepark" price="2" color="orange"/>
+    <PropertySquare label="swimmingpool" price="2" color="orange"/>
 
     <FreeParkingSquare/>
 
-    <PropertySquare name="SPILLEHALLEN" price="3" />
-    <PropertySquare name="BIOGRAFEN" price="3" />
+    <PropertySquare label="arcade" price="3" color="red"/>
+    <PropertySquare label="cinema" price="3" color="red"/>
     <ChanceSquare/>
-    <PropertySquare name="LEGETØJSBUTIKkEN" price="3"/>
-    <PropertySquare name="DYREHANDLEN" price="3" />
+    <PropertySquare label="toystore" price="3" color="yellow"/>
+    <PropertySquare label="petstore" price="3" color="yellow"/>
 
     <GoToPrisonSquare/>
 
-    <PropertySquare name="BOWLINGHALLEN" price="4"/>
-    <PropertySquare name="ZOO" price="4" />
+    <PropertySquare label="bowlingalley" price="4" color="green"/>
+    <PropertySquare label="zoo" price="4" color="green"/>
     <ChanceSquare/>
-    <PropertySquare name="VANDLANDET" price="5" />
-    <PropertySquare name="STRANDPROMENADEN" price="5" />
+    <PropertySquare label="parkplace" price="5" color="blue"/>
+    <PropertySquare label="boardwalk" price="5" color="blue"/>
+
 
 </board>

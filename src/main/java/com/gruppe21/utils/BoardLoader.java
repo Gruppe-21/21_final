@@ -68,11 +68,11 @@ public class BoardLoader {
         switch (elementName) {
             case "StartSquare":
                 // Add square
-                squares.add(new Square("Start", "", 0, SquareType.Normal));
+                squares.add(new Square("GO!", "", 0, SquareType.Normal));
                 break;
             case "PropertySquare":
                 // Add square
-                String name = eElement.getAttribute("name");
+                String name = eElement.getAttribute("label");
                 squares.add(new Square(name, "", 0, SquareType.Normal));
                 break;
             case "ChanceSquare":
