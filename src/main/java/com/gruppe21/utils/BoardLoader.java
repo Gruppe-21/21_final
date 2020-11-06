@@ -2,6 +2,7 @@ package com.gruppe21.utils;
 
 import com.gruppe21.Square;
 import com.gruppe21.SquareType;
+import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

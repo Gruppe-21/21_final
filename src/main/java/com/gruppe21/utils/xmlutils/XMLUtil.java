@@ -1,5 +1,6 @@
-package com.gruppe21.utils;
+package com.gruppe21.utils.xmlutils;
 
+import com.gruppe21.utils.BoardLoader;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
