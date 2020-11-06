@@ -1,6 +1,6 @@
 package com.gruppe21.utils.stringutils;
 
-import com.gruppe21.Player;
+import com.gruppe21.player.Player;
 
 import java.util.ArrayList;
 import java.util.Arrays;

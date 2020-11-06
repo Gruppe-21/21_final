@@ -1,8 +1,9 @@
-package com.gruppe21;
+package com.gruppe21.game;
 
+import com.gruppe21.game.board.Board;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class BoardTest {
 
