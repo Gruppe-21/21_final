@@ -8,11 +8,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -22,8 +19,8 @@ import java.util.ArrayList;
 public class BoardLoader {
 
     public static ArrayList<Square> loadBoardFromFile(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        Document doc = getXMLDocument(fileName);
-        NodeList boardNodes = getNodeListFromTag(doc, "board");
+        Document doc = XMLUtil.getXMLDocument(fileName);
+        NodeList boardNodes = XMLUtil.getNodeListFromTag(doc, "board");
         // NodeList cardNodes = getNodeListFromTag(doc, "cards");
 
         ArrayList<Square> squares = getSquaresFromNodeList(boardNodes);
@@ -104,19 +101,5 @@ public class BoardLoader {
         }
     }
 
-    private static NodeList getNodeListFromTag(Document doc, String tagName) throws ParserConfigurationException, SAXException, IOException {
-        return doc.getElementsByTagName(tagName).item(0).getChildNodes();
-    }
-
-    private static Document getXMLDocument(String fileName) throws ParserConfigurationException, SAXException, IOException {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-
-        String charSetName = "UTF-8";
-        InputStream inputStream = BoardLoader.class.getResourceAsStream("/boards/" + fileName + ".xml");
-        Document doc = builder.parse(inputStream);
-        doc.getDocumentElement().normalize();
-        return doc;
-    }
 
 }
