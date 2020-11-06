@@ -1,4 +1,4 @@
-package com.gruppe21;
+package com.gruppe21.game.board;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class Board {
         squares.add(new Square("The pit", "You have reached the pit!", -50, SquareType.Normal));
         squares.add(new Square("Goldmine", "You found the mythical goldmine. It was filled with gold!", +650, SquareType.Normal));
 
-        for (Square square: squares) {
+        for (Square square : squares) {
             square.setEventText(square.getEventText()
                     + " You " + (square.getModifyValue() < 0 ? "lose" : "gain") + " ¤" + square.getModifyValue());
         }
@@ -40,7 +40,7 @@ public class Board {
         return num <= 1 ? null : squares.get(num - 2);
     }
 
-    public int getSquareIndex(Square square){
+    public int getSquareIndex(Square square) {
         return squares.indexOf(square);
     }
 

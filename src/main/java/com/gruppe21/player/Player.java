@@ -1,8 +1,8 @@
-package com.gruppe21;
+package com.gruppe21.player;
 
 public class Player {
     private static final int MAX_NAME_LENGTH = 50;
-  
+
     private String name = "";            // The player's name
     private BankBalance bankBalance;        // The player's bank balance
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
@@ -10,15 +10,16 @@ public class Player {
 
     private int currentSquareIndex;
 
-    public Player(String name){
+    public Player(String name) {
         setName(name);
         initPlayer();
     }
-    public Player(){
+
+    public Player() {
         initPlayer();
     }
 
-    private void initPlayer(){
+    private void initPlayer() {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
     }
@@ -50,18 +51,19 @@ public class Player {
         nameEndsWithS = getName().toLowerCase().endsWith("s");
         return true;
     }
+
     // Checks if the player's name ends with a "s"
     public boolean isNameEndsWithS() {
         return nameEndsWithS;
     }
 
-    // examines which square the player is on
-    public void setCurrentSquareIndex(int currentSquareIndex){
-        this.currentSquareIndex = currentSquareIndex;
+    public int getCurrentSquareIndex() {
+        return currentSquareIndex;
     }
 
-    public int getCurrentSquareIndex(){
-        return currentSquareIndex;
+    // examines which square the player is on
+    public void setCurrentSquareIndex(int currentSquareIndex) {
+        this.currentSquareIndex = currentSquareIndex;
     }
 }
 
