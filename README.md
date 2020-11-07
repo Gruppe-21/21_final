@@ -34,6 +34,23 @@ Adding new languages are done in file lang.xml in the Maven resources directory.
     </locales>
 ```
 
+### using in code
+#### setting the locale (ex. to "en_US")
+```java 
+Localisation.getInstance().setCurrentLocale(String locale)
+```
+
+#### Getting a string in the current language
+```java 
+Localisation.getInstance().getStringValue(String label)
+```
+
+#### Getting all the locales(languages) as a string array
+```java 
+Localisation.getInstance().getAllLocales()
+```
+
+
 ## Customising the board
 The squares in the game board can be customised in resources/boards/main_board.xml. 
 Available squares are:
