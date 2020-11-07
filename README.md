@@ -70,3 +70,8 @@ Available squares are:
         <PropertySquare label="burgerjoint" price="1" color="green"/>
     </board>
 ```
+### Loading boards
+#### Squares(a board) can be loaded with
+```java 
+ BoardLoader.loadBoard("main_board");
+```

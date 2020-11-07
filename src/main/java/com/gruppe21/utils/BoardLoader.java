@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class BoardLoader {
 
-    public static ArrayList<Square> loadBoardFromFile(String fileName) throws ParserConfigurationException, IOException, SAXException {
+    public static ArrayList<Square> loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument("/boards/" + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, "board");
         // NodeList cardNodes = getNodeListFromTag(doc, "cards");
