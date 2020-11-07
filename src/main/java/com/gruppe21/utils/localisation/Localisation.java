@@ -9,11 +9,13 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Localisation {
 
     private static Localisation instance;
     private final String sentenceTagName = "sentence";
+    private final String filePath = "/lang/lang";
     private String currentLocale = "en_US";
 
     public static Localisation getInstance() {
@@ -22,9 +24,37 @@ public class Localisation {
         return instance;
     }
 
+    public String[] getAllLocales() {
+        try {
+            Document document = XMLUtil.getXMLDocument(filePath);
+            NodeList localesList = XMLUtil.getNodeListFromTag(document, "locales");
+
+            ArrayList<String> localeNames = new ArrayList<>();
+
+            if (localesList != null) {
+                for (int i = 0; i < localesList.getLength(); i++) {
+                    Node node = localesList.item(i);
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
+                        Element tag = (Element) node;
+
+                        if (tag.getTagName().equals("locale") && !tag.getAttribute("lang").isEmpty() && !tag.getAttribute("name").isEmpty()) {
+                            localeNames.add(tag.getAttribute("lang") + " " + tag.getAttribute("name"));
+                        }
+                    }
+                }
+            } else {
+                return localeNames.toArray(new String[0]);
+            }
+            return localeNames.toArray(new String[0]);
+
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private NodeList getLocale(String locale) {
         try {
-            String filePath = "/lang/" + "lang";
             Document document = XMLUtil.getXMLDocument(filePath);
             NodeList localesList = XMLUtil.getNodeListFromTag(document, "locales");
 

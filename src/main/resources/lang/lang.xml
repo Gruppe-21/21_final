@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <locales>
-    <locale lang="en_US">
+    <locale lang="en_US" name="English">
+        <sentence label="word1">This is a sentence.</sentence>
+
         <!-- squares -->
         <sentence label="go">GO</sentence>
         <sentence label="burgerjoint">BURGER JOINT</sentence>
@@ -24,7 +26,8 @@
         <sentence label="chance">CHANCE</sentence>
         <sentence label="freeparking">FREE PARKING</sentence>
     </locale>
-    <locale lang="da_DK">
+
+    <locale lang="da_DK" name="Danish">
         <sentence label="word1">Dette er en sætning.</sentence>
         <sentence label="go">START</sentence>
         <sentence label="burgerjoint">BURGERBAREN</sentence>
