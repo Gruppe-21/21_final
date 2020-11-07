@@ -17,7 +17,7 @@ public class BoardLoaderTest {
         String filename = "test_board";
         List<Square> list = null;
         try {
-            list = BoardLoader.loadBoardFromFile(filename);
+            list = BoardLoader.loadBoard(filename);
         } catch (ParserConfigurationException e) {
             list = null;
         } catch (IOException e) {

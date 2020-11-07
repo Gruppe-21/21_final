@@ -1,6 +1,5 @@
 package com.gruppe21.utils.xmlutils;
 
-import com.gruppe21.utils.BoardLoader;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -22,7 +21,7 @@ public class XMLUtil {
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         String charSetName = "UTF-8";
-        InputStream inputStream = BoardLoader.class.getResourceAsStream("/boards/" + fileName + ".xml");
+        InputStream inputStream = XMLUtil.class.getResourceAsStream(fileName + ".xml");
         Document doc = builder.parse(inputStream);
         doc.getDocumentElement().normalize();
         return doc;
