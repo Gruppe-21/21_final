@@ -22,3 +22,34 @@ https://github.com/Gruppe-21/21_del3/projects/2?fullscreen=true
 ## Overleaf Link + Git Repository
 - https://github.com/Gruppe-21/CDIO-3-Rapport
 - https://www.overleaf.com/project/5fa03f64efe54a000131cc69 
+
+
+## Localisation
+Adding new languages are done in file lang.xml in the Maven resources directory.
+```xml 
+    <locales>
+        <locale lang="en_US" name="English">
+            <sentence label="sentence">This is a sentence.</sentence>
+        </locale>
+    </locales>
+```
+
+## Customising the board
+The squares in the game board can be customised in resources/boards/main_board.xml. 
+Available squares are:
+- StartSquare
+- PropertySquare
+- GoToPrisonSquare
+- PrisonSquare
+- ChanceSquare
+- FreeParkingSquare
+```xml 
+    <board>
+        <StartSquare label="go"/>
+        <PrisonSquare/>
+        <GoToPrisonSquare/>
+        <FreeParkingSquare/>
+        <ChanceSquare/>
+        <PropertySquare label="burgerjoint" price="1" color="green"/>
+    </board>
+```
