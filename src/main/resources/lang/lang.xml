@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<locales>
+    <locale lang="en_US">
+        <sentence label="word1">This is a sentence.</sentence>
+    </locale>
+    <locale lang="da_DK">
+        <sentence label="word1">Dette er en sætning.</sentence>
+    </locale>
+</locales>
