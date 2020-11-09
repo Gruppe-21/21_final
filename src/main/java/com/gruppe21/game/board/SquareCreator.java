@@ -32,3 +32,14 @@ public class Property extends SquareCreator{
 public class Chance extends SquareCreator{
     return 0; // Mangler at chance kortet er lavet
 }
+/*
+        Creates prison visit with event text.
+ */
+public class PrisonVisit extends SquareCreator{
+    String eventText;
+
+    public PrisonVisit(String name, String eventText) {
+        super(name);
+        this.eventText = eventText;
+    }
+}
