@@ -93,6 +93,10 @@ public class ChanceSquare extends SquareCreator{
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
     }
+
+    public drawCard(){
+        // Fix kode her
+    }
 }
 
 /*
@@ -103,12 +107,39 @@ public class PropertySquare extends SquareCreator{
     private int price;
     private Color color;
     private Player player;
-    //private boolean owned;
-    //private boolean ownedPair;
+
 
     public PropertySquare(int price, Color color, Player player) {
         this.price = price;
         this.color = color;
         this.player = player;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+    public Color getColor() {
+        return color;
+    }
+
+    public void setOwner(Player owner) {
+        // Fix kode her, hvor bliver owner initialiseret? Kig på designklassediagram
+        this.owner = owner;
+    }
+    public getOwner() {
+        return owner;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public buy(Player player) {
+        // Fix kode her
+        return //boolean;
     }
 }
