@@ -6,40 +6,109 @@ package com.gruppe21.game.board;
 
 public class SquareCreator {
     private String name;
+    private String description;
 
-    public SquareCreator(String name) {
+    public SquareCreator(String name, String description) {
         this.name = name;
+        this.description = description;
+    }
+
+    public void handleLandOn(Player player){
+        // Lav metoden færdig
+    }
+
+    public setDescription(String description ){
+        // Lav metoden færdig
+    }
+
+    public getDescription(){
+        // Lav metoden færdig
+    }
+
+    public setName(String name){
+        // Lav metoden færdig
+    }
+
+    public getName(){
+        // Lav metoden færdig
+    }
+
+}
+
+/*
+        Creates a StartSquare class:
+ */
+
+public class StartSquare extends SquareCreator{
+    private int startBonus = 2;
+
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
     }
 }
 
 /*
-        Opretter en property square
+        Creates a PrisonSquare class:
  */
 
-public class Property extends SquareCreator{
-    private int modifyvalue;
-    private boolean owned;
-    private boolean ownedPair;
-
-    public Property(String name, int modifyvalue, boolean owned, boolean ownedPair) {
-        super(name);
-        this.modifyvalue = modifyvalue;
-        this.owned = owned;
-        this.ownedPair = ownedPair;
+public class PrisonSquare extends SquareCreator{
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
     }
 }
 
-public class Chance extends SquareCreator{
-    return 0; // Mangler at chance kortet er lavet
-}
 /*
-        Creates prison visit with event text.
+        Creates a FreeParking square class:
  */
-public class PrisonVisit extends SquareCreator{
-    String eventText;
 
-    public PrisonVisit(String name, String eventText) {
-        super(name);
-        this.eventText = eventText;
+public class FreeParkingSquare extends SquareCreator{
+
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
+    }
+}
+
+/*
+        Creates a GoToPrisonSquare class:
+ */
+public class GoToPrisonSquare extends SquareCreator{
+
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
+    }
+}
+
+/*
+        Creates a ChanceSquare class:
+ */
+
+
+public class ChanceSquare extends SquareCreator{
+
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
+    }
+}
+
+/*
+        Creates a PropertySquare class:
+ */
+
+public class PropertySquare extends SquareCreator{
+    private int price;
+    private Color color;
+    private Player player;
+    //private boolean owned;
+    //private boolean ownedPair;
+
+    public PropertySquare(int price, Color color, Player player) {
+        this.price = price;
+        this.color = color;
+        this.player = player;
     }
 }
