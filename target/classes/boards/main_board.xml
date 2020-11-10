@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<board>
+    <StartSquare label="go"/>
+
+    <PropertySquare label="burgerjoint" price="1" color="weird-green"/>
+    <PropertySquare label="pizzeria" price="1" color="weird-green"/>
+    <ChanceSquare/>
+    <PropertySquare label="candystore" price="1" color="cyan"/>
+    <PropertySquare label="icecreamparlor" price="1" color="cyan"/>
+
+    <PrisonSquare/>
+
+    <PropertySquare label="museum" price="2" color="pink"/>
+    <PropertySquare label="library" price="2" color="pink"/>
+    <ChanceSquare/>
+    <PropertySquare label="skatepark" price="2" color="orange"/>
+    <PropertySquare label="swimmingpool" price="2" color="orange"/>
+
+    <FreeParkingSquare/>
+
+    <PropertySquare label="arcade" price="3" color="red"/>
+    <PropertySquare label="cinema" price="3" color="red"/>
+    <ChanceSquare/>
+    <PropertySquare label="toystore" price="3" color="yellow"/>
+    <PropertySquare label="petstore" price="3" color="yellow"/>
+
+    <GoToPrisonSquare/>
+
+    <PropertySquare label="bowlingalley" price="4" color="green"/>
+    <PropertySquare label="zoo" price="4" color="green"/>
+    <ChanceSquare/>
+    <PropertySquare label="parkplace" price="5" color="blue"/>
+    <PropertySquare label="boardwalk" price="5" color="blue"/>
+
+
+</board>
