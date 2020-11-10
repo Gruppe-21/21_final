@@ -10,6 +10,7 @@ public class ChanceCardMoney extends ChanceCard{
 
     public ChanceCardMoney(String description){
         super(description);
+        this.money = money;
     }
 
     public void use(Player player, List<Player> moneyOrigin){
