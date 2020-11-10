@@ -1,0 +1,24 @@
+<locale lang="da" name="Dansk">
+    <sentence label="word1">Dette er en sætning.</sentence>
+    <sentence label="go">START</sentence>
+    <sentence label="burgerjoint">BURGERBAREN</sentence>
+    <sentence label="pizzeria">PIZZARIAET</sentence>
+    <sentence label="candystore">SLIKBUTIKKEN</sentence>
+    <sentence label="icecreamparlor">ISKIOSKEN</sentence>
+    <sentence label="museum">MUSEET</sentence>
+    <sentence label="library">BILIOTEKET</sentence>
+    <sentence label="skatepark">SKATERPARKEN</sentence>
+    <sentence label="swimmingpool">SWIMMINGPOOLEN</sentence>
+    <sentence label="arcade">SPILLEHALLEN</sentence>
+    <sentence label="cinema">BIOGRAFEN</sentence>
+    <sentence label="toystore">LEGETØJSBUTIKKEN</sentence>
+    <sentence label="petstore">DYREHANDLEN</sentence>
+    <sentence label="bowlingalley">BOWLINGHALLEN</sentence>
+    <sentence label="zoo">ZOO</sentence>
+    <sentence label="parkplace">VANDLANDET</sentence>
+    <sentence label="boardwalk">STRANDPROMENADEN</sentence>
+    <sentence label="gotoprison">GÅ I FÆNGSEL</sentence>
+    <sentence label="prison">I FÆNGSEL / PÅ BESØG</sentence>
+    <sentence label="chance">CHANCE</sentence>
+    <sentence label="freeparking">GRATIS PARKERING</sentence>
+</locale>
