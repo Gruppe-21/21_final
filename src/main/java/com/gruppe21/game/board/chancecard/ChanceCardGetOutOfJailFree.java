@@ -6,5 +6,9 @@ public class ChanceCardGetOutOfJailFree extends ChanceCard{
         super(description);
     }
 
+    public void use(){
+
+    }
+
 
 }
