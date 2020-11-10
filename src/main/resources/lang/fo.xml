@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<locale lang="fo" name="Føroyskt">
+    <sentence label="word1">This is a sentence.</sentence>
+    <!-- squares -->
+    <sentence label="go">GO</sentence>
+    <sentence label="burgerjoint">BURGER JOINT</sentence>
+    <sentence label="pizzeria">PIZZA PLACE</sentence>
+    <sentence label="candystore">CANDY STORE</sentence>
+    <sentence label="icecreamparlor">ICE CREAM PARLOR</sentence>
+    <sentence label="museum">MUSEUM</sentence>
+    <sentence label="library">LIBRARY</sentence>
+    <sentence label="skatepark">SKATE PARK</sentence>
+    <sentence label="swimmingpool">SWIMMING POOL</sentence>
+    <sentence label="arcade">ARCADE</sentence>
+    <sentence label="cinema">CINEMA</sentence>
+    <sentence label="toystore">TOY STORE</sentence>
+    <sentence label="petstore">PET STORE</sentence>
+    <sentence label="bowlingalley">BOWLING ALLEY</sentence>
+    <sentence label="zoo">ZOO</sentence>
+    <sentence label="parkplace">PARK PLACE</sentence>
+    <sentence label="boardwalk">BOARDWALK</sentence>
+    <sentence label="gotoprison">GO TO PRISON</sentence>
+    <sentence label="prison">PRISON/VISIT PRISON</sentence>
+    <sentence label="chance">CHANCE</sentence>
+    <sentence label="freeparking">FREE PARKING</sentence>
+</locale>
