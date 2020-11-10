@@ -1,11 +1,15 @@
 package com.gruppe21.game.board;
 
+import com.gruppe21.game.board.chancecard.ChanceCard;
+import com.gruppe21.game.board.chancecard.ChanceCardGetOutOfJailFree;
+import com.gruppe21.game.board.chancecard.ChanceCardMoney;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
     private List<Square> squares;
-
+    private List<ChanceCard> chanceCards;
 
     public Board() {
         squares = new ArrayList<Square>();
@@ -25,6 +29,13 @@ public class Board {
             square.setEventText(square.getEventText()
                     + " You " + (square.getModifyValue() < 0 ? "lose" : "gain") + " ¤" + square.getModifyValue());
         }
+
+
+        chanceCards = new ArrayList<ChanceCard>();
+        chanceCards.add(new ChanceCardGetOutOfJailFree("You can get out of jail for free if needed."));
+        chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#",+2));
+        chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank",-2));
+
     }
 
     public List<Square> getSquares() {
