@@ -8,21 +8,22 @@ import java.util.List;
 
 public class ChanceCardMove extends ChanceCard {
     private List<Square> validSquares; //Square-class is implemented later
+    private int moveToSquare;
 
-    public ChanceCardMove(String description){
+    public ChanceCardMove(String description, int moveToSquare){
         super(description);
+        this.moveToSquare = moveToSquare;
     }
 
 
     /**
      * Move current Player to specific Square on Board.
-     * @param player
-     * @param board
-     * @param square
+     * @param currentPlayer
      */
-    public void use(Player player, Board board, Square square) { //Player-class is implemented later
-        movePlayer(player, board.getSquareAtNumber(board.getSquareIndex(square)));
+     //To-Do find out how to move player.
+    public void use(Player player) { //Player-class is implemented later
+        movePlayer(player, moveToSquare);
     }
-    //movePlayer(currentPlayer, board.getSquareAtNumber(sum)); code from Game line 105.
+    
 
 }
