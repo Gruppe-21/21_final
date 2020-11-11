@@ -1,11 +1,10 @@
 package com.gruppe21.game.board.chancecard;
 
-import com.gruppe21.game.Game;
-import com.gruppe21.game.board.chancecard.ChanceCardMove;
 import com.gruppe21.player.Player;
+import com.gruppe21.utils.localisation.Localisation;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ChanceCardMoveTest {
 
@@ -26,12 +25,21 @@ public class ChanceCardMoveTest {
 
     @Test
     public void testTakeCardMove(){
-        int playerCurrentSquareIndex = 22;
-        int moveToSquare;
-        int moveForwardChosen=0;
+        int playerCurrentSquareIndex = 24;
+        int moveToSquare=0;
+        // String moveButton = Localisation.getInstance().getStringValue("moveButton");
+        String moveButton = "moveButton";
 
+        String result = "moveButton";
 
-        assertEquals("x","x");
+        if (result.equals(moveButton)) {
+            moveToSquare = playerCurrentSquareIndex + 1;
+            if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
+        }else{
+            // draw new chancecard
+        }
+
+        assertEquals(1,moveToSquare);
     }
 
     @Test
@@ -40,7 +48,7 @@ public class ChanceCardMoveTest {
         int moveToSquare;
         int moveForwardChosen=0;
 
-        String moveUpToResult = "moveButton5";
+        String moveUpToResult = "moveButton3";
 
         switch (moveUpToResult){
             case "moveButton1" -> moveForwardChosen=1;
@@ -57,7 +65,7 @@ public class ChanceCardMoveTest {
         if(moveToSquare > 24) moveToSquare = moveToSquare%24;
 
 
-        assertEquals(3,moveToSquare);
+        assertEquals(1,moveToSquare);
     }
 
     @Test
