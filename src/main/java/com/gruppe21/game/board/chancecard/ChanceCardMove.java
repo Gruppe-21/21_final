@@ -7,15 +7,15 @@ import com.gruppe21.utils.localisation.Localisation;
 public class ChanceCardMove extends ChanceCard {
     private int moveToSquare;
     private boolean isTakeCard;
-    private boolean isFreeSquare;
+    private boolean isFreeColorSquare;
     private boolean isMoveUpTo;
     private boolean isFigure;
 
-    public ChanceCardMove(String description, int moveToSquare, boolean isTakeCard, boolean isFreeSquare, boolean isMoveUpTo, boolean isFigure) {
+    public ChanceCardMove(String description, int moveToSquare, boolean isTakeCard, boolean isFreeColorSquare, boolean isMoveUpTo, boolean isFigure) {
         super(description);
         this.moveToSquare = moveToSquare; // 0 if none?
         this.isTakeCard = isTakeCard;
-        this.isFreeSquare = isFreeSquare;
+        this.isFreeColorSquare = isFreeColorSquare;
         this.isMoveUpTo = isMoveUpTo;
         this.isFigure = isFigure;
     }
@@ -24,8 +24,8 @@ public class ChanceCardMove extends ChanceCard {
     @Override
     public void use(Game game) {
 
-        if(isFreeSquare){
-            getFreeSquare(game);
+        if(isFreeColorSquare){
+            getFreeColorSquare(game);
         } else if (isTakeCard) {
             takeCard(game);
         } else if(isMoveUpTo) {
@@ -38,7 +38,7 @@ public class ChanceCardMove extends ChanceCard {
     }
 
 
-    public void getFreeSquare(Game game){
+    public void getFreeColorSquare(Game game){
         int playerIndex = game.getCurrentPlayer();
 //        Player[] playerProperty = game.getPlayers()[playerIndex].getPropertyOwned();
 //        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
