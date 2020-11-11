@@ -1,9 +1,6 @@
 package com.gruppe21.game.board;
 
-import com.gruppe21.game.board.chancecard.ChanceCard;
-import com.gruppe21.game.board.chancecard.ChanceCardGetOutOfJailFree;
-import com.gruppe21.game.board.chancecard.ChanceCardMoney;
-import com.gruppe21.game.board.chancecard.ChanceCardMove;
+import com.gruppe21.game.board.chancecard.*;
 
 import java.util.ArrayList;
 import java.util.List;
