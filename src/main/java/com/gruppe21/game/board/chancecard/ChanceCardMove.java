@@ -2,14 +2,10 @@ package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
 import com.gruppe21.game.board.Square;
-import com.gruppe21.gui.GUIWrapper;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
 
-import java.util.List;
-
 public class ChanceCardMove extends ChanceCard {
-    private List<Square> validSquares; //Square-class is implemented later
     private int moveToSquare;
     private Boolean isTakeCard;
     private Boolean isFreeSquare;
@@ -30,24 +26,24 @@ public class ChanceCardMove extends ChanceCard {
     public void use(Game game) {
 
         if(isFreeSquare){
-            freeSquare();
+            getFreeSquare(game);
         } else if (isTakeCard) {
             takeCard(game);
         } else if(isMoveUpTo) {
             moveUpTo(game);
         } else if(isFigur) {
-            // isFigur(game);
+            giveCardToFigur(game);
         }else{
             move(game);
         }
     }
 
 
-    public void freeSquare(Game game){
+    public void getFreeSquare(Game game){
         int playerIndex = game.getCurrentPlayer();
         Player[] playerProperty = game.getPlayers()[playerIndex].getPropertyOwned();
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
-        // moveToSquare = color;
+        // moveToSquare = next free color x;
 
         this.move(game); // move to square with color x
 
@@ -103,6 +99,10 @@ public class ChanceCardMove extends ChanceCard {
         
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
         game.movePlayer(playerIndex,square);
+    }
+
+    public void giveCardToFigur(Game game){
+        // Find out how to check figur
     }
 
     public void move(Game game) {
