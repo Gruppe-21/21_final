@@ -63,7 +63,7 @@ public class ChanceCardMove extends ChanceCard {
 
         String result = game.getGuiWrapper().getButtonPress(description, moveButton, takeButton);
         if (result.equals(moveButton)) {
-           // move 1 square forward
+
             moveToSquare = playerCurrentSquareIndex + 1;
 
             if(moveToSquare > 24) moveToSquare = moveToSquare%24-1;
@@ -72,7 +72,9 @@ public class ChanceCardMove extends ChanceCard {
             game.movePlayer(playerIndex,square);
 
         } else {
-           // draw new chancecard
+            //
+            // draw new chancecard? how?
+            //
         }
     }
 
