@@ -25,7 +25,11 @@ public class ChanceCardMoveTest {
     }
 
     @Test
-    public void testTakeCard(){
+    public void testTakeCardMove(){
+        int playerCurrentSquareIndex = 22;
+        int moveToSquare;
+        int moveForwardChosen=0;
+
 
         assertEquals("x","x");
     }
