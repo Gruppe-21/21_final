@@ -91,8 +91,8 @@ public class ChanceCardMove extends ChanceCard {
 
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
 
-        if(moveToSquare > 23){
-            moveToSquare = moveToSquare%23-1;
+        if(moveToSquare > 24){
+            moveToSquare = moveToSquare%24-1;
         }
         
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
@@ -100,7 +100,7 @@ public class ChanceCardMove extends ChanceCard {
     }
 
     public void giveCardToFigure(Game game){
-        // Find out how to check figur
+        // Find out how to check figure
     }
 
     public void move(Game game) {
