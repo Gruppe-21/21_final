@@ -34,7 +34,19 @@ public class ChanceCardMoveTest {
     public void testMoveUpTo(){
         int playerCurrentSquareIndex = 22;
         int moveToSquare;
-        int moveForwardChosen = 5;
+        int moveForwardChosen=0;
+
+        String moveUpToResult = "moveButton5";
+
+        switch (moveUpToResult){
+            case "moveButton1" -> moveForwardChosen=1;
+            case "moveButton2" -> moveForwardChosen=2;
+            case "moveButton3" -> moveForwardChosen=3;
+            case "moveButton4" -> moveForwardChosen=4;
+            case "moveButton5" -> moveForwardChosen=5;
+            default ->
+                    testMoveUpTo();  // recursion.
+        }
 
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
 
