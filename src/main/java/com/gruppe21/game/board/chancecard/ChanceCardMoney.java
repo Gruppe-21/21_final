@@ -1,6 +1,8 @@
 package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
+import com.gruppe21.player.BankBalance;
+import com.gruppe21.player.Player;
 
 public class ChanceCardMoney extends ChanceCard {
     private int money;
@@ -18,12 +20,12 @@ public class ChanceCardMoney extends ChanceCard {
     }
 
     @Override
-    public void use(Game game,int playerIndex) {
+    public void use(Game game,Player player) {
 
         if(isPayToBank) {
-            tooMuchCandy(game,playerIndex);
+            tooMuchCandy(player);
         } else if(isReceiveMoneyFromBank) {
-            finishedHomework(game,playerIndex);
+            finishedHomework(player);
         } else if(isReceiveMoneyFromStart) {
             startCard(game);
         } else {
@@ -32,27 +34,24 @@ public class ChanceCardMoney extends ChanceCard {
 
     }
     //Current player loses 2M
-    private void tooMuchCandy(Game game, int playerIndex) {
-        //int playerIndex = game.getCurrentPlayer();
-        int playerCurrentBalance = game.getPlayers()[playerIndex].getBankBalance().getBalance();
-        game.getPlayers()[playerIndex].getBankBalance().addBalance(money);
+    private void tooMuchCandy(Player player) {
+        int modifyBalance = money;
+        BankBalance playerCurrentBalance = player.getBankBalance();
 
-        if(playerCurrentBalance<=0) {
-            // Spiller er gået fallit...hvad så?
-            // Vil tro koden kommer til at se sådan ud:
-            // return false; // !playround Game
-        }
+        playerCurrentBalance.addBalance(modifyBalance);
     }
 
     //Current player receives 2M
-    private void finishedHomework(Game game,int playerIndex) {
-        //int playerIndex = game.getCurrentPlayer();
-        int playerCurrentBalance = game.getPlayers()[playerIndex].getBankBalance().getBalance();
-        game.getPlayers()[playerIndex].getBankBalance().addBalance(money);
+    private void finishedHomework(Player player) {
+        int modifyBalance = money;
+        BankBalance playerCurrentBalance = player.getBankBalance();
+
+        playerCurrentBalance.addBalance(modifyBalance);
     }
 
     //Current player moves to StartSquare and receives 2M
-    private void startCard(Game game) {
+    private void startCard(Player player) {
+
 
     }
 
