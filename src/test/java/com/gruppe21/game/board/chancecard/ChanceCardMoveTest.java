@@ -54,7 +54,7 @@ public class ChanceCardMoveTest {
 
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
 
-        if(moveToSquare > 23) moveToSquare = moveToSquare%23-1;
+        if(moveToSquare > 24) moveToSquare = moveToSquare%24;
 
 
         assertEquals(3,moveToSquare);

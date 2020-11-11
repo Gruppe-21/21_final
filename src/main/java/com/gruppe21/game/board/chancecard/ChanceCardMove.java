@@ -64,7 +64,7 @@ public class ChanceCardMove extends ChanceCard {
 
         if (result.equals(moveButton)) {
             moveToSquare = playerCurrentSquareIndex + 1;
-            if(moveToSquare > 23) moveToSquare = moveToSquare%23-1;
+            if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
 
             Square square = game.getBoard().getSquareAtNumber(moveToSquare);
             game.movePlayer(playerIndex,square);
@@ -98,7 +98,7 @@ public class ChanceCardMove extends ChanceCard {
                     moveUpTo(game);  // recursion. If no button chosen -> call moveUpTo() again;
         }
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
-        if(moveToSquare > 23) moveToSquare = moveToSquare%23-1;
+        if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
 
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
         game.movePlayer(playerIndex,square);
