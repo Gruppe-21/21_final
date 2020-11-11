@@ -9,13 +9,17 @@ public class ChanceCardMoney extends ChanceCard {
     private int money;
     private boolean isPayToBank;
     private boolean isReceiveMoneyFromBank;
+    private boolean isMoveToStart;
+    private boolean isBirthday;
 
 
-    public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank) {
+    public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank,boolean isMoveToStart, boolean isBirthday) {
         super(description);
         this.money = money;
         this.isPayToBank = isPayToBank;
         this.isReceiveMoneyFromBank = isReceiveMoneyFromBank;
+        this.isMoveToStart = isMoveToStart;
+        this.isBirthday = isBirthday;
     }
 
     @Override
