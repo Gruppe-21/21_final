@@ -2,23 +2,22 @@ package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
 import com.gruppe21.game.board.Square;
-import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
 
 public class ChanceCardMove extends ChanceCard {
     private int moveToSquare;
-    private Boolean isTakeCard;
-    private Boolean isFreeSquare;
-    private Boolean isMoveUpTo;
-    private Boolean isFigur;
+    private boolean isTakeCard;
+    private boolean isFreeSquare;
+    private boolean isMoveUpTo;
+    private boolean isFigure;
 
-    public ChanceCardMove(String description, int moveToSquare, Boolean isTakeCard, Boolean isFreeSquare, Boolean isMoveUpTo, Boolean isFigur) {
+    public ChanceCardMove(String description, int moveToSquare, boolean isTakeCard, boolean isFreeSquare, boolean isMoveUpTo, boolean isFigure) {
         super(description);
         this.moveToSquare = moveToSquare; // 0 if none?
         this.isTakeCard = isTakeCard;
         this.isFreeSquare = isFreeSquare;
         this.isMoveUpTo = isMoveUpTo;
-        this.isFigur = isFigur;
+        this.isFigure = isFigure;
     }
 
 
@@ -31,8 +30,8 @@ public class ChanceCardMove extends ChanceCard {
             takeCard(game);
         } else if(isMoveUpTo) {
             moveUpTo(game);
-        } else if(isFigur) {
-            giveCardToFigur(game);
+        } else if(isFigure) {
+            giveCardToFigure(game);
         }else{
             move(game);
         }
@@ -41,19 +40,18 @@ public class ChanceCardMove extends ChanceCard {
 
     public void getFreeSquare(Game game){
         int playerIndex = game.getCurrentPlayer();
-        Player[] playerProperty = game.getPlayers()[playerIndex].getPropertyOwned();
-        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
-        // moveToSquare = next free color x;
-
-        this.move(game); // move to square with color x
-
-        if(square != playerProperty){  // not possible yet
-            // Pay rent to owner of property
-        }else{
-            // Get property for free
-        }
-
-
+//        Player[] playerProperty = game.getPlayers()[playerIndex].getPropertyOwned();
+//        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
+//        // moveToSquare = next free color x;
+//
+//        this.move(game); // move to square with color x
+//
+//        if(square != playerProperty){  // not possible yet
+//            // Pay rent to owner of property
+//        }else{
+//            // Get property for free
+//        }
+//
     }
    
     private void takeCard(Game game) {
@@ -101,7 +99,7 @@ public class ChanceCardMove extends ChanceCard {
         game.movePlayer(playerIndex,square);
     }
 
-    public void giveCardToFigur(Game game){
+    public void giveCardToFigure(Game game){
         // Find out how to check figur
     }
 
