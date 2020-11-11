@@ -1,23 +1,20 @@
 package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
-import com.gruppe21.player.Player;
-
-import java.util.List;
 
 public class ChanceCardMoney extends ChanceCard {
     private int money;
     private boolean isPayToBank;
-    private boolean isRecieveMoneyFromBank;
-    private boolean isRecieveMoneyFromStart;
+    private boolean isReceiveMoneyFromBank;
+    private boolean isReceiveMoneyFromStart;
 
 
-    public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isRecieveMoneyFromBank, boolean isRecieveMoneyFromStart) {
+    public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank, boolean isReceiveMoneyFromStart) {
         super(description);
         this.money = money;
         this.isPayToBank = isPayToBank;
-        this.isRecieveMoneyFromBank = isRecieveMoneyFromBank;
-        this.isRecieveMoneyFromStart = isRecieveMoneyFromStart;
+        this.isReceiveMoneyFromBank = isReceiveMoneyFromBank;
+        this.isReceiveMoneyFromStart = isReceiveMoneyFromStart;
     }
 
     @Override
@@ -25,35 +22,39 @@ public class ChanceCardMoney extends ChanceCard {
 
         if(isPayToBank) {
             tooMuchCandy(game);
-        } else if(isRecieveMoneyFromBank) {
+        } else if(isReceiveMoneyFromBank) {
             finishedHomework(game);
-        } else if(isRecieveMoneyFromStart) {
+        } else if(isReceiveMoneyFromStart) {
             startCard(game);
         } else {
             birthday(game);
         }
 
     }
-    //Den nuværende spiller mister 2M
+    //Current player loses 2M
     private void tooMuchCandy(Game game) {
         int playerIndex = game.getCurrentPlayer();
-  //    int playerCurrentBankBalance = game.getPlayers()[playerIndex].getBankBalance;
-  //    playerCurrentBankBalance -= 2;
-  //    game.getPlayers()[playerIndex].getBankBalance.addBalance() = playerCurrentBankBalance;
+        int playerCurrentBalance = game.getPlayers()[playerIndex].getBankBalance().getBalance();
+        game.getPlayers()[playerIndex].getBankBalance().addBalance(money);
 
+        if(playerCurrentBalance<=0) {
+            // Spiller er gået fallit...hvad så?
+            // Vil tro koden kommer til at se sådan ud:
+            // return false; // !playround Game
+        }
     }
 
-    //Den nuværende spiller modtager 2M
+    //Current player receives 2M
     private void finishedHomework(Game game) {
 
     }
 
-    //Den nuværende spiller rykkes til startfeltet og modtager derfor 2M
+    //Current player moves to StartSquare and receives 2M
     private void startCard(Game game) {
 
     }
 
-    //Den nuværende spiller modtager 1M fra de andre spillere
+    //Current player receives 1M from other players
     private void birthday(Game game) {
 
     }
