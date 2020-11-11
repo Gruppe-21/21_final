@@ -25,7 +25,7 @@ public class ChanceCardMove extends ChanceCard {
     public void use(Game game) {
 
         if(isFreeColorSquare){
-            getFreeColorSquare(game);
+            freeColorSquare(game);
         } else if (isTakeCard) {
             takeCard(game);
         } else if(isMoveUpTo) {
@@ -36,9 +36,9 @@ public class ChanceCardMove extends ChanceCard {
             move(game);
         }
     }
+    
 
-
-    public void getFreeColorSquare(Game game){
+    public void freeColorSquare(Game game){
         int playerIndex = game.getCurrentPlayer();
 //        Player[] playerProperty = game.getPlayers()[playerIndex].getPropertyOwned();
 //        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
