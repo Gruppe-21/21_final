@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<locale lang="en" name="English">
+<locale lang="en_US" name="English">
     <sentence label="word1">This is a sentence.</sentence>
 
     <!-- squares -->
