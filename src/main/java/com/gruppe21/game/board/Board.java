@@ -36,7 +36,8 @@ public class Board {
         chanceCards.add(new ChanceCardGetOutOfJailFree("You can get out of jail for free if needed."));
         chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#",+2));
         chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank",-2));
-        chanceCards.add(new ChanceCardMove("Move to Strandpromenaden",23,false,false));
+        chanceCards.add(new ChanceCardMove("Move to Strandpromenaden", 23,false,false,false,false));
+        chanceCards.add(new ChanceCardMove())
     }
 
 
