@@ -21,7 +21,6 @@ public class Game {
     private int currentPlayer;
     private Die[] dice;
 
-
     public Game(Player[] players) {
         initGame(players, new Die[]{new Die(), new Die()}, false);
     }
@@ -32,6 +31,14 @@ public class Game {
 
     public Game(Player[] players, Die[] dice, boolean isTest) {
         initGame(players, dice, isTest);
+    }
+
+    public GUIWrapper getGuiWrapper() {
+        return guiWrapper;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     public Player[] getPlayers() {
@@ -129,7 +136,7 @@ public class Game {
         closeGUI();
     }
 
-    private void movePlayer(int playerIndex, Square square) {
+    public void movePlayer(int playerIndex, Square square) {
         int squareIndex = board.getSquareIndex(square);
 
         if (!isTest) guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex);
@@ -181,23 +188,22 @@ public class Game {
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
     }
 
-    private void setGUIPlayerBalance(int playerindex, int newBalance) {
+    public void setGUIPlayerBalance(int playerindex, int newBalance) {
         if (isTest) return;
         guiWrapper.updatePlayerBalance(playerindex, newBalance);
     }
 
-
-    private void waitForUserAcknowledgement(String message) {
+    public void waitForUserAcknowledgement(String message) {
         if (isTest) return;
         guiWrapper.showMessage(message);
     }
 
-    private void waitForUserButtonPress(String message, String buttonText) {
+    public void waitForUserButtonPress(String message, String buttonText) {
         if (isTest) return;
         guiWrapper.getButtonPress(message, buttonText);
     }
 
-    private String waitForUserTextInput(String message) {
+    public String waitForUserTextInput(String message) {
         if (isTest) return null;
         return guiWrapper.getStringInput(message);
     }
