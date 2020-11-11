@@ -102,7 +102,7 @@ public class ChanceCardMove extends ChanceCard {
         game.movePlayer(playerIndex,square);
     }
 
-    public void giveCardToFigure(Game game){
+    public void giveCardToFigure(Game game,int playerIndex){
         // Find out how to check figure
     }
 

@@ -9,7 +9,7 @@ public abstract class ChanceCard {
         this.description = description;
     }
 
-    public void use(Game game) {
+    public void use(Game game,int playerIndex) {
         // Do something
     }
 }
