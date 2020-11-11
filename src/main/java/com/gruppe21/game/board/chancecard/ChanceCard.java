@@ -24,4 +24,9 @@ public abstract class ChanceCard {
     public void use(Game game, Player player,int playerIndex) {
         // Do something
     }
+
+    // Used in ChanceCardMoney
+    public void use(Player[] players, Player player){
+        // Do something
+    }
 }
