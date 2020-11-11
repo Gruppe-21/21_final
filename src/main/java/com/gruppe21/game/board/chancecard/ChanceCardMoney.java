@@ -12,7 +12,6 @@ public class ChanceCardMoney extends ChanceCard {
     private boolean isMoveToStart;
     private boolean isBirthday;
 
-
     public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank,boolean isMoveToStart, boolean isBirthday) {
         super(description);
         this.money = money;
@@ -60,7 +59,7 @@ public class ChanceCardMoney extends ChanceCard {
     //Current player moves to StartSquare and receives money
     private void startCard(Game game,Player player) {
         int playerIndex = game.getCurrentPlayer();
-        int startSquareIndex = 1; // game.getBoard().getSquareAtNumber(moveToSquare);
+        int startSquareIndex = 1; // TO-DO: game.getBoard().getSquareAtNumber(start)
         int modifyBalance = money; // +2M
 
         game.getGuiWrapper().showMessage(description);
@@ -75,10 +74,9 @@ public class ChanceCardMoney extends ChanceCard {
     //Current player receives money from other players
     private void birthday(Player[] players, Player player) {
         Player[] payingPlayersArr = new Player[players.length-1];
-        int payingPlayersCounter = 0;
         int modifyBalance = money; // +1M
 
-        // Filter out payingPlayers
+        // Filter out the player receiving money
         for (int i = 0,j = 0; i < players.length; i++) {
             if(players[i] != player){
                 payingPlayersArr[j] = players[i];
@@ -86,17 +84,15 @@ public class ChanceCardMoney extends ChanceCard {
             }
         }
 
-        for (int i = 0; i <= payingPlayersCounter; i++) {
+        for (Player payingPlayer : payingPlayersArr) {
             // paying players lose money
-            BankBalance payingPlayerBalance = payingPlayersArr[i].getBankBalance();
-            payingPlayersArr[i].getBankBalance().addBalance(modifyBalance);
-            payingPlayerBalance.addBalance(-1*modifyBalance); // (-1M)
+            BankBalance payingPlayerBalance = payingPlayer.getBankBalance();
+            payingPlayerBalance.addBalance(-1 * modifyBalance); // (-1M)
 
             // receiving player gain money
             BankBalance receivingPlayerBalance = player.getBankBalance();
-            player.getBankBalance().addBalance(modifyBalance);
             receivingPlayerBalance.addBalance(modifyBalance);// (+1M)
         }
-
     }
+
 }
