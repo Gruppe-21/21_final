@@ -1,4 +1,4 @@
-<locale lang="da" name="Dansk">
+<locale lang="da_DK" name="Dansk">
     <sentence label="word1">Dette er en sætning.</sentence>
     <sentence label="go">START</sentence>
     <sentence label="burgerjoint">BURGERBAREN</sentence>
