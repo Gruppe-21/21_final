@@ -9,17 +9,19 @@ import java.util.List;
 public class ChanceCardMove extends ChanceCard {
     private List<Square> validSquares; //Square-class is implemented later
     private int moveToSquare;
-    private Boolean takeCard;
+    private Boolean isTakeCard;
+    private Boolean isFreeSquare;
 
-    public ChanceCardMove(String description, int moveToSquare, Boolean takeCard) {
+    public ChanceCardMove(String description, int moveToSquare, Boolean isTakeCard, Boolean isFreeSquare) {
         super(description);
         this.moveToSquare = moveToSquare;
-        this.takeCard = takeCard;
+        this.isTakeCard = isTakeCard;
+        this.isFreeSquare = isFreeSquare;
     }
 
 
     public void use(Game game) { //Player-class is implemented later
-        if (takeCard) {
+        if (isTakeCard) {
             takeCard(game);
         } else {
             move(game);
