@@ -23,10 +23,9 @@ public class ChanceCardMove extends ChanceCard {
 
     @Override
     public void use(Game game) {
-
         if(isFreeColorSquare){
             freeColorSquare(game);
-        } else if (isTakeCard) {
+        } else if(isTakeCard) {
             takeCard(game);
         } else if(isMoveUpTo) {
             moveUpTo(game);
@@ -62,15 +61,13 @@ public class ChanceCardMove extends ChanceCard {
         String takeButton = Localisation.getInstance().getStringValue("takeButton");
 
         String result = game.getGuiWrapper().getButtonPress(description, moveButton, takeButton);
+
         if (result.equals(moveButton)) {
-
             moveToSquare = playerCurrentSquareIndex + 1;
-
             if(moveToSquare > 24) moveToSquare = moveToSquare%24-1;
 
             Square square = game.getBoard().getSquareAtNumber(moveToSquare);
             game.movePlayer(playerIndex,square);
-
         } else {
             //
             // draw new chancecard? how?
@@ -79,7 +76,6 @@ public class ChanceCardMove extends ChanceCard {
     }
 
     private void moveUpTo(Game game){
-
         String moveButton1 = Localisation.getInstance().getStringValue("moveButton1");
         String moveButton2 = Localisation.getInstance().getStringValue("moveButton2");
         String moveButton3 = Localisation.getInstance().getStringValue("moveButton3");
@@ -101,11 +97,8 @@ public class ChanceCardMove extends ChanceCard {
             default ->
                     moveUpTo(game);  // recursion. If no button chosen -> call moveUpTo() again;
         }
-
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
-
         if(moveToSquare > 23) moveToSquare = moveToSquare%23-1;
-
 
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
         game.movePlayer(playerIndex,square);
