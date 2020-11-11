@@ -18,12 +18,7 @@ public class ChanceCardMove extends ChanceCard {
     }
 
 
-    /**
-     * Move current Player to specific Square on Board.
-     */
-    //To-Do find out how to move player.
     public void use(Game game) { //Player-class is implemented later
-        //  movePlayer(player, moveToSquare);
         if (takeCard) {
             takeCard(game);
         } else {
