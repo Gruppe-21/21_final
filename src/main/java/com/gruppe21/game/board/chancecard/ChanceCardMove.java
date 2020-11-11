@@ -3,6 +3,7 @@ package com.gruppe21.game.board.chancecard;
 import com.gruppe21.game.Game;
 import com.gruppe21.game.board.Square;
 import com.gruppe21.utils.localisation.Localisation;
+import gui_tests.Test;
 
 public class ChanceCardMove extends ChanceCard {
     private int moveToSquare;
@@ -10,6 +11,7 @@ public class ChanceCardMove extends ChanceCard {
     private boolean isFreeColorSquare;
     private boolean isMoveUpTo;
     private boolean isFigure;
+    private boolean isTest = false;
 
     public ChanceCardMove(String description, int moveToSquare, boolean isTakeCard, boolean isFreeColorSquare, boolean isMoveUpTo, boolean isFigure) {
         super(description);
@@ -79,6 +81,7 @@ public class ChanceCardMove extends ChanceCard {
     }
 
     private void moveUpTo(Game game){
+
         String moveButton1 = Localisation.getInstance().getStringValue("moveButton1");
         String moveButton2 = Localisation.getInstance().getStringValue("moveButton2");
         String moveButton3 = Localisation.getInstance().getStringValue("moveButton3");
@@ -88,7 +91,7 @@ public class ChanceCardMove extends ChanceCard {
         int playerCurrentSquareIndex = game.getPlayers()[playerIndex].getCurrentSquareIndex();
         int moveToSquare;
         int moveForwardChosen = 0;
-        
+
         String moveUpToResult = game.getGuiWrapper().getButtonPress(description,moveButton1,moveButton2,moveButton3,moveButton4,moveButton5);
 
         switch (moveUpToResult){
@@ -103,9 +106,9 @@ public class ChanceCardMove extends ChanceCard {
 
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
 
-        if(moveToSquare > 24) moveToSquare = moveToSquare%24-1;
+        if(moveToSquare > 23) moveToSquare = moveToSquare%23-1;
 
-        
+
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
         game.movePlayer(playerIndex,square);
     }
