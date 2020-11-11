@@ -36,9 +36,10 @@ public class ChanceCardMoney extends ChanceCard {
     }
     //Den nuværende spiller mister 2M
     private void tooMuchCandy(Game game) {
-//      int playerCurrentBankBalance = game.getPlayers()[playerIndex].getBankBalance;
-//      playerCurrentBankBalance -= 2;
-//      game.getPlayers()[playerIndex].getBankBalance.addBalance() = playerCurrentBankBalance;
+        int playerIndex = game.getCurrentPlayer();
+  //    int playerCurrentBankBalance = game.getPlayers()[playerIndex].getBankBalance;
+  //    playerCurrentBankBalance -= 2;
+  //    game.getPlayers()[playerIndex].getBankBalance.addBalance() = playerCurrentBankBalance;
 
     }
 
