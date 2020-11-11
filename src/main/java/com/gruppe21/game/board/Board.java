@@ -37,7 +37,7 @@ public class Board {
         chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#",+2));
         chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank",-2));
         chanceCards.add(new ChanceCardMove("Move to Strandpromenaden", 23,false,false,false,false));
-        chanceCards.add(new ChanceCardMove())
+        chanceCards.add(new ChanceCardMove("Move UP TO 5 squares forward.",0,false,false,true,false));
     }
 
 

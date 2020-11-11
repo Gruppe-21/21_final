@@ -18,7 +18,7 @@ public class ChanceCardMove extends ChanceCard {
 
     public ChanceCardMove(String description, int moveToSquare, Boolean isTakeCard, Boolean isFreeSquare, Boolean isMoveUpTo, Boolean isFigur) {
         super(description);
-        this.moveToSquare = moveToSquare;
+        this.moveToSquare = moveToSquare; // 0 if none?
         this.isTakeCard = isTakeCard;
         this.isFreeSquare = isFreeSquare;
         this.isMoveUpTo = isMoveUpTo;
@@ -27,7 +27,7 @@ public class ChanceCardMove extends ChanceCard {
 
 
     @Override
-    public void use(Game game) { //Player-class is implemented later
+    public void use(Game game) {
 
         if(isFreeSquare){
             freeSquare();
@@ -43,9 +43,21 @@ public class ChanceCardMove extends ChanceCard {
     }
 
 
-    public void freeSquare(){
-        // Move to "color" and get it for free...
-        // Make this one later.
+    public void freeSquare(Game game){
+        int playerIndex = game.getCurrentPlayer();
+        Player[] playerProperty = game.getPlayers()[playerIndex].getPropertyOwned();
+        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
+        // moveToSquare = color;
+
+        this.move(game); // move to square with color x
+
+        if(square != playerProperty){  // not possible yet
+            // Pay rent to owner of property
+        }else{
+            // Get property for free
+        }
+
+
     }
    
     private void takeCard(Game game) {
@@ -67,20 +79,20 @@ public class ChanceCardMove extends ChanceCard {
         String moveButton4 = Localisation.getInstance().getStringValue("moveButton4");
         String moveButton5 = Localisation.getInstance().getStringValue("moveButton5");
         int playerIndex = game.getCurrentPlayer();
-        int playerCurrentSquareIndex = game.getPlayers()[playerIndex].getCurrentSquareIndex(); // Try to get player through game.getCurrentIndex();
+        int playerCurrentSquareIndex = game.getPlayers()[playerIndex].getCurrentSquareIndex();
         int moveToSquare;
         int moveForwardChosen = 0;
         
-        String moveToResult = game.getGuiWrapper().getButtonPress(description,moveButton1,moveButton2,moveButton3,moveButton4,moveButton5);
+        String moveUpToResult = game.getGuiWrapper().getButtonPress(description,moveButton1,moveButton2,moveButton3,moveButton4,moveButton5);
 
-        switch (moveToResult){
+        switch (moveUpToResult){
             case "moveButton1" -> moveForwardChosen=1;
             case "moveButton2" -> moveForwardChosen=2;
             case "moveButton3" -> moveForwardChosen=3;
             case "moveButton4" -> moveForwardChosen=4;
             case "moveButton5" -> moveForwardChosen=5;
             default ->
-                    moveUpTo(game);  // recursion. If no button chosen, call moveUpTo() again;
+                    moveUpTo(game);  // recursion. If no button chosen -> call moveUpTo() again;
         }
 
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
@@ -92,8 +104,6 @@ public class ChanceCardMove extends ChanceCard {
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
         game.movePlayer(playerIndex,square);
     }
-
-
 
     public void move(Game game) {
         int playerIndex = game.getCurrentPlayer();
