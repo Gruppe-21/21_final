@@ -9,15 +9,13 @@ public class ChanceCardMoney extends ChanceCard {
     private int money;
     private boolean isPayToBank;
     private boolean isReceiveMoneyFromBank;
-    private boolean isReceiveMoneyFromStart;
 
 
-    public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank, boolean isReceiveMoneyFromStart) {
+    public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank) {
         super(description);
         this.money = money;
         this.isPayToBank = isPayToBank;
         this.isReceiveMoneyFromBank = isReceiveMoneyFromBank;
-        this.isReceiveMoneyFromStart = isReceiveMoneyFromStart;
     }
 
     @Override
@@ -27,8 +25,6 @@ public class ChanceCardMoney extends ChanceCard {
             tooMuchCandy(player);
         } else if(isReceiveMoneyFromBank) {
             finishedHomework(player);
-        } else if(isReceiveMoneyFromStart) {
-            startCard(game);
         } else {
             birthday(game);
         }
