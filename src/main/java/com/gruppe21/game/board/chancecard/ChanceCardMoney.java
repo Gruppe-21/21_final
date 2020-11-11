@@ -46,7 +46,9 @@ public class ChanceCardMoney extends ChanceCard {
 
     //Current player receives 2M
     private void finishedHomework(Game game) {
-
+        int playerIndex = game.getCurrentPlayer();
+        int playerCurrentBalance = game.getPlayers()[playerIndex].getBankBalance().getBalance();
+        game.getPlayers()[playerIndex].getBankBalance().addBalance(money);
     }
 
     //Current player moves to StartSquare and receives 2M
