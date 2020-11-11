@@ -3,7 +3,6 @@ package com.gruppe21.game.board.chancecard;
 import com.gruppe21.game.Game;
 import com.gruppe21.game.board.Square;
 import com.gruppe21.utils.localisation.Localisation;
-import gui_tests.Test;
 
 public class ChanceCardMove extends ChanceCard {
     private int moveToSquare;
@@ -11,7 +10,6 @@ public class ChanceCardMove extends ChanceCard {
     private boolean isFreeColorSquare;
     private boolean isMoveUpTo;
     private boolean isFigure;
-    private boolean isTest = false;
 
     public ChanceCardMove(String description, int moveToSquare, boolean isTakeCard, boolean isFreeColorSquare, boolean isMoveUpTo, boolean isFigure) {
         super(description);
