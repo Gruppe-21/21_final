@@ -10,11 +10,18 @@ public abstract class ChanceCard {
         this.description = description;
     }
 
+    // Used in ChanceCardMove
     public void use(Game game,int playerIndex) {
         // Do something
     }
 
+    // Used in ChanceCardMoney
     public void use(Game game, Player player) {
+        // Do something
+    }
+
+    // Used in ChanceCardMoney
+    public void use(Game game, Player player,int playerIndex) {
         // Do something
     }
 }

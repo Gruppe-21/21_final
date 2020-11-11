@@ -1,6 +1,7 @@
 package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
+import com.gruppe21.game.board.Square;
 import com.gruppe21.player.BankBalance;
 import com.gruppe21.player.Player;
 
@@ -33,6 +34,12 @@ public class ChanceCardMoney extends ChanceCard {
         }
 
     }
+
+    public void use(Game game,Player player, int playerIndex){
+        startCard(game,player,playerIndex);
+    }
+
+
     //Current player loses 2M
     private void tooMuchCandy(Player player) {
         int modifyBalance = money;
@@ -50,9 +57,17 @@ public class ChanceCardMoney extends ChanceCard {
     }
 
     //Current player moves to StartSquare and receives 2M
-    private void startCard(Player player) {
+    private void startCard(Game game,Player player, int playerIndex) {
+        int startSquareIndex = 1; // game.getBoard().getSquareAtNumber(moveToSquare);
+        int modifyBalance = money; // 2M
 
+        game.getGuiWrapper().showMessage(description);
+        Square square = game.getBoard().getSquareAtNumber(startSquareIndex);
+        game.movePlayer(playerIndex, square);
 
+        BankBalance playerCurrentBalance = player.getBankBalance();
+
+        playerCurrentBalance.addBalance(modifyBalance);
     }
 
     //Current player receives 1M from other players
