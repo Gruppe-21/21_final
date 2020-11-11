@@ -16,12 +16,12 @@ public abstract class ChanceCard {
     }
 
     // Used in ChanceCardMoney
-    public void use(Game game, Player player) {
+    public void use(Game game,Player player) {
         // Do something
     }
 
     // Used in ChanceCardMoney
-    public void use(Player[] players, Player player){
+    public void use(Game game,Player[] players,Player player){
         // Do something
     }
 }

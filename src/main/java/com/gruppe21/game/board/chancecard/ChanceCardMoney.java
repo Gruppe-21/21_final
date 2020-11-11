@@ -34,9 +34,9 @@ public class ChanceCardMoney extends ChanceCard {
     }
 
     @Override
-    public void use(Player[] players, Player player){
+    public void use(Game game,Player[] players, Player player){
         if(isBirthday)
-            birthday(players,player);
+            birthday(game,players,player);
     }
 
 
@@ -72,9 +72,11 @@ public class ChanceCardMoney extends ChanceCard {
     }
 
     //Current player receives money from other players
-    private void birthday(Player[] players, Player player) {
+    private void birthday(Game game,Player[] players, Player player) {
         Player[] payingPlayersArr = new Player[players.length-1];
         int modifyBalance = money; // +1M
+
+        game.getGuiWrapper().showMessage(description);
 
         // Filter out the player receiving money
         for (int i = 0,j = 0; i < players.length; i++) {
