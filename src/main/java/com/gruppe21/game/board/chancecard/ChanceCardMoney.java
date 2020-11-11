@@ -18,12 +18,12 @@ public class ChanceCardMoney extends ChanceCard {
     }
 
     @Override
-    public void use(Game game) {
+    public void use(Game game,int playerIndex) {
 
         if(isPayToBank) {
-            tooMuchCandy(game);
+            tooMuchCandy(game,playerIndex);
         } else if(isReceiveMoneyFromBank) {
-            finishedHomework(game);
+            finishedHomework(game,playerIndex);
         } else if(isReceiveMoneyFromStart) {
             startCard(game);
         } else {
@@ -32,8 +32,8 @@ public class ChanceCardMoney extends ChanceCard {
 
     }
     //Current player loses 2M
-    private void tooMuchCandy(Game game) {
-        int playerIndex = game.getCurrentPlayer();
+    private void tooMuchCandy(Game game, int playerIndex) {
+        //int playerIndex = game.getCurrentPlayer();
         int playerCurrentBalance = game.getPlayers()[playerIndex].getBankBalance().getBalance();
         game.getPlayers()[playerIndex].getBankBalance().addBalance(money);
 
@@ -45,8 +45,8 @@ public class ChanceCardMoney extends ChanceCard {
     }
 
     //Current player receives 2M
-    private void finishedHomework(Game game) {
-        int playerIndex = game.getCurrentPlayer();
+    private void finishedHomework(Game game,int playerIndex) {
+        //int playerIndex = game.getCurrentPlayer();
         int playerCurrentBalance = game.getPlayers()[playerIndex].getBankBalance().getBalance();
         game.getPlayers()[playerIndex].getBankBalance().addBalance(money);
     }
