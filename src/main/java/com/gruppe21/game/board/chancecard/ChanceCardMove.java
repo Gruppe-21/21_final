@@ -55,12 +55,22 @@ public class ChanceCardMove extends ChanceCard {
     }
    
     private void takeCard(Game game) {
+        int playerIndex = game.getCurrentPlayer();
+        int playerCurrentSquareIndex = game.getPlayers()[playerIndex].getCurrentSquareIndex();
+        int moveToSquare;
         String moveButton = Localisation.getInstance().getStringValue("moveButton");
         String takeButton = Localisation.getInstance().getStringValue("takeButton");
 
         String result = game.getGuiWrapper().getButtonPress(description, moveButton, takeButton);
         if (result.equals(moveButton)) {
            // move 1 square forward
+            moveToSquare = playerCurrentSquareIndex + 1;
+
+            if(moveToSquare > 24) moveToSquare = moveToSquare%24-1;
+
+            Square square = game.getBoard().getSquareAtNumber(moveToSquare);
+            game.movePlayer(playerIndex,square);
+
         } else {
            // draw new chancecard
         }
@@ -91,9 +101,8 @@ public class ChanceCardMove extends ChanceCard {
 
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
 
-        if(moveToSquare > 24){
-            moveToSquare = moveToSquare%24-1;
-        }
+        if(moveToSquare > 24) moveToSquare = moveToSquare%24-1;
+
         
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
         game.movePlayer(playerIndex,square);
