@@ -29,12 +29,13 @@ public class ChanceCardMoney extends ChanceCard {
             tooMuchCandy(player);
         } else if(isReceiveMoneyFromBank) {
             finishedHomework(player);
-        } else {
+        } else if(isBirthday){
             birthday(game);
         }
 
     }
 
+    @Override
     public void use(Game game,Player player, int playerIndex){
         startCard(game,player,playerIndex);
     }
