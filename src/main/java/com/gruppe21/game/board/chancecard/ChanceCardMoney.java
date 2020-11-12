@@ -7,14 +7,14 @@ import com.gruppe21.player.Player;
 public class ChanceCardMoney extends ChanceCard {
     private int money;
     private boolean isPayToBank;
-    private boolean isReceiveMoneyFromBank;
+    private boolean isHomework;
     private boolean isBirthday;
 
     public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank, boolean isBirthday) {
         super(description);
         this.money = money;
         this.isPayToBank = isPayToBank;
-        this.isReceiveMoneyFromBank = isReceiveMoneyFromBank;
+        this.isHomework = isReceiveMoneyFromBank;
         this.isBirthday = isBirthday;
     }
 
@@ -22,31 +22,34 @@ public class ChanceCardMoney extends ChanceCard {
     public void use(Game game,Player player) {
 
         if(isPayToBank) {
-            tooMuchCandy(player);
-        } else if(isReceiveMoneyFromBank) {
-            finishedHomework(player);
+            tooMuchCandy(game, player);
+        } else {
+            finishedHomework(game,player);  // isReceivemoneyFromBank
         }
     }
 
     @Override
     public void use(Game game,Player[] players, Player player){
-        if(isBirthday)
-            birthday(game,players,player);
+            birthday(game,players,player);  // isBirthday
     }
 
 
     //Current player loses money
-    private void tooMuchCandy(Player player) {
+    private void tooMuchCandy(Game game, Player player) {
         int modifyBalance = money; // -2M
         BankBalance playerCurrentBalance = player.getBankBalance();
+
+        game.getGuiWrapper().showMessage(description);
 
         playerCurrentBalance.addBalance(modifyBalance);
     }
 
     //Current player receives money
-    private void finishedHomework(Player player) {
+    private void finishedHomework(Game game,Player player) {
         int modifyBalance = money; // +2M
         BankBalance playerCurrentBalance = player.getBankBalance();
+
+        game.getGuiWrapper().showMessage(description);
 
         playerCurrentBalance.addBalance(modifyBalance);
     }
