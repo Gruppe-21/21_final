@@ -89,13 +89,12 @@ public class GoToPrisonSquare extends SquareCreator {
 
     public GoToPrisonSquare(String name, String description) {
         super(name, description);
-
+    }
         @Override
         public void handleLandOn (Player player){
             super.handleLandOn(player);
         }
     }
-}
 
 /*
         Creates a ChanceSquare class:
