@@ -26,8 +26,8 @@
     <sentence label="freeparking">FREE PARKING</sentence>
 
     <!-- chancecard buttons -->
-    <sentence label="moveButton">Ryk</sentence>
-    <sentence label="takeButton">Træk nyt kort</sentence>
+    <sentence label="moveButton">Move</sentence>
+    <sentence label="takeButton">Take another card</sentence>
 
     <!-- chancecard desc -->
     <sentence label="jailcard">You can get out of jail for free. Keep this card if needed.</sentence>
