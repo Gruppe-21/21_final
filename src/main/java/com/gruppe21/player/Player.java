@@ -7,7 +7,9 @@ public class Player {
     private BankBalance bankBalance;        // The player's bank balance
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
-    private String[] piece;
+    private String piece[];
+    private Boolean PrisonStatus;
+
 
     private int currentSquareIndex;
 
@@ -49,7 +51,7 @@ public class Player {
     // Sets the player's piece
     public boolean setPiece(String[] piece) {
         String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
-        this.piece = pieceColor;
+        this.piece = pieceColor.Value;
     return true;
     }
     // Sets the player's name
