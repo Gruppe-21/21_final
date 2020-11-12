@@ -17,22 +17,21 @@ public class SquareCreator {
         // Lav metoden færdig
     }
 
-    public setDescription(String description ){
-        // Lav metoden færdig
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public getDescription(){
-        // Lav metoden færdig
+    public String getDescription() {
+        return description;
     }
 
-    public setName(String name){
-        // Lav metoden færdig
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public getName(){
-        // Lav metoden færdig
+    public String getName() {
+        return name;
     }
-
 }
 
 /*
