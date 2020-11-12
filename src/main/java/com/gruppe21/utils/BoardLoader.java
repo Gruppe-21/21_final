@@ -2,10 +2,7 @@ package com.gruppe21.utils;
 
 import com.gruppe21.game.board.Square;
 import com.gruppe21.game.board.SquareType;
-import com.gruppe21.game.board.chancecard.ChanceCard;
-import com.gruppe21.game.board.chancecard.ChanceCardGetOutOfJailFree;
-import com.gruppe21.game.board.chancecard.ChanceCardMoney;
-import com.gruppe21.game.board.chancecard.ChanceCardMove;
+import com.gruppe21.game.board.chancecard.*;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -26,12 +23,12 @@ public class BoardLoader {
     public static ArrayList<Square> loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument("/boards/" + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, "board");
-        NodeList cardNodes = getNodeListFromTag(doc, "cards");
+        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, "cards");
 
         ArrayList<Square> squares = getSquaresFromNodeList(boardNodes);
         ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
 
-        return squares, chanceCards;
+        return squares;
     }
 
     private static ArrayList<Square> getSquaresFromNodeList(NodeList boardNodes) {
@@ -108,19 +105,19 @@ public class BoardLoader {
                 break;
             case "homeworkcard":
                 // Add card
-                chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.",+2,false,true,false,false));
+                chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.",+2,false,true,false));
                 break;
             case "candycard":
                 // Add card
-                chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.",-2,true,false,false,false));
+                chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.",-2,true,false,false));
                 break;
             case "birthdaycard":
                 // Add card
-                chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#",+1,false,false,false,true));
+                chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#",+1,false,false,false));
                 break;
             case "startcard":
                 // Add card
-                chanceCards.add(new ChanceCardMoney("Move to the start area. Receive 2#",+2,false,false,true,false));
+                chanceCards.add(new ChanceCardStart("Move to the start area. Receive 2#",+2));
                 break;
             case "boardwalkcard":
                 // Add card

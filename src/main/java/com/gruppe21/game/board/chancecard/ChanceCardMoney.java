@@ -29,7 +29,7 @@ public class ChanceCardMoney extends ChanceCard {
     }
 
     @Override
-    public void use(Game game,Player[] players, Player player){
+    public void use(Game game, Player player,Player[] players){
             birthday(game,players,player);  // isBirthday
     }
 
