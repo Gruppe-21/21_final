@@ -79,11 +79,13 @@ public class ChanceCardMoney extends ChanceCard {
         game.getGuiWrapper().showMessage(description);
 
         // Filter out the player receiving money
-        for (int i = 0,j = 0; i < players.length; i++) {
+        int i = 0,j = 0;
+        while (i < players.length) {
             if(players[i] != player){
                 payingPlayersArr[j] = players[i];
                 j++;
             }
+            i++;
         }
 
         for (Player payingPlayer : payingPlayersArr) {
