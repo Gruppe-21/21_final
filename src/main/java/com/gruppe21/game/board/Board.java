@@ -1,5 +1,10 @@
 package com.gruppe21.game.board;
 
+import com.gruppe21.utils.BoardLoader;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,24 +12,14 @@ public class Board {
     private List<Square> squares;
 
 
-    public Board() {
-        squares = new ArrayList<Square>();
-        squares.add(new Square("Tower", "You have reached the tower!", +250, SquareType.Normal));
-        squares.add(new Square("Crater", "You have found an enormous crater!", -100, SquareType.Normal));
-        squares.add(new Square("Palace gates", "You see large palace gates in front of you!", +100, SquareType.Normal));
-        squares.add(new Square("Cold Desert", "You are freezing in the cold desert!", -20, SquareType.Normal));
-        squares.add(new Square("Walled city", "You have entered the great walled city!", +180, SquareType.Normal));
-        squares.add(new Square("Monastery", "You found a monastery!", 0, SquareType.Normal));
-        squares.add(new Square("Black cave", "You got lost in a black cave!", -70, SquareType.Normal));
-        squares.add(new Square("Huts in the mountain", "You found some pretty huts in the mountain!", +60, SquareType.Normal));
-        squares.add(new Square("The Werewall", "You have reached... THE WEREWALL. Lose some cash and get an extra turn!", -80, SquareType.ExtraTurn));
-        squares.add(new Square("The pit", "You have reached the pit!", -50, SquareType.Normal));
-        squares.add(new Square("Goldmine", "You found the mythical goldmine. It was filled with gold!", +650, SquareType.Normal));
+    public Board() throws ParserConfigurationException, IOException, SAXException {
 
-        for (Square square : squares) {
-            square.setEventText(square.getEventText()
-                    + " You " + (square.getModifyValue() < 0 ? "lose" : "gain") + " ¤" + square.getModifyValue());
-        }
+        squares = BoardLoader.loadBoard("main_board");
+    }
+
+    public Board(String FileName) throws ParserConfigurationException, IOException, SAXException {
+
+        squares = BoardLoader.loadBoard(FileName);
     }
 
     public List<Square> getSquares() {
