@@ -7,9 +7,9 @@ public class Player {
     private BankBalance bankBalance;        // The player's bank balance
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
-    private String piece[];
-    private Boolean PrisonStatus;
-    private int age;
+    private String piece[];            // Piece color
+    private Boolean PrisonStatus;       // Boolean status whether Player is in prison or not
+    private int age;                    // Int age of player. Youngest player starts.
 
     private int currentSquareIndex;
 
