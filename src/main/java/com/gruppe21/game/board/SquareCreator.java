@@ -85,14 +85,15 @@ public class FreeParkingSquare extends SquareCreator{
 /*
         Creates a GoToPrisonSquare class:
  */
-public class GoToPrisonSquare extends SquareCreator{
+public class GoToPrisonSquare extends SquareCreator {
 
-    public GoToPrisonSquare(String name, String description){
+    public GoToPrisonSquare(String name, String description) {
         super(name, description);
 
-    @Override
-    public void handleLandOn(Player player) {
-        super.handleLandOn(player);
+        @Override
+        public void handleLandOn (Player player){
+            super.handleLandOn(player);
+        }
     }
 }
 
