@@ -37,7 +37,7 @@ public class ChanceCardMove extends ChanceCard {
     }
     
 
-    public void freeColorSquare(Game game,int playerIndex){
+    private void freeColorSquare(Game game,int playerIndex){
 //        Player[] playerProperty = game.getPlayers()[playerIndex].getPropertyOwned();
 //        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
 //        // moveToSquare = next free color x;
@@ -102,11 +102,11 @@ public class ChanceCardMove extends ChanceCard {
         game.movePlayer(playerIndex,square);
     }
 
-    public void giveCardToFigure(Game game,int playerIndex){
+    private void giveCardToFigure(Game game,int playerIndex){
         // Find out how to check figure
     }
 
-    public void move(Game game,int playerIndex) {
+    private void move(Game game,int playerIndex) {
         //int playerIndex = game.getCurrentPlayer();
         game.getGuiWrapper().showMessage(description);
         Square square = game.getBoard().getSquareAtNumber(moveToSquare);
