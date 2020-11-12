@@ -26,7 +26,13 @@
     <sentence label="freeparking">FREE PARKING</sentence>
 
     <!-- chancecard buttons -->
-    <sentence label="moveButton">Move</sentence>
+    <sentence label="moveButton">Ryk</sentence>
+    <sentence label="moveButton1">1</sentence>
+    <sentence label="moveButton2">2</sentence>
+    <sentence label="moveButton3">3</sentence>
+    <sentence label="moveButton4">4</sentence>
+    <sentence label="moveButton5">5</sentence>
+
     <sentence label="takeButton">Take another card</sentence>
 
     <!-- chancecard desc -->
