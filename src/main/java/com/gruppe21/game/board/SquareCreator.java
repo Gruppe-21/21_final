@@ -41,6 +41,10 @@ public class SquareCreator {
 public class StartSquare extends SquareCreator{
     private int startBonus = 2;
 
+    public StartSquare(String name, String description){
+        super(name, description);
+    }
+
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
@@ -52,6 +56,10 @@ public class StartSquare extends SquareCreator{
  */
 
 public class PrisonSquare extends SquareCreator{
+
+    public PrisonSquare(String name, String description){
+        super(name,description);
+    }
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
@@ -64,6 +72,10 @@ public class PrisonSquare extends SquareCreator{
 
 public class FreeParkingSquare extends SquareCreator{
 
+    public FreeParkingSquare(String name, String description){
+        super(name, description);
+    }
+
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
@@ -74,6 +86,9 @@ public class FreeParkingSquare extends SquareCreator{
         Creates a GoToPrisonSquare class:
  */
 public class GoToPrisonSquare extends SquareCreator{
+
+    public GoToPrisonSquare(String name, String description){
+        super(name, description);
 
     @Override
     public void handleLandOn(Player player) {
@@ -87,6 +102,10 @@ public class GoToPrisonSquare extends SquareCreator{
 
 
 public class ChanceSquare extends SquareCreator{
+
+    public ChanceSquare(String name, String description){
+        super(name, description);
+}
 
     @Override
     public void handleLandOn(Player player) {
@@ -103,12 +122,14 @@ public class ChanceSquare extends SquareCreator{
  */
 
 public class PropertySquare extends SquareCreator{
+
     private int price;
     private Color color;
     private Player player;
 
 
-    public PropertySquare(int price, Color color, Player player) {
+    public PropertySquare(String name, String description,int price, Color color, Player player) {
+        super(name, description);
         this.price = price;
         this.color = color;
         this.player = player;
