@@ -1,4 +1,7 @@
 package com.gruppe21.game;
+//Todo:
+// Add text to xml
+// Read text from file
 
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.Square;
@@ -70,16 +73,29 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
-        //Should make sure that 1 < players.length < 5  and dice.length = 1
-
-        if (players != null)
-            this.players = players;
         board = new Board();
-        this.dice = dice;
         this.isTest = isTest;
-
         initGUI();
 
+        //Should make sure that 1 < players.length < 5  and dice.length = 1
+        this.dice = dice;
+        if (players != null)
+            this.players = players;
+        else{
+            while (true){
+                String numPlayers = waitForUserTextInput("Please specify the number of players");
+                try {
+                    int numberOfPlayers = Integer.parseInt(numPlayers.trim());
+                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
+                        throw new Exception("Invalid number of players");
+                    players = new Player[numberOfPlayers];
+                } catch (Exception e){
+                    waitForUserAcknowledgement("Must be a number between 2 and 4");
+                    continue;
+                }
+                break;
+            }
+        }
 
         //It is insured that all players != null and all players have a name
         for (int i = 0; i < players.length; i++) {
