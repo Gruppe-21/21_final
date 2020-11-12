@@ -7,6 +7,7 @@ public class Player {
     private BankBalance bankBalance;        // The player's bank balance
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with a "s"
+    private String piece = "";
 
     private int currentSquareIndex;
 
