@@ -11,6 +11,8 @@ public class Player {
     private Boolean PrisonStatus = false;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
     private int amountDue;              // The owed amount of Player
+
+
     private int currentSquareIndex;
 
     public Player(String name) {
@@ -27,6 +29,10 @@ public class Player {
     private void initPlayer() {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
+
+        if (getBankBalance()-amountDue <0) {
+            // Player loses
+        }
     }
 
     // Gets the bank balance
