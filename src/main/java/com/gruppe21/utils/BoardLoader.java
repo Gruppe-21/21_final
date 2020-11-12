@@ -2,6 +2,10 @@ package com.gruppe21.utils;
 
 import com.gruppe21.game.board.Square;
 import com.gruppe21.game.board.SquareType;
+import com.gruppe21.game.board.chancecard.ChanceCard;
+import com.gruppe21.game.board.chancecard.ChanceCardGetOutOfJailFree;
+import com.gruppe21.game.board.chancecard.ChanceCardMoney;
+import com.gruppe21.game.board.chancecard.ChanceCardMove;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,11 +26,12 @@ public class BoardLoader {
     public static ArrayList<Square> loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument("/boards/" + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, "board");
-        // NodeList cardNodes = getNodeListFromTag(doc, "cards");
+        NodeList cardNodes = getNodeListFromTag(doc, "cards");
 
         ArrayList<Square> squares = getSquaresFromNodeList(boardNodes);
-        //   ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
-        return squares;
+        ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
+
+        return squares, chanceCards;
     }
 
     private static ArrayList<Square> getSquaresFromNodeList(NodeList boardNodes) {
@@ -45,17 +50,18 @@ public class BoardLoader {
     }
 
     //TODO SKAL ÆNDRES TIL TYPEN CHANCECARD NÅR DET ER IMPLEMENTERET
-    private static ArrayList<String> getCardsFromNodeList(NodeList nodelist) {
-        ArrayList<String> cards = new ArrayList<String>();
+    private static ArrayList<ChanceCard> getCardsFromNodeList(NodeList boardNodes) {
+        ArrayList<ChanceCard> chanceCards = new ArrayList<ChanceCard>();
 
-        for (int i = 0; i < nodelist.getLength(); i++) {
-            Node nNode = nodelist.item(i);
+        for (int i = 0; i < boardNodes.getLength(); i++) {
+            Node nNode = boardNodes.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) nNode;
+                addXMLChanceCardToArrayList(chanceCards, tag);
             }
 
         }
-        return cards;
+        return chanceCards;
     }
 
     private static void addXMLSquareToArrayList(ArrayList<Square> squares, Element tag) {
@@ -91,6 +97,59 @@ public class BoardLoader {
 
         }
     }
+
+    // Make labels?
+    private static void addXMLChanceCardToArrayList(ArrayList<ChanceCard> chanceCards, Element tag) {
+        String elementName = tag.getNodeName();
+        switch (elementName) {
+            case "JailCard":
+                // Add card
+                chanceCards.add(new ChanceCardGetOutOfJailFree("You can get out of jail for free if needed."));
+                break;
+            case "HomeworkCard":
+                // Add card
+                chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.",+2,false,true,false,false));
+                break;
+            case "CandyCard":
+                // Add card
+                chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.",-2,true,false,false,false));
+                break;
+            case "BirthdayCard":
+                // Add card
+                chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#",+1,false,false,false,true));
+                break;
+            case "StartCard":
+                // Add card
+                chanceCards.add(new ChanceCardMoney("Move to the start area. Receive 2#",+2,false,false,true,false));
+                break;
+            case "MoveBoardwalkCard":
+                // Add card
+                chanceCards.add(new ChanceCardMove("Move to Strandpromenaden.", 23,false,false,false,false));
+                break;
+            case "MoveUpToCard":
+                // Add card
+                chanceCards.add(new ChanceCardMove("Move UP TO 5 squares forward.",0,false,false,true,false));
+                break;
+            case "CardOrMoveCard":
+                // Add card
+                chanceCards.add(new ChanceCardMove("Move 1 square forward, OR take another chance card",0,true,false,false,false));
+                break;
+            default:
+                break;
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
