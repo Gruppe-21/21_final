@@ -11,6 +11,9 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class Game {
+    private final char MIN_PLAYERS = 2;
+    private final char MAX_PLAYERS = 4;
+
     private GUIWrapper guiWrapper;
     private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
     private Color[] availableColors = colors.clone();
@@ -20,6 +23,11 @@ public class Game {
     private Player[] players;
     private int currentPlayer;
     private Die[] dice;
+
+    public Game() {
+        initGame(null, new Die[]{new Die(), new Die()}, false);
+    }
+
 
     public Game(Player[] players) {
         initGame(players, new Die[]{new Die(), new Die()}, false);
@@ -62,14 +70,16 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
-        //Should make sure that players.length > 1 and dice.length > 0
+        //Should make sure that 1 < players.length < 5  and dice.length = 1
 
+        if (players != null)
+            this.players = players;
         board = new Board();
-        this.players = players;
         this.dice = dice;
         this.isTest = isTest;
 
         initGUI();
+
 
         //It is insured that all players != null and all players have a name
         for (int i = 0; i < players.length; i++) {
