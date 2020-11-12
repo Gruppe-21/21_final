@@ -12,7 +12,7 @@ public class Player {
     private int age;                    // Int age of player. Youngest player starts.
     private int amountDue;              // The owed amount of Player
     public String ownedProperties;     // All owned properties of a player
-
+    public String ownedCards;           // All currently owned chancecards of a player
 
     private int currentSquareIndex;
 
