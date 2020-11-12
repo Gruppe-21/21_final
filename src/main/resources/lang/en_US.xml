@@ -30,13 +30,13 @@
     <sentence label="takeButton">Træk nyt kort</sentence>
 
     <!-- chancecard desc -->
-    <sentence label="jailcard">You can get out of jail for free if needed.</sentence>
-    <sentence label="homeworkcard">You have made your homework, receive '2'M.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="candycard">You have eaten to much candy. Pay '2'M to the bank.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdaycard">It's your birthday! Everyone gives you '2'M</sentence> <!-- money value instead of '2'? -->
+    <sentence label="jailcard">You can get out of jail for free. Keep this card if needed.</sentence>
+    <sentence label="homeworkcard">You have made all your homework! RECEIVE '2'M.</sentence> <!-- money value instead of '2'? -->
+    <sentence label="candycard">You have eaten to much candy. PAY '2'M to the bank.</sentence> <!-- money value instead of '2'? -->
+    <sentence label="birthdaycard">It's your birthday! Everyone gives you '1'M</sentence> <!-- money value instead of '1'? -->
     <sentence label="startcard">Move to the start square. Receive '2'M</sentence> <!-- money value instead of '2'? -->
-    <sentence label="boardwalkcard">Move to BoardwalkCard square.</sentence>
+    <sentence label="boardwalkcard">Move to BOARDWALK.</sentence>
     <sentence label="moveuptocard">Move UP TO 5 squares forward.</sentence>
-    <sentence label="pickcardOrmovecard">Move 1 square forward, OR take another chance card.</sentence>
+    <sentence label="cardOrmovecard">Move 1 square forward, OR take another chance card.</sentence>
 
 </locale>

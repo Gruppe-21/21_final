@@ -126,11 +126,11 @@ public class BoardLoader {
                 // Add card
                 chanceCards.add(new ChanceCardMove("Move to Strandpromenaden.", 23,false,false,false,false));
                 break;
-            case "MoveUpToCard":
+            case "moveuptocard":
                 // Add card
                 chanceCards.add(new ChanceCardMove("Move UP TO 5 squares forward.",0,false,false,true,false));
                 break;
-            case "CardOrMoveCard":
+            case "cardOrmovecard":
                 // Add card
                 chanceCards.add(new ChanceCardMove("Move 1 square forward, OR take another chance card",0,true,false,false,false));
                 break;
