@@ -11,6 +11,7 @@ public class Player {
     private Boolean PrisonStatus = false;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
     private int amountDue;              // The owed amount of Player
+    public String ownedProperties;     // All owned properties of a player
 
 
     private int currentSquareIndex;
