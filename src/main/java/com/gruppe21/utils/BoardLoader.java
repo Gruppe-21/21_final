@@ -64,6 +64,7 @@ public class BoardLoader {
                 // Add square
                 squares.add(new StartSquare("GO!", "");
                 break;
+
             case "PropertySquare":
                 // Add square
                 String name = tag.getAttribute("label");
@@ -71,10 +72,14 @@ public class BoardLoader {
                 String color = tag.getAttribute("color")
                 squares.add(new PropertySquare(name, "", price, color, " "));
                 break;
+
             case "ChanceSquare":
                 // Add square
-                squares.add(new Square("Chance", "", 0, SquareType.Normal));
+                String name = tag.getAttribute("label");
+                String
+                squares.add(new ChanceSquare(name, "");
                 break;
+
             case "FreeParkingSquare":
                 // Add square
                 squares.add(new Square("Free parking", "", 0, SquareType.Normal));
