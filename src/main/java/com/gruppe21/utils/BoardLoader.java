@@ -102,27 +102,27 @@ public class BoardLoader {
     private static void addXMLChanceCardToArrayList(ArrayList<ChanceCard> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
         switch (elementName) {
-            case "JailCard":
+            case "jailcard":
                 // Add card
                 chanceCards.add(new ChanceCardGetOutOfJailFree("You can get out of jail for free if needed."));
                 break;
-            case "HomeworkCard":
+            case "homeworkcard":
                 // Add card
                 chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.",+2,false,true,false,false));
                 break;
-            case "CandyCard":
+            case "candycard":
                 // Add card
                 chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.",-2,true,false,false,false));
                 break;
-            case "BirthdayCard":
+            case "birthdaycard":
                 // Add card
                 chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#",+1,false,false,false,true));
                 break;
-            case "StartCard":
+            case "startcard":
                 // Add card
                 chanceCards.add(new ChanceCardMoney("Move to the start area. Receive 2#",+2,false,false,true,false));
                 break;
-            case "MoveBoardwalkCard":
+            case "boardwalkcard":
                 // Add card
                 chanceCards.add(new ChanceCardMove("Move to Strandpromenaden.", 23,false,false,false,false));
                 break;
