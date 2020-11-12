@@ -9,7 +9,7 @@ public class Player {
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
     private String piece[];
     private Boolean PrisonStatus;
-
+    private int age;
 
     private int currentSquareIndex;
 
@@ -51,7 +51,7 @@ public class Player {
     // Sets the player's piece
     public boolean setPiece(String[] piece) {
         String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
-        this.piece = pieceColor.Value;
+        this.piece = pieceColor;
     return true;
     }
     // Sets the player's name
