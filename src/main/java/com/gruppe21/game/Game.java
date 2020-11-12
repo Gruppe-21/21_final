@@ -79,8 +79,9 @@ public class Game {
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
         this.dice = dice;
-        if (players != null)
+        if (players != null){
             this.players = players;
+        }
         else{
             while (true){
                 String numPlayers = waitForUserTextInput("Please specify the number of players");
