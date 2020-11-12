@@ -65,7 +65,7 @@ public class BoardLoader {
         switch (elementName) {
             case "StartSquare":
                 // Add square
-                squares.add(new StartSquare("GO!", "", 0, SquareType.Normal));
+                squares.add(new StartSquare("GO!", "");
                 break;
             case "PropertySquare":
                 // Add square
