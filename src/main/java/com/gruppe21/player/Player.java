@@ -13,6 +13,7 @@ public class Player {
 
     public Player(String name) {
         setName(name);
+        setPiece(piece);
         initPlayer();
     }
 
