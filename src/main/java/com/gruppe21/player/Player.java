@@ -46,6 +46,10 @@ public class Player {
         return name;
     }
 
+    // Sets the player's piece
+    public boolean setPiece(String piece) {
+
+    }
     // Sets the player's name
     public boolean setName(String name) {
         if (name.length() > MAX_NAME_LENGTH) return false;
