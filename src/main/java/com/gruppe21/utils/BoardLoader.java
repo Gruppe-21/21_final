@@ -76,22 +76,27 @@ public class BoardLoader {
             case "ChanceSquare":
                 // Add square
                 String name = tag.getAttribute("label");
-                String
                 squares.add(new ChanceSquare(name, "");
                 break;
 
             case "FreeParkingSquare":
                 // Add square
-                squares.add(new Square("Free parking", "", 0, SquareType.Normal));
+                String name = tag.getAttribute("label")
+                squares.add(new FreeParkingSquare(name,  ""));
                 break;
+
             case "GoToPrisonSquare":
                 // Add square
-                squares.add(new Square("Go to prison", "", 0, SquareType.Normal));
+                String name = tag.getAttribute("label")
+                squares.add(new GoToPrisonSquare(name, "");
                 break;
+
             case "PrisonSquare":
                 // Add square
-                squares.add(new Square("Prison / Visit prison", "", 0, SquareType.Normal));
+                String name = tag.getAttribute("label")
+                squares.add(new PrisonSquare(name, "");
                 break;
+
             default:
                 break;
 
