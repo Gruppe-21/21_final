@@ -1,9 +1,6 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.game.board.Square;
-import com.gruppe21.game.board.SquareCreator;
-import com.gruppe21.game.board.SquareType;
-import com.gruppe21.game.board.StartSquare;
+import com.gruppe21.game.board.*;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import jdk.javadoc.internal.tool.Start;
 import org.w3c.dom.Document;
@@ -70,7 +67,9 @@ public class BoardLoader {
             case "PropertySquare":
                 // Add square
                 String name = tag.getAttribute("label");
-                squares.add(new Square(name, "", 0, SquareType.Normal));
+                int price = tag.getAttribute("price");
+                String color = tag.getAttribute("color")
+                squares.add(new PropertySquare(name, "", price, color, " "));
                 break;
             case "ChanceSquare":
                 // Add square
