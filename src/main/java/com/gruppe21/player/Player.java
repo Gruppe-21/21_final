@@ -10,7 +10,7 @@ public class Player {
     private String piece[];            // Piece color
     private Boolean PrisonStatus = false;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
-
+    private int amountDue;              // The owed amount of Player
     private int currentSquareIndex;
 
     public Player(String name) {
