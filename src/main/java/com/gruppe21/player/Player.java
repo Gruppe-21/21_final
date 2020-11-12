@@ -16,6 +16,7 @@ public class Player {
     public Player(String name) {
         setName(name);
         setPiece(piece);
+        setAge(age);
         initPlayer();
     }
 
@@ -52,7 +53,7 @@ public class Player {
     public boolean setPiece(String[] piece) {
         String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
         this.piece = pieceColor;
-    return true;
+    return pieceColor;
     }
     // Sets the player's name
     public boolean setName(String name) {
@@ -60,6 +61,11 @@ public class Player {
         this.name = name;
         nameEndsWithS = getName().toLowerCase().endsWith("s");
         return true;
+    }
+    //Sets player's age
+    public int setAge(int age) {
+        this.age = age;
+        return age;
     }
 
     // Checks if the player's name ends with a "s"
