@@ -21,14 +21,6 @@ public class Board {
     }
 
     public Board(String FileName) throws ParserConfigurationException, IOException, SAXException {
-
-        squares = BoardLoader.loadBoard(FileName);
-        for (Square square : squares) {
-            square.setEventText(square.getEventText()
-                    + " You " + (square.getModifyValue() < 0 ? "lose" : "gain") + " ¤" + square.getModifyValue());
-        }
-
-
         chanceCards = new ArrayList<ChanceCard>();
         chanceCards.add(new ChanceCardGetOutOfJailFree("You can get out of jail for free if needed."));
         chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.",+2,false,true,false));
