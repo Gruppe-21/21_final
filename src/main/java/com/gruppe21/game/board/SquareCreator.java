@@ -1,4 +1,6 @@
 package com.gruppe21.game.board;
+import com.gruppe21.game.Game;
+import com.gruppe21.player.BankBalance;
 import com.gruppe21.player.Player;
 /*
         Creates the Square class:
@@ -94,17 +96,21 @@ class FreeParkingSquare extends SquareCreator{
 /*
         Creates a GoToPrisonSquare class:
  */
-class GoToPrisonSquare extends SquareCreator{
+class GoToPrisonSquare extends SquareCreator {
 
     public GoToPrisonSquare(String name, String description) {
         super(name, description);
     }
-        @Override
-        public void handleLandOn (Player player){
 
+    @Override
+    public void handleLandOn(Player player) {
         super.handleLandOn(player);
-        //Move player to Prison square and make a call on player that the player is in prison
-        }
+        int playerIndex = game.getCurrentPlayer();
+        int prisonIndex = 7; // TO-DO: find prinson index
+        Square square = game.getBoard().getSquareAtNumber(prisonIndex);
+        game.movePlayer(playerIndex, square);
+
+    }
 }
 
 /*
