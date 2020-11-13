@@ -6,12 +6,20 @@ public class Player {
     private String name = "";            // The player's name
     private BankBalance bankBalance;        // The player's bank balance
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
-    private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with a "s"
+    private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
+    private String piece[];            // Piece color
+    private Boolean PrisonStatus = false;       // Boolean status whether Player is in prison or not
+    private int age;                    // Int age of player. Youngest player starts.
+    private int amountDue;              // The owed amount of Player
+    public String ownedProperties;     // All owned properties of a player
+    public String ownedCards;           // All currently owned chancecards of a player
 
     private int currentSquareIndex;
 
     public Player(String name) {
         setName(name);
+        setPiece(piece);
+        setAge(age);
         initPlayer();
     }
 
@@ -22,6 +30,10 @@ public class Player {
     private void initPlayer() {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
+
+        if (getBankBalance()-amountDue <0) {
+            // Player loses
+        }
     }
 
     // Gets the bank balance
@@ -44,12 +56,23 @@ public class Player {
         return name;
     }
 
+    // Sets the player's piece
+    public boolean setPiece(String[] piece) {
+        String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
+        this.piece = pieceColor;
+    return pieceColor;
+    }
     // Sets the player's name
     public boolean setName(String name) {
         if (name.length() > MAX_NAME_LENGTH) return false;
         this.name = name;
         nameEndsWithS = getName().toLowerCase().endsWith("s");
         return true;
+    }
+    //Sets player's age
+    public int setAge(int age) {
+        this.age = age;
+        return age;
     }
 
     // Checks if the player's name ends with a "s"
