@@ -12,8 +12,11 @@ import com.gruppe21.game.board.SquareType;
 import com.gruppe21.gui.GUIWrapper;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.stringutils.RandomNameGenerator;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Game {
@@ -76,7 +79,16 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
-        board = new Board();
+        //Todo: Deal with exceptions
+        try {
+            board = new Board();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
         this.isTest = isTest;
         initGUI();
 
@@ -127,7 +139,7 @@ public class Game {
         addPlayersToGUI(players);
         waitForUserButtonPress("Welcome to The Quest for Kolding. Press start to begin!", "Start");
     }
-
+½
 
     public boolean playRound() {
         // Wait for player to press "Roll"
