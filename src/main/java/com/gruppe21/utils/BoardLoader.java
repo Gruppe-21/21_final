@@ -86,7 +86,7 @@ public class BoardLoader {
             case "ChanceSquare":
                 // Add square
                 String name1 = tag.getAttribute("label");
-                squares.add(new ChanceSquare(name1, "");
+                squares.add(new ChanceSquare(name1, ""));
                 break;
 
             case "FreeParkingSquare":
