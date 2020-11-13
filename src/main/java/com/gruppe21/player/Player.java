@@ -52,6 +52,10 @@ public class Player {
         return name;
     }
 
+    public int getAge() {
+
+    }
+
     // Sets the player's piece
     public boolean setPiece(String[] piece) {
         String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
