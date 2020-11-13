@@ -45,4 +45,7 @@
     <sentence label="moveuptocard">Move UP TO 5 squares forward.</sentence>
     <sentence label="cardOrmovecard">Move 1 square forward, OR take another chance card.</sentence>
 
+    <!-- Error messages -->
+    <sentence label="invaildNumberOfPlayers">Must be a number between 2 and 4.</sentence>
+
 </locale>
