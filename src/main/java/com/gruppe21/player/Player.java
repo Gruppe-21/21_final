@@ -31,9 +31,6 @@ public class Player {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
 
-        if (getBankBalance()-amountDue <0) {
-            // Player loses
-        }
     }
 
     // Gets the bank balance
