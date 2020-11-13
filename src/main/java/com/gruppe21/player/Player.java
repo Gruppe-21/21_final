@@ -10,7 +10,7 @@ public class Player {
     private String[] piece;            // Piece color
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
-    public String ownedProperties;     // All owned properties of a player
+    public String[] ownedProperties;     // All owned properties of a player
     public String ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
