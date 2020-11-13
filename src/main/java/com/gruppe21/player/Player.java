@@ -64,6 +64,13 @@ public class Player {
         return true;
     }
 
+    //Sets the player's owned properties
+    public boolean setProperties(String[] ownedProperties) {
+        ownedProperties = new String[]{};
+        this.ownedProperties = ownedProperties;
+        return true;
+    }
+
     // Sets the player's name
     public boolean setName(String name) {
         if (name.length() > MAX_NAME_LENGTH) return false;
