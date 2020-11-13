@@ -79,8 +79,8 @@ public class BoardLoader {
                 String name = tag.getAttribute("label");
                 int price = parseInt(tag.getAttribute("price"));
                 Color color = Color.getColor(tag.getAttribute("color"));
-                squares.add(new PropertySquare(name,
-                localisation.getStringValue(), price, color));
+                String description = localisation.getStringValue("word1"); //Add actual description
+                squares.add(new PropertySquare(name,description, price, color));
                 break;
 
             case "ChanceSquare":
