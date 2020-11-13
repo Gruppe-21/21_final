@@ -1,4 +1,7 @@
 package com.gruppe21.game.board;
+import com.gruppe21.player.Player;
+
+import java.awt.Color;
 
 /*
         Opretter en basic Square
@@ -126,14 +129,13 @@ public class PropertySquare extends SquareCreator{
 
     private int price;
     private Color color;
-    private Player player;
+    private Player player = null;
 
 
-    public PropertySquare(String name, String description,int price, Color color, Player player) {
+    public PropertySquare(String name, String description,int price, Color color) {
         super(name, description);
         this.price = price;
         this.color = color;
-        this.player = player;
     }
 
     public void setColor(Color color) {

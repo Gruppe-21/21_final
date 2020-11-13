@@ -1,6 +1,7 @@
 package com.gruppe21.utils;
 
 import com.gruppe21.game.board.*;
+import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import jdk.javadoc.internal.tool.Start;
 import org.w3c.dom.Document;
@@ -10,6 +11,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -43,6 +45,8 @@ public class BoardLoader {
             }
         }
 
+
+
         return squares;
     }
 
@@ -61,6 +65,8 @@ public class BoardLoader {
     }
 
     private static void addXMLSquareToArrayList(ArrayList<SquareCreator> squares, Element tag) {
+        Localisation localisation = new Localisation();
+
         String elementName = tag.getNodeName();
         switch (elementName) {
             case "StartSquare":
@@ -72,8 +78,9 @@ public class BoardLoader {
                 // Add square
                 String name = tag.getAttribute("label");
                 int price = parseInt(tag.getAttribute("price"));
-                String color = tag.getAttribute("color")
-                squares.add(new PropertySquare(name, "", price, color, " "));
+                Color color = Color.getColor(tag.getAttribute("color"));
+                squares.add(new PropertySquare(name,
+                localisation.getStringValue(), price, color));
                 break;
 
             case "ChanceSquare":
