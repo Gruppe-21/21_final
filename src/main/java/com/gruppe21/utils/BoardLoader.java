@@ -39,6 +39,7 @@ public class BoardLoader {
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) node;
                 addXMLSquareToArrayList(squares, tag);
+
             }
         }
 
