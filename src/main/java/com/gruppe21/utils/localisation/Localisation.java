@@ -94,6 +94,20 @@ public class Localisation {
         return "Not defined";
     }
 
+
+    public String getStringValue(String label, String[] variables) {
+        NodeList locale = getLocale(currentLocale);
+        if (locale != null) {
+            String localisedText = getWordFromLocale(locale, label);
+            for (int i = 0; i < variables.length; i++) {
+                localisedText.replaceFirst("�", variables[i]);
+            }
+            return localisedText;
+        }
+        return "Not defined";
+    }
+
+
     public String getCurrentLocale() {
         return currentLocale;
     }
