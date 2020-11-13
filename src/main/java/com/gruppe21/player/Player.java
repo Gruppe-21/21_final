@@ -8,11 +8,11 @@ public class Player {
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
     private String[] piece;            // Piece color
-    public Boolean PrisonStatus;       // Boolean status whether Player is in prison or not
+    public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
     private int amountDue;              // The owed amount of Player
     public String ownedProperties;     // All owned properties of a player
-    public String ownedCards;           // All currently owned chancecards of a player
+    public String ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
 
@@ -30,7 +30,7 @@ public class Player {
     private void initPlayer() {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
-        PrisonStatus = false;
+        prisonStatus = false;
 
     }
 
