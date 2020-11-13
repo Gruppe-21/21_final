@@ -47,15 +47,14 @@
 
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Please specify the number of players</sentence>
-    <sentence label="requestPlayerName">Please write your name, Player</sentence> <!--" (Leave empty for a random name)" -->
+    <sentence label="requestPlayerName">"Please write your name, Player �[playerNumber] (Leave empty for a random name)"</sentence> <!--" (Leave empty for a random name)" -->
     <sentence label="requestPlayerAge">Please write your age, [PlayerName]</sentence>
 
 
 
     <!-- Error messages -->
     <sentence label="unknownError">An unknown error has occurred.</sentence>
-    <sentence label="invaildNumberOfPlayers">Must be a number between 2 and 4.</sentence>
-    <sentence label="invaildNumberOfPlayers">Must be a number between [MIN_NUMBER_PLAYERS] and [MAX_NUMBER_PLAYERS].</sentence>
+    <sentence label="invaildNumberOfPlayers">Must be a number between �[MIN_NUMBER_PLAYERS] and �[MAX_NUMBER_PLAYERS].</sentence>
     <sentence label="invaildName">Invalid name</sentence>
 
 
