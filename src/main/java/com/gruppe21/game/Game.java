@@ -1,7 +1,13 @@
 package com.gruppe21.game;
+//Todo:
+// Add text to xml
+// Read text from file
+
+//Todo:
+// Add AI controlled players
 
 import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.game.board.SquareType;
 import com.gruppe21.gui.GUIWrapper;
 import com.gruppe21.player.Player;
@@ -11,6 +17,9 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class Game {
+    private final char MIN_PLAYERS = 2;
+    private final char MAX_PLAYERS = 4;
+
     private GUIWrapper guiWrapper;
     private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
     private Color[] availableColors = colors.clone();
@@ -20,6 +29,11 @@ public class Game {
     private Player[] players;
     private int currentPlayer;
     private Die[] dice;
+
+    public Game() {
+        initGame(null, new Die[]{new Die(), new Die()}, false);
+    }
+
 
     public Game(Player[] players) {
         initGame(players, new Die[]{new Die(), new Die()}, false);
@@ -62,14 +76,30 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
-        //Should make sure that players.length > 1 and dice.length > 0
-
         board = new Board();
-        this.players = players;
-        this.dice = dice;
         this.isTest = isTest;
-
         initGUI();
+
+        //Should make sure that 1 < players.length < 5  and dice.length = 1
+        this.dice = dice;
+        if (players != null){
+            this.players = players;
+        }
+        else{
+            while (true){
+                String numPlayers = waitForUserTextInput("Please specify the number of players");
+                try {
+                    int numberOfPlayers = Integer.parseInt(numPlayers.trim());
+                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
+                        throw new Exception("Invalid number of players");
+                    players = new Player[numberOfPlayers];
+                } catch (Exception e){
+                    waitForUserAcknowledgement("Must be a number between 2 and 4");
+                    continue;
+                }
+                break;
+            }
+        }
 
         //It is insured that all players != null and all players have a name
         for (int i = 0; i < players.length; i++) {
@@ -192,6 +222,8 @@ public class Game {
         if (isTest) return;
         guiWrapper.updatePlayerBalance(playerindex, newBalance);
     }
+
+
 
     public void waitForUserAcknowledgement(String message) {
         if (isTest) return;
