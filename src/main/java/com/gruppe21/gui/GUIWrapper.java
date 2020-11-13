@@ -1,6 +1,6 @@
 package com.gruppe21.gui;
 
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
