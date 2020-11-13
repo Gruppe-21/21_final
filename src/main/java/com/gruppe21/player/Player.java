@@ -68,7 +68,7 @@ public class Player {
     //Sets player's age
     public boolean setAge(int age) {
         this.age = age;
-        return age;
+        return true;
     }
 
     // Checks if the player's name ends with a "s"
