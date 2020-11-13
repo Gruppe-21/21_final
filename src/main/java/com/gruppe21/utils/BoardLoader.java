@@ -13,6 +13,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static java.lang.Integer.parseInt;
+
 
 /**
  * Used for getting board configurations by parsing xml documents
@@ -68,7 +70,7 @@ public class BoardLoader {
             case "PropertySquare":
                 // Add square
                 String name = tag.getAttribute("label");
-                String price = tag.getAttribute("price");
+                int price = parseInt(tag.getAttribute("price"));
                 String color = tag.getAttribute("color")
                 squares.add(new PropertySquare(name, "", price, color, " "));
                 break;
