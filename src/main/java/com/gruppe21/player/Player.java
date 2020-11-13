@@ -38,7 +38,7 @@ public class Player {
         return bankBalance;
     }
 
-    // Sets the player's point to a given int
+    // Sets the player's points to a given int
     public void setBankBalance(BankBalance bankBalance) {
         this.bankBalance = bankBalance;
     }
