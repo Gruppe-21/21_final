@@ -5,8 +5,8 @@ import com.gruppe21.player.Player;
  */
 
 public abstract class SquareCreator {
-    private String name;
-    private String description;
+    private String name;    //skal loades fra XML
+    private String description; //skal loades fra XML
 
     public SquareCreator(String name, String description) {
         this.name = name;
