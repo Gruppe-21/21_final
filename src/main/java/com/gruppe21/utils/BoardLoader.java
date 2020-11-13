@@ -13,6 +13,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static java.lang.Integer.parseInt;
+
 
 /**
  * Used for getting board configurations by parsing xml documents
@@ -69,33 +71,33 @@ public class BoardLoader {
             case "PropertySquare":
                 // Add square
                 String name = tag.getAttribute("label");
-                int price = tag.getAttribute("price");
+                int price = parseInt(tag.getAttribute("price"));
                 String color = tag.getAttribute("color")
                 squares.add(new PropertySquare(name, "", price, color, " "));
                 break;
 
             case "ChanceSquare":
                 // Add square
-                String name = tag.getAttribute("label");
-                squares.add(new ChanceSquare(name, "");
+                String name1 = tag.getAttribute("label");
+                squares.add(new ChanceSquare(name1, "");
                 break;
 
             case "FreeParkingSquare":
                 // Add square
-                String name = tag.getAttribute("label")
-                squares.add(new FreeParkingSquare(name,  ""));
+                String name2 = tag.getAttribute("label")
+                squares.add(new FreeParkingSquare(name2,  ""));
                 break;
 
             case "GoToPrisonSquare":
                 // Add square
-                String name = tag.getAttribute("label")
-                squares.add(new GoToPrisonSquare(name, "");
+                String name3 = tag.getAttribute("label")
+                squares.add(new GoToPrisonSquare(name3, "");
                 break;
 
             case "PrisonSquare":
                 // Add square
-                String name = tag.getAttribute("label")
-                squares.add(new PrisonSquare(name, "");
+                String name4 = tag.getAttribute("label")
+                squares.add(new PrisonSquare(name4, "");
                 break;
 
             default:
