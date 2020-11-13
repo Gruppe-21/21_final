@@ -60,7 +60,7 @@ public class Player {
 
     // Sets the player's piece
     public boolean setPiece(String[] piece) {
-        piece = new String[]{"Black", "White", "Green", "Yellow"};
+        piece = new String[]{};
         this.piece = piece;
         return true;
     }
