@@ -43,7 +43,6 @@ public class Player {
         this.bankBalance = bankBalance;
     }
 
-
     //public boolean isToSekserer() {return toSekserer;}
 
     //public void setToSekserer(boolean toSekserer) {this.toSekserer = toSekserer;}
@@ -67,7 +66,7 @@ public class Player {
         return true;
     }
     //Sets player's age
-    public int setAge(int age) {
+    public boolean setAge(int age) {
         this.age = age;
         return age;
     }
