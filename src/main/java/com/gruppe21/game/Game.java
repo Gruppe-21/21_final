@@ -4,7 +4,7 @@ package com.gruppe21.game;
 // Read text from file
 
 //Todo:
-// AI controlled players
+// Add AI controlled players
 
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.Square;
@@ -74,8 +74,6 @@ public class Game {
     public int getCurrentPlayer() {
         return currentPlayer;
     }
-
-
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
         board = new Board();
