@@ -133,16 +133,15 @@ class ChanceSquare extends SquareCreator{
 
 class PropertySquare extends SquareCreator{
 
-    private int price;
+    private int price; //skal loades fra XML
     private Color color; //skal loades fra XML
-    private Player player;
+    private Player player = null;
 
 
-    public PropertySquare(String name, String description,int price, Color color, Player player) {
+    public PropertySquare(String name, String description,int price, Color color) {
         super(name, description);
         this.price = price;
         this.color = color;
-        this.player = player;
     }
 
     public void setColor(Color color) {
