@@ -68,7 +68,7 @@ public class BoardLoader {
             case "PropertySquare":
                 // Add square
                 String name = tag.getAttribute("label");
-                int price = tag.getAttribute("price");
+                String price = tag.getAttribute("price");
                 String color = tag.getAttribute("color")
                 squares.add(new PropertySquare(name, "", price, color, " "));
                 break;
