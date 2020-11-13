@@ -8,7 +8,7 @@ public class Player {
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
     private String[] piece;            // Piece color
-    private Boolean PrisonStatus;       // Boolean status whether Player is in prison or not
+    public Boolean PrisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
     private int amountDue;              // The owed amount of Player
     public String ownedProperties;     // All owned properties of a player
