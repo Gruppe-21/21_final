@@ -81,7 +81,7 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
-        localisation = new Localisation();
+        localisation = Localisation.getInstance();
         //Todo: Deal with exceptions
         try {
             board = new Board();
@@ -109,7 +109,7 @@ public class Game {
                         throw new Exception("Invalid number of players");
                     players = new Player[numberOfPlayers];
                 } catch (Exception e){
-                    waitForUserAcknowledgement(localisation.getStringValue("invaildNumberOfPlayers"));
+                    waitForUserAcknowledgement(localisation.getStringValue("invaildNumberOfPlayers", ));
                     continue;
                 }
                 break;
@@ -122,7 +122,7 @@ public class Game {
 
             while (players[i].getName().isEmpty()) {
                 try {
-                    String providedPlayerName = waitForUserTextInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
+                    String providedPlayerName = waitForUserTextInput(localisation.getStringValue("requestPlayerName", (i+1) ));
                     if (providedPlayerName == null) {
                         //It should not be possible to get here
                         throw new Exception("providedPlayerName is null");
