@@ -8,6 +8,8 @@ import org.junit.Test;
 
 public class SquareTest {
 
+    //Old tests
+    /*
     @Test
     public void squareReturnsEventText() {
         Square sq = new Square("place", "Hello World!", 1000, SquareType.Normal);
@@ -22,4 +24,5 @@ public class SquareTest {
 
         // TODO implement test for checking if square modifies a players bank balance
     }
+    */
 }

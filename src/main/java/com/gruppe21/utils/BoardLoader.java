@@ -3,7 +3,6 @@ package com.gruppe21.utils;
 import com.gruppe21.game.board.*;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
-import jdk.javadoc.internal.tool.Start;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -64,7 +63,7 @@ public class BoardLoader {
         return cards;
     }
 
-    private static void addXMLSquareToArrayList(ArrayList<SquareCreator> squares, Element tag) {
+    private static void addXMLSquareToArrayList(ArrayList<Square> squares, Element tag) {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();

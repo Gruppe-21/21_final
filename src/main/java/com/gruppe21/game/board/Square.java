@@ -1,54 +1,168 @@
 package com.gruppe21.game.board;
-
 import com.gruppe21.player.Player;
 
+import java.awt.Color;
+
+/*
+        Opretter en basic Square
+ */
+
 public class Square {
-
-    private final SquareType squareType;
     private String name;
-    private String eventText;
-    private int modifyValue;
+    private String description;
 
-    public Square(String _name, String _eventText, int _modifyValue, SquareType _squareType) {
-        this.name = _name;
-        this.eventText = _eventText;
-        this.modifyValue = _modifyValue;
-        this.squareType = _squareType;
+    public Square(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
-    public SquareType getSquareType() {
-        return squareType;
+    public void handleLandOn(Player player){
+        // Lav metoden færdig
     }
 
-    public String getName() {
-        return name;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getEventText() {
-        return eventText;
+    public String getName() {
+        return name;
+    }
+}
+
+/*
+        Creates a StartSquare class:
+ */
+
+public class StartSquare extends Square {
+    private int startBonus = 2;
+
+    public StartSquare(String name, String description){
+        super(name, description);
     }
 
-    public void setEventText(String eventText) {
-        this.eventText = eventText;
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
+    }
+}
+
+/*
+        Creates a PrisonSquare class:
+ */
+public class PrisonSquare extends Square {
+
+    public PrisonSquare(String name, String description) {
+        super(name, description);
     }
 
-    public int getModifyValue() {
-        return modifyValue;
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
+    }
+}
+
+
+/*
+        Creates a FreeParking square class:
+ */
+public class FreeParkingSquare extends Square {
+
+    public FreeParkingSquare(String name, String description) {
+        super(name, description);
     }
 
-    public void setModifyValue(int modifyValue) {
-        this.modifyValue = modifyValue;
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
+    }
+}
+
+/*
+        Creates a GoToPrisonSquare class:
+ */
+public class GoToPrisonSquare extends Square {
+
+    public GoToPrisonSquare(String name, String description) {
+        super(name, description);
+
+        @Override
+        public void handleLandOn (Player player){
+            super.handleLandOn(player);
+        }
+    }
+}
+
+/*
+        Creates a ChanceSquare class:
+ */
+
+
+public class ChanceSquare extends Square {
+
+    public ChanceSquare(String name, String description){
+        super(name, description);
     }
 
-
-    public String handleEvent(Player player) {
-        player.getBankBalance().addBalance(this.getModifyValue());
-        return (eventText);
+    @Override
+    public void handleLandOn(Player player) {
+        super.handleLandOn(player);
     }
 
+    public drawCard(){
+        // Fix kode her
+    }
+}
 
+/*
+        Creates a PropertySquare class:
+ */
+
+public class PropertySquare extends Square {
+
+    private int price;
+    private Color color;
+    private Player player = null;
+
+
+    public PropertySquare(String name, String description,int price, Color color) {
+        super(name, description);
+        this.price = price;
+        this.color = color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+    public Color getColor() {
+        return color;
+    }
+
+    public void setOwner(Player owner) {
+        // Fix kode her, hvor bliver owner initialiseret? Kig på designklassediagram
+        this.owner = owner;
+    }
+    public getOwner() {
+        return owner;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public buy(Player player) {
+        // Fix kode her
+        return //boolean;
+    }
 }
