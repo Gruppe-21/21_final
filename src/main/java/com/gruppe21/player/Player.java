@@ -62,8 +62,9 @@ public class Player {
     public boolean setPiece(String[] piece) {
         piece = new String[]{"Black", "White", "Green", "Yellow"};
         this.piece = piece;
-    return true;
+        return true;
     }
+
     // Sets the player's name
     public boolean setName(String name) {
         if (name.length() > MAX_NAME_LENGTH) return false;
@@ -71,9 +72,10 @@ public class Player {
         nameEndsWithS = getName().toLowerCase().endsWith("s");
         return true;
     }
+
     //Sets player's age
     public boolean setAge(int age) {
-        if (age < 5 ) return false;
+        if (age < 5) return false;
         this.age = age;
         return true;
     }
