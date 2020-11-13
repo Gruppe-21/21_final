@@ -60,8 +60,8 @@ public class Player {
 
     // Sets the player's piece
     public boolean setPiece(String[] piece) {
-        String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
-        this.piece = pieceColor;
+        piece = new String[]{"Black", "White", "Green", "Yellow"};
+        this.piece = piece;
     return true;
     }
     // Sets the player's name
