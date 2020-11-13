@@ -1,6 +1,7 @@
 package com.gruppe21.utils.xmlutils;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -16,6 +17,10 @@ public class XMLUtil {
         return doc.getElementsByTagName(tagName).item(0).getChildNodes();
     }
 
+    public static Node getRootNode(Document doc) throws ParserConfigurationException, SAXException, IOException {
+        return doc.getDocumentElement();
+    }
+
     public static Document getXMLDocument(String fileName) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -25,5 +30,17 @@ public class XMLUtil {
         Document doc = builder.parse(inputStream);
         doc.getDocumentElement().normalize();
         return doc;
+    }
+
+
+    public static void doc() throws ParserConfigurationException, SAXException, IOException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+
+        String filePath = "/file.xml";
+        InputStream inputStream = XMLUtil.class.getResourceAsStream("/file.xml");
+
+        Document doc = builder.parse(inputStream);
+        doc.getDocumentElement().normalize();
     }
 }
