@@ -1,11 +1,13 @@
 package com.gruppe21.game.board;
 
+import com.gruppe21.game.board.chancecard.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
     private List<Square> squares;
-
+    private List<ChanceCard> chanceCards;
 
     public Board() {
         squares = new ArrayList<Square>();
@@ -25,7 +27,19 @@ public class Board {
             square.setEventText(square.getEventText()
                     + " You " + (square.getModifyValue() < 0 ? "lose" : "gain") + " ¤" + square.getModifyValue());
         }
+
+
+        chanceCards = new ArrayList<ChanceCard>();
+        chanceCards.add(new ChanceCardGetOutOfJailFree("You can get out of jail for free if needed."));
+        chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.",+2,false,true,false));
+        chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.",-2,true,false,false));
+        chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#",+1,false,false,false));
+        chanceCards.add(new ChanceCardStart("Move to the start area. Receive 2#",+2));
+        chanceCards.add(new ChanceCardMove("Move to Strandpromenaden.", 23,false,false,false,false));
+        chanceCards.add(new ChanceCardMove("Move UP TO 5 squares forward.",0,false,false,true,false));
+        chanceCards.add(new ChanceCardMove("Move 1 square forward, OR take another chance card",0,true,false,false,false));
     }
+
 
     public List<Square> getSquares() {
         return squares;
