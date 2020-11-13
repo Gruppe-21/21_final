@@ -220,6 +220,8 @@ public class Game {
         guiWrapper.updatePlayerBalance(playerindex, newBalance);
     }
 
+
+
     public void waitForUserAcknowledgement(String message) {
         if (isTest) return;
         guiWrapper.showMessage(message);
