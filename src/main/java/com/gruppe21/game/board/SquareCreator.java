@@ -1,11 +1,10 @@
 package com.gruppe21.game.board;
 import com.gruppe21.player.Player;
-import com.gruppe21.player.BankBalance;
 /*
-        Opretter en basic Square
+        Creates the Square class:
  */
 
-public class SquareCreator {
+public abstract class SquareCreator {
     private String name;
     private String description;
 
@@ -15,7 +14,7 @@ public class SquareCreator {
     }
 
     public void handleLandOn(Player player){
-        // Skal der være noget her? Den kan bare være tom
+        // This should be empty
     }
 
     public void setDescription(String description) {
@@ -46,11 +45,15 @@ class StartSquare extends SquareCreator{
         super(name, description);
     }
 
+    public void StartBonus(Player player){
+        super.handleLandOn(player);
+        player.getBankBalance().addBalance(startBonus);
+    }
+
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
         player.getBankBalance().addBalance(startBonus);
-        // håndtere at det også skal virke hvis man passerer...
     }
 }
 
@@ -63,10 +66,11 @@ class PrisonSquare extends SquareCreator{
     public PrisonSquare(String name, String description){
         super(name,description);
     }
+
     @Override
     public void handleLandOn(Player player) {
-        // Der sker ingenting
         super.handleLandOn(player);
+        //Nothing happens and it should be left empty
     }
 }
 
@@ -82,8 +86,8 @@ class FreeParkingSquare extends SquareCreator{
 
     @Override
     public void handleLandOn(Player player) {
-        // Der sker ingenting
         super.handleLandOn(player);
+        //Nothing happens and it should be left empty
     }
 }
 
@@ -99,7 +103,7 @@ class GoToPrisonSquare extends SquareCreator{
         public void handleLandOn (Player player){
 
         super.handleLandOn(player);
-        // Man skal skippes 1 runde
+        //Move player to Prison square and make a call on player that the player is in prison
         }
 }
 
@@ -130,7 +134,7 @@ class ChanceSquare extends SquareCreator{
 class PropertySquare extends SquareCreator{
 
     private int price;
-    private Color color;
+    private Color color; //skal loades fra XML
     private Player player;
 
 
