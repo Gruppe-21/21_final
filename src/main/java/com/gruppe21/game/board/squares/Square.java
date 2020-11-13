@@ -7,7 +7,7 @@ import java.awt.Color;
         Opretter en basic Square
  */
 
-public class Square {
+public abstract class Square {
     private String name;
     private String description;
 
