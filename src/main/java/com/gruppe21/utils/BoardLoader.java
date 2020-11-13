@@ -1,8 +1,7 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.game.board.Square;
-import com.gruppe21.game.board.SquareType;
-import com.gruppe21.game.board.chancecard.*;
+import com.gruppe21.game.board.squares.*;
+import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -11,8 +10,11 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import static java.lang.Integer.parseInt;
 
 
 /**
@@ -62,33 +64,48 @@ public class BoardLoader {
     }
 
     private static void addXMLSquareToArrayList(ArrayList<Square> squares, Element tag) {
+        Localisation localisation = new Localisation();
+
         String elementName = tag.getNodeName();
         switch (elementName) {
             case "StartSquare":
                 // Add square
-                squares.add(new Square("GO!", "", 0, SquareType.Normal));
+                squares.add(new StartSquare("GO!", "");
                 break;
+
             case "PropertySquare":
                 // Add square
                 String name = tag.getAttribute("label");
-                squares.add(new Square(name, "", 0, SquareType.Normal));
+                int price = parseInt(tag.getAttribute("price"));
+                Color color = Color.getColor(tag.getAttribute("color"));
+                String description = localisation.getStringValue("word1"); //Add actual description
+                squares.add(new PropertySquare(name,description, price, color));
                 break;
+
             case "ChanceSquare":
                 // Add square
-                squares.add(new Square("Chance", "", 0, SquareType.Normal));
+                String name1 = tag.getAttribute("label");
+                squares.add(new ChanceSquare(name1, ""));
                 break;
+
             case "FreeParkingSquare":
                 // Add square
-                squares.add(new Square("Free parking", "", 0, SquareType.Normal));
+                String name2 = tag.getAttribute("label");
+                squares.add(new FreeParkingSquare(name2,  ""));
                 break;
+
             case "GoToPrisonSquare":
                 // Add square
-                squares.add(new Square("Go to prison", "", 0, SquareType.Normal));
+                String name3 = tag.getAttribute("label");
+                squares.add(new GoToPrisonSquare(name3, "");
                 break;
+
             case "PrisonSquare":
                 // Add square
-                squares.add(new Square("Prison / Visit prison", "", 0, SquareType.Normal));
+                String name4 = tag.getAttribute("label");
+                squares.add(new PrisonSquare(name4, "");
                 break;
+
             default:
                 break;
 
@@ -136,17 +153,6 @@ public class BoardLoader {
 
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

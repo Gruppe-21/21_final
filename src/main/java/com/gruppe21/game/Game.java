@@ -7,7 +7,7 @@ package com.gruppe21.game;
 // Add AI controlled players
 
 import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.game.board.SquareType;
 import com.gruppe21.gui.GUIWrapper;
 import com.gruppe21.player.Player;
