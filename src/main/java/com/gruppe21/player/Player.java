@@ -64,10 +64,17 @@ public class Player {
         return true;
     }
 
-    //Sets the player's owned properties
+    // Sets the player's owned properties
     public boolean setProperties(String[] ownedProperties) {
         ownedProperties = new String[]{};
         this.ownedProperties = ownedProperties;
+        return true;
+    }
+
+    // Sets the player's currently owned cards
+    public boolean setCards(String[] ownedCards) {
+        ownedCards = new String[]{};
+        this.ownedCards = ownedCards;
         return true;
     }
 
