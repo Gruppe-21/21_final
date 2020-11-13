@@ -95,7 +95,7 @@ public class Localisation {
     }
 
 
-    public String getStringValue(String label, String[] variables) {
+    public String getStringValue(String label, String... variables) {
         String localisedText = getStringValue(label);
         for (int i = 0; i < variables.length; i++) {
             localisedText.replaceFirst("�\\[(.*?)]", variables[i]);
