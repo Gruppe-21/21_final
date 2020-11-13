@@ -52,8 +52,9 @@ public class Player {
         return name;
     }
 
+    // Gets the player's age as an integer
     public int getAge() {
-
+        return age;
     }
 
     // Sets the player's piece
