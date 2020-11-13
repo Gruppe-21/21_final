@@ -105,10 +105,7 @@ class GoToPrisonSquare extends SquareCreator {
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
-        int playerIndex = game.getCurrentPlayer();
-        int prisonIndex = 7; // TO-DO: find prinson index
-        Square square = game.getBoard().getSquareAtNumber(prisonIndex);
-        game.movePlayer(playerIndex, square);
+
 
     }
 }
