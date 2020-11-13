@@ -67,6 +67,7 @@ public class Player {
     }
     //Sets player's age
     public boolean setAge(int age) {
+        if (age < 5 ) return false;
         this.age = age;
         return true;
     }
