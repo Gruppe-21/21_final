@@ -61,7 +61,7 @@ public class Player {
     public boolean setPiece(String[] piece) {
         String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
         this.piece = pieceColor;
-    return pieceColor;
+    return true;
     }
     // Sets the player's name
     public boolean setName(String name) {
