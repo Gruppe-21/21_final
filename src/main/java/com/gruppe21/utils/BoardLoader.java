@@ -1,6 +1,6 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.game.board.*;
+import com.gruppe21.game.board.squares.*;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;

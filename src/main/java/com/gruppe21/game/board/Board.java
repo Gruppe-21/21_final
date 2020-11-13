@@ -1,11 +1,11 @@
 package com.gruppe21.game.board;
 
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.utils.BoardLoader;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Board {

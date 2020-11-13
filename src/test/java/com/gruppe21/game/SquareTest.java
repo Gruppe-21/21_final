@@ -1,11 +1,5 @@
 package com.gruppe21.game;
 
-import com.gruppe21.game.board.Square;
-import com.gruppe21.game.board.SquareType;
-import com.gruppe21.player.Player;
-import org.junit.Assert;
-import org.junit.Test;
-
 public class SquareTest {
 
     //Old tests
