@@ -30,6 +30,7 @@ public class Player {
     private void initPlayer() {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
+        PrisonStatus = false;
 
     }
 
