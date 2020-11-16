@@ -14,7 +14,9 @@ public class ChanceSquare extends Square {
         super.handleLandOn(player);
     }
 
-    public ChanceCard drawCard() {
-        // Fix kode her a^2+b^2 = c^2
+    public void ChanceCard drawCard(Deck deck) {
+        this.deck = deck;
+        card = deck.draw();
+        return card;
     }
 }
