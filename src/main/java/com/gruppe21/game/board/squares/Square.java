@@ -17,7 +17,6 @@ public abstract class Square {
     }
 
     public void handleLandOn(Player player){
-        // Lav metoden færdig
     }
 
     public void setDescription(String description) {
