@@ -56,6 +56,8 @@
     <sentence label="requestPlayerAge">Please write your age, [PlayerName]</sentence>
     <sentence label="winningMessage">�[PLAYER_BANKRUPT] has gone bankrupt leaving �[WINNING_PLAYER] as the winner.
     </sentence>
+    <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE] turn!</sentence>
+    <sentence label="rollButton">Roll</sentence>
 
 
     <!-- Error messages -->

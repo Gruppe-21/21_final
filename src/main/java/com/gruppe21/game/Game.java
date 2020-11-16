@@ -15,6 +15,9 @@ package com.gruppe21.game;
 //Todo:
 // rename getSquareAtNumber to getSquareAtIndex
 
+//Todo: 
+// sprøg om spillernes brik
+
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
@@ -24,9 +27,7 @@ import com.gruppe21.utils.stringutils.RandomNameGenerator;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.awt.*;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Game {
     private final char MIN_PLAYERS = 2;
@@ -34,8 +35,6 @@ public class Game {
 
     private Localisation localisation;
     private GUIManager guiManager;
-    private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
-    private Color[] availableColors = colors.clone();
     private boolean isTest;
 
     private Board board;
@@ -46,7 +45,6 @@ public class Game {
     public Game() {
         initGame(null, new Die[]{new Die(), new Die()}, false);
     }
-
 
     public Game(Player[] players) {
         initGame(players, new Die[]{new Die(), new Die()}, false);
@@ -60,6 +58,7 @@ public class Game {
         initGame(players, dice, isTest);
     }
 
+
     public Board getBoard() {
         return board;
     }
@@ -68,16 +67,8 @@ public class Game {
         return players;
     }
 
-    public void setPlayers(Player[] players) {
-        this.players = players;
-    }
-
     public Die[] getDice() {
         return dice;
-    }
-
-    public void setDice(Die[] dice) {
-        this.dice = dice;
     }
 
     public int getCurrentPlayer() {
@@ -98,7 +89,7 @@ public class Game {
             e.printStackTrace();
         }
         this.isTest = isTest;
-        initGUI();
+        guiManager.initGUI(board);
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
         this.dice = dice;
@@ -145,7 +136,7 @@ public class Game {
             }
 
         }
-        addPlayersToGUI(players);
+        guiManager.addPlayersToGUI(players);
     }
 
     public boolean playRound() {
@@ -153,7 +144,7 @@ public class Game {
         //Todo: player.getPossessive instead
         String playerNamePossessive = players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s");
         guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", playerNamePossessive), localisation.getStringValue("rollButton"));
-        setGUIDice(dice);
+        guiManager.setGUIDice(dice);
 
         // Gets the sum of the random values that was set before round was started.
         //Not necessary for Monopoly Jr.
@@ -162,10 +153,7 @@ public class Game {
             sum += die.getValue();
         }
         movePlayer(currentPlayer, board.getSquareAtNumber(sum));
-
-
-        guiManager.waitForUserAcknowledgement(squareLandedOn.handleLandOn(players[currentPlayer]));
-        setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
+        guiManager.setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
@@ -181,7 +169,7 @@ public class Game {
         } while (!playRound());
         Player winner = players[currentPlayer];
         guiManager.waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
-        closeGUI();
+        guiManager.closeGUI();
     }
 
     public void movePlayer(int playerIndex, Square square) {
@@ -195,45 +183,4 @@ public class Game {
     private int nextPlayer() {
         return (currentPlayer + 1) % players.length;
     }
-
-
-    private void closeGUI() {
-        if (guiWrapper != null) guiWrapper.close();
-    }
-
-    private void addPlayersToGUI(Player[] players) {
-        if (isTest) return;
-        for (int i = 0; i < players.length; i++) {
-            String realName = players[i].getName();
-            String guiName = realName;
-
-            int j = 2;
-            while (guiWrapper.hasPlayerWithName(guiName)) {
-                guiName = realName + " (" + j + ")";
-                j++;
-            }
-
-            players[i].setName(guiName);
-
-            if (availableColors.length != 0) {
-                guiWrapper.addPlayer(players[i], availableColors[0]);
-                availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length);
-            } else guiWrapper.addPlayer(players[i], colors[(int) (Math.random() * colors.length)]);
-
-            players[i].setName(realName);
-        }
-    }
-
-    private void setGUIDice(Die[] dice) {
-        if (isTest) return;
-        //Should make sure that at least 2 dice in dice
-        guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
-    }
-
-    public void setGUIPlayerBalance(int playerindex, int newBalance) {
-        if (isTest) return;
-        guiWrapper.updatePlayerBalance(playerindex, newBalance);
-    }
-
-
 }

@@ -21,14 +21,14 @@ public class GUIWrapper {
         players = new ArrayList<GUI_Player>();
     }
 
-
+    //TODO set the right values in fields
     // Add a list of squares and turn them into fields.
     private void addSquares(List<Square> squareList) {
         for (Square square : squareList) {
             GUI_Field field = new GUI_Street();
             field.setTitle(square.getName());
-            field.setSubText("" + square.getModifyValue());
-            field.setDescription(square.getEventText());
+            field.setSubText("");
+            field.setDescription(square.getDescription());
             fields.add(field);
         }
     }
