@@ -6,6 +6,12 @@ package com.gruppe21.game;
 //Todo:
 // Add AI controlled players
 
+//Todo:
+// Deal with exceptions during board creation in initGame
+
+//Todo:
+// Create chance cards/deck in initGame
+
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.SquareType;
 import com.gruppe21.game.board.squares.Square;
@@ -100,10 +106,11 @@ public class Game {
         if (players != null) {
             this.players = players;
         } else {
+            int numberOfPlayers;
             while (true) {
-                String numPlayers = waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
+                String inputString = waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
                 try {
-                    int numberOfPlayers = Integer.parseInt(numPlayers.trim());
+                    numberOfPlayers = Integer.parseInt(inputString.trim());
                     if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
                         throw new Exception("Invalid number of players");
                     players = new Player[numberOfPlayers];
@@ -113,6 +120,7 @@ public class Game {
                 }
                 break;
             }
+            players = new Player[numberOfPlayers];
         }
 
         //It is insured that all players != null and all players have a name
@@ -139,9 +147,7 @@ public class Game {
 
         }
         addPlayersToGUI(players);
-        waitForUserButtonPress("Welcome to The Quest for Kolding. Press start to begin!", "Start");
     }
-½
 
     public boolean playRound() {
         // Wait for player to press "Roll"
