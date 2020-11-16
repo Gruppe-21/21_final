@@ -1,5 +1,6 @@
 package com.gruppe21.game.board.squares;
 
+import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.player.Player;
 
 public class ChanceSquare extends Square {
@@ -13,7 +14,9 @@ public class ChanceSquare extends Square {
         super.handleLandOn(player);
     }
 
-    public ChangeCard drawCard() {
-        // Fix kode her
+    public void ChanceCard drawCard(Deck deck) {
+        this.deck = deck;
+        card = deck.draw();
+        return card;
     }
 }

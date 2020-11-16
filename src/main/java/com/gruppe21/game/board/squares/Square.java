@@ -7,7 +7,7 @@ import java.awt.Color;
         Opretter en basic Square
  */
 
-public class Square {
+public abstract class Square {
     private String name;
     private String description;
 
@@ -17,7 +17,6 @@ public class Square {
     }
 
     public void handleLandOn(Player player){
-        // Lav metoden færdig
     }
 
     public void setDescription(String description) {

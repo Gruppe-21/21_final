@@ -26,7 +26,6 @@ public class PropertySquare extends Square {
     }
 
     public void setOwner(Player owner) {
-        // Fix kode her, hvor bliver owner initialiseret? Kig på designklassediagram
         this.owner = owner;
     }
 
@@ -43,7 +42,9 @@ public class PropertySquare extends Square {
     }
 
     public Boolean buy(Player player) {
-        // Fix kode her
-        return true; //boolean;
+        if (getOwner() != player && getOwner() == player){
+            return false;
+        }
+        return true;
+        }
     }
-}
