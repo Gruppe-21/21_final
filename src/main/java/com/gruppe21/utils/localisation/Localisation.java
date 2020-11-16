@@ -94,6 +94,16 @@ public class Localisation {
         return "Not defined";
     }
 
+
+    public String getStringValue(String label, String... variables) {
+        String localisedText = getStringValue(label);
+        for (int i = 0; i < variables.length; i++) {
+            localisedText.replaceFirst("�\\[(.*?)]", variables[i]);
+        }
+        return localisedText;
+    }
+
+
     public String getCurrentLocale() {
         return currentLocale;
     }
