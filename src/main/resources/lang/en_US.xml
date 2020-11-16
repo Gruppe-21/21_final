@@ -37,9 +37,12 @@
 
     <!-- chancecard desc -->
     <sentence label="jailcard">You can get out of jail for free. Keep this card if needed.</sentence>
-    <sentence label="homeworkcard">You have made all your homework! RECEIVE '2'M.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="candycard">You have eaten to much candy. PAY '2'M to the bank.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdaycard">It's your birthday! Everyone gives you '1'M</sentence> <!-- money value instead of '1'? -->
+    <sentence label="homeworkcard">You have made all your homework! RECEIVE '2'M.
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="candycard">You have eaten to much candy. PAY '2'M to the bank.
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="birthdaycard">It's your birthday! Everyone gives you '1'M
+    </sentence> <!-- money value instead of '1'? -->
     <sentence label="startcard">Move to the start square. Receive '2'M</sentence> <!-- money value instead of '2'? -->
     <sentence label="boardwalkcard">Move to BOARDWALK.</sentence>
     <sentence label="moveuptocard">Move UP TO 5 squares forward.</sentence>
@@ -47,16 +50,17 @@
 
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Please specify the number of players</sentence>
-    <sentence label="requestPlayerName">"Please write your name, Player �[playerNumber] (Leave empty for a random name)"</sentence> <!--" (Leave empty for a random name)" -->
+    <sentence label="requestPlayerName">"Please write your name, Player �[playerNumber] (Leave empty for a random
+        name)"
+    </sentence> <!--" (Leave empty for a random name)" -->
     <sentence label="requestPlayerAge">Please write your age, [PlayerName]</sentence>
-
 
 
     <!-- Error messages -->
     <sentence label="unknownError">An unknown error has occurred.</sentence>
-    <sentence label="invaildNumberOfPlayers">Must be a number between �[MIN_NUMBER_PLAYERS] and �[MAX_NUMBER_PLAYERS].</sentence>
+    <sentence label="invalidNumberOfPlayers">Must be a number between �[MIN_NUMBER_PLAYERS] and �[MAX_NUMBER_PLAYERS].
+    </sentence>
     <sentence label="invaildName">Invalid name</sentence>
-
 
 
 </locale>

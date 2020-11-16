@@ -7,8 +7,8 @@ package com.gruppe21.game;
 // Add AI controlled players
 
 import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.game.board.SquareType;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIWrapper;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
@@ -97,19 +97,18 @@ public class Game {
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
         this.dice = dice;
-        if (players != null){
+        if (players != null) {
             this.players = players;
-        }
-        else{
-            while (true){
+        } else {
+            while (true) {
                 String numPlayers = waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
                 try {
                     int numberOfPlayers = Integer.parseInt(numPlayers.trim());
                     if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
                         throw new Exception("Invalid number of players");
                     players = new Player[numberOfPlayers];
-                } catch (Exception e){
-                    waitForUserAcknowledgement(localisation.getStringValue("invaildNumberOfPlayers", ));
+                } catch (Exception e) {
+                    waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
                     continue;
                 }
                 break;
@@ -122,7 +121,7 @@ public class Game {
 
             while (players[i].getName().isEmpty()) {
                 try {
-                    String providedPlayerName = waitForUserTextInput(localisation.getStringValue("requestPlayerName", (i+1) ));
+                    String providedPlayerName = waitForUserTextInput(localisation.getStringValue("requestPlayerName", " " + (i + 1)));
                     if (providedPlayerName == null) {
                         //It should not be possible to get here
                         throw new Exception("providedPlayerName is null");
@@ -237,7 +236,6 @@ public class Game {
         if (isTest) return;
         guiWrapper.updatePlayerBalance(playerindex, newBalance);
     }
-
 
 
     public void waitForUserAcknowledgement(String message) {
