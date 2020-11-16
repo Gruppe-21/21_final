@@ -129,7 +129,7 @@ public class Game {
 
             while (players[i].getName().isEmpty()) {
                 try {
-                    String providedPlayerName = waitForUserTextInput(localisation.getStringValue("requestPlayerName", " " + (i + 1)));
+                    String providedPlayerName = waitForUserTextInput(localisation.getStringValue("requestPlayerName", Integer.toString(i + 1)));
                     if (providedPlayerName == null) {
                         //It should not be possible to get here
                         throw new Exception("providedPlayerName is null");
@@ -139,7 +139,7 @@ public class Game {
                         providedPlayerName = RandomNameGenerator.GetNameDifferentFrom(players);
 
                     if (!players[i].setName(providedPlayerName.trim()) || players[i].getName().isEmpty())
-                        waitForUserAcknowledgement(localisation.getStringValue(""));
+                        waitForUserAcknowledgement(localisation.getStringValue("invalidName"));
                 } catch (Exception e) {
                     waitForUserAcknowledgement(localisation.getStringValue("unknownError"));
                 }

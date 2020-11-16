@@ -60,7 +60,7 @@
     <sentence label="unknownError">An unknown error has occurred.</sentence>
     <sentence label="invalidNumberOfPlayers">Must be a number between �[MIN_NUMBER_PLAYERS] and �[MAX_NUMBER_PLAYERS].
     </sentence>
-    <sentence label="invaildName">Invalid name</sentence>
+    <sentence label="invalidName">Invalid name</sentence>
 
 
 </locale>
