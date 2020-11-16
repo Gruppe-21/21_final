@@ -57,18 +57,28 @@ public class GUIWrapper {
         GUI_Player guiPlayer = new GUI_Player(player.getName());
         guiPlayer.setBalance(player.getBankBalance().getBalance());
         guiPlayer.getCar().setPrimaryColor(color);
+        player.setGUI_Player(guiPlayer);
         gui.addPlayer(guiPlayer);
         players.add(guiPlayer);
     }
 
-    public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareIndex) {
-        GUI_Player player = getPlayer(playerIndex);
-        if (player != null) {
-            fields.get(currentSquareIndex + 1).setCar(player, false);
-            fields.get(nextSquareIndex + 1).setCar(player, true);
+    public void movePlayer(Player player, int nextSquareIndex) {
+        GUI_Player guiPlayer = player.getGUIPlayer();
+        if (guiPlayer != null) {
+            fields.get(player.getCurrentSquareIndex() + 1).setCar(guiPlayer, false);
+            fields.get(nextSquareIndex + 1).setCar(guiPlayer, true);
         }
     }
 
+    /*
+        public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareIndex) {
+            GUI_Player player = getPlayer(playerIndex);
+            if (player != null) {
+                fields.get(currentSquareIndex + 1).setCar(player, false);
+                fields.get(nextSquareIndex + 1).setCar(player, true);
+            }
+        }
+    */
     public void close() {
         if (gui != null)
             gui.close();

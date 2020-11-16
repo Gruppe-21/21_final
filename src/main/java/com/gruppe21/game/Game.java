@@ -12,10 +12,12 @@ package com.gruppe21.game;
 //Todo:
 // Create chance cards/deck in initGame
 
+//Todo:
+// rename getSquareAtNumber to getSquareAtIndex
+
 import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.SquareType;
 import com.gruppe21.game.board.squares.Square;
-import com.gruppe21.gui.GUIWrapper;
+import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.stringutils.RandomNameGenerator;
@@ -31,7 +33,7 @@ public class Game {
     private final char MAX_PLAYERS = 4;
 
     private Localisation localisation;
-    private GUIWrapper guiWrapper;
+    private GUIManager guiManager;
     private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
     private Color[] availableColors = colors.clone();
     private boolean isTest;
@@ -56,10 +58,6 @@ public class Game {
 
     public Game(Player[] players, Die[] dice, boolean isTest) {
         initGame(players, dice, isTest);
-    }
-
-    public GUIWrapper getGuiWrapper() {
-        return guiWrapper;
     }
 
     public Board getBoard() {
@@ -87,6 +85,7 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
+        guiManager = GUIManager.getInstance();
         localisation = Localisation.getInstance();
         //Todo: Deal with exceptions
         try {
@@ -108,14 +107,14 @@ public class Game {
         } else {
             int numberOfPlayers;
             while (true) {
-                String inputString = waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
+                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
                 try {
                     numberOfPlayers = Integer.parseInt(inputString.trim());
                     if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
                         throw new Exception("Invalid number of players");
                     players = new Player[numberOfPlayers];
                 } catch (Exception e) {
-                    waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
+                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
                     continue;
                 }
                 break;
@@ -129,7 +128,7 @@ public class Game {
 
             while (players[i].getName().isEmpty()) {
                 try {
-                    String providedPlayerName = waitForUserTextInput(localisation.getStringValue("requestPlayerName", Integer.toString(i + 1)));
+                    String providedPlayerName = guiManager.waitForUserTextInput(localisation.getStringValue("requestPlayerName", Integer.toString(i + 1)));
                     if (providedPlayerName == null) {
                         //It should not be possible to get here
                         throw new Exception("providedPlayerName is null");
@@ -139,9 +138,9 @@ public class Game {
                         providedPlayerName = RandomNameGenerator.GetNameDifferentFrom(players);
 
                     if (!players[i].setName(providedPlayerName.trim()) || players[i].getName().isEmpty())
-                        waitForUserAcknowledgement(localisation.getStringValue("invalidName"));
+                        guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidName"));
                 } catch (Exception e) {
-                    waitForUserAcknowledgement(localisation.getStringValue("unknownError"));
+                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("unknownError"));
                 }
             }
 
@@ -151,25 +150,26 @@ public class Game {
 
     public boolean playRound() {
         // Wait for player to press "Roll"
-        waitForUserButtonPress(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn!", "Roll");
+        //Todo: player.getPossessive instead
+        String playerNamePossessive = players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s");
+        guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", playerNamePossessive), localisation.getStringValue("rollButton"));
         setGUIDice(dice);
 
         // Gets the sum of the random values that was set before round was started.
+        //Not necessary for Monopoly Jr.
         int sum = 0;
         for (Die die : dice) {
             sum += die.getValue();
         }
         movePlayer(currentPlayer, board.getSquareAtNumber(sum));
 
-        Square squareLandedOn = board.getSquareAtNumber(sum);
-        waitForUserAcknowledgement(squareLandedOn.handleEvent(players[currentPlayer]));
+
+        guiManager.waitForUserAcknowledgement(squareLandedOn.handleLandOn(players[currentPlayer]));
         setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
-        if (squareLandedOn.getSquareType() != SquareType.ExtraTurn) {
-            currentPlayer = nextPlayer();
-        }
+
         return false;
     }
 
@@ -180,28 +180,22 @@ public class Game {
             }
         } while (!playRound());
         Player winner = players[currentPlayer];
-        waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
+        guiManager.waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
         closeGUI();
     }
 
     public void movePlayer(int playerIndex, Square square) {
+        Player player = players[playerIndex];
         int squareIndex = board.getSquareIndex(square);
-
-        if (!isTest) guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex);
-
-        players[playerIndex].setCurrentSquareIndex(squareIndex);
+        guiManager.movePlayer(player, squareIndex);
+        player.setCurrentSquareIndex(squareIndex);
+        board.getSquareAtNumber(squareIndex).handleLandOn(player);
     }
 
     private int nextPlayer() {
         return (currentPlayer + 1) % players.length;
     }
 
-
-    private void initGUI() {
-        if (isTest) return;
-        guiWrapper = new GUIWrapper();
-        guiWrapper.reloadGUI(board.getSquares());
-    }
 
     private void closeGUI() {
         if (guiWrapper != null) guiWrapper.close();
@@ -239,22 +233,6 @@ public class Game {
     public void setGUIPlayerBalance(int playerindex, int newBalance) {
         if (isTest) return;
         guiWrapper.updatePlayerBalance(playerindex, newBalance);
-    }
-
-
-    public void waitForUserAcknowledgement(String message) {
-        if (isTest) return;
-        guiWrapper.showMessage(message);
-    }
-
-    public void waitForUserButtonPress(String message, String buttonText) {
-        if (isTest) return;
-        guiWrapper.getButtonPress(message, buttonText);
-    }
-
-    public String waitForUserTextInput(String message) {
-        if (isTest) return null;
-        return guiWrapper.getStringInput(message);
     }
 
 
