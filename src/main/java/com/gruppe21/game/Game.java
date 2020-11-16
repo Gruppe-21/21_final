@@ -180,9 +180,7 @@ public class Game {
             }
         } while (!playRound());
         Player winner = players[currentPlayer];
-        waitForUserAcknowledgement(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
-                + " and won the game");
-        waitForUserButtonPress("The game will now close.", "That's fine'");
+        waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
         closeGUI();
     }
 

@@ -61,6 +61,8 @@
     <sentence label="invalidNumberOfPlayers">Must be a number between �[MIN_NUMBER_PLAYERS] and �[MAX_NUMBER_PLAYERS].
     </sentence>
     <sentence label="invalidName">Invalid name</sentence>
+    <sentence label="winningMessage">�[PLAYER_BANKRUPT] has gone bankrupt leaving �[WINNING_PLAYER] as the winner.
+    </sentence>
 
 
 </locale>
