@@ -15,10 +15,14 @@ package com.gruppe21.game;
 //Todo:
 // rename getSquareAtNumber to getSquareAtIndex
 
-//Todo: 
+//Todo:
 // sprøg om spillernes brik
 
+//Todo:
+// Tjek om spilleren er i fængsel
+
 import com.gruppe21.game.board.Board;
+import com.gruppe21.game.board.squares.GoToPrisonSquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
@@ -154,8 +158,8 @@ public class Game {
         }
         movePlayer(currentPlayer, board.getSquareAtNumber(sum));
         guiManager.setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
-        if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
-            return true;
+        for (Player player : players) {
+            if (player.isBankrupt) return true;
         }
 
         return false;
@@ -168,6 +172,7 @@ public class Game {
             }
         } while (!playRound());
         Player winner = players[currentPlayer];
+        //TODO Fix loser
         guiManager.waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
         guiManager.closeGUI();
     }
@@ -175,6 +180,8 @@ public class Game {
     public void movePlayer(int playerIndex, Square square) {
         Player player = players[playerIndex];
         int squareIndex = board.getSquareIndex(square);
+        if (player.getCurrentSquareIndex() > squareIndex || player.getCurrentSquareIndex() != 0 && square.getClass() != GoToPrisonSquare.class)
+            board.getSquareAtNumber(0).handleLandOn(player);
         guiManager.movePlayer(player, squareIndex);
         player.setCurrentSquareIndex(squareIndex);
         board.getSquareAtNumber(squareIndex).handleLandOn(player);

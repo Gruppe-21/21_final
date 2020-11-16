@@ -28,7 +28,7 @@ public class BoardLoader {
         NodeList cardNodes = XMLUtil.getNodeListFromTag(document, "cards");
 
         ArrayList<Square> squares = getSquaresFromNodeList(boardNodes);
-        ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
+        //ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
 
         return squares;
     }
@@ -79,7 +79,7 @@ public class BoardLoader {
                 int price = parseInt(tag.getAttribute("price"));
                 Color color = Color.getColor(tag.getAttribute("color"));
                 String description = localisation.getStringValue("word1"); //Add actual description
-                squares.add(new PropertySquare(name,description, price, color));
+                squares.add(new PropertySquare(name, description, price, color));
                 break;
 
             case "ChanceSquare":
@@ -91,7 +91,7 @@ public class BoardLoader {
             case "FreeParkingSquare":
                 // Add square
                 String name2 = tag.getAttribute("label");
-                squares.add(new FreeParkingSquare(name2,  ""));
+                squares.add(new FreeParkingSquare(name2, ""));
                 break;
 
             case "GoToPrisonSquare":
@@ -122,31 +122,31 @@ public class BoardLoader {
                 break;
             case "homeworkcard":
                 // Add card
-                chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.",+2,false,true,false));
+                chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.", +2, false, true, false));
                 break;
             case "candycard":
                 // Add card
-                chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.",-2,true,false,false));
+                chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.", -2, true, false, false));
                 break;
             case "birthdaycard":
                 // Add card
-                chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#",+1,false,false,false));
+                chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#", +1, false, false, false));
                 break;
             case "startcard":
                 // Add card
-                chanceCards.add(new ChanceCardStart("Move to the start area. Receive 2#",+2));
+                chanceCards.add(new ChanceCardStart("Move to the start area. Receive 2#", +2));
                 break;
             case "boardwalkcard":
                 // Add card
-                chanceCards.add(new ChanceCardMove("Move to Strandpromenaden.", 23,false,false,false,false));
+                chanceCards.add(new ChanceCardMove("Move to Strandpromenaden.", 23, false, false, false, false));
                 break;
             case "moveuptocard":
                 // Add card
-                chanceCards.add(new ChanceCardMove("Move UP TO 5 squares forward.",0,false,false,true,false));
+                chanceCards.add(new ChanceCardMove("Move UP TO 5 squares forward.", 0, false, false, true, false));
                 break;
             case "cardOrmovecard":
                 // Add card
-                chanceCards.add(new ChanceCardMove("Move 1 square forward, OR take another chance card",0,true,false,false,false));
+                chanceCards.add(new ChanceCardMove("Move 1 square forward, OR take another chance card", 0, true, false, false, false));
                 break;
             default:
                 break;
