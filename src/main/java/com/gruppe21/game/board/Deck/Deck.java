@@ -27,15 +27,20 @@ public class Deck {
 
     }
 
-    public void shuffle()
-    {for(int i = 1; i < cards.size(); i++) {
-        int rand_int = rand.nextInt(6);
-        ChanceCard temp;
-        temp = cards.get(i);
-        cards.get(i) = cards.get(rand_int);
-        cards.get(rand_int) = temp;
+    public void shuffle() {
+        for(int i = 1; i < cards.size(); i++) {
+            int rand_int = rand.nextInt(6);
+            ChanceCard temp;
+            temp = cards.get(i);
+            cards.set(i, cards.get(rand_int));
+            cards.set(rand_int, temp);
 
-        return;
+            return;
+        }
+    }
+
+    public void drawCard(){
+        cards.get(0);
     }
 }
 

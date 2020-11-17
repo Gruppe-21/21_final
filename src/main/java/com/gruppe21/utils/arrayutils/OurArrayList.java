@@ -49,6 +49,10 @@ public class OurArrayList<T> {
         }
     }
 
+    public void set(int index, T object){
+        array[index] = object;
+    }
+
     public int size() {
         return elementsInArray;
     }
