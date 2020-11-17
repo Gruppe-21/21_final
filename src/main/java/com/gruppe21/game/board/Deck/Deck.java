@@ -34,6 +34,8 @@ public class Deck {
         temp = cards.get(i);
         cards.get(i) = cards.get(rand_int);
         cards.get(rand_int) = temp;
+
+        return;
     }
 }
 
