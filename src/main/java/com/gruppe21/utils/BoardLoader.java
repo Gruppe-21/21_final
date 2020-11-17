@@ -1,6 +1,8 @@
 package com.gruppe21.utils;
 
+import com.gruppe21.game.board.chancecard.*;
 import com.gruppe21.game.board.squares.*;
+import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
@@ -12,7 +14,6 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
@@ -22,19 +23,22 @@ import static java.lang.Integer.parseInt;
  */
 public class BoardLoader {
 
-    public static ArrayList<Square> loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
+    public static OurArrayList<Square> loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument("/boards/" + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, "board");
-        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, "cards");
 
-        ArrayList<Square> squares = getSquaresFromNodeList(boardNodes);
-        //ArrayList<ChanceCard> chanceCards = getCardsFromNodeList(boardNodes);
-
-        return squares;
+        return getSquaresFromNodeList(boardNodes);
     }
 
-    private static ArrayList<Square> getSquaresFromNodeList(NodeList boardNodes) {
-        ArrayList<Square> squares = new ArrayList<Square>();
+    public static OurArrayList<ChanceCard> loadCards(String fileName) throws ParserConfigurationException, IOException, SAXException {
+        Document document = XMLUtil.getXMLDocument("/cards/" + fileName);
+        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, "cards");
+
+        return getCardsFromNodeList(cardNodes);
+    }
+
+    private static OurArrayList<Square> getSquaresFromNodeList(NodeList boardNodes) {
+        OurArrayList<Square> squares = new OurArrayList<Square>();
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node node = boardNodes.item(i);
@@ -49,8 +53,8 @@ public class BoardLoader {
     }
 
     //TODO SKAL ÆNDRES TIL TYPEN CHANCECARD NÅR DET ER IMPLEMENTERET
-    private static ArrayList<ChanceCard> getCardsFromNodeList(NodeList boardNodes) {
-        ArrayList<ChanceCard> chanceCards = new ArrayList<ChanceCard>();
+    private static OurArrayList<ChanceCard> getCardsFromNodeList(NodeList boardNodes) {
+        OurArrayList<ChanceCard> chanceCards = new OurArrayList<ChanceCard>();
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node nNode = boardNodes.item(i);
@@ -63,14 +67,14 @@ public class BoardLoader {
         return chanceCards;
     }
 
-    private static void addXMLSquareToArrayList(ArrayList<Square> squares, Element tag) {
+    private static void addXMLSquareToArrayList(OurArrayList<Square> squares, Element tag) {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
         switch (elementName) {
             case "StartSquare":
                 // Add square
-                squares.add(new StartSquare("GO!", "");
+                squares.add(new StartSquare("GO!", ""));
                 break;
 
             case "PropertySquare":
@@ -97,13 +101,13 @@ public class BoardLoader {
             case "GoToPrisonSquare":
                 // Add square
                 String name3 = tag.getAttribute("label");
-                squares.add(new GoToPrisonSquare(name3, "");
+                squares.add(new GoToPrisonSquare(name3, ""));
                 break;
 
             case "PrisonSquare":
                 // Add square
                 String name4 = tag.getAttribute("label");
-                squares.add(new PrisonSquare(name4, "");
+                squares.add(new PrisonSquare(name4, ""));
                 break;
 
             default:
@@ -113,7 +117,7 @@ public class BoardLoader {
     }
 
     // Make labels?
-    private static void addXMLChanceCardToArrayList(ArrayList<ChanceCard> chanceCards, Element tag) {
+    private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
         switch (elementName) {
             case "jailcard":
