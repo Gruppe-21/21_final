@@ -87,4 +87,6 @@ public class OurArrayList<T> {
     }
 
 
+    public void removeIndex(int i) {
+    }
 }

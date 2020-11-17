@@ -27,7 +27,7 @@ public class Deck {
 
     }
 
-    public void shuffle() {
+    public void shuffleDeck() {
         for(int i = 1; i < cards.size(); i++) {
             int rand_int = rand.nextInt(6);
             ChanceCard temp;
@@ -39,8 +39,23 @@ public class Deck {
         }
     }
 
-    public void drawCard(){
-        cards.get(0);
+    /**
+     * Trækker øverste kort, og lægger det nederst i bunken.
+     * Skal måske modificeres så folk kan beholde deres kort
+     * @return
+     */
+
+    public ChanceCard drawCard(ChanceCard chance){
+         ChanceCard Chance = cards.get(1);
+         cards.removeIndex(1);
+         cards.add(Chance);
+
+         return Chance;
+    }
+
+    public ChanceCard returnCard(ChanceCard Return){
+
+
     }
 }
 
