@@ -12,8 +12,11 @@ public class OurArrayList<T> {
 
     public OurArrayList(int n) {
         if (n <= 0) {
-            System.out.println("The size must be greater than 0. Try again.");
-            return;
+            try {
+                throw new Exception("Array can't have a size less than 0");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         array = new Object[n];
         elementsInArray = 0;
