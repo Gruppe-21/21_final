@@ -1,27 +1,31 @@
-<locale lang="da_DK" name="Dansk">
-    <sentence label="word1">Dette er en sætning.</sentence>
-    <sentence label="go">START</sentence>
-    <sentence label="burgerjoint">BURGERBAREN</sentence>
-    <sentence label="pizzeria">PIZZARIAET</sentence>
-    <sentence label="candystore">SLIKBUTIKKEN</sentence>
-    <sentence label="icecreamparlor">ISKIOSKEN</sentence>
-    <sentence label="museum">MUSEET</sentence>
-    <sentence label="library">BIBLIOTEKET</sentence>
-    <sentence label="skatepark">SKATERPARKEN</sentence>
-    <sentence label="swimmingpool">SWIMMINGPOOLEN</sentence>
-    <sentence label="arcade">SPILLEHALLEN</sentence>
-    <sentence label="cinema">BIOGRAFEN</sentence>
-    <sentence label="toystore">LEGETØJSBUTIKKEN</sentence>
-    <sentence label="petstore">DYREHANDLEN</sentence>
-    <sentence label="bowlingalley">BOWLINGHALLEN</sentence>
-    <sentence label="zoo">ZOO</sentence>
-    <sentence label="waterpark">VANDLANDET</sentence>
-    <sentence label="boardwalk">STRANDPROMENADEN</sentence>
-    <sentence label="gotoprison">GÅ I FÆNGSEL</sentence>
-    <sentence label="prison">I FÆNGSEL / PÅ BESØG</sentence>
-    <sentence label="chance">CHANCE</sentence>
-    <sentence label="freeparking">GRATIS PARKERING</sentence>
+<?xml version="1.0" encoding="utf-8" ?>
+<locale lang="es" name="Español">
+    <sentence label="word1">Esto es una frase.</sentence>
 
+    <!-- squares -->
+    <sentence label="go">EMPEZAR</sentence>
+    <sentence label="burgerjoint">BAR DE HAMBURGESAS</sentence>
+    <sentence label="pizzeria">PIZZERIA</sentence>
+    <sentence label="candystore">TIENDA DE DULCES</sentence>
+    <sentence label="icecreamparlor">KIOSKO DE HELADOS</sentence>
+    <sentence label="museum">MUSEO</sentence>
+    <sentence label="library">BIBLIOTECA</sentence>
+    <sentence label="skatepark">SKATE TIPARK</sentence>
+    <sentence label="swimmingpool">PISCINA</sentence>
+    <sentence label="arcade">SALON DE JUEGOS</sentence>
+    <sentence label="cinema">CINE</sentence>
+    <sentence label="toystore">TIENDA DE JUGETES</sentence>
+    <sentence label="petstore">TIENDA DE ANIMALES</sentence>
+    <sentence label="bowlingalley">BOLERA</sentence>
+    <sentence label="zoo">ZOO</sentence>
+    <sentence label="parkplace">PARQUE DE AQUA</sentence>
+    <sentence label="boardwalk">PASEO MARITIMO</sentence>
+    <sentence label="gotoprison">IR A LA CARCEL</sentence>
+    <sentence label="prison">CARCEL/VISITAR LA CARCEL</sentence>
+    <sentence label="chance">OPPURTUNIDAD</sentence>
+    <sentence label="freeparking">ESTACIONAMIENTO GRATIS</sentence>
+
+    <!--NEDENSTÅENDE SKAL OVERSÆTTES-->
     <!-- chancecard buttons -->
     <sentence label="moveButton">Ryk</sentence>
     <sentence label="moveButton1">1</sentence>
