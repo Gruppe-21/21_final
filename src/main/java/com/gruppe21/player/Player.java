@@ -22,7 +22,7 @@ public class Player {
     private int currentSquareIndex;
 
     public Player() {
-        bankBalance = new BankBalance();
+        bankBalance = new BankBalance(this);
         currentSquareIndex = 0;
         prisonStatus = false;
     }
