@@ -26,8 +26,7 @@ public class GoToPrisonSquare extends Square {
         if(prisonSquare != null){
             game.teleportPlayer(player, prisonSquare);
             player.prisonStatus = true;
-            String text = Localisation.getInstance().getStringValue("gotoprisondesc");
-            GUIManager.getInstance().waitForUserAcknowledgement(text);
+
         }
 
     }
