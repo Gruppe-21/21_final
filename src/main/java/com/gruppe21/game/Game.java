@@ -4,7 +4,6 @@ package com.gruppe21.game;
 
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.Deck.Deck;
-import com.gruppe21.game.board.squares.GoToPrisonSquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
