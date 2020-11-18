@@ -2,6 +2,9 @@
 <locale lang="en_US" name="English">
     <sentence label="word1">This is a sentence.</sentence>
 
+    <!-- regex --> <!-- this shouldn't be used, as translators proberbly don't know how, but that is a problem for another time -->
+
+
     <!-- squares -->
     <sentence label="go">GO</sentence>
     <sentence label="burgerjoint">BURGER JOINT</sentence>
