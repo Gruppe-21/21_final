@@ -11,7 +11,7 @@ public class OurArrayList<T> {
     }
 
     public T[] toArray(){
-        return (T[]) array;
+        return (T[]) array.clone();
     }
     public OurArrayList(int n) {
         if (n <= 0) {
