@@ -10,6 +10,9 @@ public class OurArrayList<T> {
         this(10);
     }
 
+    public T[] toArray(){
+        return (T[]) array;
+    }
     public OurArrayList(int n) {
         if (n <= 0) {
             try {
@@ -49,6 +52,14 @@ public class OurArrayList<T> {
         }
     }
 
+    public void removeIndex(int index){
+            if(array[index] != null){
+                elementsInArray--;
+                array[index] = null;
+                copyArray(0);
+            }
+    }
+
     public void set(int index, T object){
         array[index] = object;
     }
@@ -67,7 +78,6 @@ public class OurArrayList<T> {
 
         int tempElement = 0;
 
-        // Invariants: 0 <= i < arrayList.length && 0 <= tempElement < arrayList.length
         for (int i = 0; i < array.length; i++, tempElement++) {
             if (array[i] == null) {
                 tempElement--;
@@ -86,7 +96,17 @@ public class OurArrayList<T> {
         return array.length == elementsInArray;
     }
 
-
-    public void removeIndex(int i) {
+// Finds the index of an object in the array. if gets a null, then return first null index, else return index of first instance of the object in array.
+    public int indexOf(T object) {
+        if (object == null) {
+            for (int i = 0; i < size(); i++)
+                if (array[i]==null)
+                    return i;
+        } else {
+            for (int i = 0; i < size(); i++)
+                if (object.equals(array[i]))
+                    return i;
+        }
+        return -1;
     }
 }
