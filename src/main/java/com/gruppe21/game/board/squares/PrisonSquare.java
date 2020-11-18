@@ -12,6 +12,7 @@ public class PrisonSquare extends Square {
     @Override
     public void handleLandOn(Player player, Game game) {
         super.handleLandOn(player, game);
-        board.get
+
+
     }
 }
