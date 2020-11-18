@@ -12,8 +12,5 @@ public class FreeParkingSquare extends Square {
     @Override
     public void handleLandOn(Player player, Game game) {
         super.handleLandOn(player, game);
-
-
-
     }
 }
