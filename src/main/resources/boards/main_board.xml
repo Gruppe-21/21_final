@@ -2,8 +2,8 @@
 <board>
     <StartSquare label="go"/>
 
-    <PropertySquare label="burgerjoint" description="burgerjointdesc" price="1" color="weird-green"/>
-    <PropertySquare label="pizzeria" description="pizzeriadesc" price="1" color="weird-green"/>
+    <PropertySquare label="burgerjoint" description="burgerjointdesc" price="1" color="magenta"/>
+    <PropertySquare label="pizzeria" description="pizzeriadesc" price="1" color="magenta"/>
     <ChanceSquare/>
     <PropertySquare label="candystore" description="candystoredesc" price="1" color="cyan"/>
     <PropertySquare label="icecreamparlor" description="icecreamparlordesc" price="1" color="cyan"/>

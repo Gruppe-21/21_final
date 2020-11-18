@@ -1,5 +1,6 @@
 package com.gruppe21.gui;
 
+import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.arrayutils.OurArrayList;
@@ -31,7 +32,15 @@ public class GUIWrapper {
             field.setTitle(square.getName());
             field.setSubText("");
             field.setDescription(square.getDescription());
+            if(square.getClass() == PropertySquare.class)
+            {
+                field.setBackGroundColor(((PropertySquare)square).getColor());
+            }else {
+                field.setBackGroundColor((Color.WHITE));
+            }
+
             fields.add(field);
+
         }
     }
 

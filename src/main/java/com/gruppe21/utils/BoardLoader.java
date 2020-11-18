@@ -81,7 +81,7 @@ public class BoardLoader {
                 // Add square
                 String name = tag.getAttribute("label");
                 int price = parseInt(tag.getAttribute("price"));
-                Color color = Color.getColor(tag.getAttribute("color"));
+                Color color = ColorUtil.getColor(tag.getAttribute("color"));
                 String description = tag.getAttribute("description"); //Add actual description
                 squares.add(new PropertySquare(name, description, price, color));
                 break;
