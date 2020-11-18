@@ -60,17 +60,14 @@ public class Player {
     }
 
     // Sets the player's owned properties
-    public boolean setProperties(String[] ownedProperties) {
-        ownedProperties = new String[]{};
+    public void setProperties(String[] ownedProperties) {
         this.ownedProperties = ownedProperties;
-        return true;
     }
 
     // Sets the player's currently owned cards
     public void setCards(String[] ownedCards) {
         ownedCards = new String[]{};
         this.ownedCards = ownedCards;
-        return true;
     }
 
     // Sets the player's name
