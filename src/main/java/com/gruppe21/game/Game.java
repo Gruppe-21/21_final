@@ -27,21 +27,24 @@ public class Game {
     private int currentPlayer;
     private Die[] dice;
 
+    public Game(Player[] players, Die[] dice, boolean isTest) {
+        if (players == null && isTest){}//Todo: Should throw error
+        initGame(players, dice, isTest);
+    }
+
     public Game() {
-        initGame(null, new Die[]{new Die(), new Die()}, false);
+        this(null, new Die[]{new Die(), new Die()}, false);
     }
 
     public Game(Player[] players) {
-        initGame(players, new Die[]{new Die(), new Die()}, false);
+        this(players, new Die[]{new Die(), new Die()}, false);
     }
 
     public Game(Player[] players, Die[] dice) {
-        initGame(players, dice, false);
+        this(players, dice, false);
     }
 
-    public Game(Player[] players, Die[] dice, boolean isTest) {
-        initGame(players, dice, isTest);
-    }
+
 
 
     public Board getBoard() {
