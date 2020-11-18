@@ -114,15 +114,15 @@ public class Player {
         this.guiPlayer = guiPlayer;
     }
 
-    public boolean isBankrupt(){
+    public boolean isBankrupt(int price){
+
         int totalValue = getBankBalance().getBalance();
 
         for (PropertySquare ownedProperty : ownedProperties) {
             totalValue += ownedProperty.getPrice();
         }
 
-
-
+        return price > totalValue;
     }
 }
 
