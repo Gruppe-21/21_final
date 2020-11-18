@@ -11,7 +11,7 @@ import com.gruppe21.player.Player;
 public abstract class Square {
     private String name;
     private String description;
-    private Board board;
+    protected Board board;
 
     public Square(String name, String description) {
         this.name = name;

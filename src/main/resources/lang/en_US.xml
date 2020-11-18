@@ -60,7 +60,7 @@
     <sentence label="moveButton5">5</sentence>
 
     <sentence label="takeButton">Take another card</sentence>
-
+    <sentence label="takecard">Take a chance card</sentence>
     <!-- chancecard desc -->
     <sentence label="jailcard">You can get out of jail for free. Keep this card if needed.</sentence>
     <sentence label="homeworkcard">You have made all your homework! RECEIVE '2'M.
