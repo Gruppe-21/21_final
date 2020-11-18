@@ -23,7 +23,7 @@ public class PropertySquare extends Square {
     }
 
     public void purchaseProperty(Player player, int price){
-        if (getOwner() == player || player.ownedCards.length >= Player.getMaxNumProperties()) return;
+        if (getOwner() == player || player.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
         player.getBankBalance().addBalance(-price);
         setOwner(player);
         player.addProperty(this);
