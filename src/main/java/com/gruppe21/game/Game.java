@@ -147,7 +147,6 @@ public class Game {
             sum += die.getValue();
         }
         movePlayer(currentPlayer, board.getSquareAtIndex(sum));
-        guiManager.setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         for (Player player : players) {
             if (player.isBankrupt) return true;
         }
