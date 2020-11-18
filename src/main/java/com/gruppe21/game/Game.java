@@ -175,9 +175,11 @@ public class Game {
     }
     public void movePlayer(Player player, Square square) {
         int squareIndex = board.getSquareIndex(square);
-        if (player.getCurrentSquareIndex() > squareIndex || player.getCurrentSquareIndex() != 0)
-            board.getSquareAtIndex(0).handleLandOn(player);
+        int oldPosition = player.getCurrentSquareIndex();
         teleportPlayer(player, squareIndex);
+        if (player.getCurrentSquareIndex() < oldPosition || player.getCurrentSquareIndex() != 0)
+            board.getSquareAtIndex(0).handleLandOn(player);
+        board.getSquareAtIndex(squareIndex).handleLandOn(player);
     }
 
     public void teleportPlayer(Player player, int squareIndex){
