@@ -1,6 +1,9 @@
 package com.gruppe21.player;
+import com.gruppe21.game.board.Square;
 
-import org.graalvm.compiler.nodes.PiArrayNode;
+
+//Todo: change ownedProperties to propertySquare
+//Todo: change ownedCards to chanceCard
 
 public class Player {
     private static final int MAX_NAME_LENGTH = 50;
@@ -12,7 +15,7 @@ public class Player {
     private PlayerPiece piece;            // Piece
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
-    public String[] ownedProperties;     // All owned properties of a player
+    public Square[] ownedProperties;     // All owned properties of a player
     public String[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
@@ -60,7 +63,7 @@ public class Player {
     }
 
     // Sets the player's owned properties
-    public void setProperties(String[] ownedProperties) {
+    public void setProperties(Square[] ownedProperties) {
         this.ownedProperties = ownedProperties;
     }
 
