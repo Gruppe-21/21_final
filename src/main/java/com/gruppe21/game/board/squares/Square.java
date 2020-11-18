@@ -27,8 +27,6 @@ public abstract class Square {
 
     public void handleLandOn(Player player, Game game) {
         handleLandOn(player);
-        String text = Localisation.getInstance().getStringValue(description);
-        GUIManager.getInstance().waitForUserAcknowledgement(text);
     }
 
     public String getDescription() {
