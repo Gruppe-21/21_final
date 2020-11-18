@@ -1,19 +1,21 @@
 package com.gruppe21.player;
 
+import org.graalvm.compiler.nodes.PiArrayNode;
+
 public class Player {
     private static final int MAX_NAME_LENGTH = 50;
+    private static final String[] PLAYER_PIECES_TEXT = {"\uD83D\uDC15", "\uD83D\uDC08", "\uD83D\uDE97", "\uD83D\uDEA2"};
 
     private String name = "";            // The player's name
     private BankBalance bankBalance;        // The player's bank balance
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
-    private String[] piece;            // Piece color
+    private PlayerPiece piece;            // Piece
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
     public String[] ownedProperties;     // All owned properties of a player
     public String[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
-
     public Player(String name) {
         setName(name);
         setPiece(piece);
@@ -53,10 +55,8 @@ public class Player {
     }
 
     // Sets the player's piece
-    public boolean setPiece(String[] piece) {
-        piece = new String[]{};
+    public void setPiece(PlayerPiece piece) {
         this.piece = piece;
-        return true;
     }
 
     // Sets the player's owned properties
@@ -67,7 +67,7 @@ public class Player {
     }
 
     // Sets the player's currently owned cards
-    public boolean setCards(String[] ownedCards) {
+    public void setCards(String[] ownedCards) {
         ownedCards = new String[]{};
         this.ownedCards = ownedCards;
         return true;
@@ -104,6 +104,10 @@ public class Player {
     // examines which square the player is on
     public void setCurrentSquareIndex(int currentSquareIndex) {
         this.currentSquareIndex = currentSquareIndex;
+    }
+
+    public String getPieceAsString(){
+        return PLAYER_PIECES_TEXT[piece.ordinal()];
     }
 }
 
