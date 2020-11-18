@@ -1,10 +1,8 @@
 package com.gruppe21.player;
+import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.game.board.squares.PropertySquare;
 import gui_fields.GUI_Player;
 
-
-
-//Todo: change ownedCards to chanceCard
 
 public class Player {
     private static final int MAX_NAME_LENGTH = 50;
@@ -19,7 +17,7 @@ public class Player {
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
     public PropertySquare[] ownedProperties;     // All owned properties of a player
-    public String[] ownedCards;           // All currently owned chance cards of a player
+    public ChanceCard[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
 
@@ -61,12 +59,12 @@ public class Player {
     }
 
     // Sets the player's owned properties
-    public void setProperties(Square[] ownedProperties) {
+    public void setProperties(PropertySquare[] ownedProperties) {
         this.ownedProperties = ownedProperties;
     }
 
     // Sets the player's currently owned cards
-    public void setCards(String[] ownedCards) {
+    public void setCards(ChanceCard[] ownedCards) {
         ownedCards = new String[]{};
         this.ownedCards = ownedCards;
     }
