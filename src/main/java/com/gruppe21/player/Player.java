@@ -10,7 +10,7 @@ public class Player {
     private static final int MAX_NAME_LENGTH = 50;
     private static final String[] PLAYER_PIECES_TEXT = {"\uD83D\uDC15", "\uD83D\uDC08", "\uD83D\uDE97", "\uD83D\uDEA2"};
 
-    private GUI_Player gui_player;
+    private GUI_Player guiPlayer;
     private String name = "";            // The player's name
     private BankBalance bankBalance;        // The player's bank balance
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
@@ -104,6 +104,14 @@ public class Player {
 
     public String getPieceAsString(){
         return PLAYER_PIECES_TEXT[piece.ordinal()];
+    }
+
+    public GUI_Player getGuiPlayer() {
+        return guiPlayer;
+    }
+
+    public void setGuiPlayer(GUI_Player guiPlayer) {
+        this.guiPlayer = guiPlayer;
     }
 }
 
