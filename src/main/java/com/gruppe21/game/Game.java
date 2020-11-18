@@ -113,7 +113,6 @@ public class Game {
         }
     }
 
-    @org.jetbrains.annotations.NotNull
     private void initialisePlayerArray(Player[] players) {
         if (players == null) {
             int numberOfPlayers;
