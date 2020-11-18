@@ -13,6 +13,7 @@ public class Deck {
 
     private OurArrayList <ChanceCard> cards;
     private Random rand = new Random();
+    private ChanceCard putBack;
 
     public Deck(){
         try {
@@ -48,13 +49,14 @@ public class Deck {
     public ChanceCard drawCard(ChanceCard chance){
          ChanceCard Chance = cards.get(1);
          cards.removeIndex(1);
-         cards.add(Chance);
+         //cards.add(Chance);
 
          return Chance;
     }
 
-    public ChanceCard returnCard(ChanceCard Return){
-
+    public ChanceCard returnCard(ChanceCard PutBack){
+        this putBack = PutBack;
+        cards.add(putBack);
 
     }
 }
