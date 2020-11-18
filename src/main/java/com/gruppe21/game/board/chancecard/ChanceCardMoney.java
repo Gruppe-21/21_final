@@ -39,7 +39,7 @@ public class ChanceCardMoney extends ChanceCard {
         int modifyBalance = money; // -2M
         BankBalance playerCurrentBalance = player.getBankBalance();
 
-        game.getGuiWrapper().showMessage(description);
+        game.getGuiWrapper().showMessage(descriptionLabel);
 
         playerCurrentBalance.addBalance(modifyBalance);
     }
@@ -49,7 +49,7 @@ public class ChanceCardMoney extends ChanceCard {
         int modifyBalance = money; // +2M
         BankBalance playerCurrentBalance = player.getBankBalance();
 
-        game.getGuiWrapper().showMessage(description);
+        game.getGuiWrapper().showMessage(descriptionLabel);
 
         playerCurrentBalance.addBalance(modifyBalance);
     }
@@ -59,7 +59,7 @@ public class ChanceCardMoney extends ChanceCard {
         Player[] payingPlayersArr = new Player[players.length-1];
         int modifyBalance = money; // +1M
 
-        game.getGuiWrapper().showMessage(description);
+        game.getGuiWrapper().showMessage(descriptionLabel);
 
         // Filter out the player receiving money
         int i = 0,j = 0;
