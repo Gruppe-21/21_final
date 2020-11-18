@@ -7,12 +7,11 @@ public class Player {
     private BankBalance bankBalance;        // The player's bank balance
     //private boolean toSekserer = false;  // Checks whether or not the player played two 6
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
-    private String piece[];            // Piece color
-    private Boolean PrisonStatus = false;       // Boolean status whether Player is in prison or not
+    private String[] piece;            // Piece color
+    public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
-    private int amountDue;              // The owed amount of Player
-    public String ownedProperties;     // All owned properties of a player
-    public String ownedCards;           // All currently owned chancecards of a player
+    public String[] ownedProperties;     // All owned properties of a player
+    public String[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
 
@@ -30,10 +29,8 @@ public class Player {
     private void initPlayer() {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
+        prisonStatus = false;
 
-        if (getBankBalance()-amountDue <0) {
-            // Player loses
-        }
     }
 
     // Gets the bank balance
@@ -41,11 +38,10 @@ public class Player {
         return bankBalance;
     }
 
-    // Sets the player's point to a given int
+    // Sets the player's points to a given int
     public void setBankBalance(BankBalance bankBalance) {
         this.bankBalance = bankBalance;
     }
-
 
     //public boolean isToSekserer() {return toSekserer;}
 
@@ -56,12 +52,32 @@ public class Player {
         return name;
     }
 
+    // Gets the player's age as an integer
+    public int getAge() {
+        return age;
+    }
+
     // Sets the player's piece
     public boolean setPiece(String[] piece) {
-        String[] pieceColor = new String[]{"Black", "White", "Green", "Yellow"};
-        this.piece = pieceColor;
-    return pieceColor;
+        piece = new String[]{};
+        this.piece = piece;
+        return true;
     }
+
+    // Sets the player's owned properties
+    public boolean setProperties(String[] ownedProperties) {
+        ownedProperties = new String[]{};
+        this.ownedProperties = ownedProperties;
+        return true;
+    }
+
+    // Sets the player's currently owned cards
+    public boolean setCards(String[] ownedCards) {
+        ownedCards = new String[]{};
+        this.ownedCards = ownedCards;
+        return true;
+    }
+
     // Sets the player's name
     public boolean setName(String name) {
         if (name.length() > MAX_NAME_LENGTH) return false;
@@ -69,10 +85,16 @@ public class Player {
         nameEndsWithS = getName().toLowerCase().endsWith("s");
         return true;
     }
+
     //Sets player's age
-    public int setAge(int age) {
+    public boolean setAge(int age) {
+        if (age < 3) return false;
+        if (age < 5) {
+            // Possibility to add sout telling ages 5 or older is recommended
+            return true;
+        }
         this.age = age;
-        return age;
+        return true;
     }
 
     // Checks if the player's name ends with a "s"
