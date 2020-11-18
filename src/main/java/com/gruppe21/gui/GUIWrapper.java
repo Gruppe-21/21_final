@@ -2,6 +2,7 @@ package com.gruppe21.gui;
 
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
+import com.gruppe21.utils.arrayutils.OurArrayList;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
@@ -23,8 +24,8 @@ public class GUIWrapper {
 
     //TODO set the right values in fields
     // Add a list of squares and turn them into fields.
-    private void addSquares(List<Square> squareList) {
-        for (Square square : squareList) {
+    private void addSquares(OurArrayList<Square> squareList) {
+        for (Square square : squareList.toArray()) {
             GUI_Field field = new GUI_Street();
             field.setTitle(square.getName());
             field.setSubText("");
@@ -34,7 +35,7 @@ public class GUIWrapper {
     }
 
     // Has to be called every time new squares are added; Most likely only at the start of the game.
-    public void reloadGUI(List<Square> squareList) {
+    public void reloadGUI(OurArrayList<Square> squareList) {
         if (gui != null)
             gui.close();
 
