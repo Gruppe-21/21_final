@@ -62,6 +62,7 @@ public class Game {
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
         guiManager = GUIManager.getInstance();
+        guiManager.isTest = isTest;
         localisation = Localisation.getInstance();
         //Todo: Deal with exceptions
         try {
