@@ -168,14 +168,33 @@ public class Game {
         guiManager.closeGUI();
     }
 
+
+
     public void movePlayer(int playerIndex, Square square) {
-        Player player = players[playerIndex];
+        movePlayer(players[playerIndex], square);
+    }
+    public void movePlayer(Player player, Square square) {
         int squareIndex = board.getSquareIndex(square);
-        if (player.getCurrentSquareIndex() > squareIndex || player.getCurrentSquareIndex() != 0 && square.getClass() != GoToPrisonSquare.class)
+        if (player.getCurrentSquareIndex() > squareIndex || player.getCurrentSquareIndex() != 0)
             board.getSquareAtIndex(0).handleLandOn(player);
+        teleportPlayer(player, squareIndex);
+    }
+
+    public void teleportPlayer(Player player, int squareIndex){
         guiManager.movePlayer(player, squareIndex);
         player.setCurrentSquareIndex(squareIndex);
         board.getSquareAtIndex(squareIndex).handleLandOn(player);
+
+    }
+
+    public void teleportPlayer(Player player, Square square){
+        teleportPlayer(players[playerIndex], board.getSquareIndex(square));
+    }
+
+    private int getPlayerIndex(Player player){
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].equals(player)) return i;
+        }
     }
 
     private int nextPlayer() {
