@@ -1,5 +1,6 @@
 package com.gruppe21.game.board.squares;
 
+import com.gruppe21.game.Game;
 import com.gruppe21.game.board.Board;
 import com.gruppe21.player.Player;
 
@@ -10,14 +11,15 @@ import com.gruppe21.player.Player;
 public abstract class Square {
     private String name;
     private String description;
-    private Board board;
+    protected Board board;
 
     public Square(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public void handleLandOn(Player player) {
+    public void handleLandOn(Player player, Game game) {
+
     }
 
     public String getDescription() {
