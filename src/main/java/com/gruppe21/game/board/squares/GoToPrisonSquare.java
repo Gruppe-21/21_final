@@ -1,7 +1,9 @@
 package com.gruppe21.game.board.squares;
 
 import com.gruppe21.game.Game;
+import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
+import com.gruppe21.utils.localisation.Localisation;
 
 public class GoToPrisonSquare extends Square {
 
@@ -12,18 +14,19 @@ public class GoToPrisonSquare extends Square {
     @Override
     public void handleLandOn(Player player, Game game) {
 
-        Square gotoprisonSquare = null;
+        Square prisonSquare = null;
 
         for (Square square : board.getSquares().toArray()) {
             if(square.getClass() ==  GoToPrisonSquare.class){
-                gotoprisonSquare = square;
+                prisonSquare = square;
                 break;
             }
         }
 
-        if(gotoprisonSquare != null){
-            game.teleportPlayer(player, gotoprisonSquare);
+        if(prisonSquare != null){
+            game.teleportPlayer(player, prisonSquare);
             player.prisonStatus = true;
+
         }
 
     }

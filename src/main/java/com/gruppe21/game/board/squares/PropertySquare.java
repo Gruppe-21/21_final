@@ -1,6 +1,8 @@
 package com.gruppe21.game.board.squares;
 
+import com.gruppe21.game.Game;
 import com.gruppe21.player.Player;
+import com.gruppe21.utils.localisation.Localisation;
 
 import java.awt.*;
 
@@ -10,11 +12,19 @@ public class PropertySquare extends Square {
     private Color color;
     private Player owner = null;
 
-
     public PropertySquare(String name, String description, int price, Color color) {
         super(name, description);
         this.price = price;
         this.color = color;
+    }
+
+    @Override
+    public void handleLandOn(Player player, Game game) {
+
+    String text = Localisation.getInstance().getStringValue("buyplace", getName(), price + "");
+    //TODO: fix me
+    player.buy();
+
     }
 
     public void setColor(Color color) {

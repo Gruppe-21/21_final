@@ -2,7 +2,9 @@ package com.gruppe21.game.board.squares;
 
 import com.gruppe21.game.Game;
 import com.gruppe21.game.board.Board;
+import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
+import com.gruppe21.utils.localisation.Localisation;
 
 /*
         Opretter en basic Square
@@ -19,7 +21,8 @@ public abstract class Square {
     }
 
     public void handleLandOn(Player player, Game game) {
-
+        String text = Localisation.getInstance().getStringValue(description);
+        GUIManager.getInstance().waitForUserAcknowledgement(text);
     }
 
     public String getDescription() {

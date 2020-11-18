@@ -4,6 +4,8 @@ package com.gruppe21.game;
 
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.Deck.Deck;
+import com.gruppe21.game.board.chancecard.ChanceCard;
+import com.gruppe21.game.board.chancecard.ChanceCardGetOutOfJailFree;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
@@ -127,8 +129,15 @@ public class Game {
     }
 
     public boolean playRound() {
+        Player curPlayer = players[currentPlayer];
         // Wait for player to press "Roll"
-        guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", players[currentPlayer].getPossessiveName()), localisation.getStringValue("rollButton"));
+        if (curPlayer.prisonStatus){
+            for (ChanceCard cCard : curPlayer.ownedCards) {
+                if (cCard.getClass() == ChanceCardGetOutOfJailFree.class) cCard.use();
+                else
+            }
+        }
+        guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", curPlayer.getPossessiveName()), localisation.getStringValue("rollButton"));
         guiManager.setGUIDice(dice);
 
         // Gets the sum of the random values that was set before round was started.
