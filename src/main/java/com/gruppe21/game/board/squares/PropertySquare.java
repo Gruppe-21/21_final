@@ -18,13 +18,22 @@ public class PropertySquare extends Square {
         this.color = color;
     }
 
+    public void purchaseProperty(Player player) {
+        purchaseProperty(player, this.price);
+    }
+
+    public void purchaseProperty(Player player, int price){
+        if (getOwner() == player || player.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
+        player.getBankBalance().addBalance(-price);
+        setOwner(player);
+        player.addProperty(this);
+
+    }
+
     @Override
-    public void handleLandOn(Player player, Game game) {
-
-    String text = Localisation.getInstance().getStringValue("buyplace", getName(), price + "");
-    //TODO: fix me
-    player.buy();
-
+    public void handleLandOn(Player player) {
+    String text = Localisation.getInstance().getStringValue("buyplace", getName(), Integer.toString(price));
+    purchaseProperty(player);
     }
 
     public void setColor(Color color) {
@@ -50,11 +59,13 @@ public class PropertySquare extends Square {
     public int getPrice() {
         return price;
     }
-
+/*
     public Boolean buy(Player player) {
         if (getOwner() != player && getOwner() == player){
             return false;
         }
         return true;
         }
+
+ */
     }

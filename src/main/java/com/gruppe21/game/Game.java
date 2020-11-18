@@ -199,6 +199,7 @@ public class Game {
         for (int i = 0; i < players.length; i++) {
             if (players[i].equals(player)) return i;
         }
+        return -1;
     }
 
     private int nextPlayer() {
