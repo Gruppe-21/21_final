@@ -60,11 +60,13 @@ public class PropertySquare extends Square {
     public int getPrice() {
         return price;
     }
-
+/*
     public Boolean buy(Player player) {
         if (getOwner() != player && getOwner() == player){
             return false;
         }
         return true;
         }
+
+ */
     }
