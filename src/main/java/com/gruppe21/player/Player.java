@@ -113,5 +113,16 @@ public class Player {
     public void setGuiPlayer(GUI_Player guiPlayer) {
         this.guiPlayer = guiPlayer;
     }
+
+    public boolean isBankrupt(){
+        int totalValue = getBankBalance().getBalance();
+
+        for (PropertySquare ownedProperty : ownedProperties) {
+            totalValue += ownedProperty.getPrice();
+        }
+
+
+
+    }
 }
 
