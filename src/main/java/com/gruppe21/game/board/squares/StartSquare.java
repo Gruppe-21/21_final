@@ -1,6 +1,11 @@
 package com.gruppe21.game.board.squares;
 
+import com.gruppe21.game.Game;
+import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
+import com.gruppe21.utils.localisation.Localisation;
+
+import java.text.Format;
 
 public class StartSquare extends Square {
     private int startBonus = 2;
@@ -9,13 +14,11 @@ public class StartSquare extends Square {
         super(name, description);
     }
 
-    public void StartBonus(Player player){
-        super.handleLandOn(player);
-        player.getBankBalance().addBalance(startBonus);
-    }
-
     @Override
-    public void handleLandOn(Player player) {
-        super.handleLandOn(player);
+    public void handleLandOn(Player player, Game game) {
+        super.handleLandOn(player, game);
+        player.getBankBalance().addBalance(startBonus);
+        String message = Localisation.getInstance().getStringValue("startdesc");
+        GUIManager.getInstance().waitForUserAcknowledgement(message);
     }
 }

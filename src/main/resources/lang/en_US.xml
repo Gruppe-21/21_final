@@ -49,7 +49,7 @@
     <sentence label="prisondesc">You have come to visit in the prison. Remember to say hello to the players currently there</sentence>
     <sentence label="chancedesc">You get to draw a Chance Card</sentence>
     <sentence label="freeparkingdesc">SCORE ! You got a Free Parking Space. You can rest until it becomes your turn again</sentence>
-
+    <sentence label="startdesc">You get a start bonus!</sentence>
 
     <!-- chancecard buttons -->
     <sentence label="moveButton">Ryk</sentence>
