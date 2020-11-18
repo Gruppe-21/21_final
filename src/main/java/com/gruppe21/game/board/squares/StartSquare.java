@@ -18,7 +18,5 @@ public class StartSquare extends Square {
     public void handleLandOn(Player player, Game game) {
         super.handleLandOn(player, game);
         player.getBankBalance().addBalance(startBonus);
-        String message = Localisation.getInstance().getStringValue("startdesc");
-        GUIManager.getInstance().waitForUserAcknowledgement(message);
     }
 }

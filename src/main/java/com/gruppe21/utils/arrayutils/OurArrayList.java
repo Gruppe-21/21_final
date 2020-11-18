@@ -19,7 +19,7 @@ public class OurArrayList<T> {
                 throw new Exception("Array can't have a size less than 0");
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+                }
         }
         array = new Object[n];
         elementsInArray = 0;
