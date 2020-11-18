@@ -3,6 +3,7 @@ import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.game.board.squares.PropertySquare;
 import gui_fields.GUI_Player;
 
+//Todo: add possesiveName
 
 public class Player {
     private static final int MAX_NAME_LENGTH = 50;
@@ -10,7 +11,7 @@ public class Player {
 
     private GUI_Player guiPlayer;
     private String name = "";            // The player's name
-    private String possesiveName = "";
+    private String possesiveName = ""; //This is currently not implemented
     private BankBalance bankBalance;        // The player's bank balance
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
     private PlayerPiece piece;            // Piece
