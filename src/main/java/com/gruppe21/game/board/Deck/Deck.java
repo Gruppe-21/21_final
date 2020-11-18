@@ -13,6 +13,7 @@ public class Deck {
 
     private OurArrayList <ChanceCard> cards;
     private Random rand = new Random();
+    private ChanceCard putBack;
 
     public Deck(){
         try {
@@ -53,8 +54,9 @@ public class Deck {
          return Chance;
     }
 
-    public ChanceCard returnCard(ChanceCard Return){
-
+    public ChanceCard returnCard(ChanceCard PutBack){
+        this putBack = PutBack;
+        cards.add(putBack);
 
     }
 }
