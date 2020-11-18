@@ -115,9 +115,7 @@ public class Game {
 
     @org.jetbrains.annotations.NotNull
     private void initialisePlayerArray(Player[] players) {
-        if (players != null) {
-            this.players = players;
-        } else {
+        if (players == null) {
             int numberOfPlayers;
             while (true) {
                 String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
@@ -132,8 +130,8 @@ public class Game {
                 }
                 break;
             }
-            players = new Player[numberOfPlayers];
         }
+        this.players = players;
     }
 
     public boolean playRound() {
