@@ -23,9 +23,10 @@ public class PropertySquare extends Square {
     }
 
     public void purchaseProperty(Player player, int price){
-        if (getOwner() == player) return; //It should not be possible to get here.
+        if (getOwner() == player || player.ownedCards.length >= Player.getMaxNumProperties()) return;
         player.getBankBalance().addBalance(-price);
         setOwner(player);
+        player.addProperty(this);
 
     }
 
