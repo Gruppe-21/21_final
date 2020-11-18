@@ -1,5 +1,6 @@
 package com.gruppe21.player;
 import com.gruppe21.game.board.Square;
+import gui_fields.GUI_Player;
 
 
 //Todo: change ownedProperties to propertySquare
@@ -9,6 +10,7 @@ public class Player {
     private static final int MAX_NAME_LENGTH = 50;
     private static final String[] PLAYER_PIECES_TEXT = {"\uD83D\uDC15", "\uD83D\uDC08", "\uD83D\uDE97", "\uD83D\uDEA2"};
 
+    private GUI_Player gui_player;
     private String name = "";            // The player's name
     private BankBalance bankBalance;        // The player's bank balance
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
@@ -19,22 +21,17 @@ public class Player {
     public String[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
-    public Player(String name) {
-        setName(name);
-        setPiece(piece);
-        setAge(age);
-        initPlayer();
-    }
 
     public Player() {
-        initPlayer();
-    }
-
-    private void initPlayer() {
         bankBalance = new BankBalance();
         currentSquareIndex = 0;
         prisonStatus = false;
-
+    }
+    public Player(String name) {
+        this();
+        setName(name);
+        setPiece(piece);
+        setAge(age);
     }
 
     // Gets the bank balance
