@@ -13,7 +13,6 @@ public class Player {
     private String name = "";            // The player's name
     private String possessiveName = ""; //This is currently not implemented
     private BankBalance bankBalance;        // The player's bank balance
-    private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
     private PlayerPiece piece;            // Piece
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
@@ -92,11 +91,6 @@ public class Player {
             return true;
         }
         return true;
-    }
-
-    // Checks if the player's name ends with a "s"
-    public boolean isNameEndsWithS() {
-        return nameEndsWithS;
     }
 
     public int getCurrentSquareIndex() {
