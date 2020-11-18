@@ -11,7 +11,7 @@ public class Player {
 
     private GUI_Player guiPlayer;
     private String name = "";            // The player's name
-    private String possesiveName = ""; //This is currently not implemented
+    private String possessiveName = ""; //This is currently not implemented
     private BankBalance bankBalance;        // The player's bank balance
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
     private PlayerPiece piece;            // Piece
@@ -111,6 +111,14 @@ public class Player {
 
     public void setGuiPlayer(GUI_Player guiPlayer) {
         this.guiPlayer = guiPlayer;
+    }
+
+    public String getPossessiveName() {
+        return possessiveName;
+    }
+
+    public void setPossessiveName(String possessiveName) {
+        this.possessiveName = possessiveName;
     }
 }
 
