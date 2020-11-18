@@ -1,5 +1,7 @@
 package com.gruppe21.utils.arrayutils;
 
+import java.util.Arrays;
+
 public class OurArrayList<T> {
 
     private Object[] array;
@@ -10,8 +12,8 @@ public class OurArrayList<T> {
         this(10);
     }
 
-    public T[] toArray(){
-        return (T[]) array.clone();
+    public Object[] toArray(){
+        return array;
     }
     public OurArrayList(int n) {
         if (n <= 0) {

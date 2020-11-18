@@ -1,6 +1,7 @@
 package com.gruppe21.utils;
 
 import com.gruppe21.game.board.squares.Square;
+import com.gruppe21.utils.arrayutils.OurArrayList;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -15,7 +16,7 @@ public class BoardLoaderTest {
     @Test
     public void canLoadFile() {
         String filename = "test_board";
-        List<Square> list = null;
+        OurArrayList<Square> list = null;
         try {
             list = BoardLoader.loadBoard(filename);
         } catch (ParserConfigurationException e) {
@@ -27,7 +28,8 @@ public class BoardLoaderTest {
             list = null;
         }
 
-        for (Square square : list) {
+        for (Object obj : list.toArray()) {
+            Square square = (Square)obj;
             System.out.println(square.getName());
         }
 

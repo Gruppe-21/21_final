@@ -84,6 +84,7 @@
     </sentence>
     <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE] turn!</sentence>
     <sentence label="rollButton">Roll</sentence>
+    <sentence label="buyplace">You will now buy �[NAME] for �[price] money</sentence>
 
 
     <!-- Error messages -->

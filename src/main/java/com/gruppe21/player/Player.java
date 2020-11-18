@@ -67,7 +67,7 @@ public class Player {
 
     // Sets the player's currently owned cards
     public void setCards(ChanceCard[] ownedCards) {
-        this.ownedCards = ownedCards;
+        this.setOwnedCards(ownedCards);
     }
 
     // Sets the player's name
@@ -131,12 +131,20 @@ public class Player {
 
         int totalValue = getBankBalance().getBalance();
 
-        for (PropertySquare ownedProperty : ownedProperties) {
+        for (Object ownedPropertyObj : ownedProperties.toArray()) {
+            PropertySquare ownedProperty = (PropertySquare) ownedPropertyObj;
             totalValue += ownedProperty.getPrice();
         }
 
         return price > totalValue;
     }
 
+    public ChanceCard[] getOwnedCards() {
+        return ownedCards;
+    }
+
+    public void setOwnedCards(ChanceCard[] ownedCards) {
+        this.ownedCards = ownedCards;
+    }
 }
 

@@ -82,31 +82,32 @@ public class BoardLoader {
                 String name = tag.getAttribute("label");
                 int price = parseInt(tag.getAttribute("price"));
                 Color color = Color.getColor(tag.getAttribute("color"));
-                String description = localisation.getStringValue("word1"); //Add actual description
+                String description = tag.getAttribute("description"); //Add actual description
                 squares.add(new PropertySquare(name, description, price, color));
                 break;
 
             case "ChanceSquare":
                 // Add square
-                String name1 = tag.getAttribute("label");
+                String name1 =  localisation.getStringValue("chance");
                 squares.add(new ChanceSquare(name1, ""));
                 break;
 
             case "FreeParkingSquare":
                 // Add square
-                String name2 = tag.getAttribute("label");
+                String name2 =  localisation.getStringValue("freeparking");
+
                 squares.add(new FreeParkingSquare(name2, ""));
                 break;
 
             case "GoToPrisonSquare":
-                // Add square
-                String name3 = tag.getAttribute("label");
+           String name3 =  localisation.getStringValue("gotoprison");
+
                 squares.add(new GoToPrisonSquare(name3, ""));
                 break;
 
             case "PrisonSquare":
                 // Add square
-                String name4 = tag.getAttribute("label");
+                String name4 =  localisation.getStringValue("prison");
                 squares.add(new PrisonSquare(name4, "", "", 2)); //Todo: fix this
                 break;
 

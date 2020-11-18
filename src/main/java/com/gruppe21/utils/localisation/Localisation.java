@@ -20,7 +20,7 @@ public class Localisation {
     private static Localisation instance;
     private final String sentenceTagName = "sentence";
     private final String filePath = "/lang/";
-    private String currentLocale = "en";
+    private String currentLocale = "en_US";
 
     public static Localisation getInstance() {
         if (instance == null)

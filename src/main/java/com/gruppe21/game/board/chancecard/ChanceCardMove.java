@@ -1,8 +1,8 @@
 package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
-import com.gruppe21.game.board.Square;
 import com.gruppe21.game.board.squares.Square;
+import com.gruppe21.gui.GUIManager;
 import com.gruppe21.utils.localisation.Localisation;
 
 public class ChanceCardMove extends ChanceCard {
@@ -22,6 +22,7 @@ public class ChanceCardMove extends ChanceCard {
         this.isMoveUpTo = isMoveUpTo;
         this.isFigure = isFigure;
     }
+
 
 
     @Override
@@ -62,14 +63,14 @@ public class ChanceCardMove extends ChanceCard {
         String moveButton = Localisation.getInstance().getStringValue("moveButton");
         String takeButton = Localisation.getInstance().getStringValue("takeButton");
 
-        String result = game.getGuiWrapper().getButtonPress(descriptionLabel, moveButton, takeButton);
+        String result = GUIManager.getInstance().waitForUserButtonPress(descriptionLabel, moveButton, takeButton);
 
         if (result.equals(moveButton)) {
             moveToSquare = playerCurrentSquareIndex + 1;
             if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
 
             Square square = game.getBoard().getSquareAtIndex(moveToSquare);
-            game.movePlayer(playerIndex,square);
+            game.movePlayer(playerIndex, square);
         } else {
             //
             // draw new chancecard? how?
@@ -87,7 +88,7 @@ public class ChanceCardMove extends ChanceCard {
         int moveToSquare;
         int moveForwardChosen = 0;
 
-        String moveUpToResult = game.getGuiWrapper().getButtonPress(descriptionLabel,moveButton1,moveButton2,moveButton3,moveButton4,moveButton5);
+        String moveUpToResult = GUIManager.getInstance().waitForUserButtonPress(descriptionLabel,moveButton1,moveButton2,moveButton3,moveButton4,moveButton5);
 
         switch (moveUpToResult){
             case "moveButton1" -> moveForwardChosen=1;
@@ -111,7 +112,7 @@ public class ChanceCardMove extends ChanceCard {
 
     private void move(Game game,int playerIndex) {
         //int playerIndex = game.getCurrentPlayer();
-        game.getGuiWrapper().showMessage(descriptionLabel);
+        GUIManager.getInstance().waitForUserButtonPress(descriptionLabel);
         Square square = game.getBoard().getSquareAtIndex(moveToSquare);
         game.movePlayer(playerIndex, square);
     }

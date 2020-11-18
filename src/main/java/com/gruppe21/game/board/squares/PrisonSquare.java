@@ -25,7 +25,7 @@ public class PrisonSquare extends Square {
     public void getOutOfJail(Player player){
         player.prisonStatus = false;
         //If a "get out of jail free" card is available, it is used.
-        for (ChanceCard cCard : player.ownedCards) {
+        for (ChanceCard cCard : player.getOwnedCards()) {
             if (cCard.getClass() == ChanceCardGetOutOfJailFree.class){
                 cCard.use();
                 return;

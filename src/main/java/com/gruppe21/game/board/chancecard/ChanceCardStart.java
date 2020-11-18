@@ -1,7 +1,7 @@
 package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.BankBalance;
 import com.gruppe21.player.Player;
@@ -16,25 +16,25 @@ public class ChanceCardStart extends ChanceCard {
     }
 
     @Override
-    public void use(Game game, Player player) {
-        startCard(game, player);
+    public void use(Game game, int playerIndex) {
+        startCard(game, playerIndex);
     }
 
     //Current player moves to StartSquare and receives money
-    private void startCard(Game game, Player player) {
+    private void startCard(Game game, int  playerIndex) {
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
 
-        int playerIndex = game.getCurrentPlayer();
+
         int startSquareIndex = 1; // TO-DO: game.getBoard().getSquareAtNumber(start)
         int modifyBalance = money; // +2M
 
 
-        game.getGuiWrapper().showMessage(descriptionLabel);
+        GUIManager.getInstance().waitForUserAcknowledgement(descriptionLabel);
         Square square = game.getBoard().getSquareAtIndex(startSquareIndex);
         game.movePlayer(playerIndex, square);
 
-        BankBalance playerCurrentBalance = player.getBankBalance();
+        BankBalance playerCurrentBalance = game.getPlayers()[playerIndex].getBankBalance();
 
         playerCurrentBalance.addBalance(modifyBalance);
     }

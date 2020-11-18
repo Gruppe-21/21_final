@@ -1,6 +1,7 @@
 package com.gruppe21.game.board.chancecard;
 
 import com.gruppe21.game.Game;
+import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.BankBalance;
 import com.gruppe21.player.Player;
 
@@ -20,18 +21,17 @@ public class ChanceCardMoney extends ChanceCard {
 
     @Override
     public void use(Game game,Player player) {
-
         if(isPayToBank) {
             tooMuchCandy(game, player);
-        } else {
+        } else if(isHomework) {
             finishedHomework(game,player);  // isReceivemoneyFromBank
+        }else{
+            birthday(game,  game.getPlayers(), player);
         }
+
     }
 
-    @Override
-    public void use(Game game, Player player,Player[] players){
-            birthday(game,players,player);  // isBirthday
-    }
+
 
 
     //Current player loses money
@@ -39,8 +39,7 @@ public class ChanceCardMoney extends ChanceCard {
         int modifyBalance = money; // -2M
         BankBalance playerCurrentBalance = player.getBankBalance();
 
-        game.getGuiWrapper().showMessage(descriptionLabel);
-
+        GUIManager.getInstance().waitForUserAcknowledgement(descriptionLabel);
         playerCurrentBalance.addBalance(modifyBalance);
     }
 
@@ -49,8 +48,7 @@ public class ChanceCardMoney extends ChanceCard {
         int modifyBalance = money; // +2M
         BankBalance playerCurrentBalance = player.getBankBalance();
 
-        game.getGuiWrapper().showMessage(descriptionLabel);
-
+        GUIManager.getInstance().waitForUserAcknowledgement(descriptionLabel);
         playerCurrentBalance.addBalance(modifyBalance);
     }
 
@@ -59,7 +57,7 @@ public class ChanceCardMoney extends ChanceCard {
         Player[] payingPlayersArr = new Player[players.length-1];
         int modifyBalance = money; // +1M
 
-        game.getGuiWrapper().showMessage(descriptionLabel);
+        GUIManager.getInstance().waitForUserAcknowledgement(descriptionLabel);
 
         // Filter out the player receiving money
         int i = 0,j = 0;

@@ -21,8 +21,8 @@ public class Board {
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-        for (Square square : squares.toArray()) {
-            square.setBoard(this);
+        for (Object square : squares.toArray()) {
+            ((Square)square).setBoard(this);
         }
 
 
@@ -37,7 +37,9 @@ public class Board {
      * @return square at the given integer. ex: index = 2 would in this game's case return square with name "Tower"
      */
     public Square getSquareAtIndex(int index) {
-        return index <= 1 ? null : squares.get(index - 2);
+        Square square =  squares.get(index);
+        System.out.println(square.getName());
+        return square;
     }
 
     public int getSquareIndex(Square square) {

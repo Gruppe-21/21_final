@@ -153,7 +153,7 @@ public class Game {
         }
         movePlayer(currentPlayer, board.getSquareAtIndex(sum));
         for (Player player : players) {
-            if (player.isBankrupt) return true;
+            //if (player.isBankrupt()) return true;
         }
 
         return false;
@@ -167,7 +167,7 @@ public class Game {
         } while (!playRound());
         Player winner = players[currentPlayer];
         //TODO Fix loser
-        guiManager.waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
+       // guiManager.waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
         guiManager.closeGUI();
     }
 

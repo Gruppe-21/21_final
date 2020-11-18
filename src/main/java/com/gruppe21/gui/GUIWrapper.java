@@ -25,7 +25,8 @@ public class GUIWrapper {
     //TODO set the right values in fields
     // Add a list of squares and turn them into fields.
     private void addSquares(OurArrayList<Square> squareList) {
-        for (Square square : squareList.toArray()) {
+        for (Object obj : squareList.toArray()) {
+            Square square = (Square)obj;
             GUI_Field field = new GUI_Street();
             field.setTitle(square.getName());
             field.setSubText("");
@@ -66,8 +67,8 @@ public class GUIWrapper {
     public void movePlayer(Player player, int nextSquareIndex) {
         GUI_Player guiPlayer = player.getGuiPlayer();
         if (guiPlayer != null) {
-            fields.get(player.getCurrentSquareIndex() + 1).setCar(guiPlayer, false);
-            fields.get(nextSquareIndex + 1).setCar(guiPlayer, true);
+            fields.get(player.getCurrentSquareIndex() ).setCar(guiPlayer, false);
+            fields.get(nextSquareIndex).setCar(guiPlayer, true);
         }
     }
 

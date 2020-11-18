@@ -2,35 +2,35 @@
 <board>
     <StartSquare label="go"/>
 
-    <PropertySquare label="burgerjoint" price="1" color="weird-green"/>
-    <PropertySquare label="pizzeria" price="1" color="weird-green"/>
+    <PropertySquare label="burgerjoint" description="burgerjointdesc" price="1" color="weird-green"/>
+    <PropertySquare label="pizzeria" description="pizzeriadesc" price="1" color="weird-green"/>
     <ChanceSquare/>
-    <PropertySquare label="candystore" price="1" color="cyan"/>
-    <PropertySquare label="icecreamparlor" price="1" color="cyan"/>
+    <PropertySquare label="candystore" description="candystoredesc" price="1" color="cyan"/>
+    <PropertySquare label="icecreamparlor" description="icecreamparlordesc" price="1" color="cyan"/>
 
     <PrisonSquare/>
 
-    <PropertySquare label="museum" price="2" color="pink"/>
-    <PropertySquare label="library" price="2" color="pink"/>
+    <PropertySquare label="museum" description="museumdesc" price="2" color="pink"/>
+    <PropertySquare label="library" description="librarydesc" price="2" color="pink"/>
     <ChanceSquare/>
-    <PropertySquare label="skatepark" price="2" color="orange"/>
-    <PropertySquare label="swimmingpool" price="2" color="orange"/>
+    <PropertySquare label="skatepark" description="skateparkdesc" price="2" color="orange"/>
+    <PropertySquare label="swimmingpool" description="swimmingpooldesc" price="2" color="orange"/>
 
     <FreeParkingSquare/>
 
-    <PropertySquare label="arcade" price="3" color="red"/>
-    <PropertySquare label="cinema" price="3" color="red"/>
+    <PropertySquare label="arcade" description="arcadedesc" price="3" color="red"/>
+    <PropertySquare label="cinema"  description="cinemadesc" price="3" color="red"/>
     <ChanceSquare/>
-    <PropertySquare label="toystore" price="3" color="yellow"/>
-    <PropertySquare label="petstore" price="3" color="yellow"/>
+    <PropertySquare label="toystore" description="toystoredesc" price="3" color="yellow"/>
+    <PropertySquare label="petstore" description="petstoredesc" price="3" color="yellow"/>
 
     <GoToPrisonSquare/>
 
-    <PropertySquare label="bowlingalley" price="4" color="green"/>
-    <PropertySquare label="zoo" price="4" color="green"/>
+    <PropertySquare label="bowlingalley" description="bowlingalleydesc" price="4" color="green"/>
+    <PropertySquare label="zoo" price="4" description="zoodesc" color="green"/>
     <ChanceSquare/>
-    <PropertySquare label="parkplace" price="5" color="blue"/>
-    <PropertySquare label="boardwalk" price="5" color="blue"/>
+    <PropertySquare label="parkplace" description="parkplacedesc" price="5" color="blue"/>
+    <PropertySquare label="boardwalk" description="boardwalkdesc" price="5" color="blue"/>
 
 
 </board>

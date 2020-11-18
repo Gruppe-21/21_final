@@ -65,9 +65,9 @@ public class GUIManager {
         guiWrapper.showMessage(message);
     }
 
-    public void waitForUserButtonPress(String message, String buttonText) {
-        if (isTest) return;
-        guiWrapper.getButtonPress(message, buttonText);
+    public String waitForUserButtonPress(String message, String... buttonText) {
+        if (isTest) return null;
+        return guiWrapper.getButtonPress(message, buttonText);
     }
 
     public String waitForUserTextInput(String message) {
