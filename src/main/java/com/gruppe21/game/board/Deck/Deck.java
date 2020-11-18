@@ -49,7 +49,7 @@ public class Deck {
     public ChanceCard drawCard(ChanceCard chance){
          ChanceCard Chance = cards.get(1);
          cards.removeIndex(1);
-         cards.add(Chance);
+         //cards.add(Chance);
 
          return Chance;
     }
