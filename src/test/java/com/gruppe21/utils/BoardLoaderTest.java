@@ -1,6 +1,6 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.Square;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 

@@ -1,6 +1,6 @@
 package com.gruppe21.gui;
 
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
@@ -21,14 +21,14 @@ public class GUIWrapper {
         players = new ArrayList<GUI_Player>();
     }
 
-
+    //TODO set the right values in fields
     // Add a list of squares and turn them into fields.
     private void addSquares(List<Square> squareList) {
         for (Square square : squareList) {
             GUI_Field field = new GUI_Street();
             field.setTitle(square.getName());
-            field.setSubText("" + square.getModifyValue());
-            field.setDescription(square.getEventText());
+            field.setSubText("");
+            field.setDescription(square.getDescription());
             fields.add(field);
         }
     }
@@ -57,18 +57,28 @@ public class GUIWrapper {
         GUI_Player guiPlayer = new GUI_Player(player.getName());
         guiPlayer.setBalance(player.getBankBalance().getBalance());
         guiPlayer.getCar().setPrimaryColor(color);
+        player.setGUI_Player(guiPlayer);
         gui.addPlayer(guiPlayer);
         players.add(guiPlayer);
     }
 
-    public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareIndex) {
-        GUI_Player player = getPlayer(playerIndex);
-        if (player != null) {
-            fields.get(currentSquareIndex + 1).setCar(player, false);
-            fields.get(nextSquareIndex + 1).setCar(player, true);
+    public void movePlayer(Player player, int nextSquareIndex) {
+        GUI_Player guiPlayer = player.getGUIPlayer();
+        if (guiPlayer != null) {
+            fields.get(player.getCurrentSquareIndex() + 1).setCar(guiPlayer, false);
+            fields.get(nextSquareIndex + 1).setCar(guiPlayer, true);
         }
     }
 
+    /*
+        public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareIndex) {
+            GUI_Player player = getPlayer(playerIndex);
+            if (player != null) {
+                fields.get(currentSquareIndex + 1).setCar(player, false);
+                fields.get(nextSquareIndex + 1).setCar(player, true);
+            }
+        }
+    */
     public void close() {
         if (gui != null)
             gui.close();
