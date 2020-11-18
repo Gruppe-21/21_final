@@ -65,7 +65,6 @@ public class Player {
 
     // Sets the player's currently owned cards
     public void setCards(ChanceCard[] ownedCards) {
-        ownedCards = new String[]{};
         this.ownedCards = ownedCards;
     }
 
