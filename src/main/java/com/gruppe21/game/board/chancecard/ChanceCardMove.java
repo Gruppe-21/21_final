@@ -65,7 +65,7 @@ public class ChanceCardMove extends ChanceCard {
             moveToSquare = playerCurrentSquareIndex + 1;
             if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
 
-            Square square = game.getBoard().getSquareAtNumber(moveToSquare);
+            Square square = game.getBoard().getSquareAtIndex(moveToSquare);
             game.movePlayer(playerIndex,square);
         } else {
             //
@@ -98,7 +98,7 @@ public class ChanceCardMove extends ChanceCard {
         moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
         if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
 
-        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
+        Square square = game.getBoard().getSquareAtIndex(moveToSquare);
         game.movePlayer(playerIndex,square);
     }
 
@@ -109,7 +109,7 @@ public class ChanceCardMove extends ChanceCard {
     private void move(Game game,int playerIndex) {
         //int playerIndex = game.getCurrentPlayer();
         game.getGuiWrapper().showMessage(description);
-        Square square = game.getBoard().getSquareAtNumber(moveToSquare);
+        Square square = game.getBoard().getSquareAtIndex(moveToSquare);
         game.movePlayer(playerIndex, square);
     }
 

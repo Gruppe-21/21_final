@@ -25,7 +25,7 @@ public class ChanceCardStart extends ChanceCard {
         int modifyBalance = money; // +2M
 
         game.getGuiWrapper().showMessage(description);
-        Square square = game.getBoard().getSquareAtNumber(startSquareIndex);
+        Square square = game.getBoard().getSquareAtIndex(startSquareIndex);
         game.movePlayer(playerIndex, square);
 
         BankBalance playerCurrentBalance = player.getBankBalance();

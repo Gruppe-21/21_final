@@ -135,7 +135,7 @@ public class Game {
         for (Die die : dice) {
             sum += die.getValue();
         }
-        movePlayer(currentPlayer, board.getSquareAtNumber(sum));
+        movePlayer(currentPlayer, board.getSquareAtIndex(sum));
         guiManager.setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         for (Player player : players) {
             if (player.isBankrupt) return true;
@@ -160,10 +160,10 @@ public class Game {
         Player player = players[playerIndex];
         int squareIndex = board.getSquareIndex(square);
         if (player.getCurrentSquareIndex() > squareIndex || player.getCurrentSquareIndex() != 0 && square.getClass() != GoToPrisonSquare.class)
-            board.getSquareAtNumber(0).handleLandOn(player);
+            board.getSquareAtIndex(0).handleLandOn(player);
         guiManager.movePlayer(player, squareIndex);
         player.setCurrentSquareIndex(squareIndex);
-        board.getSquareAtNumber(squareIndex).handleLandOn(player);
+        board.getSquareAtIndex(squareIndex).handleLandOn(player);
     }
 
     private int nextPlayer() {

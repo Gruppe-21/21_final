@@ -53,10 +53,10 @@ public class Board {
     /**
      * Takes in consideration that one is an empty square that you cannot land on.
      *
-     * @return square at the given integer. ex: num = 2 would in this game's case return square with name "Tower"
+     * @return square at the given integer. ex: index = 2 would in this game's case return square with name "Tower"
      */
-    public Square getSquareAtNumber(int num) {
-        return num <= 1 ? null : squares.get(num - 2);
+    public Square getSquareAtIndex(int index) {
+        return index <= 1 ? null : squares.get(index - 2);
     }
 
     public int getSquareIndex(Square square) {

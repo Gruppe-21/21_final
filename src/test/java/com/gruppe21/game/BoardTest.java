@@ -11,21 +11,21 @@ public class BoardTest {
     public void getSquareAtNumberReturnsTower() {
         Board board = new Board();
 
-        assertEquals("Tower", board.getSquareAtNumber(2).getName());
+        assertEquals("Tower", board.getSquareAtIndex(2).getName());
     }
 
     @Test
     public void getSquareAtNumberReturnsWereWall() {
         Board board = new Board();
 
-        assertEquals("The Werewall", board.getSquareAtNumber(10).getName());
+        assertEquals("The Werewall", board.getSquareAtIndex(10).getName());
     }
 
     @Test
     public void getSquareAtNumberReturnsNullAtLessThanOne() {
         Board board = new Board();
 
-        assertEquals(null, board.getSquareAtNumber(1));
+        assertEquals(null, board.getSquareAtIndex(1));
 
     }
 
