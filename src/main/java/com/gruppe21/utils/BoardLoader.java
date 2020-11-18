@@ -107,7 +107,7 @@ public class BoardLoader {
             case "PrisonSquare":
                 // Add square
                 String name4 = tag.getAttribute("label");
-                squares.add(new PrisonSquare(name4, ""));
+                squares.add(new PrisonSquare(name4, "", "", 2)); //Todo: fix this
                 break;
 
             default:

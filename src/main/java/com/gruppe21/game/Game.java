@@ -6,6 +6,7 @@ import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.Deck.Deck;
 import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.game.board.chancecard.ChanceCardGetOutOfJailFree;
+import com.gruppe21.game.board.squares.PrisonSquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
@@ -130,13 +131,17 @@ public class Game {
 
     public boolean playRound() {
         Player curPlayer = players[currentPlayer];
-        // Wait for player to press "Roll"
-        if (curPlayer.prisonStatus){
-            for (ChanceCard cCard : curPlayer.ownedCards) {
-                if (cCard.getClass() == ChanceCardGetOutOfJailFree.class) cCard.use();
-                else
+        try {
+            if (curPlayer.prisonStatus) {
+                Square currentSquare = board.getSquareAtIndex(curPlayer.getCurrentSquareIndex());
+                if (currentSquare.getClass() != PrisonSquare.class)
+                    throw new Exception("Player.prisonStatus is true but currentSquare is not a PrisonSquare");
+                ((PrisonSquare)currentSquare).getOutOfJail(curPlayer);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        // Wait for player to press "Roll"
         guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", curPlayer.getPossessiveName()), localisation.getStringValue("rollButton"));
         guiManager.setGUIDice(dice);
 
