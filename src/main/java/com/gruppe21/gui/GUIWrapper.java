@@ -103,8 +103,15 @@ public class GUIWrapper {
         return gui.getUserButtonPressed(message, buttonText);
     }
 
+    /*
     public void updatePlayerBalance(int playerIndex, int balance) {
         GUI_Player guiPlayer = getPlayer(playerIndex);
+        if (guiPlayer != null) {
+            guiPlayer.setBalance(balance);
+        }
+    }
+*/
+    public void updatePlayerBalance(GUI_Player guiPlayer, int balance) {
         if (guiPlayer != null) {
             guiPlayer.setBalance(balance);
         }

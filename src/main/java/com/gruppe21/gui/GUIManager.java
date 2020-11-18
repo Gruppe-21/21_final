@@ -50,9 +50,9 @@ public class GUIManager {
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
     }
 
-    public void setGUIPlayerBalance(int playerindex, int newBalance) {
+    public void setGUIPlayerBalance(Player player, int newBalance) {
         if (isTest) return;
-        guiWrapper.updatePlayerBalance(playerindex, newBalance);
+        guiWrapper.updatePlayerBalance(player.getGuiPlayer(), newBalance);
     }
 
     public void movePlayer(Player player, int squareIndex) {
