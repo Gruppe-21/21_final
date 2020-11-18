@@ -1,11 +1,16 @@
 package com.gruppe21.player;
 import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.game.board.squares.PropertySquare;
+import com.gruppe21.utils.arrayutils.OurArrayList;
 import gui_fields.GUI_Player;
 
 //Todo: add possesiveName
 
 public class Player {
+    public static int getMaxNumProperties() {
+        return MAX_NUM_PROPERTIES;
+    }
+
     private static final int MAX_NUM_PROPERTIES = 12; //Should be read from file?
     private static final int MAX_NAME_LENGTH = 50;
     private static final String[] PLAYER_PIECES_TEXT = {"\uD83D\uDC15", "\uD83D\uDC08", "\uD83D\uDE97", "\uD83D\uDEA2"};
@@ -17,8 +22,8 @@ public class Player {
     private PlayerPiece piece;            // Piece
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
-    public PropertySquare[] ownedProperties;     // All owned properties of a player
-    public ChanceCard[] ownedCards;           // All currently owned chance cards of a player
+    public OurArrayList<PropertySquare> ownedProperties;     // All owned properties of a player
+    private ChanceCard[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
 
@@ -26,6 +31,7 @@ public class Player {
         bankBalance = new BankBalance(this);
         currentSquareIndex = 0;
         prisonStatus = false;
+        ownedProperties = new OurArrayList<>();
     }
     public Player(String name) {
         this();
@@ -115,6 +121,17 @@ public class Player {
         this.guiPlayer = guiPlayer;
     }
 
+    public OurArrayList<PropertySquare> getOwnedProperties() {
+        return ownedProperties;
+    }
+
+    public void addProperty(PropertySquare property){
+        ownedProperties.add(property);
+    }
+    public void removeProperty(PropertySquare property){
+        ownedProperties.remove(property);
+    }
+
     public boolean isBankrupt(int price){
 
         int totalValue = getBankBalance().getBalance();
@@ -125,5 +142,6 @@ public class Player {
 
         return price > totalValue;
     }
+
 }
 
