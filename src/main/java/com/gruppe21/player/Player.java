@@ -65,11 +65,6 @@ public class Player {
         this.piece = piece;
     }
 
-    // Sets the player's owned properties
-    public void setProperties(PropertySquare[] ownedProperties) {
-        this.ownedProperties = ownedProperties;
-    }
-
     // Sets the player's currently owned cards
     public void setCards(ChanceCard[] ownedCards) {
         this.ownedCards = ownedCards;
