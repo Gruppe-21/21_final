@@ -1,25 +1,6 @@
 package com.gruppe21.game;
 //Todo:
-// Add text to xml
-// Read text from file
-
-//Todo:
 // Add AI controlled players
-
-//Todo:
-// Deal with exceptions during board creation in initGame
-
-//Todo:
-// Create chance cards/deck in initGame
-
-//Todo:
-// rename getSquareAtNumber to getSquareAtIndex
-
-//Todo:
-// sprøg om spillernes brik
-
-//Todo:
-// Tjek om spilleren er i fængsel
 
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.squares.GoToPrisonSquare;
