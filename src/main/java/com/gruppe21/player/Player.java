@@ -73,8 +73,15 @@ public class Player {
     public boolean setName(String name) {
         if (name.length() > MAX_NAME_LENGTH) return false;
         this.name = name;
-        nameEndsWithS = getName().toLowerCase().endsWith("s");
+        setPossessiveName();
         return true;
+    }
+    public void setPossessiveName() {
+        boolean nameEndsWithS = getName().toLowerCase().endsWith("s");
+        this.possessiveName = this.getName() + (nameEndsWithS ? "'" : "'s");
+    }
+    public String getPossessiveName() {
+        return possessiveName;
     }
 
     //Sets player's age
@@ -111,14 +118,6 @@ public class Player {
 
     public void setGuiPlayer(GUI_Player guiPlayer) {
         this.guiPlayer = guiPlayer;
-    }
-
-    public String getPossessiveName() {
-        return possessiveName;
-    }
-
-    public void setPossessiveName(String possessiveName) {
-        this.possessiveName = possessiveName;
     }
 }
 
