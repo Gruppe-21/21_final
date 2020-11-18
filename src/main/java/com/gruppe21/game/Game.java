@@ -78,27 +78,13 @@ public class Game {
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
         this.dice = dice;
-        if (players != null) {
-            this.players = players;
-        } else {
-            int numberOfPlayers;
-            while (true) {
-                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
-                try {
-                    numberOfPlayers = Integer.parseInt(inputString.trim());
-                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
-                        throw new Exception("Invalid number of players");
-                    players = new Player[numberOfPlayers];
-                } catch (Exception e) {
-                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
-                    continue;
-                }
-                break;
-            }
-            players = new Player[numberOfPlayers];
-        }
-
+        initialisePlayerArray(players);
         //It is insured that all players != null and all players have a name
+        initialisePlayers(players);
+        guiManager.addPlayersToGUI(this.players);
+    }
+
+    private void initialisePlayers(Player[] players) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) players[i] = new Player();
 
@@ -121,7 +107,29 @@ public class Game {
             }
 
         }
-        guiManager.addPlayersToGUI(players);
+    }
+
+    @org.jetbrains.annotations.NotNull
+    private void initialisePlayerArray(Player[] players) {
+        if (players != null) {
+            this.players = players;
+        } else {
+            int numberOfPlayers;
+            while (true) {
+                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
+                try {
+                    numberOfPlayers = Integer.parseInt(inputString.trim());
+                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
+                        throw new Exception("Invalid number of players");
+                    players = new Player[numberOfPlayers];
+                } catch (Exception e) {
+                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
+                    continue;
+                }
+                break;
+            }
+            players = new Player[numberOfPlayers];
+        }
     }
 
     public boolean playRound() {
