@@ -70,16 +70,7 @@ public class Game {
         guiManager = GUIManager.getInstance();
         guiManager.isTest = isTest;
         localisation = Localisation.getInstance();
-        //Todo: Deal with exceptions
-        try {
-            board = new Board();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }
+        board = new Board();
         this.isTest = isTest;
         guiManager.initGUI(board);
 
