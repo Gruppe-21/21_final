@@ -57,7 +57,7 @@ public class GUIWrapper {
         GUI_Player guiPlayer = new GUI_Player(player.getName());
         guiPlayer.setBalance(player.getBankBalance().getBalance());
         guiPlayer.getCar().setPrimaryColor(color);
-        player.setGUI_Player(guiPlayer);
+        player.setGuiPlayer(guiPlayer);
         gui.addPlayer(guiPlayer);
         players.add(guiPlayer);
     }
