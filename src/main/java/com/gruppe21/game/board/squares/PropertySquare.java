@@ -18,12 +18,22 @@ public class PropertySquare extends Square {
         this.color = color;
     }
 
+    public void purchaseProperty(Player player) {
+        purchaseProperty(player, this.price);
+    }
+
+    public void purchaseProperty(Player player, int price){
+        if (getOwner() == player) return; //It should not be possible to get here.
+        player.getBankBalance().addBalance(-price);
+        setOwner(player);
+
+    }
+
     @Override
-    public void handleLandOn(Player player, Game game) {
+    public void handleLandOn(Player player) {
 
     String text = Localisation.getInstance().getStringValue("buyplace", getName(), price + "");
-    //TODO: fix me
-    player.buy();
+    purchaseProperty(player);
 
     }
 
