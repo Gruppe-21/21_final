@@ -1,9 +1,9 @@
 package com.gruppe21.player;
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.PropertySquare;
 import gui_fields.GUI_Player;
 
 
-//Todo: change ownedProperties to propertySquare
+
 //Todo: change ownedCards to chanceCard
 
 public class Player {
@@ -12,12 +12,13 @@ public class Player {
 
     private GUI_Player guiPlayer;
     private String name = "";            // The player's name
+    private String possesiveName = "";
     private BankBalance bankBalance;        // The player's bank balance
     private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with an "s"
     private PlayerPiece piece;            // Piece
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
-    public Square[] ownedProperties;     // All owned properties of a player
+    public PropertySquare[] ownedProperties;     // All owned properties of a player
     public String[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
