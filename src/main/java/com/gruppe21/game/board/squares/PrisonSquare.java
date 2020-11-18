@@ -12,6 +12,16 @@ public class PrisonSquare extends Square {
     @Override
     public void handleLandOn(Player player, Game game) {
         super.handleLandOn(player, game);
-        board.get
+
+        Square gotoprisonSquare;
+
+        for (Square square : board.getSquares().toArray()) {
+            if(square.getClass() ==  GoToPrisonSquare.class){
+                gotoprisonSquare = square;
+                break;
+            }
+        }
+
+        game.teleportPlayer(player)
     }
 }
