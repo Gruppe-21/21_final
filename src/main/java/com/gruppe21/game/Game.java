@@ -3,6 +3,7 @@ package com.gruppe21.game;
 // Add AI controlled players
 
 import com.gruppe21.game.board.Board;
+import com.gruppe21.game.board.Deck.Deck;
 import com.gruppe21.game.board.squares.GoToPrisonSquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
@@ -26,22 +27,26 @@ public class Game {
     private Player[] players;
     private int currentPlayer;
     private Die[] dice;
+    private Deck deck;
+
+    public Game(Player[] players, Die[] dice, boolean isTest) {
+        if (players == null && isTest){}//Todo: Should throw error
+        initGame(players, dice, isTest);
+    }
 
     public Game() {
-        initGame(null, new Die[]{new Die(), new Die()}, false);
+        this(null, new Die[]{new Die(), new Die()}, false);
     }
 
     public Game(Player[] players) {
-        initGame(players, new Die[]{new Die(), new Die()}, false);
+        this(players, new Die[]{new Die(), new Die()}, false);
     }
 
     public Game(Player[] players, Die[] dice) {
-        initGame(players, dice, false);
+        this(players, dice, false);
     }
 
-    public Game(Player[] players, Die[] dice, boolean isTest) {
-        initGame(players, dice, isTest);
-    }
+
 
 
     public Board getBoard() {
@@ -62,6 +67,7 @@ public class Game {
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
         guiManager = GUIManager.getInstance();
+        guiManager.isTest = isTest;
         localisation = Localisation.getInstance();
         //Todo: Deal with exceptions
         try {
@@ -77,28 +83,15 @@ public class Game {
         guiManager.initGUI(board);
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
+        this.deck = new Deck();
         this.dice = dice;
-        if (players != null) {
-            this.players = players;
-        } else {
-            int numberOfPlayers;
-            while (true) {
-                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
-                try {
-                    numberOfPlayers = Integer.parseInt(inputString.trim());
-                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
-                        throw new Exception("Invalid number of players");
-                    players = new Player[numberOfPlayers];
-                } catch (Exception e) {
-                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
-                    continue;
-                }
-                break;
-            }
-            players = new Player[numberOfPlayers];
-        }
-
+        initialisePlayerArray(players);
         //It is insured that all players != null and all players have a name
+        initialisePlayers(players);
+        guiManager.addPlayersToGUI(this.players);
+    }
+
+    private void initialisePlayers(Player[] players) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) players[i] = new Player();
 
@@ -121,7 +114,26 @@ public class Game {
             }
 
         }
-        guiManager.addPlayersToGUI(players);
+    }
+
+    private void initialisePlayerArray(Player[] players) {
+        if (players == null) {
+            int numberOfPlayers;
+            while (true) {
+                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
+                try {
+                    numberOfPlayers = Integer.parseInt(inputString.trim());
+                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
+                        throw new Exception("Invalid number of players");
+                    players = new Player[numberOfPlayers];
+                } catch (Exception e) {
+                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
+                    continue;
+                }
+                break;
+            }
+        }
+        this.players = players;
     }
 
     public boolean playRound() {
@@ -156,17 +168,41 @@ public class Game {
         guiManager.closeGUI();
     }
 
+
+
     public void movePlayer(int playerIndex, Square square) {
-        Player player = players[playerIndex];
+        movePlayer(players[playerIndex], square);
+    }
+    public void movePlayer(Player player, Square square) {
         int squareIndex = board.getSquareIndex(square);
-        if (player.getCurrentSquareIndex() > squareIndex || player.getCurrentSquareIndex() != 0 && square.getClass() != GoToPrisonSquare.class)
+        int oldPosition = player.getCurrentSquareIndex();
+        teleportPlayer(player, squareIndex);
+        if (player.getCurrentSquareIndex() < oldPosition || player.getCurrentSquareIndex() != 0)
             board.getSquareAtIndex(0).handleLandOn(player);
+        board.getSquareAtIndex(squareIndex).handleLandOn(player);
+    }
+
+    public void teleportPlayer(Player player, int squareIndex){
         guiManager.movePlayer(player, squareIndex);
         player.setCurrentSquareIndex(squareIndex);
         board.getSquareAtIndex(squareIndex).handleLandOn(player);
     }
 
+    public void teleportPlayer(Player player, Square square){
+        teleportPlayer(player, board.getSquareIndex(square));
+    }
+
+    private int getPlayerIndex(Player player){
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].equals(player)) return i;
+        }
+    }
+
     private int nextPlayer() {
         return (currentPlayer + 1) % players.length;
+    }
+
+    public Deck getDeck() {
+        return deck;
     }
 }
