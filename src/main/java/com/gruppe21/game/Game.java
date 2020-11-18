@@ -126,9 +126,7 @@ public class Game {
 
     public boolean playRound() {
         // Wait for player to press "Roll"
-        //Todo: player.getPossessive instead
-        String playerNamePossessive = players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s");
-        guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", playerNamePossessive), localisation.getStringValue("rollButton"));
+        guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", players[currentPlayer].getPossessiveName()), localisation.getStringValue("rollButton"));
         guiManager.setGUIDice(dice);
 
         // Gets the sum of the random values that was set before round was started.
