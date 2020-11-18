@@ -3,6 +3,7 @@ package com.gruppe21.game;
 // Add AI controlled players
 
 import com.gruppe21.game.board.Board;
+import com.gruppe21.game.board.Deck.Deck;
 import com.gruppe21.game.board.squares.GoToPrisonSquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
@@ -26,6 +27,7 @@ public class Game {
     private Player[] players;
     private int currentPlayer;
     private Die[] dice;
+    private Deck deck;
 
     public Game(Player[] players, Die[] dice, boolean isTest) {
         if (players == null && isTest){}//Todo: Should throw error
@@ -81,6 +83,7 @@ public class Game {
         guiManager.initGUI(board);
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
+        this.deck = new Deck();
         this.dice = dice;
         initialisePlayerArray(players);
         //It is insured that all players != null and all players have a name
@@ -177,5 +180,9 @@ public class Game {
 
     private int nextPlayer() {
         return (currentPlayer + 1) % players.length;
+    }
+
+    public Deck getDeck() {
+        return deck;
     }
 }
