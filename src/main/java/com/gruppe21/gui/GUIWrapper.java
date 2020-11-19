@@ -1,12 +1,9 @@
 package com.gruppe21.gui;
 
-import com.gruppe21.game.board.squares.PropertySquare;
-import com.gruppe21.game.board.squares.Square;
+import com.gruppe21.game.board.squares.*;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.arrayutils.OurArrayList;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Player;
-import gui_fields.GUI_Street;
+import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
@@ -27,16 +24,34 @@ public class GUIWrapper {
     // Add a list of squares and turn them into fields.
     private void addSquares(OurArrayList<Square> squareList) {
         for (Square square : squareList.toArray(new Square[0])) {
-            GUI_Field field = new GUI_Street();
+
+        GUI_Field field = null;
+           if(square.getClass() == PropertySquare.class){
+               PropertySquare p = (PropertySquare)square;
+               field = new GUI_Street();
+               field.setSubText("" + p.getPrice());
+
+               field.setBackGroundColor(p.getColor());
+           }
+           else if(square.getClass() == StartSquare.class){
+               field = new GUI_Start();
+
+            //   field.setBackGroundColor((Color.WHITE));
+           }
+           else if(square.getClass() == PrisonSquare.class){
+               field = new GUI_Jail();
+           }
+           else if(square.getClass() == ChanceSquare.class){
+               field = new GUI_Chance();
+           }
+           else{
+               field = new GUI_Street();
+           }
+
+
             field.setTitle(square.getName());
             field.setSubText("");
             field.setDescription(square.getDescription());
-            if(square.getClass() == PropertySquare.class)
-            {
-                field.setBackGroundColor(((PropertySquare)square).getColor());
-            }else {
-                field.setBackGroundColor((Color.WHITE));
-            }
 
             fields.add(field);
 

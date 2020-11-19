@@ -30,7 +30,7 @@ public abstract class Square {
     }
 
     public String getDescription() {
-        return description;
+        return  Localisation.getInstance().getStringValue(description);
     }
 
     public void setDescription(String description) {

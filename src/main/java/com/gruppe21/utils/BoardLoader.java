@@ -74,7 +74,7 @@ public class BoardLoader {
         switch (elementName) {
             case "StartSquare":
                 // Add square
-                squares.add(new StartSquare("GO!", ""));
+                squares.add(new StartSquare("go", ""));
                 break;
 
             case "PropertySquare":
@@ -88,27 +88,21 @@ public class BoardLoader {
 
             case "ChanceSquare":
                 // Add square
-                String name1 =  localisation.getStringValue("chance");
-                squares.add(new ChanceSquare(name1, ""));
+                squares.add(new ChanceSquare("chance", ""));
                 break;
 
             case "FreeParkingSquare":
                 // Add square
-                String name2 =  localisation.getStringValue("freeparking");
-
-                squares.add(new FreeParkingSquare(name2, ""));
+                squares.add(new FreeParkingSquare("freeparking", ""));
                 break;
 
             case "GoToPrisonSquare":
-           String name3 =  localisation.getStringValue("gotoprison");
-
-                squares.add(new GoToPrisonSquare(name3, ""));
+                squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
                 break;
 
             case "PrisonSquare":
                 // Add square
-                String name4 =  localisation.getStringValue("prison");
-                squares.add(new PrisonSquare(name4, "", "", 2)); //Todo: fix this
+                squares.add(new PrisonSquare("prison", "prisondesc", "", 2)); //Todo: fix this
                 break;
 
             default:
