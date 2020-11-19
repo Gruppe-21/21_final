@@ -158,7 +158,7 @@ public class Player {
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
         int currentlyViewing = 0;
-        int numPropertyButtons = Math.min(properties.length, MAX_NUM_BUTTONS - 2);
+        int numPropertyButtons = Math.min(properties.length, GUIManager.getMaxNumButtons() - 2);
         String[] buttons = new String[numPropertyButtons+2];
         buttons[0] = localisation.getStringValue("nextBtn");
         buttons[buttons.length-1] = localisation.getStringValue("previousBtn");
