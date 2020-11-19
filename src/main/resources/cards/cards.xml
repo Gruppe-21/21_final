@@ -24,10 +24,10 @@
     <movecard description="propertycarddesc" type="FreeSquare" color="blue"/>
 
     <!-- Figure cards -->
-    <movecard description="figure1desc" type="Figure" piece="dog"/>
-    <movecard description="figure2desc" type="Figure" piece="cat"/>
-    <movecard description="figure3desc" type="Figure" piece="boat"/>
-    <movecard description="figure4desc" type="Figure" piece="car"/>
+    <movecard description="figure1desc" type="Figure" piece="Dog"/>
+    <movecard description="figure2desc" type="Figure" piece="Cat"/>
+    <movecard description="figure3desc" type="Figure" piece="Boat"/>
+    <movecard description="figure4desc" type="Figure" piece="Car"/>
     <!-- Jail cards -->
     <jailcard description="jailcardesc"/>
 </cards>
