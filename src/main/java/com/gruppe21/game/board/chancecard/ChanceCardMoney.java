@@ -9,8 +9,8 @@ public class ChanceCardMoney extends ChanceCard {
     private final int money;
     private final MoneyCardType cardType;
 
-    public ChanceCardMoney(String description, int money, MoneyCardType cardType) {
-        super(description);
+    public ChanceCardMoney(String descriptionLabel, int money, MoneyCardType cardType) {
+        super(descriptionLabel);
         this.money = money;
         this.cardType = cardType;
 

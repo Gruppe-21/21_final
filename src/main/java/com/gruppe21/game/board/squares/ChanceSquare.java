@@ -1,16 +1,12 @@
 package com.gruppe21.game.board.squares;
 
 import com.gruppe21.game.Game;
-import com.gruppe21.game.board.Deck.Deck;
-import com.gruppe21.game.board.chancecard.ChanceCard;
-import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
-import com.gruppe21.utils.localisation.Localisation;
 
 public class ChanceSquare extends Square {
 
-    public ChanceSquare(String name, String description) {
-        super(name, description);
+    public ChanceSquare(String name, String descriptionLabel) {
+        super(name, descriptionLabel);
     }
 
     @Override

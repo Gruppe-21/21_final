@@ -5,8 +5,8 @@ import com.gruppe21.player.Player;
 
 public class FreeParkingSquare extends Square {
 
-    public FreeParkingSquare(String name, String description) {
-        super(name, description);
+    public FreeParkingSquare(String name, String descriptionLabel) {
+        super(name, descriptionLabel);
     }
 
     @Override

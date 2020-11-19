@@ -1,14 +1,12 @@
 package com.gruppe21.game.board.squares;
 
 import com.gruppe21.game.Game;
-import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
-import com.gruppe21.utils.localisation.Localisation;
 
 public class GoToPrisonSquare extends Square {
 
-    public GoToPrisonSquare(String name, String description) {
-        super(name, description);
+    public GoToPrisonSquare(String name, String descriptionLabel) {
+        super(name, descriptionLabel);
     }
 
     @Override
