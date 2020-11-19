@@ -158,7 +158,7 @@ public class Game {
         for (Player player : players) {
             //if (player.isBankrupt()) return true;
         }
-
+        currentPlayer = nextPlayer();
         return false;
     }
 
