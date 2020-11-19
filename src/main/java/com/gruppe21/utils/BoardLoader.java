@@ -117,14 +117,14 @@ public class BoardLoader {
         }
     }
 
-    // Make labels?
     private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
         final String description = tag.getAttribute("description");
 
         switch (elementName) {
         case "moneycard" -> {
-            final int money = Integer.parseInt(tag.getAttribute("label"));
+            final String moneyStr = tag.getAttribute("money");
+            final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
             final MoneyCardType type =  MoneyCardType.valueOf(tag.getAttribute("type"));
             chanceCards.add(new ChanceCardMoney(description, money, type));
         }
@@ -134,11 +134,10 @@ public class BoardLoader {
             final String label = tag.getAttribute("label");
             final String color = tag.getAttribute("color");
             final MoveCardType type =  MoveCardType.valueOf(tag.getAttribute("type"));
-            final PlayerPiece playerPiece =  PlayerPiece.valueOf(tag.getAttribute("piece"));
+            final String playerPieceStr = tag.getAttribute("piece");
+            final PlayerPiece playerPiece =  playerPieceStr.isEmpty() ? PlayerPiece.Boat : PlayerPiece.valueOf(playerPieceStr);
             chanceCards.add(new ChanceCardMove(description, type, label, color, playerPiece));
         }
-
-
             default -> throw new IllegalStateException("Unexpected value: " + elementName);
         }
     }
