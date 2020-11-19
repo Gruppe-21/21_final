@@ -22,12 +22,13 @@ public class PropertySquare extends Square {
         purchaseProperty(player, this.price);
     }
 
-    public void purchaseProperty(Player player, int price){
-        if (getOwner() == player || player.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
-        player.getBankBalance().addBalance(-price);
+    public void purchaseProperty(Player player, int price) {
+        if (player != null) {
+            if (getOwner() == player || player.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
+            player.getBankBalance().addBalance(-price);
+            player.addProperty(this);
+        }
         setOwner(player);
-        player.addProperty(this);
-
     }
 
     @Override
