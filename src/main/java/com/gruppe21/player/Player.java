@@ -215,6 +215,7 @@ public class Player {
     public void drawChanceCard(Deck deck, Game IShouldNotBeHere){
         getOwnedCards().add(deck.drawCard());
         getOwnedCards().get(0).onDraw(IShouldNotBeHere, this);
+
     }
 
     public void setOwnedCards(OurArrayList<ChanceCard> ownedCards) {

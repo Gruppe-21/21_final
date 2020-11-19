@@ -11,11 +11,14 @@ public abstract class ChanceCard {
     }
 
     public void use() {
+
     }
 
     public void use(Game game, Player player) {
         // Do something
     }
 
-
+    public void onDraw(Game game, Player player) {
+        use(game, player);
+    }
 }

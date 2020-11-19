@@ -16,12 +16,12 @@ public class ChanceCardStart extends ChanceCard {
     }
 
     @Override
-    public void use(Game game, int playerIndex) {
-        startCard(game, playerIndex);
+    public void use(Game game, Player player) {
+        startCard(game, player);
     }
 
     //Current player moves to StartSquare and receives money
-    private void startCard(Game game, int  playerIndex) {
+    private void startCard(Game game, Player player) {
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
 
@@ -32,7 +32,7 @@ public class ChanceCardStart extends ChanceCard {
 
         GUIManager.getInstance().waitForUserAcknowledgement(descriptionLabel);
         Square square = game.getBoard().getSquareAtIndex(startSquareIndex);
-        game.movePlayer(playerIndex, square);
+        game.movePlayer(player, square);
     }
 
 }

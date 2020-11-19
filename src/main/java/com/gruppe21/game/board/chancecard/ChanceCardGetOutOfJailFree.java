@@ -9,6 +9,8 @@ public class ChanceCardGetOutOfJailFree extends ChanceCard{
         super(description);
     }
 
+
+
     @Override
     public void use(Game game, Player player) {
         super.use(game, player);
