@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
-    <moneycard description="homeworkdesc" money="2"  paytobank="false" receivefrombank="true" birthday="false"/>
-    <moneycard description="candydesc" money="-2"  paytobank="true" receivefrombank="false" birthday="false"/>
-    <moneycard description="birthdaydesc" money="+1"  paytobank="false" receivefrombank="false" birthday="true"/>
     <startcard description="startcarddesc"/>
-    <movecard description="boardwalkcarddesc" moveToSquare="boardwalk"/>
-    <movecard description="moveUpToDesc" ismoveupto="true"/>
-    <movecard description="takecardormovedesc" istakecard="true"/>
+
+    <moneycard description="homeworkdesc" money="2"  type="Bank"/>
+    <moneycard description="candydesc" money="-2" type="Bank"/>
+
+    <moneycard description="birthdaydesc" money="1"  type="Birthday"/>
+
+    <movecard description="boardwalkcarddesc"  type="MoveToSquare" label="boardwalk"/>
+
+    <movecard description="moveUpToDesc" type="MoveUpTo" ismoveupto="true"/>
+
+    <movecard description="takecardormovedesc" type="TakeOrMove"/>
+
+    <!-- Free Property cards -->
+    <movecard description="propertycarddesc" type="FreeSquare" color="magenta"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="cyan"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="pink"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="orange"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="red"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="yellow"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="green"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="blue"/>
+
+    <!-- Figure cards -->
+    <movecard description="figure1desc" type="Figure" piece="dog"/>
+    <movecard description="figure2desc" type="Figure" piece="cat"/>
+    <movecard description="figure3desc" type="Figure" piece="boat"/>
+    <movecard description="figure4desc" type="Figure" piece="car"/>
+    <!-- Jail cards -->
     <jailcard description="jailcardesc"/>
-    <movecard  isfreecolor="true" />
 </cards>

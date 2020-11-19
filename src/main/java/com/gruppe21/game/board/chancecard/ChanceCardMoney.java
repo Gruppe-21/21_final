@@ -5,14 +5,9 @@ import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.BankBalance;
 import com.gruppe21.player.Player;
 
-enum MoneyCardType{
-    Birthday,
-    Bank
-}
-
 public class ChanceCardMoney extends ChanceCard {
     private final int money;
-    private MoneyCardType cardType;
+    private final MoneyCardType cardType;
 
     public ChanceCardMoney(String description, int money, MoneyCardType cardType) {
         super(description);

@@ -2,6 +2,7 @@ package com.gruppe21.utils;
 
 import com.gruppe21.game.board.chancecard.*;
 import com.gruppe21.game.board.squares.*;
+import com.gruppe21.player.PlayerPiece;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
@@ -120,42 +121,26 @@ public class BoardLoader {
     // Make labels?
     private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
-        switch (elementName) {
-            case "jailcard":
-                // Add card
-                chanceCards.add(new ChanceCardGetOutOfJailFree("You can get out of jail for free if needed."));
-                break;
-            case "homeworkcard":
-                // Add card
-                chanceCards.add(new ChanceCardMoney("You have made your homework, receive 2#.", +2, false, true, false));
-                break;
-            case "candycard":
-                // Add card
-                chanceCards.add(new ChanceCardMoney("You have eaten to much candy. Pay 2# to the bank.", -2, true, false, false));
-                break;
-            case "birthdaycard":
-                // Add card
-                chanceCards.add(new ChanceCardMoney("It's your birthday! Everyone gives you 1#", +1, false, false, false));
-                break;
-            case "startcard":
-                // Add card
-                chanceCards.add(new ChanceCardStart("Move to the start area. Receive 2#", +2));
-                break;
-            case "boardwalkcard":
-                // Add card
-                chanceCards.add(new ChanceCardMove("Move to Strandpromenaden.", 23, false, false, false, false));
-                break;
-            case "moveuptocard":
-                // Add card
-                chanceCards.add(new ChanceCardMove("Move UP TO 5 squares forward.", 0, false, false, true, false));
-                break;
-            case "cardOrmovecard":
-                // Add card
-                chanceCards.add(new ChanceCardMove("Move 1 square forward, OR take another chance card", 0, true, false, false, false));
-                break;
-            default:
-                break;
+        final String description = tag.getAttribute("description");
 
+        switch (elementName) {
+        case "moneycard" -> {
+            final int money = Integer.parseInt(tag.getAttribute("label"));
+            final MoneyCardType type =  MoneyCardType.valueOf(tag.getAttribute("type"));
+            chanceCards.add(new ChanceCardMoney(description, money, type));
+        }
+        case "startcard" -> chanceCards.add(new ChanceCardStart(description));
+        case "jailcard"  -> chanceCards.add(new ChanceCardGetOutOfJailFree(description));
+        case "movecard"  -> {
+            final String label = tag.getAttribute("label");
+            final String color = tag.getAttribute("color");
+            final MoveCardType type =  MoveCardType.valueOf(tag.getAttribute("type"));
+            final PlayerPiece playerPiece =  PlayerPiece.valueOf(tag.getAttribute("piece"));
+            chanceCards.add(new ChanceCardMove(description, type, label, color, playerPiece));
+        }
+
+
+            default -> throw new IllegalStateException("Unexpected value: " + elementName);
         }
     }
 

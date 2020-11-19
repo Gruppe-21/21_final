@@ -11,14 +11,6 @@ import com.gruppe21.utils.localisation.Localisation;
 
 import java.awt.*;
 
-enum MoveCardType{
-    MoveToSquare,
-    MoveUpTo,
-    Figure,
-    TakeOrMove,
-    FreeSquare
-}
-
 public class ChanceCardMove extends ChanceCard {
 
     private final MoveCardType cardType;
