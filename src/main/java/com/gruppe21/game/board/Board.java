@@ -36,6 +36,11 @@ public class Board {
      *
      * @return square at the given integer. ex: index = 2 would in this game's case return square with name "Tower"
      */
+
+    public Square getSquareAtRelativePosition(Square square, int distance){
+        return getSquareAtIndex( (getSquareIndex(square) + distance) % getSquares().size());
+    }
+
     public Square getSquareAtIndex(int index) {
         Square square =  squares.get(index);
         System.out.println(square.getName());
