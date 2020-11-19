@@ -54,8 +54,8 @@ public class ChanceCardMove extends ChanceCard {
 
         Player currentPlayer = game.getPlayers()[playerIndex];
         PropertySquare property = (PropertySquare) getSquareFromColor(game, color);
-       this.move(game, playerIndex, property); // move to square with color x
-
+        GUIManager.getInstance().waitForUserButtonPress(descriptionLabel);
+        game.teleportPlayer(currentPlayer, property);
         Player propertyOwner = property.getOwner();
        if(propertyOwner != null){
            property.handleLandOn(currentPlayer);

@@ -17,6 +17,10 @@ public class StartSquare extends Square {
     @Override
     public void handleLandOn(Player player, Game game) {
         super.handleLandOn(player, game);
+        StartBonus(player);
+    }
+
+    public void StartBonus(Player player) {
         player.getBankBalance().addBalance(startBonus);
     }
 }
