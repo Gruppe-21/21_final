@@ -40,7 +40,7 @@ public class Deck {
      * @return
      */
 
-    public ChanceCard drawCard(ChanceCard chance){
+    public ChanceCard drawCard(){
          ChanceCard Chance = cards.get(0);
          cards.removeIndex(0);
          return Chance;
