@@ -128,7 +128,6 @@ public class Player {
 
     public void removeProperty(PropertySquare property){
         ownedProperties.remove(property);
-        if(property.getOwner() == this) property.setOwner(null);
     }
 
     public void removeProperties(PropertySquare[] properties){
@@ -144,7 +143,10 @@ public class Player {
             }
         }
         else {
-            sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
+            PropertySquare[] soldProperties = sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
+            for (PropertySquare property: soldProperties) {
+                property.purchaseProperty(creditor, 0);
+            }
 
         }
 
