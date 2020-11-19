@@ -23,7 +23,7 @@ public class BankBalance {
         }
         this.balance = balance;
         GUIManager.getInstance().setGUIPlayerBalance(parent, getBalance());
-        if (balance < 0 )
+        if (balance < 0 ) player.setBankrupt(true);
     }
 
     /**
