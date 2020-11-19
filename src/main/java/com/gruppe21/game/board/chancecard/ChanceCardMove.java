@@ -65,7 +65,7 @@ public class ChanceCardMove extends ChanceCard {
         if (result.equals(moveButton)) {
             game.movePlayerBy(player, 1);
         } else {
-         game.getDeck().drawCard(null).use();
+            player.drawChanceCard(game.getDeck());
         }
     }
 
