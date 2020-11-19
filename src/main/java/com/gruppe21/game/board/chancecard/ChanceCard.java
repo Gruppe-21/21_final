@@ -15,7 +15,7 @@ public abstract class ChanceCard {
     }
 
     public void use(Game game, Player player) {
-        // Do something
+
     }
 
     public void onDraw(Game game, Player player) {
