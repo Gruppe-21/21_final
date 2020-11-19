@@ -1,4 +1,5 @@
 package com.gruppe21.player;
+import com.gruppe21.game.board.Deck.Deck;
 import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.gui.GUIManager;
@@ -208,6 +209,11 @@ public class Player {
 
     public OurArrayList<ChanceCard> getOwnedCards() {
         return ownedCards;
+    }
+
+    public void drawChanceCard(Deck deck){
+        getOwnedCards().add(deck.drawCard());
+        getOwnedCards().get(0).onDraw;
     }
 
     public void setOwnedCards(OurArrayList<ChanceCard> ownedCards) {
