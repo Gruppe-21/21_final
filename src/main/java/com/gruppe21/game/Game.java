@@ -177,6 +177,13 @@ public class Game {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //Any chance cards that should be used at the start of the player's turn is used
+        //All cards except get out of jail free and character cards are used immediately.
+        for (ChanceCard chanceCard: curPlayer.getOwnedCards().toArray(new ChanceCard[0])) {
+            if (chanceCard.getClass() != ChanceCardGetOutOfJailFree.class)
+                chanceCard.use(this, curPlayer);
+        }
+        
         // Wait for player to press "Roll"
         guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", curPlayer.getPossessiveName()), localisation.getStringValue("rollButton"));
         guiManager.setGUIDice(dice);
