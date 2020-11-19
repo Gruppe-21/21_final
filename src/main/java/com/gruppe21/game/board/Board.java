@@ -1,12 +1,14 @@
 package com.gruppe21.game.board;
 
 import com.gruppe21.game.board.chancecard.*;
+import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.utils.BoardLoader;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,15 @@ public class Board {
     }
     public OurArrayList<Square> getSquares() {
         return squares;
+    }
+
+    public PropertySquare[] getSquareWithColor(Color color){
+        OurArrayList<PropertySquare> colorSquares = new OurArrayList<>();
+        for (Square square: getSquares().toArray(new Square[0])) {
+            if (square.getClass() == PropertySquare.class && ((PropertySquare) square).getColor() == color)
+                colorSquares.add((PropertySquare) square);
+        }
+        return colorSquares.toArray(new PropertySquare[0]);
     }
 
     /**
