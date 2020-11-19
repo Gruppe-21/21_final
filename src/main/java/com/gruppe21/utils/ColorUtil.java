@@ -3,7 +3,7 @@ package com.gruppe21.utils;
 import java.awt.*;
 
 public class ColorUtil {
-    static Color getColor(String col) {
+    public static Color getColor(String col) {
         Color color;
         switch (col.toLowerCase()) {
             case "black":

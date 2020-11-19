@@ -3,40 +3,54 @@ package com.gruppe21.game.board.chancecard;
 import com.gruppe21.game.Game;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
+import com.gruppe21.utils.ColorUtil;
 import com.gruppe21.utils.localisation.Localisation;
+
+import java.awt.*;
+
+enum MoveCardType{
+    MoveToSquare,
+    MoveUpTo,
+    Figure,
+    TakeOrMove,
+    FreeSquare
+}
 
 public class ChanceCardMove extends ChanceCard {
 
+    private MoveCardType cardType;
+    private String label;
+    private Color color;
 
-    private int moveToSquare;
-    private boolean isTakeCard;
-    private boolean isFreeColorSquare;
-    private boolean isMoveUpTo;
-    private boolean isFigure;
-
-    public ChanceCardMove(String description, int moveToSquare, boolean isTakeCard, boolean isFreeColorSquare, boolean isMoveUpTo, boolean isFigure) {
+    public ChanceCardMove(String description, MoveCardType cardType, String label, String color) {
         super(description);
-        this.moveToSquare = moveToSquare; // 0 if none?
-        this.isTakeCard = isTakeCard;
-        this.isFreeColorSquare = isFreeColorSquare;
-        this.isMoveUpTo = isMoveUpTo;
-        this.isFigure = isFigure;
+        this.cardType = cardType;
+        this.label = label;
+        this.color = ColorUtil.getColor(color);
     }
+
 
 
 
     @Override
     public void use(Game game, int playerIndex) {
-        if(isFreeColorSquare){
-            freeColorSquare(game,playerIndex);
-        } else if(isTakeCard) {
-            takeCard(game,playerIndex);
-        } else if(isMoveUpTo) {
-            moveUpTo(game,playerIndex);
-        } else if(isFigure) {
-            giveCardToFigure(game,playerIndex);
-        }else{
-            move(game,playerIndex);
+
+        switch (cardType){
+            case MoveToSquare -> {
+                move(game,playerIndex);
+            }
+            case MoveUpTo -> {
+                moveUpTo(game,playerIndex);
+            }
+            case Figure -> {
+                giveCardToFigure(game,playerIndex);
+            }
+            case TakeOrMove -> {
+                takeCard(game,playerIndex);
+            }
+            case FreeSquare -> {
+                freeColorSquare(game,playerIndex);
+            }
         }
     }
 
@@ -72,9 +86,7 @@ public class ChanceCardMove extends ChanceCard {
             Square square = game.getBoard().getSquareAtIndex(moveToSquare);
             game.movePlayer(playerIndex, square);
         } else {
-            //
-            // draw new chancecard? how?
-            //
+         game.getDeck().drawCard(null).use();
         }
     }
 
