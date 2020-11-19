@@ -141,7 +141,7 @@ public class Player {
     }
 
     public int sellProperties(int debt, Player creditor) {
-        if (getBankBalance().isBankrupt(debt)) { //TODO: Probably should tell the player
+        if (getBankBalance().willBankrupt(debt)) { //TODO: Probably should tell the player
             for (PropertySquare property : getOwnedProperties().toArray(new PropertySquare[0])) {
                 property.purchaseProperty(creditor, 0); //May cause problems if creditor can't own all the properties
             }
