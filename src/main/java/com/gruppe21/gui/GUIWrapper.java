@@ -26,8 +26,7 @@ public class GUIWrapper {
     //TODO set the right values in fields
     // Add a list of squares and turn them into fields.
     private void addSquares(OurArrayList<Square> squareList) {
-        for (Object obj : squareList.toArray()) {
-            Square square = (Square)obj;
+        for (Square square : squareList.toArray(new Square[0])) {
             GUI_Field field = new GUI_Street();
             field.setTitle(square.getName());
             field.setSubText("");

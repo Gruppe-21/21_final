@@ -1,5 +1,6 @@
 package com.gruppe21.utils.arrayutils;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class OurArrayList<T> {
@@ -12,9 +13,15 @@ public class OurArrayList<T> {
         this(10);
     }
 
-    public Object[] toArray(){
-        return array;
-    }
+    public <T> T[] toArray(T[] a)
+{
+        if (a.length < size())
+                 a = (T[]) Array.newInstance(a.getClass().getComponentType(), size());
+         else if (a.length > size())
+                 a[size()] = null;
+            System.arraycopy(array, 0, a, 0, size());
+        return a;
+      }
     public OurArrayList(int n) {
         if (n <= 0) {
             try {

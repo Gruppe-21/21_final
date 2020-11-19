@@ -16,8 +16,7 @@ public class GoToPrisonSquare extends Square {
 
         Square prisonSquare = null;
 
-        for (Object squareObj : board.getSquares().toArray()) {
-            Square square = (Square)squareObj;
+        for (Square square : board.getSquares().toArray(new Square[0])) {
             if(square.getClass() ==  GoToPrisonSquare.class){
                 prisonSquare = square;
                 break;

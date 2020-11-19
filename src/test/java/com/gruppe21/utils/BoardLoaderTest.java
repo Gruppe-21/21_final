@@ -28,8 +28,7 @@ public class BoardLoaderTest {
             list = null;
         }
 
-        for (Object obj : list.toArray()) {
-            Square square = (Square)obj;
+        for (Square square : list.toArray(new Square[0])) {
             System.out.println(square.getName());
         }
 
