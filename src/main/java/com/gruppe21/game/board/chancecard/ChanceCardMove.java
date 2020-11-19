@@ -30,88 +30,73 @@ public class ChanceCardMove extends ChanceCard {
 
 
     @Override
-    public void use(Game game, int playerIndex) {
+    public void use(Game game, Player player) {
 
         switch (cardType){
-            case MoveToSquare -> move(game,playerIndex, getSquareFromLabel(game, label));
-            case MoveUpTo -> moveUpTo(game,playerIndex);
-            case Figure -> giveCardToFigure(game,playerIndex);
-            case TakeOrMove -> takeCard(game,playerIndex);
-            case FreeSquare -> freeColorSquare(game,playerIndex);
+            case MoveToSquare -> move(game,player, getSquareFromLabel(game, label));
+            case MoveUpTo -> moveUpTo(game,player);
+            case Figure -> giveCardToFigure(game,player);
+            case TakeOrMove -> takeCard(game,player);
+            case FreeSquare -> freeColorSquare(game,player);
         }
     }
 
 
-    private void freeColorSquare(Game game,int playerIndex){
-
-        Player currentPlayer = game.getPlayers()[playerIndex];
+    private void freeColorSquare(Game game, Player player){
         PropertySquare property = (PropertySquare) getSquareFromColor(game, color);
         GUIManager.getInstance().waitForUserButtonPress(descriptionLabel);
-        game.teleportPlayer(currentPlayer, property);
+        game.teleportPlayer(player, property);
         Player propertyOwner = property.getOwner();
        if(propertyOwner != null){
-           property.handleLandOn(currentPlayer);
+           property.handleLandOn(player);
        }else{
-           property.purchaseProperty(currentPlayer, 0);
+           property.purchaseProperty(player, 0);
        }
 
     }
 
-    private void takeCard(Game game,int playerIndex) {
-        // int playerIndex = game.getCurrentPlayer();
-        int playerCurrentSquareIndex = game.getPlayers()[playerIndex].getCurrentSquareIndex();
-        int moveToSquare;
-        String moveButton = Localisation.getInstance().getStringValue("moveButton");
-        String takeButton = Localisation.getInstance().getStringValue("takeButton");
+    private void takeCard(Game game, Player player) {
+        Localisation localisation = Localisation.getInstance();
+        String moveButton = localisation.getStringValue("moveButton");
+        String takeButton = localisation.getStringValue("takeButton");
 
         String result = GUIManager.getInstance().waitForUserButtonPress(descriptionLabel, moveButton, takeButton);
 
         if (result.equals(moveButton)) {
-            moveToSquare = playerCurrentSquareIndex + 1;
-            if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
-
-            Square square = game.getBoard().getSquareAtIndex(moveToSquare);
-            game.movePlayer(playerIndex, square);
+            game.movePlayerBy(player, 1);
         } else {
          game.getDeck().drawCard(null).use();
         }
     }
 
-    private void moveUpTo(Game game,int playerIndex){
-        String moveButton1 = Localisation.getInstance().getStringValue("moveButton1");
-        String moveButton2 = Localisation.getInstance().getStringValue("moveButton2");
-        String moveButton3 = Localisation.getInstance().getStringValue("moveButton3");
-        String moveButton4 = Localisation.getInstance().getStringValue("moveButton4");
-        String moveButton5 = Localisation.getInstance().getStringValue("moveButton5");
-        int playerCurrentSquareIndex = game.getPlayers()[playerIndex].getCurrentSquareIndex();
-        int moveToSquare;
-        int moveForwardChosen = 0;
-
-        String moveUpToResult = GUIManager.getInstance().waitForUserButtonPress(descriptionLabel,moveButton1,moveButton2,moveButton3,moveButton4,moveButton5);
-
-        switch (moveUpToResult){
-            case "moveButton1" -> moveForwardChosen=1;
-            case "moveButton2" -> moveForwardChosen=2;
-            case "moveButton3" -> moveForwardChosen=3;
-            case "moveButton4" -> moveForwardChosen=4;
-            case "moveButton5" -> moveForwardChosen=5;
-            default ->
-                    moveUpTo(game,playerIndex);  // recursion. If no button chosen -> call moveUpTo() again;
+    private void moveUpTo(Game game, Player player){
+        int numMoveButtons = 5;
+        Localisation localisation = Localisation.getInstance();
+        String[] moveButtons = new String[numMoveButtons];
+        for (int i = 0; i < numMoveButtons; i++) {
+            moveButtons[i] = localisation.getStringValue("movebutton" + i);
         }
-        moveToSquare = playerCurrentSquareIndex + moveForwardChosen;
-        if(moveToSquare > 24) moveToSquare = moveToSquare%24; //-1;
 
-        Square square = game.getBoard().getSquareAtIndex(moveToSquare);
-        game.movePlayer(playerIndex,square);
+        int moveForwardChosen = 0;
+        String moveUpToResult = GUIManager.getInstance().waitForUserButtonPress(descriptionLabel, moveButtons);
+        for (int i = 0; i < numMoveButtons; i++) {
+            if (moveUpToResult.equals(moveButtons[i])){
+                moveForwardChosen = i;
+                game.movePlayerBy(player, moveForwardChosen);
+                return;
+            }
+        }
+        //It should not be possible to get here
+        moveUpTo(game, player);
     }
 
-    private void giveCardToFigure(Game game,int playerIndex){
+    private void giveCardToFigure(Game game, Player player){
         // TODO
     }
 
-    private void move(Game game,int playerIndex, Square target) {
+    private void move(Game game, Player player, Square target) {
         GUIManager.getInstance().waitForUserButtonPress(descriptionLabel);
-        game.movePlayer(playerIndex, target);
+        game.movePlayer(player, target);
     }
 
     private Square getSquareFromLabel(Game game,String label) {
