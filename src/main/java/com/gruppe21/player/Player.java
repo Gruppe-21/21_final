@@ -28,6 +28,7 @@ public class Player {
     private int age;                    // Int age of player. Youngest player starts.
     private OurArrayList<PropertySquare> ownedProperties;     // All owned properties of a player
     private OurArrayList<ChanceCard> ownedCards;           // All currently owned chance cards of a player
+    private Boolean isBankrupt;
 
 
     private int currentSquareIndex;
@@ -38,6 +39,7 @@ public class Player {
         prisonStatus = false;
         ownedProperties = new OurArrayList<>();
         ownedCards = new OurArrayList<>(2); //A player is probably rarely going to have more than 2 cards at once
+        isBankrupt = false;
     }
     public Player(String name) {
         this();
@@ -132,6 +134,14 @@ public class Player {
 
     public void removeProperty(PropertySquare property){
         ownedProperties.remove(property);
+    }
+
+    public Boolean isBankrupt() {
+        return isBankrupt;
+    }
+
+    public void setBankrupt(Boolean bankrupt) {
+        isBankrupt = bankrupt;
     }
 
     public void removeProperties(PropertySquare[] properties){
