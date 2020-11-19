@@ -28,6 +28,7 @@ public class Player {
     private int age;                    // Int age of player. Youngest player starts.
     private OurArrayList<PropertySquare> ownedProperties;     // All owned properties of a player
     private OurArrayList<ChanceCard> ownedCards;           // All currently owned chance cards of a player
+    private Boolean isBankrupt;
 
 
     private int currentSquareIndex;
@@ -38,6 +39,7 @@ public class Player {
         prisonStatus = false;
         ownedProperties = new OurArrayList<>();
         ownedCards = new OurArrayList<>(2); //A player is probably rarely going to have more than 2 cards at once
+        isBankrupt = false;
     }
     public Player(String name) {
         this();
@@ -134,6 +136,14 @@ public class Player {
         ownedProperties.remove(property);
     }
 
+    public Boolean isBankrupt() {
+        return isBankrupt;
+    }
+
+    public void setBankrupt(Boolean bankrupt) {
+        isBankrupt = bankrupt;
+    }
+
     public void removeProperties(PropertySquare[] properties){
         for (PropertySquare property: properties) {
             removeProperty(property);
@@ -141,11 +151,11 @@ public class Player {
     }
 
     public int sellProperties(int debt, Player creditor) {
-        if (isBankrupt(debt)) { //TODO: Probably should tell the player
+        if (getBankBalance().willBankrupt(debt)) { //TODO: Probably should tell the player
             for (PropertySquare property : getOwnedProperties().toArray(new PropertySquare[0])) {
                 property.purchaseProperty(creditor, 0); //May cause problems if creditor can't own all the properties
             }
-            return canPay();
+            return canPayInTotal();
         }
 
         PropertySquare[] soldProperties = sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
@@ -194,7 +204,7 @@ public class Player {
         return selected.toArray(new PropertySquare[0]);
     }
 
-    public int canPay(){
+    public int canPayInTotal(){
         int totalValue = getBankBalance().getBalance();
 
         for (PropertySquare ownedProperty : ownedProperties.toArray(new PropertySquare[0])) {
@@ -205,7 +215,7 @@ public class Player {
     }
 
     public boolean isBankrupt(int price){
-        return price > canPay();
+        return price > canPayInTotal();
     }
 
     public OurArrayList<ChanceCard> getOwnedCards() {
@@ -215,7 +225,6 @@ public class Player {
     public void drawChanceCard(Deck deck, Game IShouldNotBeHere){
         getOwnedCards().add(deck.drawCard());
         getOwnedCards().get(0).onDraw(IShouldNotBeHere, this);
-
     }
 
     public void setOwnedCards(OurArrayList<ChanceCard> ownedCards) {
