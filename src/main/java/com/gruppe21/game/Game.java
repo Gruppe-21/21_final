@@ -27,6 +27,7 @@ public class Game {
     private GUIManager guiManager;
     private boolean isTest;
 
+    private Boolean gameIsOver = false;
     private Board board;
     private Player[] players;
     private int currentPlayer;
@@ -53,8 +54,20 @@ public class Game {
 
 
 
+    public Boolean getGameIsOver() {
+        return gameIsOver;
+    }
+
+    public void setGameIsOver(Boolean gameIsOver) {
+        this.gameIsOver = gameIsOver;
+    }
+
     public Board getBoard() {
         return board;
+    }
+
+    public Deck getDeck() {
+        return deck;
     }
 
     public Player[] getPlayers() {
@@ -86,6 +99,26 @@ public class Game {
         guiManager.addPlayersToGUI(this.players);
     }
 
+    private void initialisePlayerArray(Player[] players) {
+        if (players == null) {
+            int numberOfPlayers;
+            while (true) {
+                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
+                try {
+                    numberOfPlayers = Integer.parseInt(inputString.trim());
+                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
+                        throw new Exception("Invalid number of players");
+                    players = new Player[numberOfPlayers];
+                } catch (Exception e) {
+                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
+                    continue;
+                }
+                break;
+            }
+        }
+        this.players = players;
+    }
+
     private void initialisePlayers(Player[] players) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) players[i] = new Player();
@@ -109,28 +142,28 @@ public class Game {
             }
         }
         playerSelection();
-
     }
 
-    private void initialisePlayerArray(Player[] players) {
-        if (players == null) {
-            int numberOfPlayers;
-            while (true) {
-                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
-                try {
-                    numberOfPlayers = Integer.parseInt(inputString.trim());
-                    if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
-                        throw new Exception("Invalid number of players");
-                    players = new Player[numberOfPlayers];
-                } catch (Exception e) {
-                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers"));
-                    continue;
-                }
-                break;
+    public void playerSelection()
+    {
+        OurArrayList<String> availablePieces = new OurArrayList<>();
+        availablePieces.add("\uD83D\uDC15");
+        availablePieces.add("\uD83D\uDC08");
+        availablePieces.add("\uD83D\uDE97");
+        availablePieces.add("\uD83D\uDEA2");
+        for (Player player : getPlayers()) {
+            String selected = guiManager.waitForUserButtonPress(localisation.getStringValue("choosePiece", player.getName()), availablePieces.toArray(new String[0]));
+            switch (selected) {
+                case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
+                case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
+                case "\uD83D\uDE97" -> player.setPiece(PlayerPiece.Car);
+                case "\uD83D\uDEA2" -> player.setPiece(PlayerPiece.Boat);
             }
+            availablePieces.remove(selected);
         }
-        this.players = players;
+
     }
+
 
     public boolean playRound() {
         Player curPlayer = players[currentPlayer];
@@ -211,27 +244,4 @@ public class Game {
         return (currentPlayer + 1) % players.length;
     }
 
-    public Deck getDeck() {
-        return deck;
-    }
-
-    public void playerSelection()
-    {
-        OurArrayList<String> availablePieces = new OurArrayList<>();
-        availablePieces.add("\uD83D\uDC15");
-        availablePieces.add("\uD83D\uDC08");
-        availablePieces.add("\uD83D\uDE97");
-        availablePieces.add("\uD83D\uDEA2");
-        for (Player player : getPlayers()) {
-            String selected = guiManager.waitForUserButtonPress(localisation.getStringValue("choosePiece", player.getName()), availablePieces.toArray(new String[0]));
-            switch (selected) {
-                case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
-                case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
-                case "\uD83D\uDE97" -> player.setPiece(PlayerPiece.Car);
-                case "\uD83D\uDEA2" -> player.setPiece(PlayerPiece.Boat);
-            }
-            availablePieces.remove(selected);
-        }
-
-    }
 }
