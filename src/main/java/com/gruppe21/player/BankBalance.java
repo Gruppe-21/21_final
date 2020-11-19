@@ -21,9 +21,9 @@ public class BankBalance {
         if (balance < 0) {
             balance += parent.sellProperties(balance, player);
         }
-
         this.balance = balance;
         GUIManager.getInstance().setGUIPlayerBalance(parent, getBalance());
+        if (balance < 0 )
     }
 
     /**
@@ -41,4 +41,7 @@ public class BankBalance {
         return getBalance();
     }
 
+    public boolean willBankrupt(int price){
+        return price > parent.canPayInTotal();
+    }
 }

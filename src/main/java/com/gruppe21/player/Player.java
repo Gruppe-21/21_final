@@ -141,7 +141,7 @@ public class Player {
     }
 
     public int sellProperties(int debt, Player creditor) {
-        if (isBankrupt(debt)) { //TODO: Probably should tell the player
+        if (getBankBalance().isBankrupt(debt)) { //TODO: Probably should tell the player
             for (PropertySquare property : getOwnedProperties().toArray(new PropertySquare[0])) {
                 property.purchaseProperty(creditor, 0); //May cause problems if creditor can't own all the properties
             }
@@ -202,10 +202,6 @@ public class Player {
         }
 
         return totalValue;
-    }
-
-    public boolean isBankrupt(int price){
-        return price > canPayInTotal();
     }
 
     public OurArrayList<ChanceCard> getOwnedCards() {
