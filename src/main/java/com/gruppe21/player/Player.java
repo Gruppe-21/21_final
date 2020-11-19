@@ -136,20 +136,20 @@ public class Player {
         }
     }
 
-    public int sellProperties(int debt, Player creditor){
-        if(isBankrupt(debt)){ //TODO: Probably should tell the player
+    public int sellProperties(int debt, Player creditor) {
+        if (isBankrupt(debt)) { //TODO: Probably should tell the player
             for (PropertySquare property : getOwnedProperties().toArray(new PropertySquare[0])) {
                 property.purchaseProperty(creditor, 0); //May cause problems if creditor can't own all the properties
-                return canPay();
             }
+            return canPay();
         }
-        else {
-            PropertySquare[] soldProperties = sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
-            for (PropertySquare property: soldProperties) {
-                property.purchaseProperty(creditor, 0);
-            }
-            return debt;
+
+        PropertySquare[] soldProperties = sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
+        for (PropertySquare property : soldProperties) {
+            property.purchaseProperty(creditor, 0);
         }
+        return debt;
+
     }
 
     private PropertySquare[] sellProperties(PropertySquare[] properties, String creditorName, int debt){
