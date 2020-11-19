@@ -1,7 +1,9 @@
 package com.gruppe21.player;
 import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.game.board.squares.PropertySquare;
+import com.gruppe21.gui.GUIManager;
 import com.gruppe21.utils.arrayutils.OurArrayList;
+import com.gruppe21.utils.localisation.Localisation;
 import gui_fields.GUI_Player;
 
 //Todo: add possesiveName
@@ -22,7 +24,7 @@ public class Player {
     private PlayerPiece piece;            // Piece
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
-    public OurArrayList<PropertySquare> ownedProperties;     // All owned properties of a player
+    private OurArrayList<PropertySquare> ownedProperties;     // All owned properties of a player
     private ChanceCard[] ownedCards;           // All currently owned chance cards of a player
 
     private int currentSquareIndex;
@@ -136,17 +138,54 @@ public class Player {
     }
 
     public void sellProperties(int debt, Player creditor){
-        if(isBankrupt(debt)){
-            if (creditor == null){
-
-                for (PropertySquare getOwnedProperties().:
-                     ) {
-
-                }
+        if(isBankrupt(debt)){ //TODO: Probably should tell the player
+            for (PropertySquare property : getOwnedProperties().toArray(new PropertySquare[0])) {
+                property.purchaseProperty(creditor, 0); //May cause problems if creditor can't own all the properties
             }
+        }
+        else {
+            sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
 
         }
 
+    }
+
+    private PropertySquare[] sellProperties(PropertySquare[] properties, String creditorName, int debt){
+        //Todo: should show next and previous buttons if there aren't any properties to show
+        OurArrayList<PropertySquare> selected = new OurArrayList<>();
+        Localisation localisation = Localisation.getInstance();
+        GUIManager guiManager = GUIManager.getInstance();
+        int currentlyViewing = 0;
+        int numPropertyButtons = Math.min(properties.length, MAX_NUM_BUTTONS - 2);
+        String[] buttons = new String[numPropertyButtons+2];
+        buttons[0] = localisation.getStringValue("nextBtn");
+        buttons[buttons.length-1] = localisation.getStringValue("previousBtn");
+        do {
+            for (int i = 0; i < numPropertyButtons-1; i++) {
+                buttons[i+1] = properties[currentlyViewing+i].getDescription();
+            }
+
+            String selectedButton = guiManager.waitForUserButtonPress(localisation.getStringValue("sellProperties", Integer.toString(debt), creditorName), buttons);
+            if (selectedButton.equals(buttons[0]) && currentlyViewing < (properties.length - 3) ) currentlyViewing++;
+            else if(selectedButton.equals(buttons[buttons.length-1]) && currentlyViewing > 0) currentlyViewing--;
+            else {
+                for (PropertySquare property : properties) {
+                    if (property.getDescription().equals(selectedButton)){
+                        if (selected.indexOf(property) == -1){
+                            selected.add(property);
+                            debt -= property.getPrice();
+                        }
+                        else {
+                            selected.remove(property);
+                            debt += property.getPrice();
+                        }
+                    }
+                }
+
+            }
+
+        }while (debt > 0);
+        return selected.toArray(new PropertySquare[0]);
     }
 
     public boolean isBankrupt(int price){
