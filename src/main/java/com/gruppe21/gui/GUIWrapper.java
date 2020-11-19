@@ -64,7 +64,7 @@ public class GUIWrapper {
                 return;
         }
 
-        GUI_Player guiPlayer = new GUI_Player(player.getName());
+        GUI_Player guiPlayer = new GUI_Player(player.getName() + " " + player.getPieceAsString());
         guiPlayer.setBalance(player.getBankBalance().getBalance());
         guiPlayer.getCar().setPrimaryColor(color);
         player.setGuiPlayer(guiPlayer);
@@ -142,7 +142,7 @@ public class GUIWrapper {
 
     public Boolean hasPlayerWithName(String name) {
         for (GUI_Player player : players) {
-            if (player.getName().equals(name)) return true;
+            if (player.getName().split(" ")[0].equals(name)) return true;
         }
         return false;
     }
