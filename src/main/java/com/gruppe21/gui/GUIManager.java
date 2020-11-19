@@ -43,7 +43,7 @@ public class GUIManager {
             }
 
             players[i].setName(guiName);
-            guiWrapper.addPlayer(players[i], colors[0]);
+            guiWrapper.addPlayer(players[i], colors[i]);
             players[i].setName(realName);
         }
     }

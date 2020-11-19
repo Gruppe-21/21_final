@@ -10,6 +10,8 @@ import com.gruppe21.game.board.squares.PrisonSquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
+import com.gruppe21.player.PlayerPiece;
+import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.stringutils.RandomNameGenerator;
 import org.xml.sax.SAXException;
@@ -105,8 +107,9 @@ public class Game {
                     guiManager.waitForUserAcknowledgement(localisation.getStringValue("unknownError"));
                 }
             }
-
         }
+        playerSelection();
+
     }
 
     private void initialisePlayerArray(Player[] players) {
@@ -210,11 +213,25 @@ public class Game {
         return deck;
     }
 
-    public void playerPieceSelection(){
-        String[] pieces = new String[]{};
+    public void playerSelection()
+    {
+        OurArrayList<String> availablePieces = new OurArrayList<>();
+        availablePieces.add("\uD83D\uDC15");
+        availablePieces.add("\uD83D\uDC08");
+        availablePieces.add("\uD83D\uDE97");
+        availablePieces.add("\uD83D\uDEA2");
 
-
+        for (int i = 0; i < 4; i++) {
+            Player player = getPlayers()[i];
+            String selected = guiManager.waitForUserButtonPress(player.getName() + ": Choose a brick.", availablePieces.toArray(new String[0]));
+            switch (selected) {
+                case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
+                case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
+                case "\uD83D\uDE97" -> player.setPiece(PlayerPiece.Car);
+                case "\uD83D\uDEA2" -> player.setPiece(PlayerPiece.Boat);
+            }
+            availablePieces.remove(selected);
+        }
 
     }
-
 }
