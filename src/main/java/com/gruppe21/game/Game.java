@@ -220,10 +220,8 @@ public class Game {
         availablePieces.add("\uD83D\uDC08");
         availablePieces.add("\uD83D\uDE97");
         availablePieces.add("\uD83D\uDEA2");
-
-        for (int i = 0; i < 4; i++) {
-            Player player = getPlayers()[i];
-            String selected = guiManager.waitForUserButtonPress(player.getName() + ": Choose a brick.", availablePieces.toArray(new String[0]));
+        for (Player player : getPlayers()) {
+            String selected = guiManager.waitForUserButtonPress(localisation.getStringValue("choosePiece"), availablePieces.toArray(new String[0]));
             switch (selected) {
                 case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
                 case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
