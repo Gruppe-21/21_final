@@ -1,4 +1,5 @@
 package com.gruppe21.player;
+import com.gruppe21.game.Game;
 import com.gruppe21.game.board.Deck.Deck;
 import com.gruppe21.game.board.chancecard.ChanceCard;
 import com.gruppe21.game.board.squares.PropertySquare;

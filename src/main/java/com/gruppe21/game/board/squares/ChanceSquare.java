@@ -19,7 +19,7 @@ public class ChanceSquare extends Square {
 
         String takeCardMessage = Localisation.getInstance().getStringValue("takecard");
         GUIManager.getInstance().waitForUserButtonPress(takeCardMessage, "✓");
-        player.drawChanceCard(game.getDeck());
+        player.drawChanceCard(game.getDeck(), game);
     }
 
 }
