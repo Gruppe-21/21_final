@@ -28,7 +28,8 @@ public class PropertySquare extends Square {
             player.getBankBalance().addBalance(-price);
             player.addProperty(this);
         }
-        getOwner().removeProperty(this);
+        if (getOwner() != null)
+            getOwner().removeProperty(this);
         setOwner(player);
     }
 
