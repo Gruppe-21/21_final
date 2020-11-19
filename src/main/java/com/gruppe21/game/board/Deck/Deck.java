@@ -12,17 +12,12 @@ import java.io.IOException;
 public class Deck {
 
     private OurArrayList <ChanceCard> cards;
-    private Random rand = new Random();
-    private ChanceCard putBack;
+    private final Random rand = new Random();
 
     public Deck(){
         try {
             cards = BoardLoader.loadCards("cards");
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
 
@@ -35,7 +30,6 @@ public class Deck {
             temp = cards.get(i);
             cards.set(i, cards.get(rand_int));
             cards.set(rand_int, temp);
-
             return;
         }
     }
@@ -47,16 +41,13 @@ public class Deck {
      */
 
     public ChanceCard drawCard(ChanceCard chance){
-         ChanceCard Chance = cards.get(1);
-         cards.removeIndex(1);
-         //cards.add(Chance);
-
+         ChanceCard Chance = cards.get(0);
+         cards.removeIndex(0);
          return Chance;
     }
 
     public void returnCard(ChanceCard PutBack){
-        this.putBack = PutBack;
-        cards.add(putBack);
+        cards.add(PutBack);
 
     }
 }

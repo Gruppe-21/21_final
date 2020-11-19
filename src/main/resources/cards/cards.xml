@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
-
+    <moneycard description="homeworkdesc" money="2"  paytobank="false" receivefrombank="true" birthday="false"/>
+    <moneycard description="candydesc" money="-2"  paytobank="true" receivefrombank="false" birthday="false"/>
+    <moneycard description="birthdaydesc" money="+1"  paytobank="false" receivefrombank="false" birthday="true"/>
+    <startcard description="startcarddesc"/>
+    <movecard description="boardwalkcarddesc" moveToSquare="boardwalk"/>
+    <movecard description="moveUpToDesc" ismoveupto="true"/>
+    <movecard description="takecardormovedesc" istakecard="true"/>
+    <jailcard description="jailcardesc"/>
+    <movecard  isfreecolor="true" />
 </cards>
