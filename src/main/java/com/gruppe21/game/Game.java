@@ -174,7 +174,9 @@ public class Game {
         guiManager.closeGUI();
     }
 
-
+    public void movePlayerBy(Player player, int numSquares){
+        movePlayer(player, board.getSquareAtIndex(player.getCurrentSquareIndex() + numSquares));
+    }
 
     public void movePlayer(int playerIndex, Square square) {
         movePlayer(players[playerIndex], square);
