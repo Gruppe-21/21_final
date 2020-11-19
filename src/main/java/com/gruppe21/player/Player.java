@@ -144,7 +144,7 @@ public class Player {
             for (PropertySquare property : getOwnedProperties().toArray(new PropertySquare[0])) {
                 property.purchaseProperty(creditor, 0); //May cause problems if creditor can't own all the properties
             }
-            return canPay();
+            return canPayInTotal();
         }
 
         PropertySquare[] soldProperties = sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
@@ -193,7 +193,7 @@ public class Player {
         return selected.toArray(new PropertySquare[0]);
     }
 
-    public int canPay(){
+    public int canPayInTotal(){
         int totalValue = getBankBalance().getBalance();
 
         for (PropertySquare ownedProperty : ownedProperties.toArray(new PropertySquare[0])) {
@@ -204,7 +204,7 @@ public class Player {
     }
 
     public boolean isBankrupt(int price){
-        return price > canPay();
+        return price > canPayInTotal();
     }
 
     public OurArrayList<ChanceCard> getOwnedCards() {
