@@ -131,8 +131,7 @@ public class Player {
 
         int totalValue = getBankBalance().getBalance();
 
-        for (Object ownedPropertyObj : ownedProperties.toArray()) {
-            PropertySquare ownedProperty = (PropertySquare) ownedPropertyObj;
+        for (PropertySquare ownedProperty : ownedProperties.toArray(new PropertySquare[0])) {
             totalValue += ownedProperty.getPrice();
         }
 
