@@ -53,7 +53,6 @@ public class BoardLoader {
         return squares;
     }
 
-    //TODO SKAL ÆNDRES TIL TYPEN CHANCECARD NÅR DET ER IMPLEMENTERET
     private static OurArrayList<ChanceCard> getCardsFromNodeList(NodeList boardNodes) {
         OurArrayList<ChanceCard> chanceCards = new OurArrayList<ChanceCard>();
 
