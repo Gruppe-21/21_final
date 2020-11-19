@@ -211,9 +211,9 @@ public class Player {
         return ownedCards;
     }
 
-    public void drawChanceCard(Deck deck){
+    public void drawChanceCard(Deck deck, Game iShouldNotBeHere){
         getOwnedCards().add(deck.drawCard());
-        getOwnedCards().get(0).onDraw;
+        getOwnedCards().get(0).onDraw(iShouldNotBeHere);
     }
 
     public void setOwnedCards(OurArrayList<ChanceCard> ownedCards) {
