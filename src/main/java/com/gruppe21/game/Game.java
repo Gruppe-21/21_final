@@ -209,4 +209,12 @@ public class Game {
     public Deck getDeck() {
         return deck;
     }
+
+    public void playerPieceSelection(){
+        String[] pieces = new String[]{};
+
+
+
+    }
+
 }

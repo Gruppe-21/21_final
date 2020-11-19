@@ -38,7 +38,7 @@ public abstract class Square {
     }
 
     public String getName() {
-        return name;
+        return Localisation.getInstance().getStringValue(name) ;
     }
 
     public void setName(String name) {

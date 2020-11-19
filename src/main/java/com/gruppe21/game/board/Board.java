@@ -21,8 +21,8 @@ public class Board {
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-        for (Object square : squares.toArray()) {
-            ((Square)square).setBoard(this);
+        for (Square square : squares.toArray(new Square[0])) {
+            square.setBoard(this);
         }
 
 
