@@ -48,6 +48,8 @@ public abstract class Square {
     public void setBoard(Board board) {
         this.board = board;
     }
+
+    public String getLabel() {return name;}
 }
 
 
