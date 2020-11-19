@@ -216,19 +216,19 @@ public class Game {
     public void playerSelection()
     {
         OurArrayList<String> availablePieces = new OurArrayList<>();
-        availablePieces.add("Dog");
-        availablePieces.add("Cat");
-        availablePieces.add("Boat");
-        availablePieces.add("Car");
+        availablePieces.add("\uD83D\uDC15");
+        availablePieces.add("\uD83D\uDC08");
+        availablePieces.add("\uD83D\uDE97");
+        availablePieces.add("\uD83D\uDEA2");
 
         for (int i = 0; i < 4; i++) {
             Player player = getPlayers()[i];
             String selected = guiManager.waitForUserButtonPress(player.getName() + ": Choose a brick.", availablePieces.toArray(new String[0]));
             switch (selected) {
-                case "Dog" -> player.setPiece(PlayerPiece.Dog);
-                case "Cat" -> player.setPiece(PlayerPiece.Cat);
-                case "Boat" -> player.setPiece(PlayerPiece.Boat);
-                case "Car" -> player.setPiece(PlayerPiece.Car);
+                case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
+                case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
+                case "\uD83D\uDE97" -> player.setPiece(PlayerPiece.Car);
+                case "\uD83D\uDEA2" -> player.setPiece(PlayerPiece.Boat);
             }
             availablePieces.remove(selected);
         }
