@@ -21,7 +21,6 @@ public class ChanceSquare extends Square {
         GUIManager.getInstance().waitForUserButtonPress(takeCardMessage, "✓");
         Deck deck = game.getDeck();
         ChanceCard card = deck.drawCard(null);
-        card.use(game, player);
     }
 
 }
