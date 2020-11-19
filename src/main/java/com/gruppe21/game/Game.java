@@ -154,7 +154,7 @@ public class Game {
         for (Die die : dice) {
             sum += die.getValue();
         }
-        movePlayer(currentPlayer, board.getSquareAtIndex(sum));
+        movePlayerBy(curPlayer, sum);
         for (Player player : players) {
             //if (player.isBankrupt()) return true;
         }
