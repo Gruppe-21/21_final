@@ -14,6 +14,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Localisation {
 
@@ -97,9 +99,17 @@ public class Localisation {
 
     public String getStringValue(String label, String... variables) {
         String localisedText = getStringValue(label);
+        Pattern pattern = Pattern.compile("�\\[(.*?)]");
         for (int i = 0; i < variables.length; i++) {
-            localisedText.replaceFirst("�\\[(.*?)]", variables[i]);
+            Matcher matcher = pattern.matcher(localisedText);
+            matcher.find();
+            localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
         }
+/*
+        for (int i = 0; i < variables.length; i++) {
+            localisedText.c
+            localisedText.replaceFirst("�\\[(.*?)]", variables[i]);
+        }*/
         return localisedText;
     }
 
