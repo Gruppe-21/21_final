@@ -88,7 +88,7 @@ public class BoardLoader {
 
             case "ChanceSquare":
                 // Add square
-                squares.add(new ChanceSquare("chance", ""));
+                squares.add(new ChanceSquare("chance", localisation.getStringValue("takecard")));
                 break;
 
             case "FreeParkingSquare":
