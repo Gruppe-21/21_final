@@ -6,54 +6,38 @@ import com.gruppe21.player.BankBalance;
 import com.gruppe21.player.Player;
 
 public class ChanceCardMoney extends ChanceCard {
-    private int money;
-    private boolean isPayToBank;
-    private boolean isHomework;
-    private boolean isBirthday;
+    private final int money;
+    private final MoneyCardType cardType;
 
-    public ChanceCardMoney(String description, int money, boolean isPayToBank, boolean isReceiveMoneyFromBank, boolean isBirthday) {
+    public ChanceCardMoney(String description, int money, MoneyCardType cardType) {
         super(description);
         this.money = money;
-        this.isPayToBank = isPayToBank;
-        this.isHomework = isReceiveMoneyFromBank;
-        this.isBirthday = isBirthday;
+        this.cardType = cardType;
+
     }
 
     @Override
     public void use(Game game,Player player) {
-        if(isPayToBank) {
-            tooMuchCandy(game, player);
-        } else if(isHomework) {
-            finishedHomework(game,player);  // isReceivemoneyFromBank
-        }else{
-            birthday(game,  game.getPlayers(), player);
-        }
 
+        switch (cardType){
+
+            case Bank -> {
+                modifyPlayerBalance(game, player);
+            }
+            case Birthday -> {
+                receiveFromPlayers(game,  game.getPlayers(), player);
+            }
+        }
     }
 
-
-
-
-    //Current player loses money
-    private void tooMuchCandy(Game game, Player player) {
+    private void modifyPlayerBalance(Game game, Player player) {
         int modifyBalance = money; // -2M
         BankBalance playerCurrentBalance = player.getBankBalance();
-
         GUIManager.getInstance().waitForUserAcknowledgement(descriptionLabel);
         playerCurrentBalance.addBalance(modifyBalance);
     }
-
-    //Current player receives money
-    private void finishedHomework(Game game,Player player) {
-        int modifyBalance = money; // +2M
-        BankBalance playerCurrentBalance = player.getBankBalance();
-
-        GUIManager.getInstance().waitForUserAcknowledgement(descriptionLabel);
-        playerCurrentBalance.addBalance(modifyBalance);
-    }
-
     //Current player receives money from other players
-    private void birthday(Game game,Player[] players, Player player) {
+    private void receiveFromPlayers(Game game, Player[] players, Player player) {
         Player[] payingPlayersArr = new Player[players.length-1];
         int modifyBalance = money; // +1M
 
@@ -79,5 +63,4 @@ public class ChanceCardMoney extends ChanceCard {
             receivingPlayerBalance.addBalance(modifyBalance);// (+1M)
         }
     }
-
 }
