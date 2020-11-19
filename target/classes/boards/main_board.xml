@@ -29,7 +29,7 @@
     <PropertySquare label="bowlingalley" description="bowlingalleydesc" price="4" color="green"/>
     <PropertySquare label="zoo" price="4" description="zoodesc" color="green"/>
     <ChanceSquare/>
-    <PropertySquare label="parkplace" description="parkplacedesc" price="5" color="blue"/>
+    <PropertySquare label="waterpark" description="waterparkedesc" price="5" color="blue"/>
     <PropertySquare label="boardwalk" description="boardwalkdesc" price="5" color="blue"/>
 
 
