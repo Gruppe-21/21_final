@@ -25,7 +25,8 @@ public class Player {
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
     private int age;                    // Int age of player. Youngest player starts.
     private OurArrayList<PropertySquare> ownedProperties;     // All owned properties of a player
-    private ChanceCard[] ownedCards;           // All currently owned chance cards of a player
+    private OurArrayList<ChanceCard> ownedCards;           // All currently owned chance cards of a player
+
 
     private int currentSquareIndex;
 
@@ -34,6 +35,7 @@ public class Player {
         currentSquareIndex = 0;
         prisonStatus = false;
         ownedProperties = new OurArrayList<>();
+        ownedCards = new OurArrayList<>(2); //A player is probably rarely going to have more than 2 cards at once
     }
     public Player(String name) {
         this();
@@ -68,7 +70,7 @@ public class Player {
     }
 
     // Sets the player's currently owned cards
-    public void setCards(ChanceCard[] ownedCards) {
+    public void setCards(OurArrayList<ChanceCard> ownedCards) {
         this.setOwnedCards(ownedCards);
     }
 
@@ -204,11 +206,11 @@ public class Player {
         return price > canPay();
     }
 
-    public ChanceCard[] getOwnedCards() {
+    public OurArrayList<ChanceCard> getOwnedCards() {
         return ownedCards;
     }
 
-    public void setOwnedCards(ChanceCard[] ownedCards) {
+    public void setOwnedCards(OurArrayList<ChanceCard> ownedCards) {
         this.ownedCards = ownedCards;
     }
 }
