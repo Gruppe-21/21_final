@@ -45,6 +45,7 @@ public class GUIManager {
             players[i].setName(guiName);
             guiWrapper.addPlayer(players[i], colors[i]);
             players[i].setName(realName);
+            movePlayer(players[i], players[i].getCurrentSquareIndex());
         }
     }
 
