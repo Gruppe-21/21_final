@@ -10,11 +10,14 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
 public class Deck {
-
+    private final boolean SHUFFLE_CARDS;
+    private final int CARDS_BEFORE_SHUFFLE;
     private OurArrayList <ChanceCard> cards;
     private final Random rand = new Random();
 
     public Deck(){
+        SHUFFLE_CARDS = true; //Should be read from file.
+        CARDS_BEFORE_SHUFFLE = 20; //should be read from file.
         try {
             cards = BoardLoader.loadCards("cards");
         } catch (ParserConfigurationException | IOException | SAXException e) {
@@ -35,11 +38,9 @@ public class Deck {
     }
 
     /**
-     * Trækker øverste kort, og lægger det nederst i bunken.
-     * Skal måske modificeres så folk kan beholde deres kort
+     * Draws the top card.
      * @return
      */
-
     public ChanceCard drawCard(){
          ChanceCard Chance = cards.get(0);
          cards.removeIndex(0);
