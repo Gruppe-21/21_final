@@ -123,12 +123,33 @@ public class Player {
     public void addProperty(PropertySquare property){
         ownedProperties.add(property);
     }
+
     public void removeProperty(PropertySquare property){
         ownedProperties.remove(property);
+        if(property.getOwner() == this) property.setOwner(null);
+    }
+
+    public void removeProperties(PropertySquare[] properties){
+        for (PropertySquare property: properties) {
+            removeProperty(property);
+        }
+    }
+
+    public void sellProperties(int debt, Player creditor){
+        if(isBankrupt(debt)){
+            if (creditor == null){
+
+                for (PropertySquare getOwnedProperties().:
+                     ) {
+
+                }
+            }
+
+        }
+
     }
 
     public boolean isBankrupt(int price){
-
         int totalValue = getBankBalance().getBalance();
 
         for (Object ownedPropertyObj : ownedProperties.toArray()) {
