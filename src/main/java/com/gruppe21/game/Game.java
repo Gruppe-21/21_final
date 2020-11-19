@@ -191,7 +191,7 @@ public class Game {
     public void teleportPlayer(Player player, int squareIndex){
         guiManager.movePlayer(player, squareIndex);
         player.setCurrentSquareIndex(squareIndex);
-        board.getSquareAtIndex(squareIndex).handleLandOn(player);
+        //board.getSquareAtIndex(squareIndex).handleLandOn(player);
     }
 
     public void teleportPlayer(Player player, Square square){
