@@ -216,7 +216,8 @@ public class Game {
     }
 
     public void movePlayerBy(Player player, int numSquares){
-        movePlayer(player, board.getSquareAtRelativePosition(board.getSquareAtIndex(player.getCurrentSquareIndex()), numSquares));
+        movePlayer(player, board.getSquareAtRelativePosition(board.getSquareAtIndex(player.getCurrentSquareIndex()), 3));
+        //movePlayer(player, board.getSquareAtRelativePosition(board.getSquareAtIndex(player.getCurrentSquareIndex()), numSquares));
     }
 
     public void movePlayer(int playerIndex, Square square) {
@@ -226,9 +227,9 @@ public class Game {
         int squareIndex = board.getSquareIndex(square);
         int oldPosition = player.getCurrentSquareIndex();
         teleportPlayer(player, squareIndex);
-        if (player.getCurrentSquareIndex() < oldPosition || player.getCurrentSquareIndex() != 0)
+        if (player.getCurrentSquareIndex() < oldPosition && player.getCurrentSquareIndex() != 0)
             board.getSquareAtIndex(0).handleLandOn(player);
-        board.getSquareAtIndex(squareIndex).handleLandOn(player);
+        board.getSquareAtIndex(squareIndex).handleLandOn(player, this);
     }
 
     public void teleportPlayer(Player player, int squareIndex){
