@@ -24,7 +24,10 @@ public class PrisonSquare extends Square {
 
     public void getOutOfJail(Player player){
         player.prisonStatus = false;
+        GUIManager guiManager = GUIManager.getInstance();
+        Localisation localisation = Localisation.getInstance();
         //If a "get out of jail free" card is available, it is used.
+        //Todo: the player should probably be told
         for (ChanceCard cCard : player.getOwnedCards().toArray(new ChanceCard[0])) {
             if (cCard.getClass() == ChanceCardGetOutOfJailFree.class){
                 cCard.use();
@@ -32,8 +35,6 @@ public class PrisonSquare extends Square {
             }
         }
         //If such a card is not available, then the player will have to pay.
-        GUIManager guiManager = GUIManager.getInstance();
-        Localisation localisation = Localisation.getInstance();
         guiManager.waitForUserAcknowledgement(localisation.getStringValue(paidReleaseLabel, Integer.toString(price)));
         player.getBankBalance().addBalance(price);
     }

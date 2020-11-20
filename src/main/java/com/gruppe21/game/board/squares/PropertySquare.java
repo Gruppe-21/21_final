@@ -12,8 +12,8 @@ public class PropertySquare extends Square {
     private Color color;
     private Player owner = null;
 
-    public PropertySquare(String name, String description, int price, Color color) {
-        super(name, description);
+    public PropertySquare(String nameLabel, String descriptionLabel, int price, Color color) {
+        super(nameLabel, descriptionLabel);
         this.price = price;
         this.color = color;
     }

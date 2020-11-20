@@ -5,8 +5,8 @@ import com.gruppe21.player.Player;
 
 public class ChanceSquare extends Square {
 
-    public ChanceSquare(String name, String descriptionLabel) {
-        super(name, descriptionLabel);
+    public ChanceSquare(String nameLabel, String descriptionLabel) {
+        super(nameLabel, descriptionLabel);
     }
 
     @Override

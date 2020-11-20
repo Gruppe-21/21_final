@@ -5,8 +5,8 @@ import com.gruppe21.player.Player;
 
 public class GoToPrisonSquare extends Square {
 
-    public GoToPrisonSquare(String name, String descriptionLabel) {
-        super(name, descriptionLabel);
+    public GoToPrisonSquare(String nameLabel, String descriptionLabel) {
+        super(nameLabel, descriptionLabel);
     }
 
     @Override
