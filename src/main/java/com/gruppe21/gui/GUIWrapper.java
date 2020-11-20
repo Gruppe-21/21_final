@@ -99,6 +99,9 @@ public class GUIWrapper {
     }
 
     public void setDice(int val1, int val2) {
+        if(val2 <= 0){
+            gui.setDice(val1, 4, 5, val1, 4, 5);
+        }
         gui.setDice(val1, 4, 5, val2, 6, 5);
     }
 
