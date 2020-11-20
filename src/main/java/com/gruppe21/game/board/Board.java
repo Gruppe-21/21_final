@@ -49,7 +49,7 @@ public class Board {
     }
 
     public Square getSquareFromLabel(Game game, String nameLabel) {
-        for (Square square : getSquares().toArray(new Square([0]))) {
+        for (Square square: getSquares().toArray(new Square[0])) {
             if (square.getNameLabel().equals(nameLabel)) return square;
         }
         return null;
