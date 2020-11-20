@@ -25,6 +25,7 @@ public class ChanceCardMoney extends ChanceCard {
 
     @Override
     public void use(Game game,Player player) {
+        super.use(game, player);
 
         GUIManager.getInstance().waitForUserAcknowledgement(Localisation.getInstance().getStringValue(descriptionLabel));
 

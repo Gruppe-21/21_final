@@ -33,6 +33,7 @@ public class ChanceCardMove extends ChanceCard {
 
     @Override
     public void use(Game game, Player player) {
+        super.use(game, player);
 
         switch (cardType){
             case MoveToSquare -> move(game,player, game.getBoard().getSquareFromLabel(label));
