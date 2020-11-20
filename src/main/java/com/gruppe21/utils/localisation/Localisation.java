@@ -114,6 +114,7 @@ public class Localisation {
         for (int i = 0; i < variables.length; i++) {
             Matcher matcher = pattern.matcher(localisedText);
             matcher.find();
+            //TODO: Will crash if no tag is found. This should be delt with
             localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
         }
 
