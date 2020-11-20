@@ -3,10 +3,8 @@ package com.gruppe21.gui;
 
 import com.gruppe21.game.Die;
 import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.squares.PropertySquare;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
-import com.gruppe21.utils.arrayutils.OurArrayList;
-import com.gruppe21.utils.localisation.Localisation;
 
 import java.awt.*;
 
@@ -62,6 +60,10 @@ public class GUIManager {
 
     private static final int MAX_NUM_BUTTONS = 5;
 
+    public void setSquareGUIColor(Color color, Square square){
+        guiWrapper.setFieldColor(color, square);
+        guiWrapper.updateGUIFields();
+    }
 
     public void setGUIPlayerBalance(Player player, int newBalance) {
         if (isTest) return;

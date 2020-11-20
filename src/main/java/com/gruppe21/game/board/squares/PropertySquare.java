@@ -5,11 +5,12 @@ import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
 
 import java.awt.*;
+import java.awt.color.ColorSpace;
 
 public class PropertySquare extends Square {
 
     private int price;
-    private Color baseColor;
+    private final Color baseColor;
     private Color color;
     private Player owner = null;
 
@@ -17,6 +18,19 @@ public class PropertySquare extends Square {
         super(nameLabel, descriptionLabel);
         this.price = price;
         this.baseColor = baseColor;
+        this.color = this.baseColor;
+    }
+
+    private static final float TINT_ALPHA = 0.7f;
+    public Color getPlayerTintedColor(Player player){
+        if (player == null) return baseColor;
+        Color playerColor = player.getGuiPlayer().getPrimaryColor();
+
+        return new Color(
+                (baseColor.getRed() * (1-TINT_ALPHA) + playerColor.getRed() * TINT_ALPHA)/255,
+                (baseColor.getGreen() * (1-TINT_ALPHA) + playerColor.getGreen() * TINT_ALPHA)/255,
+                (baseColor.getBlue() * (1-TINT_ALPHA) + playerColor.getBlue() * TINT_ALPHA)/255
+                );
     }
 
     public void purchaseProperty(Player player) {
@@ -32,6 +46,7 @@ public class PropertySquare extends Square {
         if (getOwner() != null)
             getOwner().removeProperty(this);
         setOwner(player);
+        setColor(getPlayerTintedColor(player));
     }
 
     @Override
@@ -61,9 +76,10 @@ public class PropertySquare extends Square {
 
     public void setColor(Color color) {
         this.color = color;
+        GUIManager.getInstance().setSquareGUIColor(color, this);
     }
 
-    public Color getColor(Color color){
+    public Color getColor(){
         return color;
     }
 
@@ -72,6 +88,8 @@ public class PropertySquare extends Square {
     }
 
     public void setOwner(Player owner) {
+        if (owner == null) setColor(baseColor);
+        //else setColor(b);
         this.owner = owner;
     }
 

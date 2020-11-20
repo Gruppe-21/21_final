@@ -27,7 +27,7 @@ public class GUIWrapper {
                field = new GUI_Street();
                field.setSubText("" + p.getPrice());
 
-               field.setBackGroundColor(p.getBaseColor());
+               field.setBackGroundColor(p.getColor());
            }
            else if(square.getClass() == StartSquare.class){
                field = new GUI_Start();
@@ -46,22 +46,55 @@ public class GUIWrapper {
 
 
             field.setTitle(square.getName());
-            field.setSubText("");
-            field.setDescription(square.getDescriptionLabel());
+            if (square.getClass() == PropertySquare.class) field.setSubText("₩" + ((PropertySquare) square).getPrice());
+            else field.setSubText("");
 
+            field.setDescription(square.getDescriptionLabel());
             fields.add(field);
 
         }
     }
 
-    // Has to be called every time new squares are added; Most likely only at the start of the game.
-    public void reloadGUI(OurArrayList<Square> squareList) {
-        if (gui != null)
-            gui.close();
+    public void setFieldColor(Color color, Square square){
+        GUI_Field field = getFieldFromSquare(square);
+        if (field != null) setFieldColor(color, field);
+    }
 
+    public void setFieldColor(Color color, GUI_Field field){
+        field.setBackGroundColor(color);
+    }
+
+    public GUI_Field getFieldFromSquare(Square square) {
+        for (GUI_Field field : fields.toArray(new GUI_Field[0])) {
+            String guiTitle = field.getTitle().replaceFirst("<*>", "");
+            if (guiTitle.equals(square.getName())) {
+                return field;
+            }
+        }
+        return null;
+
+    }
+
+
+    public void updateGUIFields(){
+        updateGUIFields(fields.toArray(new GUI_Field[0]));
+    }
+    public void updateGUIFields(GUI_Field[] fields){
+        if (fields.length > gui.getFields().length) return; //should probably throw exception
+        for (int i = 0; i < fields.length; i++) {
+            gui.getFields()[i] = fields[i];
+        }
+    }
+
+    //18:15-18-45
+
+    // Has to be called every time squares are changed; Most likely only at the start of the game.
+    public void reloadGUI(OurArrayList<Square> squareList) {
         addSquares(squareList);
+        close();
         gui = new GUI(fields.toArray(new GUI_Field[0]), Color.WHITE);
     }
+
 
     // First add players after gui reload
     public void addPlayer(Player player, Color color) {
