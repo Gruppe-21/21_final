@@ -52,47 +52,49 @@ public class PropertySquare extends Square {
         super.handleLandOn(player);
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
-        if (this.getOwner() == null){
-            String text = localisation.getStringValue("buyplace", getName(), Integer.toString(price));
+        int rent = getPrice();
+        if (this.getOwner() == null) {
+            String text = localisation.getStringValue("buyplace", getName(), Integer.toString(getPrice()));
             guiManager.waitForUserAcknowledgement(text);
             purchaseProperty(player);
-        }
-        else if(this.getOwner() != player){
-            int rent = price;
-            //Only works becuase each color has two and only two fields
-            for (PropertySquare propertySquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])){
-                if(propertySquare != this && propertySquare.getBaseColor() == this.getBaseColor()){
-                    rent *= 2;
-                    break;
-                }
-            }
+        } else if (this.getOwner() != player) {
             String text = localisation.getStringValue("payRent", this.getOwner().getName(), Integer.toString(rent));
             guiManager.waitForUserAcknowledgement(text);
             player.getBankBalance().transferMoney(rent, owner);
         }
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-        GUIManager.getInstance().setSquareGUIColor(color, this);
-    }
 
-    public Color getColor(){
-        return color;
-    }
 
     public Color getBaseColor() {
         return baseColor;
     }
 
     public void setOwner(Player owner) {
-        setColor(getTintedColor(player));
-        //else setColor(b);
         this.owner = owner;
+        setColor(getTintedColor(this.owner));
+        GUIManager.getInstance().updateGUISquareOwner(this);
+        //else setColor(b);
+    }
+
+    private void setColor(Color color) {
+        this.color = color;
+        GUIManager.getInstance().setFieldColor(getColor(), this);
+    }
+
+    public Color getColor(){
+        return color;
     }
 
     public Player getOwner() {
         return owner;
+    }
+
+    public String subtext() {
+        Localisation localisation = Localisation.getInstance();
+        String subtext = getOwner() == null ? "" : (getOwner().getPieceAsString() + "\n");
+        subtext += localisation.getStringValue("currencyPrefix") + getPrice() + localisation.getStringValue("currencySuffix");
+        return subtext;
     }
 
     public void setPrice(int price) {
@@ -100,7 +102,11 @@ public class PropertySquare extends Square {
     }
 
     public int getPrice() {
-        return price;
+        //Only works becuase each color has two and only two squares
+        for (PropertySquare property: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
+            if (property != this && property.getColor() == this.getColor()) return this.price * 2;
+        }
+        return this.price;
     }
 /*
     public Boolean buy(Player player) {
