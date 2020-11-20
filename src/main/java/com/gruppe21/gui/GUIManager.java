@@ -51,7 +51,9 @@ public class GUIManager {
 
     public void setGUIDice(Die[] dice) {
         if (isTest) return;
-        guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
+        //TODO: fix
+        //guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
+        guiWrapper.setDice(dice[0].getValue(), 0);
     }
 
     public static int getMaxNumButtons() {

@@ -94,13 +94,13 @@ public class Game {
         this.deck = new Deck();
         deck.shuffleDeck();
         this.dice = dice;
-        initialisePlayerArray(players);
+        this.players = initialisePlayerArray(players);
         //It is insured that all players != null and all players have a name
         initialisePlayers(this.players);
         guiManager.addPlayersToGUI(this.players);
     }
 
-    private void initialisePlayerArray(Player[] players) {
+    private Player[] initialisePlayerArray(Player[] players) {
         if (players == null) {
             int numberOfPlayers;
             while (true) {
@@ -117,7 +117,7 @@ public class Game {
                 break;
             }
         }
-        this.players = players;
+        return players;
     }
 
     private void initialisePlayers(Player[] players) {
