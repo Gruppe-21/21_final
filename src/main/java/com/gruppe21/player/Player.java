@@ -116,6 +116,10 @@ public class Player {
         return PLAYER_PIECES_TEXT[piece.ordinal()];
     }
 
+    public PlayerPiece getPiece() {
+        return piece;
+    }
+
     public GUI_Player getGuiPlayer() {
         return guiPlayer;
     }

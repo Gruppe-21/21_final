@@ -30,7 +30,7 @@ public class ChanceCardMove extends ChanceCard {
     public void use(Game game, Player player) {
 
         switch (cardType){
-            case MoveToSquare -> move(game,player, getSquareFromLabel(game, label));
+            case MoveToSquare -> move(game,player, game.getBoard().getSquareFromLabel(label));
             case MoveUpTo -> moveUpTo(game,player);
             case Figure -> giveCardToFigure(game,player);
             case TakeOrMove -> takeCard(game,player);
@@ -46,13 +46,13 @@ public class ChanceCardMove extends ChanceCard {
             vaildSquaresNameLabels[i] = vaildSquares[i].getNameLabel();
         }
         //Todo: should probably indicate if a square is already owned
-        GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionLabel, vaildSquaresNameLabels));
-        game.teleportPlayer(player, property);
-        Player propertyOwner = property.getOwner();
+        PropertySquare chosenSquare = (PropertySquare) game.getBoard().getSquareFromLabel(GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionLabel, vaildSquaresNameLabels)));
+        game.teleportPlayer(player, chosenSquare);
+        Player propertyOwner = chosenSquare.getOwner();
        if(propertyOwner != null){
-           property.handleLandOn(player);
+           chosenSquare.handleLandOn(player);
        }else{
-           property.purchaseProperty(player, 0);
+           chosenSquare.purchaseProperty(player, 0);
        }
 
     }
@@ -92,27 +92,19 @@ public class ChanceCardMove extends ChanceCard {
         moveUpTo(game, player);
     }
 
-    private void giveCardToFigure(Game game, Player player){
-        // TODO
+    private void giveCardToFigure(Game game, Player user){
+        for (Player player: game.getPlayers()) {
+            if(player.getPiece() == getPlayerPiece()){
+                player.getOwnedCards().add(this);
+            }
+        }
+        user.drawChanceCard(game.getDeck(), game);
     }
 
     private void move(Game game, Player player, Square target) {
         GUIManager.getInstance().waitForUserButtonPress(descriptionLabel);
         game.movePlayer(player, target);
     }
-
-    private Square getSquareFromLabel(Game game,String label) {
-        Square moveToSquare = null;
-        for (PropertySquare square : (PropertySquare[]) (game.getBoard().getSquareOfClass(PropertySquare.class))) {
-                PropertySquare property = square;
-                if(property.getColor() == color){
-                    moveToSquare = square;
-                    break;
-                }
-        }
-        return moveToSquare;
-    }
-
 
     public PlayerPiece getPlayerPiece() {
         return playerPiece;

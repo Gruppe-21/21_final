@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
-    <startcard description="startcarddesc"/>
+    <movecard description="startcarddesc" type="MoveToSquare" label="go"/>
 
     <moneycard description="homeworkdesc" money="2"  type="Bank"/>
     <moneycard description="candydesc" money="-2" type="Bank"/>
