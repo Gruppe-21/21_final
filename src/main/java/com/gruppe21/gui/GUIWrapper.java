@@ -7,8 +7,6 @@ import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GUIWrapper {
     private GUI gui;
@@ -29,7 +27,7 @@ public class GUIWrapper {
                field = new GUI_Street();
                field.setSubText("" + p.getPrice());
 
-               field.setBackGroundColor(p.getColor());
+               field.setBackGroundColor(p.getBaseColor());
            }
            else if(square.getClass() == StartSquare.class){
                field = new GUI_Start();

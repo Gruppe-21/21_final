@@ -9,13 +9,14 @@ import java.awt.*;
 public class PropertySquare extends Square {
 
     private int price;
+    private Color baseColor;
     private Color color;
     private Player owner = null;
 
-    public PropertySquare(String nameLabel, String descriptionLabel, int price, Color color) {
+    public PropertySquare(String nameLabel, String descriptionLabel, int price, Color baseColor) {
         super(nameLabel, descriptionLabel);
         this.price = price;
-        this.color = color;
+        this.baseColor = baseColor;
     }
 
     public void purchaseProperty(Player player) {
@@ -47,7 +48,7 @@ public class PropertySquare extends Square {
             int rent = price;
             //Only works becuase each color has two and only two fields
             for (PropertySquare propertySquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])){
-                if(propertySquare != this && propertySquare.getColor() == this.getColor()){
+                if(propertySquare != this && propertySquare.getBaseColor() == this.getBaseColor()){
                     rent *= 2;
                     break;
                 }
@@ -62,8 +63,12 @@ public class PropertySquare extends Square {
         this.color = color;
     }
 
-    public Color getColor() {
+    public Color getColor(Color color){
         return color;
+    }
+
+    public Color getBaseColor() {
+        return baseColor;
     }
 
     public void setOwner(Player owner) {
