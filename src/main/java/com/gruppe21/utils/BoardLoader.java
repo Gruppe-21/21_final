@@ -89,7 +89,7 @@ public class BoardLoader {
             case "ChanceSquare" -> squares.add(new ChanceSquare("chance", "takecard"));
             case "FreeParkingSquare" -> squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
             case "GoToPrisonSquare" -> squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
-            case "PrisonSquare" -> squares.add(new PrisonSquare("prison", "prisondesc", "", 2)); //Todo: fix this
+            case "PrisonSquare" -> squares.add(new PrisonSquare("prison", "prisondesc", "paidrelease", 2));
         }
     }
 

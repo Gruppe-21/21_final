@@ -12,16 +12,14 @@ import java.util.List;
 
 public class GUIWrapper {
     private GUI gui;
-    private List<GUI_Field> fields;
-    private List<GUI_Player> players;
+    private final OurArrayList<GUI_Field> fields;
+    private final OurArrayList<GUI_Player> players;
 
     public GUIWrapper() {
-        fields = new ArrayList<GUI_Field>();
-        players = new ArrayList<GUI_Player>();
+        fields = new OurArrayList<GUI_Field>();
+        players = new OurArrayList<GUI_Player>();
     }
 
-    //TODO set the right values in fields
-    // Add a list of squares and turn them into fields.
     private void addSquares(OurArrayList<Square> squareList) {
         for (Square square : squareList.toArray(new Square[0])) {
 
@@ -74,7 +72,7 @@ public class GUIWrapper {
         if (player == null)
             return;
         // Check if player is already added
-        for (GUI_Player pl : players) {
+        for (GUI_Player pl : players.toArray(new GUI_Player[0])) {
             if (pl.getName().equals(player.getName()))
                 return;
         }
@@ -148,7 +146,7 @@ public class GUIWrapper {
     }
 
     public GUI_Player getPlayer(String name) {
-        for (GUI_Player player : players) {
+        for (GUI_Player player : players.toArray(new GUI_Player[0])) {
             if (player.getName().equals(name))
                 return player;
         }
@@ -156,7 +154,7 @@ public class GUIWrapper {
     }
 
     public Boolean hasPlayerWithName(String name) {
-        for (GUI_Player player : players) {
+        for (GUI_Player player : players.toArray(new GUI_Player[0])) {
             if (player.getName().split(" ")[0].equals(name)) return true;
         }
         return false;
