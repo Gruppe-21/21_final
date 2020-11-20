@@ -16,6 +16,11 @@ public class ChanceCardMoney extends ChanceCard {
 
     }
 
+    @Override
+    public void onDraw(Game game, Player player){
+        use(game, player);
+    }
+
 
 
     @Override

@@ -27,6 +27,11 @@ public class ChanceCardMove extends ChanceCard {
     }
 
     @Override
+    public void onDraw(Game game, Player player){
+        use(game, player);
+    }
+
+    @Override
     public void use(Game game, Player player) {
 
         switch (cardType){

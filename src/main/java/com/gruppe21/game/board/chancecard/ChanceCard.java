@@ -10,15 +10,10 @@ public abstract class ChanceCard {
         this.descriptionLabel = descriptionLabel;
     }
 
-    public void use() {
-
-    }
+    public abstract void onDraw(Game game, Player player);
 
     public void use(Game game, Player player) {
 
     }
 
-    public void onDraw(Game game, Player player) {
-        use(game, player);
-    }
 }
