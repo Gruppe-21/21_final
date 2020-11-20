@@ -62,6 +62,11 @@ public class BankBalance {
         return getBalance();
     }
 
+    /**
+     *  Checks if paying the passed amount would bankrupt the owner of the BankBalance
+     * @param price
+     * @return if paying price would bankrupt the player
+     */
     public boolean willBankrupt(int price){
         return price > parent.canPayInTotal();
     }
