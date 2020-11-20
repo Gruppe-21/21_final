@@ -18,6 +18,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 
 public class Game {
     private final char MIN_PLAYERS = 2;
@@ -166,6 +167,12 @@ public class Game {
 
     }
 
+    private boolean checkGameOver(){
+        for (Player player: players) {
+            if (player.isBankrupt()) return true;
+        }
+        return false;
+    }
 
     public boolean playRound() {
         Player curPlayer = players[currentPlayer];
@@ -179,13 +186,16 @@ public class Game {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if (checkGameOver()) return true;
         //Any chance cards that should be used at the start of the player's turn is used
         //All cards except get out of jail free and character cards are used immediately.
         for (ChanceCard chanceCard: curPlayer.getOwnedCards().toArray(new ChanceCard[0])) {
             if (chanceCard.getClass() != ChanceCardGetOutOfJailFree.class)
                 chanceCard.use(this, curPlayer);
         }
-        
+
+        if (checkGameOver()) return true;
+
         // Wait for player to press "Roll"
         guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", curPlayer.getPossessiveName()), localisation.getStringValue("rollButton"));
         guiManager.setGUIDice(dice);
@@ -197,9 +207,9 @@ public class Game {
             sum += die.getValue();
         }
         movePlayerBy(curPlayer, sum);
-        for (Player player : players) {
-            //if (player.isBankrupt()) return true;
-        }
+
+        if (checkGameOver()) return true;
+
         currentPlayer = nextPlayer();
         return false;
     }
@@ -210,10 +220,40 @@ public class Game {
                 die.rollDie();
             }
         } while (!playRound());
-        Player winner = players[currentPlayer];
-        //TODO Fix loser
-       // guiManager.waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
+
+        Player[] winners = getWinners();
+        String winnerNames = winners[0].getName();
+        for (int i = 1; i < winners.length - 1; i++) {
+            winnerNames += ", " + winners[i];
+        }
+        winnerNames += " and " + winners[winners.length - 1];
+        guiManager.waitForUserAcknowledgement(
+                localisation.getStringValue("winningMessage" + (winners.length > 1 ? "Tie" : ""),
+                        players[currentPlayer].getName(), winnerNames));
         guiManager.closeGUI();
+    }
+
+    private Player[] getWinners(){
+        int maxMoney = 0;
+        int maxTotalValue = 0;
+        for (Player player : players) {
+            int balance = player.getBankBalance().getBalance(), totalValue = player.canPayInTotal();
+            if(balance >= maxMoney) {
+                if (balance > maxMoney){
+                    maxMoney = balance;
+                    maxTotalValue = totalValue;
+                }
+                else if (totalValue > maxTotalValue){
+                    maxTotalValue = totalValue;
+                }
+            }
+        }
+        OurArrayList<Player> winners = new OurArrayList<>(1);
+        for (Player player: players) {
+            if (player.getBankBalance().getBalance() == maxMoney && player.canPayInTotal() == maxTotalValue)
+                winners.add(player);
+        }
+        return winners.toArray(new Player[0]);
     }
 
     public void movePlayerBy(Player player, int numSquares){
