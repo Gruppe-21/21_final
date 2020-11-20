@@ -12,16 +12,16 @@ import com.gruppe21.utils.localisation.Localisation;
 
 public abstract class Square {
     private String name;
-    private String description;
+    private String descriptionLabel;
     protected Board board;
 
     public Square(String name, String description) {
         this.name = name;
-        this.description = description;
+        this.descriptionLabel = description;
     }
 
     public void handleLandOn(Player player) {
-        String text = Localisation.getInstance().getStringValue(description);
+        String text = Localisation.getInstance().getStringValue(descriptionLabel);
         GUIManager.getInstance().waitForUserAcknowledgement(text);
     }
 
@@ -30,11 +30,11 @@ public abstract class Square {
     }
 
     public String getDescription() {
-        return  Localisation.getInstance().getStringValue(description);
+        return  Localisation.getInstance().getStringValue(descriptionLabel);
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.descriptionLabel = description;
     }
 
     public String getName() {
