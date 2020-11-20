@@ -54,7 +54,7 @@ public class PropertySquare extends Square {
             }
             String text = localisation.getStringValue("payRent", this.getOwner().getName(), Integer.toString(rent));
             guiManager.waitForUserAcknowledgement(text);
-            player.getBankBalance().addBalance(rent, owner);
+            player.getBankBalance().addBalance(-rent, owner);
         }
     }
 
