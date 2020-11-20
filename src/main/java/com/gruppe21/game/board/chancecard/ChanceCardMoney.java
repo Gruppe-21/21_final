@@ -26,19 +26,26 @@ public class ChanceCardMoney extends ChanceCard {
     @Override
     public void use(Game game,Player player) {
         super.use(game, player);
+        Localisation localisation = Localisation.getInstance();
 
-        GUIManager.getInstance().waitForUserAcknowledgement(Localisation.getInstance().getStringValue(descriptionLabel));
+        GUIManager.getInstance().waitForUserAcknowledgement(
+                localisation.getStringValue(
+                        descriptionLabel,
+                        localisation.getStringValue("currencyPrefix"),
+                        Integer.toString(money),
+                        localisation.getStringValue("currencySuffix")
+                ));
 
         switch (cardType){
             case Bank -> player.getBankBalance().addBalance(money);
             case Birthday -> {
                 for (Player debtor : game.getPlayers()) {
                     //If player == debtor nothing changes.
-                    // This is only the case when the money is added first and subtracted second otherwise they might go bankrupt
                     debtor.getBankBalance().transferMoney(money, player);
                 }
             }
         }
+
         /*
         Player[] debtors = cardType == MoneyCardType.Bank ? null : game.getPlayers();
         if (debtors == null){

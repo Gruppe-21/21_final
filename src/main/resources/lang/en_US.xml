@@ -2,6 +2,11 @@
 <locale lang="en_US" name="English">
     <sentence label="word1">This is a sentence.</sentence>
 
+
+    <sentence label="currencyPrefix">₩</sentence>
+    <sentence label="currencySuffix"></sentence>
+
+
     <!-- regex --> <!-- this shouldn't be used, as translators proberbly don't know how, but that is a problem for another time -->
 
 
@@ -61,15 +66,16 @@
 
     <sentence label="takeButton">Take another card</sentence>
     <sentence label="takecard">Take a chance card</sentence>
+
     <!-- chancecard desc -->
     <sentence label="jailcardesc">You can get out of jail for free. Keep this card if needed.</sentence>
-    <sentence label="homeworkcarddesc">You have made all your homework! RECEIVE '2'M.
+    <sentence label="homeworkcarddesc">You have done all your homework! RECEIVE �[CURRENCY_PREFIX]�[PRICE]�[CURRENCY_SUFFIX].
     </sentence> <!-- money value instead of '2'? -->
-    <sentence label="candycarddesc">You have eaten to much candy. PAY '2'M to the bank.
+    <sentence label="candycarddesc">You have eaten to much candy. PAY �[CURRENCY_PREFIX]�[PRICE]�[CURRENCY_SUFFIX] to the bank.
     </sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdaycarddesc">It's your birthday! Everyone gives you '1'M
+    <sentence label="birthdaycarddesc">It's your birthday! Everyone gives you �[CURRENCY_PREFIX]�[PRICE]�[CURRENCY_SUFFIX].
     </sentence> <!-- money value instead of '1'? -->
-    <sentence label="startcarddesc">Move to the start square. Receive '2'M</sentence> <!-- money value instead of '2'? -->
+    <sentence label="startcarddesc">Move to the start square. Receive �[CURRENCY_PREFIX]�[PRICE]�[CURRENCY_SUFFIX]</sentence> <!-- money value instead of '2'? -->
     <sentence label="propertycarddesc">Move 1 square forward, OR take another chance card.</sentence>
     <sentence label="boardwalkcarddesc">Move to BOARDWALK.</sentence>
     <sentence label="moveUpToCardDesc">Move UP TO 5 squares forward.</sentence>
@@ -92,10 +98,10 @@
     <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE_NAME] turn!</sentence>
     <sentence label="rollButton">Roll</sentence>
     <sentence label="buyplace">You will now buy �[PROPERTY_NAME] for �[PRICE] money</sentence>
-    <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE] money</sentence>
+    <sentence label="payRent">You owe �[PROPERTY_OWNER] �[CURRENCY_PREFIX]�[RENT_PRICE]�[CURRENCY_SUFFIX]</sentence>
 
 
-    <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
+    <sentence label="sellProperties">You owe �[CURRENCY_PREFIX]�[DEBT]�[CURRENCY_SUFFIX] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
     <sentence label="nextBtn">Next</sentence>
     <sentence label="previousBtn">Back</sentence>
 
