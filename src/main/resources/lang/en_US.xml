@@ -81,6 +81,8 @@
     <sentence label="figure4desc">WRITE_DESCRIPTION_HERE</sentence>
 
 
+    <sentence label="payRent">You owe [PROPERTY_OWNER] [RENT] money</sentence>
+
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Please specify the number of players</sentence>
     <sentence label="requestPlayerName">Please write your name, Player �[PLAYER_NUMBER] (Leave empty for a random name)</sentence>
