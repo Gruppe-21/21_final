@@ -1,5 +1,6 @@
 package com.gruppe21.game.board;
 
+import com.gruppe21.game.Game;
 import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.utils.BoardLoader;
@@ -45,6 +46,13 @@ public class Board {
             if (square.getClass() == squareClass) squaresOfClass.add(square);
         }
         return squaresOfClass.toArray(new Square[0]);
+    }
+
+    public Square getSquareFromLabel(Game game, String nameLabel) {
+        for (Square square : getSquares().toArray(new Square([0]))) {
+            if (square.getNameLabel().equals(nameLabel)) return square;
+        }
+        return null;
     }
 
 
