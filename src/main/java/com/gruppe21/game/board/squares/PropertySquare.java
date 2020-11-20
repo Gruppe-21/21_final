@@ -36,9 +36,26 @@ public class PropertySquare extends Square {
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
-        String text = Localisation.getInstance().getStringValue("buyplace", getName(), Integer.toString(price));
-        GUIManager.getInstance().waitForUserAcknowledgement(text);
-        purchaseProperty(player);
+        Localisation localisation = Localisation.getInstance();
+        GUIManager guiManager = GUIManager.getInstance();
+        if (this.getOwner() == null){
+            String text = localisation.getStringValue("buyplace", getName(), Integer.toString(price));
+            guiManager.waitForUserAcknowledgement(text);
+            purchaseProperty(player);
+        }
+        else if(this.getOwner() != player){
+            int rent = price;
+            //Only works becuase each color has two and only two fields
+            for (PropertySquare propertySquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])){
+                if(propertySquare != this && propertySquare.getColor() == this.getColor()){
+                    rent *= 2;
+                    break;
+                }
+            }
+            String text = localisation.getStringValue("payRent", this.getOwner().getName(), Integer.toString(rent));
+            guiManager.waitForUserAcknowledgement(text);
+            player.getBankBalance().addBalance(rent, owner);
+        }
     }
 
     public void setColor(Color color) {
