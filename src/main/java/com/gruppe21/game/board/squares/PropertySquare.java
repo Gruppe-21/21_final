@@ -5,7 +5,6 @@ import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
 
 import java.awt.*;
-import java.awt.color.ColorSpace;
 
 public class PropertySquare extends Square {
 
@@ -22,7 +21,7 @@ public class PropertySquare extends Square {
     }
 
     private static final float TINT_ALPHA = 0.7f;
-    public Color getPlayerTintedColor(Player player){
+    public Color getTintedColor(Player player){
         if (player == null) return baseColor;
         Color playerColor = player.getGuiPlayer().getPrimaryColor();
 
@@ -46,7 +45,6 @@ public class PropertySquare extends Square {
         if (getOwner() != null)
             getOwner().removeProperty(this);
         setOwner(player);
-        setColor(getPlayerTintedColor(player));
     }
 
     @Override
@@ -88,7 +86,7 @@ public class PropertySquare extends Square {
     }
 
     public void setOwner(Player owner) {
-        if (owner == null) setColor(baseColor);
+        setColor(getTintedColor(player));
         //else setColor(b);
         this.owner = owner;
     }
