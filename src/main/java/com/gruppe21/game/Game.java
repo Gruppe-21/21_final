@@ -216,7 +216,7 @@ public class Game {
     }
 
     public void movePlayerBy(Player player, int numSquares){
-        movePlayer(player, board.getSquareAtRelativePosition(board.getSquareAtIndex(player.getCurrentSquareIndex()), 3));
+        movePlayer(player, board.getSquareAtRelativePosition(board.getSquareAtIndex(player.getCurrentSquareIndex()), numSquares));
         //movePlayer(player, board.getSquareAtRelativePosition(board.getSquareAtIndex(player.getCurrentSquareIndex()), numSquares));
     }
 
