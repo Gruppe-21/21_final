@@ -231,6 +231,11 @@ public class Player {
         getOwnedCards().get(0).onDraw(IShouldNotBeHere, this);
     }
 
+    public void returnCard(Deck deck, ChanceCard chanceCard){
+        getOwnedCards().remove(chanceCard);
+        deck.returnCard(chanceCard);
+    }
+
     public void setOwnedCards(OurArrayList<ChanceCard> ownedCards) {
         this.ownedCards = ownedCards;
     }

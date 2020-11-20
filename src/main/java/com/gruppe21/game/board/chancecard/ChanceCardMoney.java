@@ -16,10 +16,16 @@ public class ChanceCardMoney extends ChanceCard {
 
     }
 
+    @Override
+    public void onDraw(Game game, Player player){
+        use(game, player);
+    }
+
 
 
     @Override
     public void use(Game game,Player player) {
+        super.use(game, player);
 
         GUIManager.getInstance().waitForUserAcknowledgement(Localisation.getInstance().getStringValue(descriptionLabel));
 

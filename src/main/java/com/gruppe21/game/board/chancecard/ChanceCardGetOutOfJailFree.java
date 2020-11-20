@@ -10,11 +10,8 @@ public class ChanceCardGetOutOfJailFree extends ChanceCard{
     }
 
 
-
     @Override
-    public void use(Game game, Player player) {
-        super.use(game, player);
-        player.prisonStatus = false;
+    public void onDraw(Game game, Player player){
     }
 
 

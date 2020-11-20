@@ -4,12 +4,11 @@ import com.gruppe21.gui.GUIManager;
 
 public class BankBalance {
 
-
-    private int balance; // Player has 1000 as starting balance
+    private int balance;
     private final Player parent;
 
     public BankBalance(Player parent) {
-        balance = 1000;
+        balance = 20;
         this.parent = parent;
     }
 

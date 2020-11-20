@@ -12,6 +12,7 @@ import java.io.IOException;
 public class Deck {
     private final boolean SHUFFLE_CARDS;
     private final int CARDS_BEFORE_SHUFFLE;
+    private int lastShuffle = 0;
     private OurArrayList <ChanceCard> cards;
     private final Random rand = new Random();
 
@@ -27,6 +28,7 @@ public class Deck {
     }
 
     public void shuffleDeck() {
+        lastShuffle = 0;
         for(int i = 1; i < cards.size(); i++) {
             int rand_int = rand.nextInt(6);
             ChanceCard temp;
@@ -42,6 +44,8 @@ public class Deck {
      * @return
      */
     public ChanceCard drawCard(){
+        if (lastShuffle == CARDS_BEFORE_SHUFFLE) shuffleDeck();
+         lastShuffle++;
          ChanceCard Chance = cards.get(0);
          cards.removeIndex(0);
          return Chance;
@@ -49,7 +53,6 @@ public class Deck {
 
     public void returnCard(ChanceCard PutBack){
         cards.add(PutBack);
-
     }
 }
 
