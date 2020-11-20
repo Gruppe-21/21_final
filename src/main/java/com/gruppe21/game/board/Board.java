@@ -40,6 +40,14 @@ public class Board {
         return colorSquares.toArray(new PropertySquare[0]);
     }
 
+    public Square[] getSquareOfClass(Class squareClass){
+        OurArrayList<Square> squaresOfClass = new OurArrayList<>();
+        for (Square square: getSquares().toArray(new Square[0])) {
+            if (square.getClass() == squareClass) squaresOfClass.add(square);
+        }
+        return squaresOfClass.toArray(new Square[0]);
+    }
+
 
     public Square getSquareAtRelativePosition(Square square, int distance){
         return getSquareAtIndex( (getSquareIndex(square) + distance) % getSquares().size());
