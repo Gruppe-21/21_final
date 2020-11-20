@@ -13,7 +13,7 @@ public abstract class ChanceCard {
     public abstract void onDraw(Game game, Player player);
 
     public void use(Game game, Player player) {
-
+        player.returnCard(game.getDeck(), this);
     }
 
 }
