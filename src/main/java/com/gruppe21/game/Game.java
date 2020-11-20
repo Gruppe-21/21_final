@@ -14,11 +14,6 @@ import com.gruppe21.player.PlayerPiece;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.stringutils.RandomNameGenerator;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.sql.PreparedStatement;
 
 public class Game {
     private final char MIN_PLAYERS = 2;
@@ -28,7 +23,6 @@ public class Game {
     private GUIManager guiManager;
     private boolean isTest;
 
-    private Boolean gameIsOver = false;
     private Board board;
     private Player[] players;
     private int currentPlayer;
@@ -54,15 +48,6 @@ public class Game {
 
 
 
-
-    public Boolean getGameIsOver() {
-        return gameIsOver;
-    }
-
-    public void setGameIsOver(Boolean gameIsOver) {
-        this.gameIsOver = gameIsOver;
-    }
-
     public Board getBoard() {
         return board;
     }
@@ -79,8 +64,14 @@ public class Game {
         return dice;
     }
 
-    public int getCurrentPlayer() {
+    //Unused
+    public int getCurrentPlayerIndex() {
         return currentPlayer;
+    }
+
+    //Unused
+    public Player getCurrentPlayer(){
+        return players[getCurrentPlayerIndex()];
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
