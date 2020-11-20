@@ -15,9 +15,9 @@ public abstract class Square {
     private String descriptionLabel;
     protected Board board;
 
-    public Square(String nameLabel, String description) {
+    public Square(String nameLabel, String descriptionLabel) {
         this.nameLabel = nameLabel;
-        this.descriptionLabel = description;
+        this.descriptionLabel = descriptionLabel;
     }
 
     public void handleLandOn(Player player) {
