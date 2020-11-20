@@ -24,16 +24,23 @@ import static java.lang.Integer.parseInt;
  */
 public class BoardLoader {
 
+    public static String BOARD_DIRECTORY = "/boards/";
+    public static String CARD_DIRECTORY = "/cards/";
+    public static String TAG_BOARD = "board";
+    public static String TAG_CARD = "card";
+
+
+
     public static OurArrayList<Square> loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        Document document = XMLUtil.getXMLDocument("/boards/" + fileName);
-        NodeList boardNodes = XMLUtil.getNodeListFromTag(document, "board");
+        Document document = XMLUtil.getXMLDocument(BOARD_DIRECTORY + fileName);
+        NodeList boardNodes = XMLUtil.getNodeListFromTag(document, TAG_BOARD);
 
         return getSquaresFromNodeList(boardNodes);
     }
 
     public static OurArrayList<ChanceCard> loadCards(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        Document document = XMLUtil.getXMLDocument("/cards/" + fileName);
-        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, "cards");
+        Document document = XMLUtil.getXMLDocument(CARD_DIRECTORY + fileName);
+        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, TAG_CARD);
 
         return getCardsFromNodeList(cardNodes);
     }
@@ -71,50 +78,24 @@ public class BoardLoader {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
+        String name = tag.getAttribute("label");
+        int price = parseInt(tag.getAttribute("price"));
+        Color color = ColorUtil.getColor(tag.getAttribute("color"));
+        String description = tag.getAttribute("description");
+
         switch (elementName) {
-            case "StartSquare":
-                // Add square
-                squares.add(new StartSquare("go", ""));
-                break;
-
-            case "PropertySquare":
-                // Add square
-                String name = tag.getAttribute("label");
-                int price = parseInt(tag.getAttribute("price"));
-                Color color = ColorUtil.getColor(tag.getAttribute("color"));
-                String description = tag.getAttribute("description"); //Add actual description
-                squares.add(new PropertySquare(name, description, price, color));
-                break;
-
-            case "ChanceSquare":
-                // Add square
-                squares.add(new ChanceSquare("chance", "takecard"));
-                break;
-
-            case "FreeParkingSquare":
-                // Add square
-                squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
-                break;
-
-            case "GoToPrisonSquare":
-                squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
-                break;
-
-            case "PrisonSquare":
-                // Add square
-                squares.add(new PrisonSquare("prison", "prisondesc", "", 2)); //Todo: fix this
-                break;
-
-            default:
-                break;
-
+            case "StartSquare" -> squares.add(new StartSquare("go", ""));
+            case "PropertySquare" -> squares.add(new PropertySquare(name, description, price, color));
+            case "ChanceSquare" -> squares.add(new ChanceSquare("chance", "takecard"));
+            case "FreeParkingSquare" -> squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
+            case "GoToPrisonSquare" -> squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
+            case "PrisonSquare" -> squares.add(new PrisonSquare("prison", "prisondesc", "", 2)); //Todo: fix this
         }
     }
 
     private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
         final String descriptionLabel = tag.getAttribute("description");
-
         switch (elementName) {
         case "moneycard" -> {
             final String moneyStr = tag.getAttribute("money");
@@ -122,7 +103,6 @@ public class BoardLoader {
             final MoneyCardType type =  MoneyCardType.valueOf(tag.getAttribute("type"));
             chanceCards.add(new ChanceCardMoney(descriptionLabel, money, type));
         }
-        //case "startcard" -> chanceCards.add(new ChanceCardStart(descriptionLabel));
         case "jailcard"  -> chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionLabel));
         case "movecard"  -> {
             final String label = tag.getAttribute("label");
