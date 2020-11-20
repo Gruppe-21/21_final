@@ -40,11 +40,11 @@ public class Game {
     }
 
     public Game() {
-        this(null, new Die[]{new Die(), new Die()}, false);
+        this(null);
     }
 
     public Game(Player[] players) {
-        this(players, new Die[]{new Die(), new Die()}, false);
+        this(players, new Die[]{new Die()});
     }
 
     public Game(Player[] players, Die[] dice) {
