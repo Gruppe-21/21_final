@@ -36,7 +36,7 @@ public class PropertySquare extends Square {
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
-        String text = Localisation.getInstance().getStringValue("buyplace", getNameLabel(), Integer.toString(price));
+        String text = Localisation.getInstance().getStringValue("buyplace", getName(), Integer.toString(price));
         GUIManager.getInstance().waitForUserAcknowledgement(text);
         purchaseProperty(player);
     }

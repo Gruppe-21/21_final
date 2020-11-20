@@ -49,9 +49,9 @@ public class GUIWrapper {
            }
 
 
-            field.setTitle(square.getNameLabel());
+            field.setTitle(square.getName());
             field.setSubText("");
-            field.setDescription(square.getDescription());
+            field.setDescription(square.getDescriptionLabel());
 
             fields.add(field);
 

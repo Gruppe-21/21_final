@@ -11,14 +11,14 @@ public class BoardTest {
     public void getSquareAtNumberReturnsTower() {
         Board board = new Board();
 
-        assertEquals("Tower", board.getSquareAtIndex(2).getNameLabel());
+        assertEquals("Tower", board.getSquareAtIndex(2).getName());
     }
 
     @Test
     public void getSquareAtNumberReturnsWereWall() {
         Board board = new Board();
 
-        assertEquals("The Werewall", board.getSquareAtIndex(10).getNameLabel());
+        assertEquals("The Werewall", board.getSquareAtIndex(10).getName());
     }
 
     @Test

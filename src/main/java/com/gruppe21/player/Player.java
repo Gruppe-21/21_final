@@ -178,7 +178,7 @@ public class Player {
         buttons[buttons.length-1] = localisation.getStringValue("previousBtn");
         do {
             for (int i = 0; i < numPropertyButtons-1; i++) {
-                buttons[i+1] = properties[currentlyViewing+i].getDescription();
+                buttons[i+1] = properties[currentlyViewing+i].getDescriptionLabel();
             }
 
             String selectedButton = guiManager.waitForUserButtonPress(localisation.getStringValue("sellProperties", Integer.toString(debt), creditorName), buttons);
@@ -186,7 +186,7 @@ public class Player {
             else if(selectedButton.equals(buttons[buttons.length-1]) && currentlyViewing > 0) currentlyViewing--;
             else {
                 for (PropertySquare property : properties) {
-                    if (property.getDescription().equals(selectedButton)){
+                    if (property.getDescriptionLabel().equals(selectedButton)){
                         if (selected.indexOf(property) == -1){
                             selected.add(property);
                             debt -= property.getPrice();

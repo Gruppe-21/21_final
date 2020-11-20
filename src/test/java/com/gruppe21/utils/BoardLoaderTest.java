@@ -28,7 +28,7 @@ public class BoardLoaderTest {
         }
 
         for (Square square : list.toArray(new Square[0])) {
-            System.out.println(square.getNameLabel());
+            System.out.println(square.getName());
         }
 
         assertEquals(false, list == null);

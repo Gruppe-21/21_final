@@ -29,48 +29,26 @@ public abstract class Square {
         handleLandOn(player);
     }
 
-    public String getDescription() {
+    public String getDescriptionLabel() {
         return  Localisation.getInstance().getStringValue(descriptionLabel);
     }
 
-    public void setDescription(String description) {
-        this.descriptionLabel = description;
+    public void setDescriptionLabel(String descriptionLabel) {
+        this.descriptionLabel = descriptionLabel;
     }
 
-    public String getNameLabel() {
-        return Localisation.getInstance().getStringValue(nameLabel) ;
-    }
+    public String getNameLabel() {return nameLabel;}
 
     public void setNameLabel(String nameLabel) {
         this.nameLabel = nameLabel;
+    }
+
+    public String getName() {
+        return Localisation.getInstance().getStringValue(nameLabel) ;
     }
 
     public void setBoard(Board board) {
         this.board = board;
     }
 
-    public String getLabel() {return nameLabel;}
 }
-
-
-
-
-/*
-        Creates a FreeParking square class:
- */
-
-
-/*
-        Creates a GoToPrisonSquare class:
- */
-
-
-/*
-        Creates a ChanceSquare class:
- */
-
-
-/*
-        Creates a PropertySquare class:
- */
-

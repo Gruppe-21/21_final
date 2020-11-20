@@ -54,7 +54,7 @@ public class Board {
 
     public Square getSquareAtIndex(int index) {
         Square square =  squares.get(index);
-        System.out.println(square.getNameLabel());
+        System.out.println(square.getName());
         return square;
     }
 
