@@ -101,14 +101,6 @@ public class ChanceCardMove extends ChanceCard {
         game.movePlayer(player, target);
     }
 
-    private Square getPropertySquareFromLabel(Game game, String label) {
-        for (PropertySquare square : (PropertySquare[]) (game.getBoard().getSquareOfClass(PropertySquare.class))) {
-            if (square.getNameLabel() == label) return square;
-        }
-        return null;
-    }
-
-
     public PlayerPiece getPlayerPiece() {
         return playerPiece;
     }
