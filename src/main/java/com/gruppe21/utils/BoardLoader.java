@@ -27,7 +27,7 @@ public class BoardLoader {
     public static String BOARD_DIRECTORY = "/boards/";
     public static String CARD_DIRECTORY = "/cards/";
     public static String TAG_BOARD = "board";
-    public static String TAG_CARD = "card";
+    public static String TAG_CARD = "cards";
 
 
 
