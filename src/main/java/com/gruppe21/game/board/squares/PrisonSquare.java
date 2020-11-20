@@ -22,7 +22,7 @@ public class PrisonSquare extends Square {
         super.handleLandOn(player, game);
     }
 
-    public void getOutOfJail(Player player){
+    public void getOutOfJail(Game game, Player player){
         player.prisonStatus = false;
         GUIManager guiManager = GUIManager.getInstance();
         Localisation localisation = Localisation.getInstance();
@@ -30,7 +30,7 @@ public class PrisonSquare extends Square {
         //Todo: the player should probably be told
         for (ChanceCard cCard : player.getOwnedCards().toArray(new ChanceCard[0])) {
             if (cCard.getClass() == ChanceCardGetOutOfJailFree.class){
-                cCard.use();
+                cCard.use(game, player);
                 return;
             }
         }
