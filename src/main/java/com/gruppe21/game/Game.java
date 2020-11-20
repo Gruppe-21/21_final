@@ -173,7 +173,7 @@ public class Game {
                 Square currentSquare = board.getSquareAtIndex(curPlayer.getCurrentSquareIndex());
                 if (currentSquare.getClass() != PrisonSquare.class)
                     throw new Exception("Player.prisonStatus is true but currentSquare is not a PrisonSquare");
-                ((PrisonSquare)currentSquare).getOutOfJail(curPlayer);
+                ((PrisonSquare)currentSquare).getOutOfJail(this, curPlayer);
             }
         } catch (Exception e) {
             e.printStackTrace();
