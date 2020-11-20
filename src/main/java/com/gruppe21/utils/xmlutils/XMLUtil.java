@@ -13,34 +13,21 @@ import java.io.InputStream;
 
 public class XMLUtil {
 
-    public static NodeList getNodeListFromTag(Document doc, String tagName) throws ParserConfigurationException, SAXException, IOException {
+    public static NodeList getNodeListFromTag(Document doc, String tagName) {
         return doc.getElementsByTagName(tagName).item(0).getChildNodes();
     }
 
-    public static Node getRootNode(Document doc) throws ParserConfigurationException, SAXException, IOException {
+    public static Node getRootNode(Document doc) {
         return doc.getDocumentElement();
     }
 
     public static Document getXMLDocument(String fileName) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-
-        String charSetName = "UTF-8";
         InputStream inputStream = XMLUtil.class.getResourceAsStream(fileName + ".xml");
         Document doc = builder.parse(inputStream);
         doc.getDocumentElement().normalize();
         return doc;
     }
 
-
-    public static void doc() throws ParserConfigurationException, SAXException, IOException {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-
-        String filePath = "/file.xml";
-        InputStream inputStream = XMLUtil.class.getResourceAsStream("/file.xml");
-
-        Document doc = builder.parse(inputStream);
-        doc.getDocumentElement().normalize();
-    }
 }
