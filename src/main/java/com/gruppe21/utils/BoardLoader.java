@@ -113,24 +113,24 @@ public class BoardLoader {
 
     private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
-        final String description = tag.getAttribute("description");
+        final String descriptionLabel = tag.getAttribute("description");
 
         switch (elementName) {
         case "moneycard" -> {
             final String moneyStr = tag.getAttribute("money");
             final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
             final MoneyCardType type =  MoneyCardType.valueOf(tag.getAttribute("type"));
-            chanceCards.add(new ChanceCardMoney(description, money, type));
+            chanceCards.add(new ChanceCardMoney(descriptionLabel, money, type));
         }
-        case "startcard" -> chanceCards.add(new ChanceCardStart(description));
-        case "jailcard"  -> chanceCards.add(new ChanceCardGetOutOfJailFree(description));
+        //case "startcard" -> chanceCards.add(new ChanceCardStart(descriptionLabel));
+        case "jailcard"  -> chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionLabel));
         case "movecard"  -> {
             final String label = tag.getAttribute("label");
             final String color = tag.getAttribute("color");
             final MoveCardType type =  MoveCardType.valueOf(tag.getAttribute("type"));
             final String playerPieceStr = tag.getAttribute("piece");
             final PlayerPiece playerPiece =  playerPieceStr.isEmpty() ? PlayerPiece.Boat : PlayerPiece.valueOf(playerPieceStr);
-            chanceCards.add(new ChanceCardMove(description, type, label, color, playerPiece));
+            chanceCards.add(new ChanceCardMove(descriptionLabel, type, label, color, playerPiece));
         }
             default -> throw new IllegalStateException("Unexpected value: " + elementName);
         }
