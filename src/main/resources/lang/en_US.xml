@@ -62,17 +62,24 @@
     <sentence label="takeButton">Take another card</sentence>
     <sentence label="takecard">Take a chance card</sentence>
     <!-- chancecard desc -->
-    <sentence label="jailcard">You can get out of jail for free. Keep this card if needed.</sentence>
-    <sentence label="homeworkcard">You have made all your homework! RECEIVE '2'M.
+    <sentence label="jailcardesc">You can get out of jail for free. Keep this card if needed.</sentence>
+    <sentence label="homeworkcarddesc">You have made all your homework! RECEIVE '2'M.
     </sentence> <!-- money value instead of '2'? -->
-    <sentence label="candycard">You have eaten to much candy. PAY '2'M to the bank.
+    <sentence label="candycarddesc">You have eaten to much candy. PAY '2'M to the bank.
     </sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdaycard">It's your birthday! Everyone gives you '1'M
+    <sentence label="birthdaycarddesc">It's your birthday! Everyone gives you '1'M
     </sentence> <!-- money value instead of '1'? -->
-    <sentence label="startcard">Move to the start square. Receive '2'M</sentence> <!-- money value instead of '2'? -->
-    <sentence label="boardwalkcard">Move to BOARDWALK.</sentence>
-    <sentence label="moveuptocard">Move UP TO 5 squares forward.</sentence>
-    <sentence label="cardOrmovecard">Move 1 square forward, OR take another chance card.</sentence>
+    <sentence label="startcarddesc">Move to the start square. Receive '2'M</sentence> <!-- money value instead of '2'? -->
+    <sentence label="propertycarddesc">Move 1 square forward, OR take another chance card.</sentence>
+    <sentence label="boardwalkcarddesc">Move to BOARDWALK.</sentence>
+    <sentence label="moveUpToCardDesc">Move UP TO 5 squares forward.</sentence>
+    <sentence label="propertycarddesc">WRITE_DESCRIPTION_HERE</sentence>
+
+    <sentence label="figure1desc">WRITE_DESCRIPTION_HERE</sentence>
+    <sentence label="figure2desc">WRITE_DESCRIPTION_HERE</sentence>
+    <sentence label="figure3desc">WRITE_DESCRIPTION_HERE</sentence>
+    <sentence label="figure4desc">WRITE_DESCRIPTION_HERE</sentence>
+
 
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Please specify the number of players</sentence>

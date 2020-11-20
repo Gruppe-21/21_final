@@ -2,14 +2,14 @@
 <cards>
     <movecard description="startcarddesc" type="MoveToSquare" label="go"/>
 
-    <moneycard description="homeworkdesc" money="2"  type="Bank"/>
-    <moneycard description="candydesc" money="-2" type="Bank"/>
+    <moneycard description="homeworkcarddesc" money="2"  type="Bank"/>
+    <moneycard description="candycarddesc" money="-2" type="Bank"/>
 
-    <moneycard description="birthdaydesc" money="1"  type="Birthday"/>
+    <moneycard description="birthdaycarddesc" money="1"  type="Birthday"/>
 
     <movecard description="boardwalkcarddesc"  type="MoveToSquare" label="boardwalk"/>
 
-    <movecard description="moveUpToDesc" type="MoveUpTo" ismoveupto="true"/>
+    <movecard description="moveUpToCardDesc" type="MoveUpTo" ismoveupto="true"/>
 
     <movecard description="takecardormovedesc" type="TakeOrMove"/>
 
