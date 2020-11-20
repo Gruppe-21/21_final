@@ -4,6 +4,7 @@ import com.gruppe21.gui.GUIManager;
 
 public class BankBalance {
 
+
     private int balance; // Player has 1000 as starting balance
     private final Player parent;
 

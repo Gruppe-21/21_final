@@ -38,7 +38,7 @@ public class Localisation {
         return instance;
     }
 
-    Localisation(){
+    public Localisation(){
         currentLocale = START_LOCALE;
     }
 
