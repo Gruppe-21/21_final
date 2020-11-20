@@ -85,7 +85,7 @@ public class BoardLoader {
         String description = tag.getAttribute("description");
 
         switch (elementName) {
-            case "StartSquare" -> squares.add(new StartSquare("go", ""));
+            case "StartSquare" -> squares.add(new StartSquare("go", "startdesc"));
             case "PropertySquare" -> squares.add(new PropertySquare(name, description, price, color));
             case "ChanceSquare" -> squares.add(new ChanceSquare("chance", "takecard"));
             case "FreeParkingSquare" -> squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
