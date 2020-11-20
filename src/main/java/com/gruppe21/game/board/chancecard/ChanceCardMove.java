@@ -18,16 +18,13 @@ public class ChanceCardMove extends ChanceCard {
     private final Color color;
     private final PlayerPiece playerPiece;
 
-    public ChanceCardMove(String description, MoveCardType cardType, String label, String color, PlayerPiece playerPiece) {
-        super(description);
+    public ChanceCardMove(String descriptionLabel, MoveCardType cardType, String label, String color, PlayerPiece playerPiece) {
+        super(descriptionLabel);
         this.cardType = cardType;
         this.label = label;
         this.color = ColorUtil.getColor(color);
         this.playerPiece = playerPiece;
     }
-
-
-
 
     @Override
     public void use(Game game, Player player) {
@@ -106,27 +103,13 @@ public class ChanceCardMove extends ChanceCard {
 
     private Square getSquareFromLabel(Game game,String label) {
         Square moveToSquare = null;
-        for (Square square : game.getBoard().getSquares().toArray(new Square[0])) {
-            if(square.getClass() == PropertySquare.class){
-                PropertySquare property = (PropertySquare) square;
+        for (PropertySquare square : (PropertySquare[]) (game.getBoard().getSquareOfClass(PropertySquare.class))) {
+                PropertySquare property = square;
                 if(property.getColor() == color){
                     moveToSquare = square;
                     break;
                 }
-            }
         }
-        return moveToSquare;
-    }
-
-    private Square getSquareFromColor(Game game, Color color) {
-        Square moveToSquare = null;
-        for (Square square : game.getBoard().getSquares().toArray(new Square[0])) {
-
-                if(square.getNameLabel().equals(label)){
-                       moveToSquare = square;
-                       break;
-                   }
-            }
         return moveToSquare;
     }
 
