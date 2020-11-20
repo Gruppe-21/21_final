@@ -92,8 +92,13 @@ public class ChanceCardMove extends ChanceCard {
         moveUpTo(game, player);
     }
 
-    private void giveCardToFigure(Game game, Player player){
-        // TODO
+    private void giveCardToFigure(Game game, Player user){
+        for (Player player: game.getPlayers()) {
+            if(player.getPiece() == getPlayerPiece()){
+                player.getOwnedCards().add(this);
+            }
+        }
+        user.drawChanceCard(game.getDeck(), game);
     }
 
     private void move(Game game, Player player, Square target) {
