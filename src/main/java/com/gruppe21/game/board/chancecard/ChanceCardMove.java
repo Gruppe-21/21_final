@@ -43,8 +43,13 @@ public class ChanceCardMove extends ChanceCard {
 
 
     private void freeColorSquare(Game game, Player player){
-        PropertySquare property = (PropertySquare) getSquareFromColor(game, color);
-        GUIManager.getInstance().waitForUserButtonPress(descriptionLabel);
+        PropertySquare[] vaildSquares = game.getBoard().getSquareWithColor(color);
+        String[] vaildSquaresNameLabels = new String[vaildSquares.length];
+        for (int i = 0; i < vaildSquares.length; i++) {
+            vaildSquaresNameLabels[i] = vaildSquares[i].getNameLabel();
+        }
+        //Todo: should probably indicate if a square is already owned
+        GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionLabel, vaildSquaresNameLabels));
         game.teleportPlayer(player, property);
         Player propertyOwner = property.getOwner();
        if(propertyOwner != null){
@@ -117,7 +122,7 @@ public class ChanceCardMove extends ChanceCard {
         Square moveToSquare = null;
         for (Square square : game.getBoard().getSquares().toArray(new Square[0])) {
 
-                if(square.getLabel().equals(label)){
+                if(square.getNameLabel().equals(label)){
                        moveToSquare = square;
                        break;
                    }
