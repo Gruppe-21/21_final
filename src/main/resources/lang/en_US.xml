@@ -92,7 +92,7 @@
     <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE] turn!</sentence>
     <sentence label="rollButton">Roll</sentence>
     <sentence label="buyplace">You will now buy �[NAME] for �[PRICE] money</sentence>
-    <sentence label="payRent">You owe [PROPERTY_OWNER] [RENT_PRICE] money</sentence>
+    <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE] money</sentence>
 
 
     <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR]. Please select below the properties you wish to sell to �[CREDITOR]:</sentence>
