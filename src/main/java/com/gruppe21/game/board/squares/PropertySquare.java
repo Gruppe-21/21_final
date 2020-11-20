@@ -25,7 +25,7 @@ public class PropertySquare extends Square {
     public void purchaseProperty(Player player, int price) {
         if (player != null) {
             if (getOwner() == player || player.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
-            player.getBankBalance().addBalance(-price);
+            player.getBankBalance().transferMoney(price);
             player.addProperty(this);
         }
         if (getOwner() != null)
@@ -54,7 +54,7 @@ public class PropertySquare extends Square {
             }
             String text = localisation.getStringValue("payRent", this.getOwner().getName(), Integer.toString(rent));
             guiManager.waitForUserAcknowledgement(text);
-            player.getBankBalance().addBalance(-rent, owner);
+            player.getBankBalance().transferMoney(rent, owner);
         }
     }
 

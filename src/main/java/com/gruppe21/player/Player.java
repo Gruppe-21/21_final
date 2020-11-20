@@ -218,10 +218,6 @@ public class Player {
         return totalValue;
     }
 
-    public boolean isBankrupt(int price){
-        return price > canPayInTotal();
-    }
-
     public OurArrayList<ChanceCard> getOwnedCards() {
         return ownedCards;
     }

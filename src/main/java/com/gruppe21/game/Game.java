@@ -124,7 +124,7 @@ public class Game {
     private void initialisePlayers(Player[] players) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) players[i] = new Player();
-            players[i].getBankBalance().addBalance((players.length-2)*2);
+            players[i].getBankBalance().setBalance(20 - (players.length-2)*2);
 
             while (players[i].getName().isEmpty()) {
                 try {

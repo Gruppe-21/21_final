@@ -35,8 +35,7 @@ public class ChanceCardMoney extends ChanceCard {
                 for (Player debtor : game.getPlayers()) {
                     //If player == debtor nothing changes.
                     // This is only the case when the money is added first and subtracted second otherwise they might go bankrupt
-                    player.getBankBalance().addBalance(money);
-                    debtor.getBankBalance().addBalance(-money);
+                    debtor.getBankBalance().transferMoney(money, player);
                 }
             }
         }
