@@ -30,7 +30,7 @@ public class ChanceCardMove extends ChanceCard {
     public void use(Game game, Player player) {
 
         switch (cardType){
-            case MoveToSquare -> move(game,player, getPropertySquareFromLabel(game, label));
+            case MoveToSquare -> move(game,player, game.getBoard().getSquareFromLabel(label));
             case MoveUpTo -> moveUpTo(game,player);
             case Figure -> giveCardToFigure(game,player);
             case TakeOrMove -> takeCard(game,player);
@@ -46,13 +46,13 @@ public class ChanceCardMove extends ChanceCard {
             vaildSquaresNameLabels[i] = vaildSquares[i].getNameLabel();
         }
         //Todo: should probably indicate if a square is already owned
-        PropertySquare chosenSquare = getPropertySquareFromLabel() GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionLabel, vaildSquaresNameLabels));
-        game.teleportPlayer(player, property);
-        Player propertyOwner = property.getOwner();
+        PropertySquare chosenSquare = (PropertySquare) game.getBoard().getSquareFromLabel(GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionLabel, vaildSquaresNameLabels)));
+        game.teleportPlayer(player, chosenSquare);
+        Player propertyOwner = chosenSquare.getOwner();
        if(propertyOwner != null){
-           property.handleLandOn(player);
+           chosenSquare.handleLandOn(player);
        }else{
-           property.purchaseProperty(player, 0);
+           chosenSquare.purchaseProperty(player, 0);
        }
 
     }
