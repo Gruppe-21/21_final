@@ -49,7 +49,7 @@ public class GUIWrapper {
            }
 
 
-            field.setTitle(square.getName());
+            field.setTitle(square.getNameLabel());
             field.setSubText("");
             field.setDescription(square.getDescription());
 

@@ -1,6 +1,5 @@
 package com.gruppe21.game.board;
 
-import com.gruppe21.game.board.chancecard.*;
 import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.utils.BoardLoader;
@@ -55,7 +54,7 @@ public class Board {
 
     public Square getSquareAtIndex(int index) {
         Square square =  squares.get(index);
-        System.out.println(square.getName());
+        System.out.println(square.getNameLabel());
         return square;
     }
 

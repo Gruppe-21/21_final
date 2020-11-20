@@ -11,12 +11,12 @@ import com.gruppe21.utils.localisation.Localisation;
  */
 
 public abstract class Square {
-    private String name;
+    private String nameLabel;
     private String descriptionLabel;
     protected Board board;
 
-    public Square(String name, String description) {
-        this.name = name;
+    public Square(String nameLabel, String description) {
+        this.nameLabel = nameLabel;
         this.descriptionLabel = description;
     }
 
@@ -37,19 +37,19 @@ public abstract class Square {
         this.descriptionLabel = description;
     }
 
-    public String getName() {
-        return Localisation.getInstance().getStringValue(name) ;
+    public String getNameLabel() {
+        return Localisation.getInstance().getStringValue(nameLabel) ;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameLabel(String nameLabel) {
+        this.nameLabel = nameLabel;
     }
 
     public void setBoard(Board board) {
         this.board = board;
     }
 
-    public String getLabel() {return name;}
+    public String getLabel() {return nameLabel;}
 }
 
 

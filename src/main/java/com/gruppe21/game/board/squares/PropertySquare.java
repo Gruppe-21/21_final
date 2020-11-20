@@ -1,6 +1,5 @@
 package com.gruppe21.game.board.squares;
 
-import com.gruppe21.game.Game;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
@@ -37,7 +36,7 @@ public class PropertySquare extends Square {
     @Override
     public void handleLandOn(Player player) {
         super.handleLandOn(player);
-        String text = Localisation.getInstance().getStringValue("buyplace", getName(), Integer.toString(price));
+        String text = Localisation.getInstance().getStringValue("buyplace", getNameLabel(), Integer.toString(price));
         GUIManager.getInstance().waitForUserAcknowledgement(text);
         purchaseProperty(player);
     }

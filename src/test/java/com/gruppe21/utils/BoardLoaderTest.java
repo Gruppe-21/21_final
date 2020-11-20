@@ -7,7 +7,6 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,7 +28,7 @@ public class BoardLoaderTest {
         }
 
         for (Square square : list.toArray(new Square[0])) {
-            System.out.println(square.getName());
+            System.out.println(square.getNameLabel());
         }
 
         assertEquals(false, list == null);
