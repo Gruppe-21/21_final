@@ -40,11 +40,6 @@ public class Board {
         return colorSquares.toArray(new PropertySquare[0]);
     }
 
-    /**
-     * Takes in consideration that one is an empty square that you cannot land on.
-     *
-     * @return square at the given integer. ex: index = 2 would in this game's case return square with name "Tower"
-     */
 
     public Square getSquareAtRelativePosition(Square square, int distance){
         return getSquareAtIndex( (getSquareIndex(square) + distance) % getSquares().size());
