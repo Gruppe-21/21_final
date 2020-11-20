@@ -79,7 +79,8 @@ public class BoardLoader {
 
         String elementName = tag.getNodeName();
         String name = tag.getAttribute("label");
-        int price = parseInt(tag.getAttribute("price"));
+        String priceStr = tag.getAttribute("price");
+        int price = priceStr.isEmpty() ? 0 : parseInt(tag.getAttribute("price"));
         Color color = ColorUtil.getColor(tag.getAttribute("color"));
         String description = tag.getAttribute("description");
 
