@@ -96,7 +96,7 @@ public class Game {
         this.dice = dice;
         initialisePlayerArray(players);
         //It is insured that all players != null and all players have a name
-        initialisePlayers(players);
+        initialisePlayers(this.players);
         guiManager.addPlayersToGUI(this.players);
     }
 
