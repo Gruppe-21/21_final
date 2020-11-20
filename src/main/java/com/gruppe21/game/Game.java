@@ -92,6 +92,7 @@ public class Game {
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
         this.deck = new Deck();
+        deck.shuffleDeck();
         this.dice = dice;
         initialisePlayerArray(players);
         //It is insured that all players != null and all players have a name
