@@ -20,9 +20,17 @@ import java.util.regex.Pattern;
 public class Localisation {
 
     private static Localisation instance;
-    private final String sentenceTagName = "sentence";
-    private final String filePath = "/lang/";
-    private String currentLocale = "en_US";
+
+    private static  final String LANG_DIRECTORY = "/lang/";
+    private static  final String TAG_LOCALE = "locale";
+    private static  final String ATTRIBUTE_LANGUAGE_LOCALE = "lang";
+    private static  final String ATTRIBUTE_LANGUAGE_NAME = "name";
+    private static final String  START_LOCALE = "en_US";
+
+    private static  final String TAG_SENTENCE = "sentence";
+    private static  final String ATTRIBUTE_LABEL = "label";
+
+    private String currentLocale;
 
     public static Localisation getInstance() {
         if (instance == null)
@@ -30,10 +38,13 @@ public class Localisation {
         return instance;
     }
 
+    Localisation(){
+        currentLocale = START_LOCALE;
+    }
 
     public String[] getAllLocales() {
         ArrayList<String> localeNames = new ArrayList<>();
-        InputStream in = getClass().getResourceAsStream("/lang/");
+        InputStream in = getClass().getResourceAsStream(LANG_DIRECTORY);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
 
@@ -41,10 +52,10 @@ public class Localisation {
 
             while ((resource = br.readLine()) != null) {
                 String locale = resource.split("\\.")[0];
-                Document document = XMLUtil.getXMLDocument(filePath + locale);
+                Document document = XMLUtil.getXMLDocument(LANG_DIRECTORY + locale);
                 Node rootNode = XMLUtil.getRootNode(document);
                 Element tag = (Element) rootNode;
-                localeNames.add(tag.getAttribute("lang") + " " + tag.getAttribute("name"));
+                localeNames.add(tag.getAttribute(ATTRIBUTE_LANGUAGE_LOCALE) + " " + tag.getAttribute(ATTRIBUTE_LANGUAGE_NAME));
             }
         } catch (IOException | ParserConfigurationException | SAXException e) {
             e.printStackTrace();
@@ -57,12 +68,12 @@ public class Localisation {
 
     private NodeList getLocale(String locale) {
         try {
-            Document document = XMLUtil.getXMLDocument(filePath + locale);
+            Document document = XMLUtil.getXMLDocument(LANG_DIRECTORY + locale);
             Node rootNode = XMLUtil.getRootNode(document);
 
             if (rootNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) rootNode;
-                if (tag.getTagName().equals("locale") && tag.getAttribute("lang").equals(currentLocale)) {
+                if (tag.getTagName().equals(TAG_LOCALE) && tag.getAttribute(ATTRIBUTE_LANGUAGE_LOCALE).equals(currentLocale)) {
                     return tag.getChildNodes();
                 }
             }
@@ -79,7 +90,7 @@ public class Localisation {
                 Node node = localeWordList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element tag = (Element) node;
-                    if (tag.getTagName().equals("sentence") && tag.getAttribute("label").equals(label)) {
+                    if (tag.getTagName().equals(TAG_SENTENCE) && tag.getAttribute(ATTRIBUTE_LABEL).equals(label)) {
                         return tag.getTextContent();
                     }
                 }
@@ -105,11 +116,7 @@ public class Localisation {
             matcher.find();
             localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
         }
-/*
-        for (int i = 0; i < variables.length; i++) {
-            localisedText.c
-            localisedText.replaceFirst("�\\[(.*?)]", variables[i]);
-        }*/
+
         return localisedText;
     }
 
@@ -119,7 +126,6 @@ public class Localisation {
     }
 
     public void setCurrentLocale(String currentLocale) {
-
         this.currentLocale = currentLocale;
     }
 }
