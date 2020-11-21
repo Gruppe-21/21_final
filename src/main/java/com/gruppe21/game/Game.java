@@ -172,12 +172,14 @@ public class Game {
                 Square currentSquare = board.getSquareAtIndex(curPlayer.getCurrentSquareIndex());
                 if (currentSquare.getClass() != PrisonSquare.class)
                     throw new Exception("Player.prisonStatus is true but currentSquare is not a PrisonSquare");
+
                 ((PrisonSquare)currentSquare).getOutOfJail(this, curPlayer);
+                if (checkGameOver()) return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (checkGameOver()) return true;
+
         //Any chance cards that should be used at the start of the player's turn is used
         //All cards except get out of jail free and character cards are used immediately.
         for (ChanceCard chanceCard: curPlayer.getOwnedCards().toArray(new ChanceCard[0])) {
