@@ -171,7 +171,7 @@ public class Player {
     }
 
     private PropertySquare[] sellProperties(PropertySquare[] properties, String creditorName, int debt){
-        //Todo: should show next and previous buttons if there aren't any properties to show
+        //Todo: shouldn't show next and previous buttons if there aren't any properties to show
         OurArrayList<PropertySquare> selected = new OurArrayList<>();
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
