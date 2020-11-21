@@ -67,8 +67,9 @@ public class GUIManager {
     }
 
     private void updateGUISquareOwner(PropertySquare square){
-        guiWrapper.setFieldSubtext(square.getSubtext(), square);
-        guiWrapper.setFieldColor(square.getColor(), square);
+        guiWrapper.setFieldColor(square, square.getColor());
+        guiWrapper.setFieldSubtext(square, square.getSubtext());
+        guiWrapper.setFieldTitle(square, square.generateGUIName()); //Must be done last
         guiWrapper.updateGUIFields();
     }
 

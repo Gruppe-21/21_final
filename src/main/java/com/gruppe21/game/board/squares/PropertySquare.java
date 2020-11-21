@@ -11,7 +11,8 @@ public class PropertySquare extends Square {
     private int price;
     private final Color baseColor;
     private Color color;
-    private String subtext;
+    private String subtext; //not strictly necessary
+    private String GUIName; //necessary
     private Player owner = null;
 
     public PropertySquare(String nameLabel, String descriptionLabel, int price, Color baseColor) {
@@ -19,6 +20,7 @@ public class PropertySquare extends Square {
         this.price = price;
         this.baseColor = baseColor;
         this.color = this.baseColor;
+        setGUIName(getName());
         setSubtext(generateSubtext());
     }
 
@@ -79,7 +81,7 @@ public class PropertySquare extends Square {
         setColor(getTintedColor(this.owner));
         setSubtext(generateSubtext());
         GUIManager.getInstance().updateGUISquare(this);
-        //else setColor(b);
+        setGUIName(generateGUIName());
     }
 
     private void setColor(Color color) {
@@ -127,6 +129,18 @@ public class PropertySquare extends Square {
 
     private void setSubtext(String subtext) {
         this.subtext = subtext;
+    }
+
+    public String getGUIName() {
+        return GUIName;
+    }
+
+    public String generateGUIName(){
+        return getName() + "\n" + getOwner().getPieceAsString();
+    }
+
+    private void setGUIName(String GUIName) {
+        this.GUIName = GUIName;
     }
 /*
     public Boolean buy(Player player) {

@@ -46,7 +46,7 @@ public class GUIWrapper {
 
 
             field.setTitle(square.getName());
-            setFieldSubtext(subtext, field);
+            setFieldSubtext(field, subtext);
 
             field.setDescription(square.getDescriptionLabel());
             fields.add(field);
@@ -54,34 +54,43 @@ public class GUIWrapper {
         }
     }
 
-    public void setFieldSubtext(String subtext, Square square){
+    public void setFieldTitle(Square square, String title){
         GUI_Field field = getFieldFromSquare(square);
-        setFieldSubtext(subtext, field);
+        setFieldTitle(field, title);
     }
 
-    public void setFieldSubtext(String subtext, GUI_Field field){
+    public void setFieldTitle(GUI_Field field, String title){
+        if (field != null) field.setTitle(title);
+    }
+
+    public void setFieldSubtext(Square square, String subtext){
+        GUI_Field field = getFieldFromSquare(square);
+        setFieldSubtext(field, subtext);
+    }
+
+    public void setFieldSubtext(GUI_Field field, String subtext){
         if (field != null) field.setSubText(subtext);
     }
 
 
-    public void setFieldColor(Color color, Square square){
+    public void setFieldColor(Square square, Color color){
         GUI_Field field = getFieldFromSquare(square);
-        setFieldColor(color, field);
+        setFieldColor(field, color);
     }
 
-    public void setFieldColor(Color color, GUI_Field field){
+    public void setFieldColor(GUI_Field field, Color color){
         if (field != null) field.setBackGroundColor(color);
     }
 
     public GUI_Field getFieldFromSquare(Square square) {
+        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getName());
         for (GUI_Field field : fields.toArray(new GUI_Field[0])) {
             String guiTitle = field.getTitle().replaceFirst("<*>", "");
-            if (guiTitle.equals(square.getName())) {
+            if (guiTitle.equals(squareName)) {
                 return field;
             }
         }
         return null;
-
     }
 
 
@@ -164,6 +173,7 @@ public class GUIWrapper {
         }
     }
 
+    /*
     public GUI_Player getPlayer(int playerIndex) {
         //Maybe should make sure that playerIndex isn't out of bounds
         return players.get(playerIndex);
@@ -176,6 +186,7 @@ public class GUIWrapper {
         }
         return null;
     }
+     */
 
     public Boolean hasPlayerWithName(String name) {
         for (GUI_Player player : players.toArray(new GUI_Player[0])) {
@@ -183,6 +194,4 @@ public class GUIWrapper {
         }
         return false;
     }
-
-
 }
