@@ -35,7 +35,7 @@ public class PropertySquare extends Square {
     }
 
     public void purchaseProperty(Player player) {
-        purchaseProperty(player, this.price);
+        purchaseProperty(player, getPrice());
     }
 
     public void purchaseProperty(Player player, int price) {
@@ -54,12 +54,12 @@ public class PropertySquare extends Square {
         super.handleLandOn(player);
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
-        int rent = getPrice();
         if (this.getOwner() == null) {
             String text = localisation.getStringValue("buyplace", getName(), Integer.toString(getPrice()));
             guiManager.waitForUserAcknowledgement(text);
             purchaseProperty(player);
         } else if (this.getOwner() != player) {
+            int rent = getRent();
             String text = localisation.getStringValue("payRent", this.getOwner().getName(), Integer.toString(rent));
             guiManager.waitForUserAcknowledgement(text);
             player.getBankBalance().transferMoney(rent, owner);
@@ -97,12 +97,19 @@ public class PropertySquare extends Square {
         this.price = price;
     }
 
-    //Todo: split into getPrice and rent
-    public int getPrice() {
-        //Only works becuase each color has two and only two squares
+    public int getRent() {
+        //You do not pay rent if no one owns the property
+        if (getOwner() == null) return 0;
+
+        //Only works because there are two and only two squares of each color
         for (PropertySquare property: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
-            if (property != this && property.getColor() == this.getColor()) return this.price * 2;
+            if (property != this && property.getColor() == this.getColor()) return getPrice() * 2;
         }
+        return getPrice();
+    }
+
+
+    public int getPrice() {
         return this.price;
     }
 
