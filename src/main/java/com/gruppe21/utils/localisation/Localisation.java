@@ -106,11 +106,12 @@ public class Localisation {
         }
         return "Not defined";
     }
+    // (ab.aad)*
 
 
     public String getStringValue(String label, String... variables) {
         String localisedText = getStringValue(label);
-        Pattern pattern = Pattern.compile("�\\[(.*?)]");
+        Pattern pattern = Pattern.compile("�\\[.*?]");
         for (int i = 0; i < variables.length; i++) {
             Matcher matcher = pattern.matcher(localisedText);
             if(!matcher.find()) break;
