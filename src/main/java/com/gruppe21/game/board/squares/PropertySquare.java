@@ -44,10 +44,7 @@ public class PropertySquare extends Square {
         if (player != null) {
             if (getOwner() == player || player.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
             player.getBankBalance().transferMoney(price);
-            player.addProperty(this);
         }
-        if (getOwner() != null)
-            getOwner().removeProperty(this);
         setOwner(player);
     }
 
@@ -71,17 +68,36 @@ public class PropertySquare extends Square {
     }
 
 
+    public void updateGuiInformation(){
+        setColor(getTintedColor(this.owner));
+        setSubtext(generateSubtext());
+        String oldGUIName = getGUIName();
+        setGUIName(generateGUIName());
+        GUIManager.getInstance().updateGUISquare(this, oldGUIName);
+    }
 
     public Color getBaseColor() {
         return baseColor;
     }
 
     public void setOwner(Player owner) {
+        if (owner == getOwner()) return;
+
+        if (getOwner() != null){
+            //this square is removed from the old owner's list of owned squares
+            getOwner().getOwnedProperties().remove(this);
+            for (PropertySquare pSquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
+                //if the old owner owns the other square of this color its gui information is updated
+                if (pSquare != this && pSquare.getBaseColor() == this.getBaseColor()) pSquare.updateGuiInformation();
+            }
+        }
         this.owner = owner;
-        setColor(getTintedColor(this.owner));
-        setSubtext(generateSubtext());
-        GUIManager.getInstance().updateGUISquare(this);
-        setGUIName(generateGUIName());
+        getOwner().addProperty(this);
+        //if the new owner owns the other square of this color its gui information is updated
+        for (PropertySquare pSquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
+            if (pSquare != this && pSquare.getBaseColor() == this.getBaseColor()) pSquare.updateGuiInformation();
+        }
+        this.updateGuiInformation();
     }
 
     private void setColor(Color color) {
@@ -107,7 +123,6 @@ public class PropertySquare extends Square {
 
         //Only works because there are two and only two squares of each color
         for (PropertySquare property: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
-            //getBaseColor
             if (property != this && property.getBaseColor() == this.getBaseColor()) return getPrice() * 2;
         }
         return getPrice();

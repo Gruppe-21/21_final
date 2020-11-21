@@ -82,15 +82,19 @@ public class GUIWrapper {
         if (field != null) field.setBackGroundColor(color);
     }
 
-    public GUI_Field getFieldFromSquare(Square square) {
-        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getName());
+    public GUI_Field getFieldFromName(String name){
         for (GUI_Field field : fields.toArray(new GUI_Field[0])) {
             String guiTitle = field.getTitle().replaceFirst("<*>", "");
-            if (guiTitle.equals(squareName)) {
+            if (guiTitle.equals(name)) {
                 return field;
             }
         }
         return null;
+    }
+
+    public GUI_Field getFieldFromSquare(Square square) {
+        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getName());
+        return getFieldFromName(squareName);
     }
 
 

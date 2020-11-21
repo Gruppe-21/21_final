@@ -60,16 +60,23 @@ public class GUIManager {
         return MAX_NUM_BUTTONS;
     }
 
+    public void updateGUISquare(PropertySquare square, String oldName){
+        if (isTest) return;
+        guiWrapper.setFieldTitle(guiWrapper.getFieldFromName(oldName), square.getGUIName());
+        updateGUISquare(square);
+    }
+
     public void updateGUISquare(Square square){
         if (isTest) return;
         if (square.getClass() == PropertySquare.class)
             updateGUISquareOwner((PropertySquare) square);
+        guiWrapper.updateGUIFields();
     }
+
 
     private void updateGUISquareOwner(PropertySquare square){
         guiWrapper.setFieldColor(square, square.getColor());
         guiWrapper.setFieldSubtext(square, square.getSubtext());
-        guiWrapper.setFieldTitle(square, square.generateGUIName()); //Must be done last
         guiWrapper.updateGUIFields();
     }
 
