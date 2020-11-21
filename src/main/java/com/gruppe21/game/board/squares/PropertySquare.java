@@ -88,14 +88,16 @@ public class PropertySquare extends Square {
             getOwner().getOwnedProperties().remove(this);
             for (PropertySquare pSquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
                 //if the old owner owns the other square of this color its gui information is updated
-                if (pSquare != this && pSquare.getBaseColor() == this.getBaseColor()) pSquare.updateGuiInformation();
+                if (pSquare != this && pSquare.getBaseColor().equals(this.getBaseColor())) pSquare.updateGuiInformation();
             }
         }
         this.owner = owner;
         getOwner().addProperty(this);
         //if the new owner owns the other square of this color its gui information is updated
         for (PropertySquare pSquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
-            if (pSquare != this && pSquare.getBaseColor() == this.getBaseColor()) pSquare.updateGuiInformation();
+            if (pSquare != this && pSquare.getBaseColor().equals(this.getBaseColor())) {
+                pSquare.updateGuiInformation();
+            }
         }
         this.updateGuiInformation();
     }
@@ -123,7 +125,7 @@ public class PropertySquare extends Square {
 
         //Only works because there are two and only two squares of each color
         for (PropertySquare property: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
-            if (property != this && property.getBaseColor() == this.getBaseColor()) return getPrice() * 2;
+            if (property != this && property.getBaseColor().equals(this.getBaseColor())) return getPrice() * 2;
         }
         return getPrice();
     }
