@@ -55,12 +55,14 @@ public class PropertySquare extends Square {
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
         if (this.getOwner() == null) {
-            String text = localisation.getStringValue("buyplace", getName(), Integer.toString(getPrice()));
+            String text = localisation.getStringValue("buyplace",
+                    getName(), localisation.getStringValue("currency"),Integer.toString(getPrice()));
             guiManager.waitForUserAcknowledgement(text);
             purchaseProperty(player);
         } else if (this.getOwner() != player) {
             int rent = getRent();
-            String text = localisation.getStringValue("payRent", this.getOwner().getName(), Integer.toString(rent));
+            String text = localisation.getStringValue("payRent",
+                    this.getOwner().getName(), localisation.getStringValue("currency"),Integer.toString(rent));
             guiManager.waitForUserAcknowledgement(text);
             player.getBankBalance().transferMoney(rent, owner);
         }
