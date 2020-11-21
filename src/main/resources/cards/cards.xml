@@ -14,7 +14,7 @@
     <movecard description="takecardormovedesc" type="TakeOrMove"/>
 
     <!-- Free Property cards -->
-    <movecard description="propertycarddesc" type="FreeSquare" color="magenta"/>
+    <movecard description="propertycarddesc" type="FreeSquare" color="brown"/>
     <movecard description="propertycarddesc" type="FreeSquare" color="cyan"/>
     <movecard description="propertycarddesc" type="FreeSquare" color="pink"/>
     <movecard description="propertycarddesc" type="FreeSquare" color="orange"/>
