@@ -116,9 +116,7 @@ public class Localisation {
             if(!matcher.find()) break;
             //localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
             localisedText = localisedText.replaceAll(matcher.group(0).replaceFirst("\\[","\\\\["), variables[i]);
-
         }
-
         return localisedText;
     }
 
