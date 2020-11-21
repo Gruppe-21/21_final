@@ -30,11 +30,15 @@ public class Board {
         return squares;
     }
 
-    public PropertySquare[] getSquareWithColor(Color color){
+    public PropertySquare[] getSquaresWithColor(Color... colors){
         OurArrayList<PropertySquare> colorSquares = new OurArrayList<>();
         for (Square square: getSquares().toArray(new Square[0])) {
-            if (square.getClass() == PropertySquare.class && ((PropertySquare) square).getBaseColor() == color)
-                colorSquares.add((PropertySquare) square);
+            for (Color color: colors) {
+                if (square.getClass() == PropertySquare.class && ((PropertySquare) square).getBaseColor() == color) {
+                    colorSquares.add((PropertySquare) square);
+                    break;
+                }
+            }
         }
         return colorSquares.toArray(new PropertySquare[0]);
     }
