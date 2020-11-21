@@ -106,8 +106,6 @@ public class Localisation {
         }
         return "Not defined";
     }
-    // (ab.aad)*
-
 
     public String getStringValue(String label, String... variables) {
         String localisedText = getStringValue(label);
@@ -120,7 +118,6 @@ public class Localisation {
         }
         return localisedText;
     }
-
 
     public String getCurrentLocale() {
         return currentLocale;
