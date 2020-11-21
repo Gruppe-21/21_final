@@ -117,7 +117,6 @@ public class PropertySquare extends Square {
 
     private String generateSubtext() {
         Localisation localisation = Localisation.getInstance();
-        String subtext = getOwner() == null ? "" : (getOwner().getPieceAsString() + "\n");
         subtext += localisation.getStringValue("currency", Integer.toString(getPrice()));
         return subtext;
     }
