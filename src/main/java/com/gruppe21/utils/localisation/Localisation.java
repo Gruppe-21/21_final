@@ -114,7 +114,9 @@ public class Localisation {
         for (int i = 0; i < variables.length; i++) {
             Matcher matcher = pattern.matcher(localisedText);
             if(!matcher.find()) break;
-            localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
+            //localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
+            localisedText = localisedText.replaceAll(matcher.group(0).replaceFirst("\\[","\\\\["), variables[i]);
+
         }
 
         return localisedText;
