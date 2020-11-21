@@ -60,8 +60,7 @@ public class Board {
     }
 
     public Square getSquareAtIndex(int index) {
-        Square square =  squares.get(index);
-        System.out.println(square.getName());
+        Square square = squares.get(index);
         return square;
     }
 
