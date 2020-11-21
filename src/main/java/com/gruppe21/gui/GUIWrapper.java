@@ -97,7 +97,7 @@ public class GUIWrapper {
 
     //18:15-18-45
 
-    // Has to be called every time squares are changed; Most likely only at the start of the game.
+    // Has to be called every time squares are added; Most likely only at the start of the game.
     public void reloadGUI(OurArrayList<Square> squareList) {
         addSquares(squareList);
         close();
