@@ -3,6 +3,7 @@ package com.gruppe21.gui;
 
 import com.gruppe21.game.Die;
 import com.gruppe21.game.board.Board;
+import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
 
@@ -54,14 +55,20 @@ public class GUIManager {
         guiWrapper.setDice(dice[0].getValue(), 0);
     }
 
+    private static final int MAX_NUM_BUTTONS = 5;
     public static int getMaxNumButtons() {
         return MAX_NUM_BUTTONS;
     }
 
-    private static final int MAX_NUM_BUTTONS = 5;
+    public void updateGUISquare(Square square){
+        if (isTest) return;
+        if (square.getClass() == PropertySquare.class)
+            updateGUISquareOwner((PropertySquare) square);
+    }
 
-    public void setSquareGUIColor(Color color, Square square){
-        guiWrapper.setFieldColor(color, square);
+    private void updateGUISquareOwner(PropertySquare square){
+        guiWrapper.setFieldSubtext(square.getSubtext(), square);
+        guiWrapper.setFieldColor(square.getColor(), square);
         guiWrapper.updateGUIFields();
     }
 

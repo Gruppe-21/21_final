@@ -22,12 +22,12 @@ public class GUIWrapper {
         for (Square square : squareList.toArray(new Square[0])) {
 
         GUI_Field field = null;
+        String subtext = "";
            if(square.getClass() == PropertySquare.class){
                PropertySquare p = (PropertySquare)square;
                field = new GUI_Street();
-               field.setSubText("" + p.getPrice());
-
                field.setBackGroundColor(p.getColor());
+               subtext = p.getSubtext();
            }
            else if(square.getClass() == StartSquare.class){
                field = new GUI_Start();
@@ -46,8 +46,7 @@ public class GUIWrapper {
 
 
             field.setTitle(square.getName());
-            if (square.getClass() == PropertySquare.class) field.setSubText("₩" + ((PropertySquare) square).getPrice());
-            else field.setSubText("");
+            setFieldSubtext(subtext, field);
 
             field.setDescription(square.getDescriptionLabel());
             fields.add(field);
@@ -55,13 +54,23 @@ public class GUIWrapper {
         }
     }
 
+    public void setFieldSubtext(String subtext, Square square){
+        GUI_Field field = getFieldFromSquare(square);
+        setFieldSubtext(subtext, field);
+    }
+
+    public void setFieldSubtext(String subtext, GUI_Field field){
+        if (field != null) field.setSubText(subtext);
+    }
+
+
     public void setFieldColor(Color color, Square square){
         GUI_Field field = getFieldFromSquare(square);
-        if (field != null) setFieldColor(color, field);
+        setFieldColor(color, field);
     }
 
     public void setFieldColor(Color color, GUI_Field field){
-        field.setBackGroundColor(color);
+        if (field != null) field.setBackGroundColor(color);
     }
 
     public GUI_Field getFieldFromSquare(Square square) {
@@ -158,7 +167,7 @@ public class GUIWrapper {
     }
 
     public GUI_Player getPlayer(int playerIndex) {
-        //Mabye should make sure that playerIndex isn't out of bounds
+        //Maybe should make sure that playerIndex isn't out of bounds
         return players.get(playerIndex);
     }
 

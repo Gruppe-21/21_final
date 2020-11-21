@@ -11,6 +11,7 @@ public class PropertySquare extends Square {
     private int price;
     private final Color baseColor;
     private Color color;
+    private String subtext;
     private Player owner = null;
 
     public PropertySquare(String nameLabel, String descriptionLabel, int price, Color baseColor) {
@@ -18,6 +19,7 @@ public class PropertySquare extends Square {
         this.price = price;
         this.baseColor = baseColor;
         this.color = this.baseColor;
+        setSubtext(generateSubtext());
     }
 
     private static final float TINT_ALPHA = 0.7f;
@@ -73,13 +75,13 @@ public class PropertySquare extends Square {
     public void setOwner(Player owner) {
         this.owner = owner;
         setColor(getTintedColor(this.owner));
-        GUIManager.getInstance().updateGUISquareOwner(this);
+        setSubtext(generateSubtext());
+        GUIManager.getInstance().updateGUISquare(this);
         //else setColor(b);
     }
 
     private void setColor(Color color) {
         this.color = color;
-        GUIManager.getInstance().setFieldColor(getColor(), this);
     }
 
     public Color getColor(){
@@ -90,23 +92,33 @@ public class PropertySquare extends Square {
         return owner;
     }
 
-    public String subtext() {
-        Localisation localisation = Localisation.getInstance();
-        String subtext = getOwner() == null ? "" : (getOwner().getPieceAsString() + "\n");
-        subtext += localisation.getStringValue("currencyPrefix") + getPrice() + localisation.getStringValue("currencySuffix");
-        return subtext;
-    }
 
     public void setPrice(int price) {
         this.price = price;
     }
 
+    //Todo: split into getPrice and rent
     public int getPrice() {
         //Only works becuase each color has two and only two squares
         for (PropertySquare property: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
             if (property != this && property.getColor() == this.getColor()) return this.price * 2;
         }
         return this.price;
+    }
+
+    private String generateSubtext() {
+        Localisation localisation = Localisation.getInstance();
+        String subtext = getOwner() == null ? "" : (getOwner().getPieceAsString() + "\n");
+        subtext += localisation.getStringValue("currency", Integer.toString(getPrice()));
+        return subtext;
+    }
+
+    public String getSubtext() {
+        return subtext;
+    }
+
+    private void setSubtext(String subtext) {
+        this.subtext = subtext;
     }
 /*
     public Boolean buy(Player player) {
