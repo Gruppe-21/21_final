@@ -107,7 +107,8 @@ public class PropertySquare extends Square {
 
         //Only works because there are two and only two squares of each color
         for (PropertySquare property: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
-            if (property != this && property.getColor() == this.getColor()) return getPrice() * 2;
+            //getBaseColor
+            if (property != this && property.getBaseColor() == this.getBaseColor()) return getPrice() * 2;
         }
         return getPrice();
     }
