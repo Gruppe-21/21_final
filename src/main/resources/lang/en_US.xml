@@ -95,7 +95,7 @@
     <sentence label="winningMessageTie">�[PLAYER_BANKRUPT_NAME] has gone bankrupt leaving �[WINNING_PLAYER_NAME] to tie as the winner.</sentence>
     <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE_NAME] turn!</sentence>
     <sentence label="rollButton">Roll</sentence>
-    <sentence label="buyplace">You will now buy �[PROPERTY_NAME] for �[PRICE] money</sentence>
+    <sentence label="buyplace">You will now buy �[PROPERTY_NAME] for �[PRICE]</sentence>
     <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
 
 
