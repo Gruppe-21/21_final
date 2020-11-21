@@ -24,7 +24,7 @@ public class PropertySquare extends Square {
         setSubtext(generateSubtext());
     }
 
-    private static final float TINT_ALPHA = 0.2f;
+    private static final float TINT_ALPHA = 0.3f;
     public Color getTintedColor(Player player){
         if (player == null) return baseColor;
         Color playerColor = player.getGuiPlayer().getPrimaryColor();

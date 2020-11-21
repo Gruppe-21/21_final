@@ -18,6 +18,9 @@ public class Player {
     private static final int MAX_NUM_PROPERTIES = 12; //Should be read from file?
     private static final int MAX_NAME_LENGTH = 50;
     private static final String[] PLAYER_PIECES_TEXT = {"\uD83D\uDC15", "\uD83D\uDC08", "\uD83D\uDE97", "\uD83D\uDEA2"};
+    public static String playerPieceAsString(PlayerPiece playerPiece){
+        return PLAYER_PIECES_TEXT[playerPiece.ordinal()];
+    }
 
     private GUI_Player guiPlayer;
     private String name = "";            // The player's name
@@ -113,7 +116,7 @@ public class Player {
     }
 
     public String getPieceAsString(){
-        return PLAYER_PIECES_TEXT[piece.ordinal()];
+        return playerPieceAsString(getPiece());
     }
 
     public PlayerPiece getPiece() {

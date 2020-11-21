@@ -9,8 +9,8 @@ public class ChanceCardMoney extends ChanceCard {
     private final int money;
     private final MoneyCardType cardType;
 
-    public ChanceCardMoney(String descriptionLabel, int money, MoneyCardType cardType) {
-        super(descriptionLabel);
+    public ChanceCardMoney(String descriptionOnDrawLabel, String descriptionOnUseLabel, int money, MoneyCardType cardType) {
+        super(descriptionOnDrawLabel, descriptionOnUseLabel);
         this.money = money;
         this.cardType = cardType;
 
@@ -29,7 +29,7 @@ public class ChanceCardMoney extends ChanceCard {
         Localisation localisation = Localisation.getInstance();
 
         GUIManager.getInstance().waitForUserAcknowledgement(
-                localisation.getStringValue(descriptionLabel,
+                localisation.getStringValue(descriptionOnUseLabel,
                         localisation.getStringValue(
                                 "currency", Integer.toString(money))
                 ));

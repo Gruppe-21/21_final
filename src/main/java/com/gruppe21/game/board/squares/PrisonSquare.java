@@ -35,7 +35,7 @@ public class PrisonSquare extends Square {
             }
         }
         //If such a card is not available, then the player will have to pay.
-        guiManager.waitForUserAcknowledgement(localisation.getStringValue(paidReleaseLabel, Integer.toString(price)));
+        guiManager.waitForUserAcknowledgement(localisation.getStringValue(paidReleaseLabel, localisation.getStringValue("currency"), Integer.toString(price)));
         player.getBankBalance().transferMoney(price);
     }
 
