@@ -55,7 +55,7 @@
     <sentence label="startdesc">You get a start bonus!</sentence>
 
     <!-- chancecard buttons -->
-    <sentence label="moveButton">Ryk</sentence>
+    <sentence label="moveButton0">Ryk</sentence>
     <sentence label="moveButton1">1</sentence>
     <sentence label="moveButton2">2</sentence>
     <sentence label="moveButton3">3</sentence>

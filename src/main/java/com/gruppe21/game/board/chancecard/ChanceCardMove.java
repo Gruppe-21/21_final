@@ -82,7 +82,7 @@ public class ChanceCardMove extends ChanceCard {
         Localisation localisation = Localisation.getInstance();
         String[] moveButtons = new String[numMoveButtons];
         for (int i = 0; i < numMoveButtons; i++) {
-            moveButtons[i] = localisation.getStringValue("movebutton" + i);
+            moveButtons[i] = localisation.getStringValue("moveButton" + i);
         }
 
         int moveForwardChosen = 0;
