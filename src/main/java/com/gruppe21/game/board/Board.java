@@ -54,7 +54,30 @@ public class Board {
         return null;
     }
 
+    public Square getSquareClosetToSquare(Square square, Square[] squares){
+        if (square == null || squares == null || squares[0] == null) return null;
+        int minDistance = getDistanceToSquare(square, squares[0]);
+        Square closestSquare = squares[0];
+        for (int i = 1; i < squares.length; i++) {
+            if(squares[i] != null){
+                int distance = getDistanceToSquare(square, squares[i]);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestSquare = squares[i];
 
+                }
+            }
+        }
+        return closestSquare;
+    }
+
+
+    public int getDistanceToSquare(Square from, Square to){
+        if (from == null || to == null) return -1;
+        int indexFrom = getSquareIndex(from), indexTo = getSquareIndex(to);
+        if (indexTo < indexFrom) return getSquares().size() - indexFrom + indexTo;
+        else return indexTo - indexFrom;
+    }
     public Square getSquareAtRelativePosition(Square square, int distance){
         return getSquareAtIndex( (getSquareIndex(square) + distance) % getSquares().size());
     }
