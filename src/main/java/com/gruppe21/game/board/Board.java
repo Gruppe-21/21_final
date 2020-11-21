@@ -39,7 +39,7 @@ public class Board {
         return colorSquares.toArray(new PropertySquare[0]);
     }
 
-    public Square[] getSquareOfClass(Class squareClass){
+    public Square[] getSquaresOfClass(Class squareClass){
         OurArrayList<Square> squaresOfClass = new OurArrayList<>();
         for (Square square: getSquares().toArray(new Square[0])) {
             if (square.getClass() == squareClass) squaresOfClass.add(square);
