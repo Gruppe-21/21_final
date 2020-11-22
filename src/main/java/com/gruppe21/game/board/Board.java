@@ -86,7 +86,7 @@ public class Board {
     }
 
     public PropertySquare[] getAvailableProperties(){
-        getAvailableProperties((PropertySquare[]) getSquaresOfClass(PropertySquare.class));
+        return getAvailableProperties((PropertySquare[]) getSquaresOfClass(PropertySquare.class));
     }
 
     public PropertySquare[] getPropertiesNotOwnedBy(Player... players){
