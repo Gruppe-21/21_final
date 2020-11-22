@@ -30,8 +30,8 @@ public class ChanceCardMoney extends ChanceCard {
 
         GUIManager.getInstance().waitForUserAcknowledgement(
                 localisation.getStringValue(descriptionOnUseLabel,
-                        localisation.getStringValue(
-                                "currency", Integer.toString(money))
+                        localisation.getStringValue("currency", Integer.toString(money)),
+                        localisation.getStringValue("bankName")
                 ));
 
         switch (cardType){
