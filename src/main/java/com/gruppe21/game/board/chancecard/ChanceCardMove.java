@@ -57,7 +57,7 @@ public class ChanceCardMove extends ChanceCard {
 
     private void moveToSquareAndPurchase(Game game, Player player, PropertySquare... validSquare){
         if (validSquare.length == 0) {return;} //The player owns all properties. Something should be done; The player should at least be told.
-
+        //Todo: pick square, move(teleport) to it and buy it. (Should probably inform the player if it will bankrupt them)
 
     }
 

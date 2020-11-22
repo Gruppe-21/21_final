@@ -36,16 +36,17 @@ public class PropertySquare extends Square {
                 );
     }
 
-    public void purchaseProperty(Player player) {
-        purchaseProperty(player, getPrice());
+    public void purchaseProperty(Player buyer) {
+        purchaseProperty(buyer, getPrice());
     }
 
-    public void purchaseProperty(Player player, int price) {
-        if (player != null) {
-            if (getOwner() == player || player.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
-            player.getBankBalance().transferMoney(price);
+    public void purchaseProperty(Player buyer, int price) {
+        //Todo: should probably take a seller aswell
+        if (buyer != null) {
+            if (getOwner() == buyer || buyer.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
+            buyer.getBankBalance().transferMoney(price, getOwner());
         }
-        setOwner(player);
+        setOwner(buyer);
     }
 
     @Override
