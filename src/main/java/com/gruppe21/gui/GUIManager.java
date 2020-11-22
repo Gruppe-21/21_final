@@ -90,6 +90,11 @@ public class GUIManager {
         guiWrapper.movePlayer(player, squareIndex);
     }
 
+    public boolean getUserChoice(String message, String trueChoice, String falseChoice) {
+        if (isTest) return true; //we arbitrarily return true if it is a test
+        return guiWrapper.getUserLeftButtonPress(message, trueChoice, falseChoice);
+    }
+
     public void waitForUserAcknowledgement(String message) {
         if (isTest) return;
         guiWrapper.showMessage(message);
