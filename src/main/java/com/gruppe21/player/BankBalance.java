@@ -33,7 +33,7 @@ public class BankBalance {
     }
 
     /**
-     * Transfers money to another player
+     * Transfers money to another player. If the player does not have enough money, their properties are sold.
      * @param debit is the amount of money transferred out of the account.
      *              Can be a negative number in which case money is transferred into the account instead.
      * @param creditor is the player which receives the money.
@@ -42,13 +42,13 @@ public class BankBalance {
      */
     public void transferMoney(int debit, Player creditor){
         if (creditor == parent) return;
-        if (creditor != null){ //creditor == null -> creditor is the bank
-            creditor.getBankBalance().addBalance(Math.min(debit, parent.canPayInTotal()));
-        }
         if (getBalance() - debit < 0) {
             debit -= parent.sellProperties(debit, creditor);
         }
         addBalance(-debit);
+        if (creditor != null){ //creditor == null -> creditor is the bank
+            creditor.getBankBalance().addBalance(debit);
+        }
     }
 
     /**
