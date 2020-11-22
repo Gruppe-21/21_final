@@ -2,6 +2,7 @@ package com.gruppe21.game.board;
 
 import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.game.board.squares.Square;
+import com.gruppe21.player.Player;
 import com.gruppe21.utils.BoardLoader;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import org.xml.sax.SAXException;
@@ -75,14 +76,31 @@ public class Board {
         return closestSquare;
     }
 
-    public PropertySquare[] getAvailableProperties(){
-        PropertySquare[] properties = (PropertySquare[]) getSquaresOfClass(PropertySquare.class);
+    public PropertySquare[] getAvailableProperties(PropertySquare... properties){
         OurArrayList<PropertySquare> availableProperties = new OurArrayList<>();
         for (PropertySquare property: properties) {
             if(property.getOwner() == null) availableProperties.add(property);
         }
         if (availableProperties.size() == 0) return null;
         return availableProperties.toArray(new PropertySquare[0]);
+    }
+
+    public PropertySquare[] getAvailableProperties(){
+        getAvailableProperties((PropertySquare[]) getSquaresOfClass(PropertySquare.class));
+    }
+
+    public PropertySquare[] getPropertiesNotOwnedBy(Player... players){
+        PropertySquare[] properties = (PropertySquare[]) getSquaresOfClass(PropertySquare.class);
+        OurArrayList<PropertySquare> propertiesNotOwned = new OurArrayList<>();
+        for (PropertySquare property: properties) {
+            Boolean owned = false;
+            for (Player player: players) {
+                if(property.getOwner() == player) owned = true;
+            }
+            if (!owned) propertiesNotOwned.add(property);
+        }
+        if (propertiesNotOwned.size() == 0) return null;
+        return propertiesNotOwned.toArray(new PropertySquare[0]);
     }
 
     public int getDistanceToSquare(Square from, Square to){
