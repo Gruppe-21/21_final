@@ -75,6 +75,15 @@ public class Board {
         return closestSquare;
     }
 
+    public PropertySquare[] getAvailableProperties(){
+        PropertySquare[] properties = (PropertySquare[]) getSquaresOfClass(PropertySquare.class);
+        OurArrayList<PropertySquare> availableProperties = new OurArrayList<>();
+        for (PropertySquare property: properties) {
+            if(property.getOwner() == null) availableProperties.add(property);
+        }
+        if (availableProperties.size() == 0) return null;
+        return availableProperties.toArray(new PropertySquare[0]);
+    }
 
     public int getDistanceToSquare(Square from, Square to){
         if (from == null || to == null) return -1;
