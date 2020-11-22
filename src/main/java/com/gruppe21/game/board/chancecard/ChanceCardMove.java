@@ -43,13 +43,21 @@ public class ChanceCardMove extends ChanceCard {
         switch (cardType){
             case MoveToSquare -> move(game,player, game.getBoard().getSquareFromLabel(label));
             case MoveUpTo -> moveUpTo(game,player);
-            case Figure -> moveToSquare(game,player);
-            case TakeOrMove -> takeCard(game,player);
+            case Figure -> {
+                PropertySquare[] validSquares = game.getBoard().getAvailableProperties();
+                if (validSquares == null){
+                    validSquares = game.getBoard().getPropertiesNotOwnedBy(player);
+                }
+                moveToSquareAndPurchase(game,player, validSquares);
+            }
+            case TakeOrMove -> takeCardOrMove(game,player);
             case FreeSquare -> freeColorSquare(game,player);
         }
     }
 
-    private void moveToSquare(Game game, Player player, Square... validSquare){
+    private void moveToSquareAndPurchase(Game game, Player player, PropertySquare... validSquare){
+        if (validSquare.length == 0) {return;} //The player owns all properties. Something should be done; The player should at least be told.
+
 
     }
 
@@ -72,14 +80,12 @@ public class ChanceCardMove extends ChanceCard {
 
     }
 
-    private void takeCard(Game game, Player player) {
+    private void takeCardOrMove(Game game, Player player) {
         Localisation localisation = Localisation.getInstance();
+        String description = localisation.getStringValue(descriptionOnUseLabel);
         String moveButton = localisation.getStringValue("moveButton");
         String takeButton = localisation.getStringValue("takeButton");
-
-        String result = GUIManager.getInstance().waitForUserButtonPress(descriptionOnUseLabel, moveButton, takeButton);
-
-        if (result.equals(moveButton)) {
+        if (GUIManager.getInstance().getUserChoice(description, moveButton, takeButton)){
             game.movePlayerBy(player, 1);
         } else {
             player.drawChanceCard(game.getDeck(), game);
