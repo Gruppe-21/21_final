@@ -90,8 +90,13 @@ public class GUIManager {
         guiWrapper.movePlayer(player, squareIndex);
     }
 
+    public String getUserSelection(String message, String... options) {
+        if (isTest) return null; //we arbitrarily return true if it is a test
+        return guiWrapper.getUserSelection(message, options);
+    }
+
     public boolean getUserChoice(String message, String trueChoice, String falseChoice) {
-        if (isTest) return true; //we arbitrarily return true if it is a test
+        if (isTest) return false; //we arbitrarily return false if it is a test
         return guiWrapper.getUserLeftButtonPress(message, trueChoice, falseChoice);
     }
 

@@ -166,6 +166,14 @@ public class GUIWrapper {
         return gui.getUserString(message);
     }
 
+    public boolean getUserLeftButtonPress(String message, String leftButtonText, String rightButtonText){
+        return getUserLeftButtonPress(message, leftButtonText, rightButtonText);
+    }
+
+    public String getUserSelection(String message, String... options){
+        return gui.getUserSelection(message, options);
+    }
+
     // Get a string input from player
     public String getButtonPress(String message, String... buttonText) {
         return gui.getUserButtonPressed(message, buttonText);
@@ -177,9 +185,6 @@ public class GUIWrapper {
         }
     }
 
-    public boolean getUserLeftButtonPress(String message, String leftButtonText, String rightButtonText){
-        return getUserLeftButtonPress(message, leftButtonText, rightButtonText);
-    }
 
     /*
     public GUI_Player getPlayer(int playerIndex) {
