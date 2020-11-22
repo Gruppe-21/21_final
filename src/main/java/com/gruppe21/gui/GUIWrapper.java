@@ -177,6 +177,10 @@ public class GUIWrapper {
         }
     }
 
+    public boolean getUserLeftButtonPress(String message, String leftButtonText, String rightButtonText){
+        return getUserLeftButtonPress(message, leftButtonText, rightButtonText);
+    }
+
     /*
     public GUI_Player getPlayer(int playerIndex) {
         //Maybe should make sure that playerIndex isn't out of bounds
