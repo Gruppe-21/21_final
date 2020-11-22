@@ -147,6 +147,7 @@ public class Game {
         availablePieces.add("\uD83D\uDEA2");
         for (Player player : getPlayers()) {
             String selected = guiManager.waitForUserButtonPress(localisation.getStringValue("choosePiece", player.getName()), availablePieces.toArray(new String[0]));
+            if (isTest) selected = availablePieces.get(0);
             switch (selected) {
                 case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
                 case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
