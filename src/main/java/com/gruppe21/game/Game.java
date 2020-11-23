@@ -103,7 +103,7 @@ public class Game {
                         throw new Exception("Invalid number of players");
                     players = new Player[numberOfPlayers];
                 } catch (Exception e) {
-                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumberOfPlayers", Integer.toString(MIN_PLAYERS), Integer.toString(MAX_PLAYERS)) );
+                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumber", Integer.toString(MIN_PLAYERS), Integer.toString(MAX_PLAYERS)) );
                     continue;
                 }
                 break;
