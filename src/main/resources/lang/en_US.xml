@@ -73,7 +73,7 @@
     <sentence label="jailCardOnUseDesc">You use your get out of jail for free card and is released; the card is returned to the pile</sentence>
     <sentence label="homeworkCardOnUseDesc">You have done all your homework! You receive �[MONEY].
     </sentence> <!-- money value instead of '2'? -->
-    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to [BANK_NAME].
+    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to �[BANK_NAME].
     </sentence> <!-- money value instead of '2'? -->
     <sentence label="birthdayCardOnUseDesc">It's your birthday! Everyone must pay you �[PRICE].
     </sentence> <!-- money value instead of '1'? -->
