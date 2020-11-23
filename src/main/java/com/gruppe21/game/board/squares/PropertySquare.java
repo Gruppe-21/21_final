@@ -93,11 +93,13 @@ public class PropertySquare extends Square {
             }
         }
         this.owner = owner;
-        getOwner().addProperty(this);
-        //if the new owner owns the other square of this color its gui information is updated
-        for (PropertySquare pSquare: getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
-            if (pSquare != this && pSquare.getBaseColor().equals(this.getBaseColor())) {
-                pSquare.updateGuiInformation();
+        if (getOwner() != null) {
+            getOwner().addProperty(this);
+            //if the new owner owns the other square of this color its gui information is updated
+            for (PropertySquare pSquare : getOwner().getOwnedProperties().toArray(new PropertySquare[0])) {
+                if (pSquare != this && pSquare.getBaseColor().equals(this.getBaseColor())) {
+                    pSquare.updateGuiInformation();
+                }
             }
         }
         this.updateGuiInformation();
@@ -155,7 +157,9 @@ public class PropertySquare extends Square {
     }
 
     public String generateGUIName(){
-        return getName() + "\n" + getOwner().getPieceAsString();
+        String guiName = getName();
+        if (getOwner() != null) guiName += "\n" + getOwner().getPieceAsString();
+        return guiName;
     }
 
     private void setGUIName(String GUIName) {
