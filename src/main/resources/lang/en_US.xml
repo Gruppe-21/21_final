@@ -2,6 +2,11 @@
 <locale lang="en_US" name="English">
     <sentence label="word1">This is a sentence.</sentence>
 
+
+    <sentence label="currency">₩�[VALUE]</sentence>
+    <sentence label="bankName">The Bank®</sentence>
+
+
     <!-- regex --> <!-- this shouldn't be used, as translators proberbly don't know how, but that is a problem for another time -->
 
 
@@ -61,24 +66,25 @@
 
     <sentence label="takeButton">Take another card</sentence>
     <sentence label="takecard">Take a chance card</sentence>
-    <!-- chancecard desc -->
-    <sentence label="jailcardesc">You can get out of jail for free. Keep this card if needed.</sentence>
-    <sentence label="homeworkcarddesc">You have made all your homework! RECEIVE '2'M.
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="candycarddesc">You have eaten to much candy. PAY '2'M to the bank.
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdaycarddesc">It's your birthday! Everyone gives you '1'M
-    </sentence> <!-- money value instead of '1'? -->
-    <sentence label="startcarddesc">Move to the start square. Receive '2'M</sentence> <!-- money value instead of '2'? -->
-    <sentence label="propertycarddesc">Move 1 square forward, OR take another chance card.</sentence>
-    <sentence label="boardwalkcarddesc">Move to BOARDWALK.</sentence>
-    <sentence label="moveUpToCardDesc">Move UP TO 5 squares forward.</sentence>
-    <sentence label="propertycarddesc">WRITE_DESCRIPTION_HERE</sentence>
 
-    <sentence label="figure1desc">WRITE_DESCRIPTION_HERE</sentence>
-    <sentence label="figure2desc">WRITE_DESCRIPTION_HERE</sentence>
-    <sentence label="figure3desc">WRITE_DESCRIPTION_HERE</sentence>
-    <sentence label="figure4desc">WRITE_DESCRIPTION_HERE</sentence>
+    <!-- chancecard desc -->
+    <sentence label="startCardOnUseDesc">Move to �[START_SQUARE_NAME]. Receive will receive �[MONEY]</sentence> <!-- money value instead of '2'? -->
+    <sentence label="jailCardOnDrawDesc">With this card you can get out of jail for free. Keep it until needed.</sentence>
+    <sentence label="jailCardOnUseDesc">You use your get out of jail for free card and is released; the card is returned to the pile</sentence>
+    <sentence label="homeworkCardOnUseDesc">You have done all your homework! You receive �[MONEY].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to [BANK_NAME].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="birthdayCardOnUseDesc">It's your birthday! Everyone must pay you �[PRICE].
+    </sentence> <!-- money value instead of '1'? -->
+    <sentence label="boardwalkCardOnUseDesc">Move to BOARDWALK.</sentence>
+    <sentence label="moveUpToCardOnUseDesc">Move UP TO 5 squares forward.</sentence>
+    <sentence label="takeCardOrMoveCardOnUseDesc">Move 1 square forward or take another chance card.</sentence>
+    <sentence label="propertyCardOnUseDesc">WRITE_DESCRIPTION_HERE</sentence>
+
+    <sentence label="figureCardOnDrawDesc">Give this card [PLAYER_PIECE] and take another chance card.\n[PLAYER_PIECE]: On your next turn move to any available property and buy it. If there are no available properties you must purchase one from another player</sentence>
+    <sentence label="figureCardOnUseDesc">[PLAYER_NAME]: Move to any available property and buy it. If there are no available properties you must purchase one from another player</sentence>
+
 
 
     <!-- Player instructions -->
@@ -86,14 +92,16 @@
     <sentence label="requestPlayerName">Please write your name, Player �[PLAYER_NUMBER] (Leave empty for a random name)</sentence>
     <sentence label="choosePiece">�[PLAYER_NAME]: Choose a piece.</sentence>
     <sentence label="requestPlayerAge">Please write your age, [PLAYER_NAME]</sentence>
-    <sentence label="winningMessage">�[PLAYER_BANKRUPT] has gone bankrupt leaving �[WINNING_PLAYER] as the winner.
-    </sentence>
-    <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE] turn!</sentence>
+    <sentence label="winningMessage">�[PLAYER_BANKRUPT_NAME] has gone bankrupt leaving �[WINNING_PLAYER_NAME] as the winner.</sentence>
+    <sentence label="winningMessageTie">�[PLAYER_BANKRUPT_NAME] has gone bankrupt leaving �[WINNING_PLAYER_NAME] to tie as the winner.</sentence>
+    <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE_NAME] turn!</sentence>
     <sentence label="rollButton">Roll</sentence>
-    <sentence label="buyplace">You will now buy �[NAME] for �[PRICE] money</sentence>
+    <sentence label="buyplace">You will now buy �[PROPERTY_NAME] for �[PRICE]</sentence>
+    <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
+    <sentence label="paidRelease">You have to pay �[PRICE_FOR_FREEDOM] to leave this wretched place and regain your freedom.</sentence>
 
 
-    <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR]. Please select below the properties you wish to sell to �[CREDITOR]:</sentence>
+    <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
     <sentence label="nextBtn">Next</sentence>
     <sentence label="previousBtn">Back</sentence>
 

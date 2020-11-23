@@ -4,9 +4,8 @@ package com.gruppe21.gui;
 import com.gruppe21.game.Die;
 import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.squares.PropertySquare;
+import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
-import com.gruppe21.utils.arrayutils.OurArrayList;
-import com.gruppe21.utils.localisation.Localisation;
 
 import java.awt.*;
 
@@ -56,12 +55,30 @@ public class GUIManager {
         guiWrapper.setDice(dice[0].getValue(), 0);
     }
 
+    private static final int MAX_NUM_BUTTONS = 5;
     public static int getMaxNumButtons() {
         return MAX_NUM_BUTTONS;
     }
 
-    private static final int MAX_NUM_BUTTONS = 5;
+    public void updateGUISquare(PropertySquare square, String oldName){
+        if (isTest) return;
+        guiWrapper.setFieldTitle(guiWrapper.getFieldFromName(oldName), square.getGUIName());
+        updateGUISquare(square);
+    }
 
+    public void updateGUISquare(Square square){
+        if (isTest) return;
+        if (square.getClass() == PropertySquare.class)
+            updateGUISquareOwner((PropertySquare) square);
+        guiWrapper.updateGUIFields();
+    }
+
+
+    private void updateGUISquareOwner(PropertySquare square){
+        guiWrapper.setFieldColor(square, square.getColor());
+        guiWrapper.setFieldSubtext(square, square.getSubtext());
+        guiWrapper.updateGUIFields();
+    }
 
     public void setGUIPlayerBalance(Player player, int newBalance) {
         if (isTest) return;
@@ -71,6 +88,16 @@ public class GUIManager {
     public void movePlayer(Player player, int squareIndex) {
         if (isTest) return;
         guiWrapper.movePlayer(player, squareIndex);
+    }
+
+    public String getUserSelection(String message, String... options) {
+        if (isTest) return null; //we arbitrarily return true if it is a test
+        return guiWrapper.getUserSelection(message, options);
+    }
+
+    public boolean getUserChoice(String message, String trueChoice, String falseChoice) {
+        if (isTest) return false; //we arbitrarily return false if it is a test
+        return guiWrapper.getUserLeftButtonPress(message, trueChoice, falseChoice);
     }
 
     public void waitForUserAcknowledgement(String message) {

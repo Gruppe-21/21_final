@@ -107,19 +107,17 @@ public class Localisation {
         return "Not defined";
     }
 
-
     public String getStringValue(String label, String... variables) {
         String localisedText = getStringValue(label);
-        Pattern pattern = Pattern.compile("�\\[(.*?)]");
+        Pattern pattern = Pattern.compile("�\\[.*?]");
         for (int i = 0; i < variables.length; i++) {
             Matcher matcher = pattern.matcher(localisedText);
-            matcher.find();
-            localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
+            if(!matcher.find()) break;
+            //localisedText = localisedText.replaceAll(localisedText.substring(matcher.start(), matcher.end()).replaceFirst("\\[","\\\\["), variables[i]);
+            localisedText = localisedText.replaceAll(matcher.group(0).replaceFirst("\\[","\\\\["), variables[i]);
         }
-
         return localisedText;
     }
-
 
     public String getCurrentLocale() {
         return currentLocale;

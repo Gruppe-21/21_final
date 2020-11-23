@@ -7,8 +7,6 @@ import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GUIWrapper {
     private GUI gui;
@@ -24,12 +22,12 @@ public class GUIWrapper {
         for (Square square : squareList.toArray(new Square[0])) {
 
         GUI_Field field = null;
+        String subtext = "";
            if(square.getClass() == PropertySquare.class){
                PropertySquare p = (PropertySquare)square;
                field = new GUI_Street();
-               field.setSubText("" + p.getPrice());
-
                field.setBackGroundColor(p.getColor());
+               subtext = p.getSubtext();
            }
            else if(square.getClass() == StartSquare.class){
                field = new GUI_Start();
@@ -48,22 +46,75 @@ public class GUIWrapper {
 
 
             field.setTitle(square.getName());
-            field.setSubText("");
-            field.setDescription(square.getDescriptionLabel());
+            setFieldSubtext(field, subtext);
 
+            field.setDescription(square.getDescriptionLabel());
             fields.add(field);
 
         }
     }
 
-    // Has to be called every time new squares are added; Most likely only at the start of the game.
-    public void reloadGUI(OurArrayList<Square> squareList) {
-        if (gui != null)
-            gui.close();
+    public void setFieldTitle(Square square, String title){
+        GUI_Field field = getFieldFromSquare(square);
+        setFieldTitle(field, title);
+    }
 
+    public void setFieldTitle(GUI_Field field, String title){
+        if (field != null) field.setTitle(title);
+    }
+
+    public void setFieldSubtext(Square square, String subtext){
+        GUI_Field field = getFieldFromSquare(square);
+        setFieldSubtext(field, subtext);
+    }
+
+    public void setFieldSubtext(GUI_Field field, String subtext){
+        if (field != null) field.setSubText(subtext);
+    }
+
+
+    public void setFieldColor(Square square, Color color){
+        GUI_Field field = getFieldFromSquare(square);
+        setFieldColor(field, color);
+    }
+
+    public void setFieldColor(GUI_Field field, Color color){
+        if (field != null) field.setBackGroundColor(color);
+    }
+
+    public GUI_Field getFieldFromName(String name){
+        for (GUI_Field field : fields.toArray(new GUI_Field[0])) {
+            String guiTitle = field.getTitle().replaceFirst("<*>", "");
+            if (guiTitle.equals(name)) {
+                return field;
+            }
+        }
+        return null;
+    }
+
+    public GUI_Field getFieldFromSquare(Square square) {
+        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getName());
+        return getFieldFromName(squareName);
+    }
+
+
+    public void updateGUIFields(){
+        updateGUIFields(fields.toArray(new GUI_Field[0]));
+    }
+    public void updateGUIFields(GUI_Field[] fields){
+        if (fields.length > gui.getFields().length) return; //should probably throw exception
+        for (int i = 0; i < fields.length; i++) {
+            gui.getFields()[i] = fields[i];
+        }
+    }
+
+    // Has to be called every time squares are added; Most likely only at the start of the game.
+    public void reloadGUI(OurArrayList<Square> squareList) {
         addSquares(squareList);
+        close();
         gui = new GUI(fields.toArray(new GUI_Field[0]), Color.WHITE);
     }
+
 
     // First add players after gui reload
     public void addPlayer(Player player, Color color) {
@@ -115,6 +166,14 @@ public class GUIWrapper {
         return gui.getUserString(message);
     }
 
+    public boolean getUserLeftButtonPress(String message, String leftButtonText, String rightButtonText){
+        return getUserLeftButtonPress(message, leftButtonText, rightButtonText);
+    }
+
+    public String getUserSelection(String message, String... options){
+        return gui.getUserSelection(message, options);
+    }
+
     // Get a string input from player
     public String getButtonPress(String message, String... buttonText) {
         return gui.getUserButtonPressed(message, buttonText);
@@ -126,8 +185,10 @@ public class GUIWrapper {
         }
     }
 
+
+    /*
     public GUI_Player getPlayer(int playerIndex) {
-        //Mabye should make sure that playerIndex isn't out of bounds
+        //Maybe should make sure that playerIndex isn't out of bounds
         return players.get(playerIndex);
     }
 
@@ -138,6 +199,7 @@ public class GUIWrapper {
         }
         return null;
     }
+     */
 
     public Boolean hasPlayerWithName(String name) {
         for (GUI_Player player : players.toArray(new GUI_Player[0])) {
@@ -145,6 +207,4 @@ public class GUIWrapper {
         }
         return false;
     }
-
-
 }

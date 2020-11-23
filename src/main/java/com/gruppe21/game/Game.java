@@ -14,10 +14,6 @@ import com.gruppe21.player.PlayerPiece;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.stringutils.RandomNameGenerator;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
 
 public class Game {
     private final char MIN_PLAYERS = 2;
@@ -27,7 +23,6 @@ public class Game {
     private GUIManager guiManager;
     private boolean isTest;
 
-    private Boolean gameIsOver = false;
     private Board board;
     private Player[] players;
     private int currentPlayer;
@@ -53,15 +48,6 @@ public class Game {
 
 
 
-
-    public Boolean getGameIsOver() {
-        return gameIsOver;
-    }
-
-    public void setGameIsOver(Boolean gameIsOver) {
-        this.gameIsOver = gameIsOver;
-    }
-
     public Board getBoard() {
         return board;
     }
@@ -78,8 +64,14 @@ public class Game {
         return dice;
     }
 
-    public int getCurrentPlayer() {
+    //Unused
+    public int getCurrentPlayerIndex() {
         return currentPlayer;
+    }
+
+    //Unused
+    public Player getCurrentPlayer(){
+        return players[getCurrentPlayerIndex()];
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
@@ -123,7 +115,7 @@ public class Game {
     private void initialisePlayers(Player[] players) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) players[i] = new Player();
-            players[i].getBankBalance().addBalance((players.length-2)*2);
+            players[i].getBankBalance().setBalance(20 - (players.length-2)*2);
 
             while (players[i].getName().isEmpty()) {
                 try {
@@ -155,6 +147,7 @@ public class Game {
         availablePieces.add("\uD83D\uDEA2");
         for (Player player : getPlayers()) {
             String selected = guiManager.waitForUserButtonPress(localisation.getStringValue("choosePiece", player.getName()), availablePieces.toArray(new String[0]));
+            if (isTest) selected = availablePieces.get(0);
             switch (selected) {
                 case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
                 case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
@@ -166,6 +159,12 @@ public class Game {
 
     }
 
+    private boolean checkGameOver(){
+        for (Player player: players) {
+            if (player.isBankrupt()) return true;
+        }
+        return false;
+    }
 
     public boolean playRound() {
         Player curPlayer = players[currentPlayer];
@@ -174,18 +173,23 @@ public class Game {
                 Square currentSquare = board.getSquareAtIndex(curPlayer.getCurrentSquareIndex());
                 if (currentSquare.getClass() != PrisonSquare.class)
                     throw new Exception("Player.prisonStatus is true but currentSquare is not a PrisonSquare");
+
                 ((PrisonSquare)currentSquare).getOutOfJail(this, curPlayer);
+                if (checkGameOver()) return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         //Any chance cards that should be used at the start of the player's turn is used
         //All cards except get out of jail free and character cards are used immediately.
         for (ChanceCard chanceCard: curPlayer.getOwnedCards().toArray(new ChanceCard[0])) {
             if (chanceCard.getClass() != ChanceCardGetOutOfJailFree.class)
                 chanceCard.use(this, curPlayer);
         }
-        
+
+        if (checkGameOver()) return true;
+
         // Wait for player to press "Roll"
         guiManager.waitForUserButtonPress(localisation.getStringValue("rollDiceMessage", curPlayer.getPossessiveName()), localisation.getStringValue("rollButton"));
         guiManager.setGUIDice(dice);
@@ -197,9 +201,9 @@ public class Game {
             sum += die.getValue();
         }
         movePlayerBy(curPlayer, sum);
-        for (Player player : players) {
-            //if (player.isBankrupt()) return true;
-        }
+
+        if (checkGameOver()) return true;
+
         currentPlayer = nextPlayer();
         return false;
     }
@@ -210,10 +214,40 @@ public class Game {
                 die.rollDie();
             }
         } while (!playRound());
-        Player winner = players[currentPlayer];
-        //TODO Fix loser
-       // guiManager.waitForUserAcknowledgement("winningMessage", loser.getName, winner.getName());
+
+        Player[] winners = getWinners();
+        String winnerNames = winners[0].getName();
+        for (int i = 1; i < winners.length - 1; i++) {
+            winnerNames += ", " + winners[i];
+        }
+        winnerNames += " and " + winners[winners.length - 1];
+        guiManager.waitForUserAcknowledgement(
+                localisation.getStringValue("winningMessage" + (winners.length > 1 ? "Tie" : ""),
+                        players[currentPlayer].getName(), winnerNames));
         guiManager.closeGUI();
+    }
+
+    private Player[] getWinners(){
+        int maxMoney = 0;
+        int maxTotalValue = 0;
+        for (Player player : players) {
+            int balance = player.getBankBalance().getBalance(), totalValue = player.canPayInTotal();
+            if(balance >= maxMoney) {
+                if (balance > maxMoney){
+                    maxMoney = balance;
+                    maxTotalValue = totalValue;
+                }
+                else if (totalValue > maxTotalValue){
+                    maxTotalValue = totalValue;
+                }
+            }
+        }
+        OurArrayList<Player> winners = new OurArrayList<>(1);
+        for (Player player: players) {
+            if (player.getBankBalance().getBalance() == maxMoney && player.canPayInTotal() == maxTotalValue)
+                winners.add(player);
+        }
+        return winners.toArray(new Player[0]);
     }
 
     public void movePlayerBy(Player player, int numSquares){

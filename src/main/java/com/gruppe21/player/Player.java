@@ -18,6 +18,9 @@ public class Player {
     private static final int MAX_NUM_PROPERTIES = 12; //Should be read from file?
     private static final int MAX_NAME_LENGTH = 50;
     private static final String[] PLAYER_PIECES_TEXT = {"\uD83D\uDC15", "\uD83D\uDC08", "\uD83D\uDE97", "\uD83D\uDEA2"};
+    public static String playerPieceAsString(PlayerPiece playerPiece){
+        return PLAYER_PIECES_TEXT[playerPiece.ordinal()];
+    }
 
     private GUI_Player guiPlayer;
     private String name = "";            // The player's name
@@ -113,7 +116,7 @@ public class Player {
     }
 
     public String getPieceAsString(){
-        return PLAYER_PIECES_TEXT[piece.ordinal()];
+        return playerPieceAsString(getPiece());
     }
 
     public PlayerPiece getPiece() {
@@ -155,34 +158,35 @@ public class Player {
     }
 
     public int sellProperties(int debt, Player creditor) {
-        if (getBankBalance().willBankrupt(debt)) { //TODO: Probably should tell the player
-            for (PropertySquare property : getOwnedProperties().toArray(new PropertySquare[0])) {
-                property.purchaseProperty(creditor, 0); //May cause problems if creditor can't own all the properties
-            }
-            return canPayInTotal();
+        int soldPropertiesValue = 0;
+        PropertySquare[] soldProperties = getOwnedProperties().toArray(new PropertySquare[0]);
+        if (!getBankBalance().willBankrupt(debt)) {
+            soldProperties = selectPropertiesToSell(soldProperties, creditor, debt);
         }
 
-        PropertySquare[] soldProperties = sellProperties(ownedProperties.toArray(new PropertySquare[0]), creditor.getName(), debt);
         for (PropertySquare property : soldProperties) {
             property.purchaseProperty(creditor, 0);
+            soldPropertiesValue += property.getPrice();
         }
-        return debt;
-
+        return soldPropertiesValue;
     }
 
-    private PropertySquare[] sellProperties(PropertySquare[] properties, String creditorName, int debt){
-        //Todo: should show next and previous buttons if there aren't any properties to show
+    private PropertySquare[] selectPropertiesToSell(PropertySquare[] properties, Player creditor, int debt){
+        //Todo: shouldn't show next and previous buttons if there aren't any properties to show
         OurArrayList<PropertySquare> selected = new OurArrayList<>();
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
+        String creditorName = creditor != null ? creditor.getName() : localisation.getStringValue("bankName");
+        //Todo: Most of this should be in GUIManager
+        /*
         int currentlyViewing = 0;
         int numPropertyButtons = Math.min(properties.length, GUIManager.getMaxNumButtons() - 2);
         String[] buttons = new String[numPropertyButtons+2];
         buttons[0] = localisation.getStringValue("nextBtn");
         buttons[buttons.length-1] = localisation.getStringValue("previousBtn");
         do {
-            for (int i = 0; i < numPropertyButtons-1; i++) {
-                buttons[i+1] = properties[currentlyViewing+i].getDescriptionLabel();
+            for (int i = 0; i < numPropertyButtons; i++) {
+                buttons[i+1] = properties[currentlyViewing+i].getName();
             }
 
             String selectedButton = guiManager.waitForUserButtonPress(localisation.getStringValue("sellProperties", Integer.toString(debt), creditorName), buttons);
@@ -205,6 +209,22 @@ public class Player {
             }
 
         }while (debt > 0);
+         */
+        do {
+            String[] propertyNames = new String[getOwnedProperties().size()]; //TODO: Should probably be sorted by board position
+            for (int i = 0; i < propertyNames.length; i++) {
+                PropertySquare property = getOwnedProperties().get(i);
+                propertyNames[i] = "(" + localisation.getStringValue("currency", Integer.toString(property.getRent())) + ") " + property.getName();
+            }
+            String selectedProperty = guiManager.getUserSelection(localisation.getStringValue("sellProperties", Integer.toString(debt), creditorName), propertyNames);
+            for (PropertySquare property: getOwnedProperties().toArray(new PropertySquare[0])) {
+                if (property.getName().equals(selectedProperty)) {
+                    selected.add(property);
+                    debt -= property.getPrice();
+                    break;
+                }
+            }
+        }while (debt > 0);
         return selected.toArray(new PropertySquare[0]);
     }
 
@@ -216,10 +236,6 @@ public class Player {
         }
 
         return totalValue;
-    }
-
-    public boolean isBankrupt(int price){
-        return price > canPayInTotal();
     }
 
     public OurArrayList<ChanceCard> getOwnedCards() {

@@ -4,10 +4,12 @@ import com.gruppe21.game.Game;
 import com.gruppe21.player.Player;
 
 public abstract class ChanceCard {
-    protected String descriptionLabel;
+    protected String descriptionOnDrawLabel;
+    protected String descriptionOnUseLabel;
 
-    public ChanceCard(String descriptionLabel) {
-        this.descriptionLabel = descriptionLabel;
+    public ChanceCard(String descriptionOnDrawLabel, String descriptionOnUseLabel) {
+        this.descriptionOnDrawLabel = descriptionOnDrawLabel;
+        this.descriptionOnUseLabel = descriptionOnUseLabel;
     }
 
     public abstract void onDraw(Game game, Player player);
