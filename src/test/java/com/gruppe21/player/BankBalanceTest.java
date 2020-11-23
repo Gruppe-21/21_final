@@ -1,41 +1,43 @@
 package com.gruppe21.player;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class BankBalanceTest extends TestCase {
-/*
+public class BankBalanceTest {
     @Test
     public void addBankBalancePositiveAmountTest() {
-        BankBalance bankBalance = new BankBalance(); // make instance of BankBalance called bankBalance
-        int amount = 100;
+        Player player = new Player();
+        BankBalance bankBalance = new BankBalance(player);; // make instance of BankBalance called bankBalance
+        int amount = 1;
 
         bankBalance.addBalance(amount); // call addBalance on BankBalance
 
-        assertEquals(1100, bankBalance.getBalance());
+        Assert.assertEquals(21, bankBalance.getBalance());
     }
 
     @Test
     public void addBankBalanceNegativeAmountTest() {
-        BankBalance bankBalance = new BankBalance(); // make instance of BankBalance called bankBalance
-        int amount = -100;
+        Player player = new Player();
+        BankBalance bankBalance = new BankBalance(player);// make instance of BankBalance called bankBalance
+        int amount = -1;
 
         bankBalance.addBalance(amount); // call addBalance on BankBalance
 
-        assertEquals(900, bankBalance.getBalance());
+        Assert.assertEquals(19, bankBalance.getBalance());
     }
 
     @Test
     public void addBankBalanceZeroTest() {
-        BankBalance bankBalance = new BankBalance();
+        Player player = new Player();
+        BankBalance bankBalance = new BankBalance(player);
         bankBalance.setBalance(50);             // bankBalance set to 50
         int amount = -100;
 
         bankBalance.addBalance(amount); // call addBalance on bankBalance
 
-        assertEquals(0, bankBalance.getBalance());
+        Assert.assertEquals(0, bankBalance.getBalance());
     }
-*/
 }

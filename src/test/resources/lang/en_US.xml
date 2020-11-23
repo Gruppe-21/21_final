@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<locale lang="en_US" name="English">
+    <sentence label="word1">This is a sentence.</sentence>
+
+
+    <sentence label="currency">₩�[VALUE]</sentence>
+    <sentence label="bankName">The Bank®</sentence>
+
+
+    <!-- regex --> <!-- this shouldn't be used, as translators proberbly don't know how, but that is a problem for another time -->
+
+
+    <!-- squares -->
+    <sentence label="go">GO</sentence>
+    <sentence label="burgerjoint">BURGER JOINT</sentence>
+    <sentence label="pizzeria">PIZZA PLACE</sentence>
+    <sentence label="candystore">CANDY STORE</sentence>
+    <sentence label="icecreamparlor">ICE CREAM PARLOR</sentence>
+    <sentence label="museum">MUSEUM</sentence>
+    <sentence label="library">LIBRARY</sentence>
+    <sentence label="skatepark">SKATE PARK</sentence>
+    <sentence label="swimmingpool">SWIMMING POOL</sentence>
+    <sentence label="arcade">ARCADE</sentence>
+    <sentence label="cinema">CINEMA</sentence>
+    <sentence label="toystore">TOY STORE</sentence>
+    <sentence label="petstore">PET STORE</sentence>
+    <sentence label="bowlingalley">BOWLING ALLEY</sentence>
+    <sentence label="zoo">ZOO</sentence>
+    <sentence label="waterpark">WATER PARK</sentence>
+    <sentence label="boardwalk">BOARDWALK</sentence>
+    <sentence label="gotoprison">GO TO PRISON</sentence>
+    <sentence label="prison">PRISON/VISIT PRISON</sentence>
+    <sentence label="chance">CHANCE</sentence>
+    <sentence label="freeparking">FREE PARKING</sentence>
+
+    <!-- square descriptions -->
+    <sentence label="burgerjointdesc">You have arrived at your favorite Burger Joint. Their potato fries are formed like dinosaurs</sentence>
+    <sentence label="pizzeriadesc">You have arrived at the city's best Pizza Place. They are famous for their pepperoni pizza</sentence>
+    <sentence label="candystoredesc">You have arrived at the colorful Candy Store. On fridays you can make your own candy and choose the flavor</sentence>
+    <sentence label="icecreamparlordesc">You have arrived at the always open Ice Cream Parlor. They always have 50 different flavors to choose from</sentence>
+    <sentence label="museumdesc">You have arrived at the Museum. Currently they are having a special exhibition on Space</sentence>
+    <sentence label="librarydesc">You have arrived at the Library. They have the biggest comic book section in the entire world</sentence>
+    <sentence label="skateparkdesc">You have arrived at the Skatepark. They rent out free colorful helmets to everyone who needs one</sentence>
+    <sentence label="swimmingpooldesc">You have arrived at the Swimming Pool. Go swim until your skin looks like a raisin</sentence>
+    <sentence label="arcadedesc">You have arrived at the Arcade. They have everything from Pac Man to Donkey Kong</sentence>
+    <sentence label="cinemadesc">You have arrived at the Cinema. They offer 4D movie screenings and free popcorn to children</sentence>
+    <sentence label="toystoredesc">You have arrived at the Toy Store. Their most popular sold item is Monopoly Junior </sentence>
+    <sentence label="petstoredesc">You have arrived at the Pet Store. If you buy an animal you can get a name tag with it</sentence>
+    <sentence label="bowlingalleydesc">You have arrived at the Bowling Alley. If you win you get a free soda</sentence>
+    <sentence label="zoodesc">You have arrived at the Zoo. You can go and pet friendly goats in the petting section</sentence>
+    <sentence label="waterparkdec">You have arrived at the Water Park. You can choose of either getting a lion float or a unicorn float </sentence>
+    <sentence label="boardwalkdesc">You have arrived at the Board Walk. If you're lucky you can see dolphins playing in the water</sentence>
+    <sentence label="gotoprisondesc">You must go to Prison. Your piece is moved to the Prison square</sentence>
+    <sentence label="prisondesc">You have come to visit in the prison. Remember to say hello to the players currently there</sentence>
+    <sentence label="chancedesc">You get to draw a Chance Card</sentence>
+    <sentence label="freeparkingdesc">SCORE ! You got a Free Parking Space. You can rest until it becomes your turn again</sentence>
+    <sentence label="startdesc">You get a start bonus!</sentence>
+
+    <!-- chancecard buttons -->
+    <sentence label="moveButton">Ryk</sentence>
+    <sentence label="moveButton1">1</sentence>
+    <sentence label="moveButton2">2</sentence>
+    <sentence label="moveButton3">3</sentence>
+    <sentence label="moveButton4">4</sentence>
+    <sentence label="moveButton5">5</sentence>
+
+    <sentence label="takeButton">Take another card</sentence>
+    <sentence label="takecard">Take a chance card</sentence>
+
+    <!-- chancecard desc -->
+    <sentence label="startCardOnUseDesc">Move to �[START_SQUARE_NAME]. Receive will receive �[MONEY]</sentence> <!-- money value instead of '2'? -->
+    <sentence label="jailCardOnDrawDesc">With this card you can get out of jail for free. Keep it until needed.</sentence>
+    <sentence label="jailCardOnUseDesc">You use your get out of jail for free card and is released; the card is returned to the pile</sentence>
+    <sentence label="homeworkCardOnUseDesc">You have done all your homework! You receive �[MONEY].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to [BANK_NAME].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="birthdayCardOnUseDesc">It's your birthday! Everyone must pay you �[PRICE].
+    </sentence> <!-- money value instead of '1'? -->
+    <sentence label="boardwalkCardOnUseDesc">Move to BOARDWALK.</sentence>
+    <sentence label="moveUpToCardOnUseDesc">Move UP TO 5 squares forward.</sentence>
+    <sentence label="takeCardOrMoveCardOnUseDesc">Move 1 square forward or take another chance card.</sentence>
+    <sentence label="propertyCardOnUseDesc">WRITE_DESCRIPTION_HERE</sentence>
+
+    <sentence label="figureCardOnDrawDesc">Give this card [PLAYER_PIECE] and take another chance card.\n[PLAYER_PIECE]: On your next turn move to any available property and buy it. If there are no available properties you must purchase one from another player</sentence>
+    <sentence label="figureCardOnUseDesc">[PLAYER_NAME]: Move to any available property and buy it. If there are no available properties you must purchase one from another player</sentence>
+
+
+
+    <!-- Player instructions -->
+    <sentence label="requestSpecifyNumPlayers">Please specify the number of players</sentence>
+    <sentence label="requestPlayerName">Please write your name, Player �[PLAYER_NUMBER] (Leave empty for a random name)</sentence>
+    <sentence label="choosePiece">�[PLAYER_NAME]: Choose a piece.</sentence>
+    <sentence label="requestPlayerAge">Please write your age, [PLAYER_NAME]</sentence>
+    <sentence label="winningMessage">�[PLAYER_BANKRUPT_NAME] has gone bankrupt leaving �[WINNING_PLAYER_NAME] as the winner.</sentence>
+    <sentence label="winningMessageTie">�[PLAYER_BANKRUPT_NAME] has gone bankrupt leaving �[WINNING_PLAYER_NAME] to tie as the winner.</sentence>
+    <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE_NAME] turn!</sentence>
+    <sentence label="rollButton">Roll</sentence>
+    <sentence label="buyplace">You will now buy �[PROPERTY_NAME] for �[PRICE]</sentence>
+    <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
+    <sentence label="paidRelease">You have to pay �[PRICE_FOR_FREEDOM] to leave this wretched place and regain your freedom.</sentence>
+
+
+    <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
+    <sentence label="nextBtn">Next</sentence>
+    <sentence label="previousBtn">Back</sentence>
+
+
+
+    <!-- Error messages -->
+    <sentence label="unknownError">An unknown error has occurred.</sentence>
+    <sentence label="invalidNumberOfPlayers">Must be a number between �[MIN_NUMBER_PLAYERS] and �[MAX_NUMBER_PLAYERS].
+    </sentence>
+    <sentence label="invalidName">Invalid name</sentence>
+
+
+</locale>

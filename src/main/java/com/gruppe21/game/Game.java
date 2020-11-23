@@ -156,7 +156,6 @@ public class Game {
             }
             availablePieces.remove(selected);
         }
-
     }
 
     private boolean checkGameOver(){

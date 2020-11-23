@@ -19,8 +19,11 @@ public class BankBalance {
     public void setBalance(int balance) {
         this.balance = balance;
         GUIManager.getInstance().setGUIPlayerBalance(parent, getBalance());
-        if (balance < 0 ) parent.setBankrupt(true);
-        //this.balance = 0
+        if (balance < 0 ) {
+            parent.setBankrupt(true);
+            this.balance = 0;
+        }
+
     }
 
     /**

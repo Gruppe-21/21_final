@@ -62,12 +62,18 @@ public class GUIManager {
 
     public void updateGUISquare(PropertySquare square, String oldName){
         if (isTest) return;
+        if(guiWrapper == null){
+            return;
+        }
         guiWrapper.setFieldTitle(guiWrapper.getFieldFromName(oldName), square.getGUIName());
         updateGUISquare(square);
     }
 
     public void updateGUISquare(Square square){
         if (isTest) return;
+        if(guiWrapper == null){
+            return;
+        }
         if (square.getClass() == PropertySquare.class)
             updateGUISquareOwner((PropertySquare) square);
         guiWrapper.updateGUIFields();
@@ -75,15 +81,23 @@ public class GUIManager {
 
 
     private void updateGUISquareOwner(PropertySquare square){
+        if(guiWrapper == null){
+            return;
+        }
         guiWrapper.setFieldColor(square, square.getColor());
         guiWrapper.setFieldSubtext(square, square.getSubtext());
         guiWrapper.updateGUIFields();
     }
 
     public void setGUIPlayerBalance(Player player, int newBalance) {
+        if(guiWrapper == null){
+        return;
+        }
+
         if (isTest) return;
         guiWrapper.updatePlayerBalance(player.getGuiPlayer(), newBalance);
-    }
+
+ }
 
     public void movePlayer(Player player, int squareIndex) {
         if (isTest) return;
@@ -91,7 +105,10 @@ public class GUIManager {
     }
 
     public String getUserSelection(String message, String... options) {
-        if (isTest) return null; //we arbitrarily return true if it is a test
+        if (isTest) return null;
+        if(guiWrapper == null){
+            return "";
+        }//we arbitrarily return true if it is a test
         return guiWrapper.getUserSelection(message, options);
     }
 

@@ -1,0 +1,45 @@
+<locale lang="da_DK" name="Dansk">
+    <sentence label="word1">Dette er en sætning.</sentence>
+    <sentence label="go">START</sentence>
+    <sentence label="burgerjoint">BURGERBAREN</sentence>
+    <sentence label="pizzeria">PIZZARIAET</sentence>
+    <sentence label="candystore">SLIKBUTIKKEN</sentence>
+    <sentence label="icecreamparlor">ISKIOSKEN</sentence>
+    <sentence label="museum">MUSEET</sentence>
+    <sentence label="library">BIBLIOTEKET</sentence>
+    <sentence label="skatepark">SKATERPARKEN</sentence>
+    <sentence label="swimmingpool">SWIMMINGPOOLEN</sentence>
+    <sentence label="arcade">SPILLEHALLEN</sentence>
+    <sentence label="cinema">BIOGRAFEN</sentence>
+    <sentence label="toystore">LEGETØJSBUTIKKEN</sentence>
+    <sentence label="petstore">DYREHANDLEN</sentence>
+    <sentence label="bowlingalley">BOWLINGHALLEN</sentence>
+    <sentence label="zoo">ZOO</sentence>
+    <sentence label="waterpark">VANDLANDET</sentence>
+    <sentence label="boardwalk">STRANDPROMENADEN</sentence>
+    <sentence label="gotoprison">GÅ I FÆNGSEL</sentence>
+    <sentence label="prison">I FÆNGSEL / PÅ BESØG</sentence>
+    <sentence label="chance">CHANCE</sentence>
+    <sentence label="freeparking">GRATIS PARKERING</sentence>
+
+    <!-- chancecard buttons -->
+    <sentence label="moveButton">Ryk</sentence>
+    <sentence label="moveButton1">1</sentence>
+    <sentence label="moveButton2">2</sentence>
+    <sentence label="moveButton3">3</sentence>
+    <sentence label="moveButton4">4</sentence>
+    <sentence label="moveButton5">5</sentence>
+
+    <sentence label="takeButton">Træk nyt kort</sentence>
+
+    <!-- chancecard desc -->
+    <sentence label="jailcard">Du løslades uden omkostninger. Behold dette kort indtil du får brug for det.</sentence>
+    <sentence label="homeworkcard">Du har lavet alle dine lektier! MODTAG '2'M fra banken.</sentence> <!-- money value instead of '2'? -->
+    <sentence label="candycard">Du har spist for meget slik. BETAL '2'M til banken.</sentence> <!-- money value instead of '2'? -->
+    <sentence label="birthdaycard">Det er din fødselsdag! Alle giver dig '1'M</sentence> <!-- money value instead of '1'? -->
+    <sentence label="startcard">Ryk frem til START feltet. Modtag '2'M</sentence> <!-- money value instead of '2'? -->
+    <sentence label="boardwalkcard">Ryk frem til STRANDPROMENADEN.</sentence>
+    <sentence label="moveuptocard">Ryk OP TIL 5 felter frem.</sentence>
+    <sentence label="cardOrmovecard">Ryk 1 felt frem, ELLER tag et chancekort mere.</sentence>
+
+</locale>
