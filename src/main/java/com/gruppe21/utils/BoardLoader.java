@@ -85,12 +85,24 @@ public class BoardLoader {
         String description = tag.getAttribute("description");
 
         switch (elementName) {
-            case "StartSquare" -> squares.add(new StartSquare("go", "startdesc"));
-            case "PropertySquare" -> squares.add(new PropertySquare(name, description, price, color));
-            case "ChanceSquare" -> squares.add(new ChanceSquare("chance", "takecard"));
-            case "FreeParkingSquare" -> squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
-            case "GoToPrisonSquare" -> squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
-            case "PrisonSquare" -> squares.add(new PrisonSquare("prison", "prisondesc", "paidrelease", 2));
+            case "StartSquare":
+                squares.add(new StartSquare("go", "startdesc"));
+                break;
+            case "PropertySquare":
+                squares.add(new PropertySquare(name, description, price, color));
+                break;
+            case "ChanceSquare":
+                squares.add(new ChanceSquare("chance", "takecard"));
+                break;
+            case "FreeParkingSquare":
+                squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
+                break;
+            case "GoToPrisonSquare":
+                squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
+                break;
+            case "PrisonSquare":
+                squares.add(new PrisonSquare("prison", "prisondesc", "paidrelease", 2));
+                break;
         }
     }
 
@@ -100,22 +112,25 @@ public class BoardLoader {
         final String descriptionOnUseLabel = tag.getAttribute("propertyCardOnUseDesc");
 
         switch (elementName) {
-        case "moneycard" -> {
-            final String moneyStr = tag.getAttribute("money");
-            final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
-            final MoneyCardType type =  MoneyCardType.valueOf(tag.getAttribute("type"));
-            chanceCards.add(new ChanceCardMoney(null, descriptionOnUseLabel, money, type));
-        }
-        case "jailcard"  -> chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionOnDrawLabel, descriptionOnUseLabel));
-        case "movecard"  -> {
-            final String label = tag.getAttribute("label");
-            final String color = tag.getAttribute("color");
-            final MoveCardType type =  MoveCardType.valueOf(tag.getAttribute("type"));
-            final String playerPieceStr = tag.getAttribute("piece");
-            final PlayerPiece playerPiece =  playerPieceStr.isEmpty() ? PlayerPiece.Boat : PlayerPiece.valueOf(playerPieceStr);
-            chanceCards.add(new ChanceCardMove(null, descriptionOnUseLabel, type, label, playerPiece, color));
-        }
-            default -> throw new IllegalStateException("Unexpected value: " + elementName);
+            case "moneycard":
+                final String moneyStr = tag.getAttribute("money");
+                final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
+                final MoneyCardType type = MoneyCardType.valueOf(tag.getAttribute("type"));
+                chanceCards.add(new ChanceCardMoney(null, descriptionOnUseLabel, money, type));
+                break;
+            case "jailcard":
+                chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionOnDrawLabel, descriptionOnUseLabel));
+                break;
+            case "movecard":
+                final String label = tag.getAttribute("label");
+                final String color = tag.getAttribute("color");
+                final MoveCardType t = MoveCardType.valueOf(tag.getAttribute("type"));
+                final String playerPieceStr = tag.getAttribute("piece");
+                final PlayerPiece playerPiece = playerPieceStr.isEmpty() ? PlayerPiece.Boat : PlayerPiece.valueOf(playerPieceStr);
+                chanceCards.add(new ChanceCardMove(null, descriptionOnUseLabel, t, label, playerPiece, color));
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + elementName);
         }
     }
 
