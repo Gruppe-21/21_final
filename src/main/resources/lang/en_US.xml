@@ -90,6 +90,7 @@
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Please specify the number of players</sentence>
     <sentence label="requestPlayerName">Please write your name, Player �[PLAYER_NUMBER] (Leave empty for a random name)</sentence>
+    <sentence label="requestPlayerAge">Please write your age, �[PLAYER_NAME]</sentence>
     <sentence label="choosePiece">�[PLAYER_NAME]: Choose a piece.</sentence>
     <sentence label="requestPlayerAge">Please write your age, [PLAYER_NAME]</sentence>
     <sentence label="winningMessage">�[PLAYER_BANKRUPT_NAME] has gone bankrupt leaving �[WINNING_PLAYER_NAME] as the winner.</sentence>
@@ -99,6 +100,7 @@
     <sentence label="buyplace">You will now buy �[PROPERTY_NAME] for �[PRICE]</sentence>
     <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
     <sentence label="paidRelease">You have to pay �[PRICE_FOR_FREEDOM] to leave this wretched place and regain your freedom.</sentence>
+    <sentence label="startMessage">�[PLAYER_NAME] will start as they are youngest</sentence>
 
 
     <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
