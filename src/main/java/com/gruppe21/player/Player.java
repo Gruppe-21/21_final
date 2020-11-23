@@ -159,67 +159,39 @@ public class Player {
 
     public int sellProperties(int debt, Player creditor) {
         int soldPropertiesValue = 0;
-        PropertySquare[] soldProperties = getOwnedProperties().toArray(new PropertySquare[0]);
+        PropertySquare[] selectedProperties = getOwnedProperties().toArray(new PropertySquare[0]);
         if (!getBankBalance().willBankrupt(debt)) {
-            soldProperties = selectPropertiesToSell(soldProperties, creditor, debt);
+            selectedProperties = selectPropertiesToSell(creditor, debt, selectedProperties);
         }
 
-        for (PropertySquare property : soldProperties) {
+        for (PropertySquare property : selectedProperties) {
             property.purchaseProperty(creditor, 0);
             soldPropertiesValue += property.getPrice();
         }
         return soldPropertiesValue;
     }
 
-    private PropertySquare[] selectPropertiesToSell(PropertySquare[] properties, Player creditor, int debt){
+    private PropertySquare[] selectPropertiesToSell(Player creditor, int debt, PropertySquare... properties){
         //Todo: shouldn't show next and previous buttons if there aren't any properties to show
-        OurArrayList<PropertySquare> selected = new OurArrayList<>();
+        OurArrayList<PropertySquare> selectable = new OurArrayList<>(properties.length), selected = new OurArrayList<>();
+        for (PropertySquare property : properties) {
+            selectable.add(property);
+        }
         Localisation localisation = Localisation.getInstance();
         GUIManager guiManager = GUIManager.getInstance();
         String creditorName = creditor != null ? creditor.getName() : localisation.getStringValue("bankName");
-        //Todo: Most of this should be in GUIManager
-        /*
-        int currentlyViewing = 0;
-        int numPropertyButtons = Math.min(properties.length, GUIManager.getMaxNumButtons() - 2);
-        String[] buttons = new String[numPropertyButtons+2];
-        buttons[0] = localisation.getStringValue("nextBtn");
-        buttons[buttons.length-1] = localisation.getStringValue("previousBtn");
         do {
-            for (int i = 0; i < numPropertyButtons; i++) {
-                buttons[i+1] = properties[currentlyViewing+i].getName();
-            }
-
-            String selectedButton = guiManager.waitForUserButtonPress(localisation.getStringValue("sellProperties", Integer.toString(debt), creditorName), buttons);
-            if (selectedButton.equals(buttons[0]) && currentlyViewing < (properties.length - 3) ) currentlyViewing++;
-            else if(selectedButton.equals(buttons[buttons.length-1]) && currentlyViewing > 0) currentlyViewing--;
-            else {
-                for (PropertySquare property : properties) {
-                    if (property.getDescriptionLabel().equals(selectedButton)){
-                        if (selected.indexOf(property) == -1){
-                            selected.add(property);
-                            debt -= property.getPrice();
-                        }
-                        else {
-                            selected.remove(property);
-                            debt += property.getPrice();
-                        }
-                    }
-                }
-
-            }
-
-        }while (debt > 0);
-         */
-        do {
-            String[] propertyNames = new String[getOwnedProperties().size()]; //TODO: Should probably be sorted by board position
+            String[] propertyNames = new String[selectable.size()]; //TODO: Should probably be sorted by board position
             for (int i = 0; i < propertyNames.length; i++) {
-                PropertySquare property = getOwnedProperties().get(i);
-                propertyNames[i] = "(" + localisation.getStringValue("currency", Integer.toString(property.getRent())) + ") " + property.getName();
+                PropertySquare property = selectable.get(i);
+                propertyNames[i] = "(" + localisation.getStringValue("currency", Integer.toString(property.getPrice())) + ") " + property.getName();
             }
             String selectedProperty = guiManager.getUserSelection(localisation.getStringValue("sellProperties", Integer.toString(debt), creditorName), propertyNames);
-            for (PropertySquare property: getOwnedProperties().toArray(new PropertySquare[0])) {
-                if (property.getName().equals(selectedProperty)) {
+            for (int i = 0; i < selectable.size(); i++) {
+                PropertySquare property = selectable.get(i);
+                if (propertyNames[i].equals(selectedProperty)) {
                     selected.add(property);
+                    selectable.remove(property);
                     debt -= property.getPrice();
                     break;
                 }
