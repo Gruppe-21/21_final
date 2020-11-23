@@ -28,7 +28,7 @@ public class Player {
     private BankBalance bankBalance;        // The player's bank balance
     private PlayerPiece piece;            // Piece
     public Boolean prisonStatus;       // Boolean status whether Player is in prison or not
-    private int age;                    // Int age of player. Youngest player starts.
+    private int age = -1;                    // Int age of player. Youngest player starts.
     private OurArrayList<PropertySquare> ownedProperties;     // All owned properties of a player
     private OurArrayList<ChanceCard> ownedCards;           // All currently owned chance cards of a player
     private Boolean isBankrupt;
