@@ -108,8 +108,8 @@ public class BoardLoader {
 
     private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
-        final String descriptionOnDrawLabel = tag.getAttribute("propertyCardOnDrawDesc");
-        final String descriptionOnUseLabel = tag.getAttribute("propertyCardOnUseDesc");
+        final String descriptionOnDrawLabel = tag.getAttribute("onDrawDescription");
+        final String descriptionOnUseLabel = tag.getAttribute("onUseDescription");
 
         switch (elementName) {
             case "moneycard":
