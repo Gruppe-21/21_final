@@ -97,6 +97,7 @@ public class Game {
             int numberOfPlayers;
             while (true) {
                 String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestSpecifyNumPlayers"));
+                //TODO: Should be handled by guiManager.
                 try {
                     numberOfPlayers = Integer.parseInt(inputString.trim());
                     if (numberOfPlayers > MAX_PLAYERS || numberOfPlayers < MIN_PLAYERS)
@@ -134,9 +135,36 @@ public class Game {
                     guiManager.waitForUserAcknowledgement(localisation.getStringValue("unknownError"));
                 }
             }
+
+            while (players[i].getAge() == -1) {
+                //TODO: Should be handled by guiManager.
+                String inputString = guiManager.waitForUserTextInput(localisation.getStringValue("requestPlayerAge", players[i].getName()));
+                try {
+                    int age = Integer.parseInt(inputString.trim());
+                    if (age < 0 || age > 999) //TODO: Should be defined elsewhere
+                        throw new Exception("Invalid age");
+                    players[i].setAge(age);
+                } catch (Exception e) {
+                    guiManager.waitForUserAcknowledgement(localisation.getStringValue("invalidNumber", Integer.toString(0), Integer.toString(999)) );
+                    continue;
+                }
+                break;
+            }
         }
         playerSelection();
     }
+
+    public int getFirstPlayerIndex(){
+        int i, minAge = getPlayers()[0].getAge(), indexOfYoungestPlayer = 0;
+        for (i = 1; i < getPlayers().length; i++) {
+            if (getPlayers()[i].getAge() < minAge){
+                minAge = getPlayers()[i].getAge();
+                indexOfYoungestPlayer = i;
+            }
+        }
+        return indexOfYoungestPlayer;
+    }
+
 
     public void playerSelection()
     {
@@ -216,6 +244,8 @@ public class Game {
     }
 
     public void startGame() {
+        currentPlayer = getFirstPlayerIndex();
+        guiManager.waitForUserAcknowledgement(localisation.getStringValue("startMessage", getPlayers()[currentPlayer].getName()));
         do {
             for (Die die : dice) {
                 die.rollDie();
