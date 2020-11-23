@@ -3,7 +3,7 @@
     <movecard onUseDescription="startCardOnUseDesc" type="MoveToSquare" label="go"/>
 
     <moneycard onUseDescription="homeworkCardOnUseDesc" money="2"  type="Bank"/>
-    <moneycard onUseDescription="candyCardOnUseDesc" money="-2" type="Bank"/>
+    <moneycard onUseDescription="candyCardOnUseDesc" money="2" type="Bank"/>
 
     <moneycard onUseDescription="birthdayCardOnUseDesc" money="1"  type="Birthday"/>
 
