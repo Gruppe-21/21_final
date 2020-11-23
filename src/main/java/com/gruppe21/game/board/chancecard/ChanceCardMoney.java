@@ -34,14 +34,16 @@ public class ChanceCardMoney extends ChanceCard {
                         localisation.getStringValue("bankName")
                 ));
 
-        switch (cardType){
-            case Bank -> player.getBankBalance().addBalance(money);
-            case Birthday -> {
+        switch (cardType) {
+            case Bank:
+                player.getBankBalance().addBalance(money);
+                break;
+            case Birthday:
                 for (Player debtor : game.getPlayers()) {
                     //If player == debtor nothing changes.
                     debtor.getBankBalance().transferMoney(money, player);
                 }
-            }
+                break;
         }
 
         /*

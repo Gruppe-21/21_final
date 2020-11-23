@@ -149,10 +149,18 @@ public class Game {
             String selected = guiManager.waitForUserButtonPress(localisation.getStringValue("choosePiece", player.getName()), availablePieces.toArray(new String[0]));
             if (isTest) selected = availablePieces.get(0);
             switch (selected) {
-                case "\uD83D\uDC15" -> player.setPiece(PlayerPiece.Dog);
-                case "\uD83D\uDC08" -> player.setPiece(PlayerPiece.Cat);
-                case "\uD83D\uDE97" -> player.setPiece(PlayerPiece.Car);
-                case "\uD83D\uDEA2" -> player.setPiece(PlayerPiece.Boat);
+                case "\uD83D\uDC15":
+                    player.setPiece(PlayerPiece.Dog);
+                    break;
+                case "\uD83D\uDC08":
+                    player.setPiece(PlayerPiece.Cat);
+                    break;
+                case "\uD83D\uDE97":
+                    player.setPiece(PlayerPiece.Car);
+                    break;
+                case "\uD83D\uDEA2":
+                    player.setPiece(PlayerPiece.Boat);
+                    break;
             }
             availablePieces.remove(selected);
         }
