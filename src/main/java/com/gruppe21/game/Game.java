@@ -255,9 +255,10 @@ public class Game {
         Player[] winners = getWinners();
         String winnerNames = winners[0].getName();
         for (int i = 1; i < winners.length - 1; i++) {
-            winnerNames += ", " + winners[i];
+            winnerNames += ", " + winners[i].getName();
         }
-        winnerNames += " and " + winners[winners.length - 1];
+        //TODO Add to xml
+        winnerNames += " and " + winners[winners.length - 1].getName();
         guiManager.waitForUserAcknowledgement(
                 localisation.getStringValue("winningMessage" + (winners.length > 1 ? "Tie" : ""),
                         players[currentPlayer].getName(), winnerNames));
