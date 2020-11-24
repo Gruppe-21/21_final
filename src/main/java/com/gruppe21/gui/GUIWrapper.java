@@ -167,7 +167,7 @@ public class GUIWrapper {
     }
 
     public boolean getUserLeftButtonPress(String message, String leftButtonText, String rightButtonText){
-        return getUserLeftButtonPress(message, leftButtonText, rightButtonText);
+        return  gui.getUserLeftButtonPressed(message, leftButtonText, rightButtonText);
     }
 
     public String getUserSelection(String message, String... options){
