@@ -61,24 +61,14 @@ public class Player {
         this.bankBalance = bankBalance;
     }
 
-    // Gets the player's name as a string
-    public String getName() {
-        return name;
-    }
-
-    // Gets the player's age as an integer
-    public int getAge() {
-        return age;
-    }
-
-    // Sets the player's piece
-    public void setPiece(PlayerPiece piece) {
-        this.piece = piece;
-    }
-
     // Sets the player's currently owned cards
     public void setCards(OurArrayList<ChanceCard> ownedCards) {
         this.setOwnedCards(ownedCards);
+    }
+
+    // Gets the player's name as a string
+    public String getName() {
+        return name;
     }
 
     // Sets the player's name
@@ -96,6 +86,11 @@ public class Player {
         return possessiveName;
     }
 
+    // Gets the player's age as an integer
+    public int getAge() {
+        return age;
+    }
+
     //Sets player's age
     public boolean setAge(int age) {
         this.age = age;
@@ -106,6 +101,19 @@ public class Player {
         return true;
     }
 
+    public PlayerPiece getPiece() {
+        return piece;
+    }
+
+    // Sets the player's piece
+    public void setPiece(PlayerPiece piece) {
+        this.piece = piece;
+    }
+
+    public String getPieceAsString(){
+        return playerPieceAsString(getPiece());
+    }
+
     public int getCurrentSquareIndex() {
         return currentSquareIndex;
     }
@@ -113,14 +121,6 @@ public class Player {
     // examines which square the player is on
     public void setCurrentSquareIndex(int currentSquareIndex) {
         this.currentSquareIndex = currentSquareIndex;
-    }
-
-    public String getPieceAsString(){
-        return playerPieceAsString(getPiece());
-    }
-
-    public PlayerPiece getPiece() {
-        return piece;
     }
 
     public GUI_Player getGuiPlayer() {
@@ -143,18 +143,18 @@ public class Player {
         ownedProperties.remove(property);
     }
 
+    public void removeProperties(PropertySquare[] properties){
+        for (PropertySquare property: properties) {
+            removeProperty(property);
+        }
+    }
+
     public Boolean isBankrupt() {
         return isBankrupt;
     }
 
     public void setBankrupt(Boolean bankrupt) {
         isBankrupt = bankrupt;
-    }
-
-    public void removeProperties(PropertySquare[] properties){
-        for (PropertySquare property: properties) {
-            removeProperty(property);
-        }
     }
 
     public int sellProperties(int debt, Player creditor) {
