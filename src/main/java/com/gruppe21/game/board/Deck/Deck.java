@@ -51,8 +51,8 @@ public class Deck {
          return Chance;
     }
 
-    public void returnCard(ChanceCard PutBack){
-        cards.add(PutBack);
+    public void returnCard(ChanceCard putBack){
+        cards.add(putBack);
     }
 }
 
