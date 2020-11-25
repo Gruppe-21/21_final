@@ -25,7 +25,7 @@ public class Game {
 
     private Board board;
     private Player[] players;
-    private int currentPlayer;
+    private int currentPlayerIndex;
     private Die[] dice;
     private Deck deck;
 
@@ -66,7 +66,7 @@ public class Game {
 
     //Unused
     public int getCurrentPlayerIndex() {
-        return currentPlayer;
+        return currentPlayerIndex;
     }
 
     //Unused
@@ -202,7 +202,7 @@ public class Game {
     }
 
     public boolean playRound() {
-        Player curPlayer = players[currentPlayer];
+        Player curPlayer = players[currentPlayerIndex];
         try {
             if (curPlayer.prisonStatus) {
                 Square currentSquare = board.getSquareAtIndex(curPlayer.getCurrentSquareIndex());
@@ -239,13 +239,13 @@ public class Game {
 
         if (checkGameOver()) return true;
 
-        currentPlayer = nextPlayer();
+        currentPlayerIndex = nextPlayer();
         return false;
     }
 
     public void startGame() {
-        currentPlayer = getFirstPlayerIndex();
-        guiManager.waitForUserAcknowledgement(localisation.getStringValue("startMessage", getPlayers()[currentPlayer].getName()));
+        currentPlayerIndex = getFirstPlayerIndex();
+        guiManager.waitForUserAcknowledgement(localisation.getStringValue("startMessage", getPlayers()[currentPlayerIndex].getName()));
         do {
             for (Die die : dice) {
                 die.rollDie();
@@ -261,7 +261,7 @@ public class Game {
         winnerNames += " and " + winners[winners.length - 1].getName();
         guiManager.waitForUserAcknowledgement(
                 localisation.getStringValue("winningMessage" + (winners.length > 1 ? "Tie" : ""),
-                        players[currentPlayer].getName(), winnerNames));
+                        players[currentPlayerIndex].getName(), winnerNames));
         guiManager.closeGUI();
     }
 
@@ -323,7 +323,7 @@ public class Game {
     }
 
     private int nextPlayer() {
-        return (currentPlayer + 1) % players.length;
+        return (currentPlayerIndex + 1) % players.length;
     }
 
 }
