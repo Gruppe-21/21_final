@@ -12,6 +12,7 @@ public class ChanceCardGetOutOfJailFree extends ChanceCard{
     }
 
     public void use(Game game, Player player) {
+        super.use(game, player);
         GUIManager.getInstance().waitForUserAcknowledgement(Localisation.getInstance().getStringValue(descriptionOnUseLabel));
     }
 
