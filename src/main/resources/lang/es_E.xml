@@ -25,25 +25,4 @@
     <sentence label="chance">OPPURTUNIDAD</sentence>
     <sentence label="freeparking">ESTACIONAMIENTO GRATIS</sentence>
 
-    <!--NEDENSTÅENDE SKAL OVERSÆTTES-->
-    <!-- chancecard buttons -->
-    <sentence label="moveButton">Ryk</sentence>
-    <sentence label="moveButton1">1</sentence>
-    <sentence label="moveButton2">2</sentence>
-    <sentence label="moveButton3">3</sentence>
-    <sentence label="moveButton4">4</sentence>
-    <sentence label="moveButton5">5</sentence>
-
-    <sentence label="takeButton">Træk nyt kort</sentence>
-
-    <!-- chancecard desc -->
-    <sentence label="jailcard">Du løslades uden omkostninger. Behold dette kort indtil du får brug for det.</sentence>
-    <sentence label="homeworkcard">Du har lavet alle dine lektier! MODTAG '2'M fra banken.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="candycard">Du har spist for meget slik. BETAL '2'M til banken.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdaycard">Det er din fødselsdag! Alle giver dig '1'M</sentence> <!-- money value instead of '1'? -->
-    <sentence label="startcard">Ryk frem til START feltet. Modtag '2'M</sentence> <!-- money value instead of '2'? -->
-    <sentence label="boardwalkcard">Ryk frem til STRANDPROMENADEN.</sentence>
-    <sentence label="moveuptocard">Ryk OP TIL 5 felter frem.</sentence>
-    <sentence label="cardOrmovecard">Ryk 1 felt frem, ELLER tag et chancekort mere.</sentence>
-
 </locale>
