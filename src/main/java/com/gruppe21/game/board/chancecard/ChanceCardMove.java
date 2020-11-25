@@ -109,7 +109,7 @@ public class ChanceCardMove extends ChanceCard {
         }
 
         int moveForwardChosen = 0;
-        String moveUpToResult = GUIManager.getInstance().waitForUserButtonPress(descriptionOnUseLabel, moveButtons);
+        String moveUpToResult = GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionOnUseLabel), moveButtons);
         for (int i = 0; i < numMoveButtons; i++) {
             if (moveUpToResult.equals(moveButtons[i])){
                 moveForwardChosen = i;
@@ -131,7 +131,7 @@ public class ChanceCardMove extends ChanceCard {
     }
 
     private void move(Game game, Player player, Square target) {
-        GUIManager.getInstance().waitForUserButtonPress(descriptionOnUseLabel);
+        GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionOnUseLabel));
         game.movePlayer(player, target);
     }
 
