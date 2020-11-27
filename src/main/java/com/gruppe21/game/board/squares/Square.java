@@ -14,10 +14,13 @@ public abstract class Square {
     private String nameLabel;
     private String descriptionLabel;
     protected Board board;
+    protected String GUIName; //necessary
+
 
     public Square(String nameLabel, String descriptionLabel) {
         this.nameLabel = nameLabel;
         this.descriptionLabel = descriptionLabel;
+        setGUIName(getName());
     }
 
     public void handleLandOn(Player player) {
@@ -49,6 +52,23 @@ public abstract class Square {
 
     public void setBoard(Board board) {
         this.board = board;
+    }
+
+    public String getGUIName() {
+        return GUIName;
+    }
+    protected void setGUIName(String GUIName) {
+        this.GUIName = GUIName;
+    }
+
+    public String generateGUIName(){
+        return getName();
+    }
+
+    public void updateGuiInformation(){
+        String oldGUIName = getGUIName();
+        setGUIName(generateGUIName());
+        GUIManager.getInstance().updateGUISquare(this, oldGUIName);
     }
 
 }

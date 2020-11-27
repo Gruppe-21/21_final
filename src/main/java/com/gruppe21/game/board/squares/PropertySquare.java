@@ -12,7 +12,6 @@ public class PropertySquare extends Square {
     private final Color baseColor;
     private Color color;
     private String subtext; //not strictly necessary
-    private String GUIName; //necessary
     private Player owner = null;
 
     public PropertySquare(String nameLabel, String descriptionLabel, int price, Color baseColor) {
@@ -20,7 +19,6 @@ public class PropertySquare extends Square {
         this.price = price;
         this.baseColor = baseColor;
         this.color = this.baseColor;
-        setGUIName(getName());
         setSubtext(generateSubtext());
     }
 
@@ -41,7 +39,7 @@ public class PropertySquare extends Square {
     }
 
     public void purchaseProperty(Player buyer, int price) {
-        //Todo: should probably take a seller aswell
+        //Todo: should probably take a seller as well
         if (buyer != null) {
             if (getOwner() == buyer || buyer.getOwnedProperties().size() >= Player.getMaxNumProperties()) return;
             buyer.getBankBalance().transferMoney(price, getOwner());
@@ -72,9 +70,7 @@ public class PropertySquare extends Square {
     public void updateGuiInformation(){
         setColor(getTintedColor(this.owner));
         setSubtext(generateSubtext());
-        String oldGUIName = getGUIName();
-        setGUIName(generateGUIName());
-        GUIManager.getInstance().updateGUISquare(this, oldGUIName);
+        super.updateGuiInformation();
     }
 
     public Color getBaseColor() {
@@ -152,19 +148,13 @@ public class PropertySquare extends Square {
         this.subtext = subtext;
     }
 
-    public String getGUIName() {
-        return GUIName;
-    }
-
     public String generateGUIName(){
         String guiName = getName();
         if (getOwner() != null) guiName += "\n" + getOwner().getPieceAsString();
         return guiName;
     }
 
-    private void setGUIName(String GUIName) {
-        this.GUIName = GUIName;
-    }
+
 /*
     public Boolean buy(Player player) {
         if (getOwner() != player && getOwner() == player){
