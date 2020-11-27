@@ -163,6 +163,9 @@ public class Player {
         if (!getBankBalance().willBankrupt(debt)) {
             selectedProperties = selectPropertiesToSell(creditor, debt, selectedProperties);
         }
+        else{
+            GUIManager.getInstance().waitForUserAcknowledgement(Localisation.getInstance().getStringValue("sellPropertiesBankrupt", Localisation.getInstance().getStringValue("currency", Integer.toString(debt)), creditor.getName(), Integer.toString(this.canPayInTotal())) );
+        }
 
         for (PropertySquare property : selectedProperties) {
             property.purchaseProperty(creditor, 0);
