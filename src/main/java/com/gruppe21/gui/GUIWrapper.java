@@ -3,6 +3,7 @@ package com.gruppe21.gui;
 import com.gruppe21.game.board.squares.*;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.arrayutils.OurArrayList;
+import com.gruppe21.utils.localisation.Localisation;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -88,14 +89,40 @@ public class GUIWrapper {
             if (guiTitle.equals(name)) {
                 return field;
             }
+            if(guiTitle.equals(Localisation.getInstance().getStringValue(name))){
+                return field;
+            }
         }
         return null;
     }
 
     public GUI_Field getFieldFromSquare(Square square) {
-        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getName());
-        return getFieldFromName(squareName);
+        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getNameLabel());
+        return square.getClass() == PropertySquare.class ? getFieldFromName(squareName) : getSpecialFieldFromSquareType(square);
     }
+
+    private GUI_Field getSpecialFieldFromSquareType(Square square) {
+        Class<? extends Square> squareClass = square.getClass();
+        Class<? extends GUI_Field> targetClass = null;
+
+        for (GUI_Field field : fields.toArray(new GUI_Field[0])) {
+          if(squareClass == StartSquare.class){
+              targetClass = GUI_Start.class;
+          }else
+          if(squareClass == PrisonSquare.class){
+              targetClass = GUI_Jail.class;
+          }
+          else {
+              targetClass = GUI_Street.class;
+          }
+
+          if(field.getClass() == targetClass){
+              return field;
+          }
+        }
+        return null;
+    }
+
 
 
     public void updateGUIFields(){

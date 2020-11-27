@@ -3,11 +3,11 @@ package com.gruppe21.gui;
 
 import com.gruppe21.game.Die;
 import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.squares.PropertySquare;
-import com.gruppe21.game.board.squares.Square;
+import com.gruppe21.game.board.squares.*;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
+import gui_fields.*;
 
 import java.awt.*;
 
@@ -30,7 +30,7 @@ public class GUIManager {
         guiWrapper = new GUIWrapper();
 
         guiWrapper.reloadGUI(board.getSquares());
-        selectLanguage();
+        selectLanguage(board.getSquares().toArray(new Square[0]));
     }
 
     public void addPlayersToGUI(Player[] players) {
@@ -140,7 +140,7 @@ public class GUIManager {
         if (guiWrapper != null) guiWrapper.close();
     }
 
-    public void selectLanguage(){
+    public void selectLanguage(Square[] squares){
         String[] locales = Localisation.getInstance().getAllLocales();
         int numLocales = locales.length;
         OurArrayList<String> localeNames = new OurArrayList<>(numLocales);
@@ -157,6 +157,25 @@ public class GUIManager {
             }
         }
 
+        for (Square square : squares) {
+           GUI_Field field = guiWrapper.getFieldFromSquare(square);
+        if(field != null){
+
+
+
+            String subtext = "";
+            if(square.getClass() == PropertySquare.class){
+                PropertySquare p = (PropertySquare)square;
+                field.setBackGroundColor(p.getColor());
+                subtext = p.getSubtext();
+            }
+
+            field.setTitle(square.getName());
+            guiWrapper.setFieldSubtext(field, subtext);
+            field.setDescription(square.getDescriptionLabel());
+        }
+
+        }
         guiWrapper.updateGUIFields();
 
 
