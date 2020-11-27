@@ -19,6 +19,12 @@ public class Game {
     private final char MIN_PLAYERS = 2;
     private final char MAX_PLAYERS = 4;
 
+    public static boolean isIsAdvanced() {
+        return isAdvanced;
+    }
+
+    private static boolean isAdvanced = true;
+
     private Localisation localisation;
     private GUIManager guiManager;
     private boolean isTest;
@@ -79,8 +85,7 @@ public class Game {
         board = new Board();
         this.isTest = isTest;
         guiManager.initGUI(board);
-
-
+        isAdvanced = guiManager.getUserChoice(localisation.getStringValue("askPlayerAdvanced"), localisation.getStringValue("yes"), localisation.getStringValue("no"));
 
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
