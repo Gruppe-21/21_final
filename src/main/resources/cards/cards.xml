@@ -9,7 +9,7 @@
 
     <movecard onUseDescription="boardwalkCardOnUseDesc"  type="MoveToSquare" label="boardwalk"/>
 
-    <movecard onUseDescription="moveUpToCardDesc" type="MoveUpTo" ismoveupto="true"/>
+    <movecard onUseDescription="moveUpToCardOnUseDesc" type="MoveUpTo" ismoveupto="true"/>
 
     <movecard onUseDescription="takeCardOrMoveCardOnUseDesc" type="TakeOrMove"/>
 
