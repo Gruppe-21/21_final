@@ -98,33 +98,8 @@ public class GUIWrapper {
 
     public GUI_Field getFieldFromSquare(Square square) {
         if (square == null) return null;
-        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getName());
-        return square.getClass() == PropertySquare.class ? getFieldFromName(squareName) : getSpecialFieldFromSquareType(square);
+        return getFieldFromName(square.getGUIName());
     }
-
-    private GUI_Field getSpecialFieldFromSquareType(Square square) {
-        Class<? extends Square> squareClass = square.getClass();
-        Class<? extends GUI_Field> targetClass = null;
-
-        for (GUI_Field field : fields.toArray(new GUI_Field[0])) {
-          if(squareClass == StartSquare.class){
-              targetClass = GUI_Start.class;
-          }else
-          if(squareClass == PrisonSquare.class){
-              targetClass = GUI_Jail.class;
-          }
-          else {
-              targetClass = GUI_Street.class;
-          }
-
-          if(field.getClass() == targetClass){
-              return field;
-          }
-        }
-        return null;
-    }
-
-
 
     public void updateGUIFields(){
         updateGUIFields(fields.toArray(new GUI_Field[0]));
