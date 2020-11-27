@@ -47,6 +47,7 @@ public class BankBalance {
         if (creditor == parent) return;
         if (getBalance() < debit)
         {
+            debit -= getBalance();
             transferMoney(getBalance(), creditor);
             debit -= parent.sellProperties(debit, creditor);
         }
