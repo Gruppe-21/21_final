@@ -57,7 +57,7 @@
     <sentence label="startdesc">You get a start bonus!</sentence>
 
     <!-- chancecard buttons -->
-    <sentence label="moveButton">Move</sentence>
+    <sentence label="moveButton">Ryk</sentence>
     <sentence label="moveButton1">1</sentence>
     <sentence label="moveButton2">2</sentence>
     <sentence label="moveButton3">3</sentence>
@@ -68,12 +68,15 @@
     <sentence label="takecard">Take a chance card</sentence>
 
     <!-- chancecard desc -->
-    <sentence label="startCardOnUseDesc">Move to �[START_SQUARE_NAME]. Receive will receive �[MONEY]</sentence>
+    <sentence label="startCardOnUseDesc">Move to �[START_SQUARE_NAME]. Receive will receive �[MONEY]</sentence> <!-- money value instead of '2'? -->
     <sentence label="jailCardOnDrawDesc">With this card you can get out of jail for free. Keep it until needed.</sentence>
     <sentence label="jailCardOnUseDesc">You use your get out of jail for free card and is released; the card is returned to the pile</sentence>
-    <sentence label="homeworkCardOnUseDesc">You have done all your homework! You receive �[MONEY].</sentence>
-    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to �[BANK_NAME].</sentence>
-    <sentence label="birthdayCardOnUseDesc">It's your birthday! Everyone must pay you �[PRICE].</sentence>
+    <sentence label="homeworkCardOnUseDesc">You have done all your homework! You receive �[MONEY].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to [BANK_NAME].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="birthdayCardOnUseDesc">It's your birthday! Everyone must pay you �[PRICE].
+    </sentence> <!-- money value instead of '1'? -->
     <sentence label="boardwalkCardOnUseDesc">Move to BOARDWALK.</sentence>
     <sentence label="moveUpToCardOnUseDesc">Move UP TO 5 squares forward.</sentence>
     <sentence label="takeCardOrMoveCardOnUseDesc">Move 1 square forward or take another chance card.</sentence>
@@ -82,14 +85,11 @@
     <sentence label="figureCardOnDrawDesc">Give this card [PLAYER_PIECE] and take another chance card.\n[PLAYER_PIECE]: On your next turn move to any available property and buy it. If there are no available properties you must purchase one from another player</sentence>
     <sentence label="figureCardOnUseDesc">[PLAYER_NAME]: Move to any available property and buy it. If there are no available properties you must purchase one from another player</sentence>
 
-    <!-- Simple words -->
-    <sentence label="yes">Yes</sentence>
-    <sentence label="no">No</sentence>
+
 
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Please specify the number of players</sentence>
     <sentence label="requestPlayerName">Please write your name, Player �[PLAYER_NUMBER] (Leave empty for a random name)</sentence>
-    <sentence label="requestPlayerAge">Please write your age, �[PLAYER_NAME]</sentence>
     <sentence label="choosePiece">�[PLAYER_NAME]: Choose a piece.</sentence>
     <sentence label="requestPlayerAge">Please write your age, [PLAYER_NAME]</sentence>
     <sentence label="winningMessage">�[PLAYER_BANKRUPT_NAME] has gone bankrupt leaving �[WINNING_PLAYER_NAME] as the winner.</sentence>
@@ -99,12 +99,9 @@
     <sentence label="buyplace">You will now buy �[PROPERTY_NAME] for �[PRICE]</sentence>
     <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
     <sentence label="paidRelease">You have to pay �[PRICE_FOR_FREEDOM] to leave this wretched place and regain your freedom.</sentence>
-    <sentence label="startMessage">�[PLAYER_NAME] will start as they are youngest</sentence>
-    <sentence label="askPlayerAdvanced">Do you want to enabled advanced rules? (When going into debt, you can sell your properties to avoid bankruptcy)</sentence>
 
 
     <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
-    <sentence label="sellPropertiesBankrupt">You owe �[DEBT] to �[CREDITOR_NAME] yet your net worth is only �[NET_WORTH]. You have gone bankrupt; everything you own is now theirs to do with as they please</sentence>
     <sentence label="nextBtn">Next</sentence>
     <sentence label="previousBtn">Back</sentence>
 
@@ -112,7 +109,8 @@
 
     <!-- Error messages -->
     <sentence label="unknownError">An unknown error has occurred.</sentence>
-    <sentence label="invalidNumber">Must be a number between �[MIN_NUMBER] and �[MAX_NUMBER].</sentence>
+    <sentence label="invalidNumberOfPlayers">Must be a number between �[MIN_NUMBER_PLAYERS] and �[MAX_NUMBER_PLAYERS].
+    </sentence>
     <sentence label="invalidName">Invalid name</sentence>
 
 

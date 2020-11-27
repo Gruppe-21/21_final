@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cards>
+    <movecard onUseDescription="startCardOnUseDesc" type="MoveToSquare" label="go"/>
+
+    <moneycard onUseDescription="homeworkCardOnUseDesc" money="2"  type="Bank"/>
+    <moneycard onUseDescription="candyCardOnUseDesc" money="2" type="Bank"/>
+
+    <moneycard onUseDescription="birthdayCardOnUseDesc" money="1"  type="Birthday"/>
+
+    <movecard onUseDescription="boardwalkCardOnUseDesc"  type="MoveToSquare" label="boardwalk"/>
+
+    <movecard onUseDescription="moveUpToCardOnUseDesc" type="MoveUpTo" ismoveupto="true"/>
+
+    <movecard onUseDescription="takeCardOrMoveCardOnUseDesc" type="TakeOrMove"/>
+
+    <!-- Free Property cards -->
+    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="brown"/>
+    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="orange"/>
+    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="orange,green"/>
+    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="cyan"/>
+    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="pink,blue"/>
+    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="cyan,red"/>
+    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="brown,yellow"/>
+
+
+    <!-- Figure cards -->
+    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Dog"/>
+    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Cat"/>
+    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Boat"/>
+    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Car"/>
+    <!-- Jail cards -->
+    <jailcard onDrawDescription="jailCardOnDrawDesc" onUseDescription="jailCardOnUseDesc"/>
+</cards>

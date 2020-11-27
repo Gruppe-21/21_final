@@ -1,12 +1,12 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.game.board.Square;
+import com.gruppe21.game.board.squares.Square;
+import com.gruppe21.utils.arrayutils.OurArrayList;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,7 +15,7 @@ public class BoardLoaderTest {
     @Test
     public void canLoadFile() {
         String filename = "test_board";
-        List<Square> list = null;
+        OurArrayList<Square> list = null;
         try {
             list = BoardLoader.loadBoard(filename);
         } catch (ParserConfigurationException e) {
@@ -27,7 +27,7 @@ public class BoardLoaderTest {
             list = null;
         }
 
-        for (Square square : list) {
+        for (Square square : list.toArray(new Square[0])) {
             System.out.println(square.getName());
         }
 

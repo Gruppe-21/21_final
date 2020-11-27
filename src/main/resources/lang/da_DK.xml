@@ -15,10 +15,100 @@
     <sentence label="petstore">DYREHANDLEN</sentence>
     <sentence label="bowlingalley">BOWLINGHALLEN</sentence>
     <sentence label="zoo">ZOO</sentence>
-    <sentence label="parkplace">VANDLANDET</sentence>
+    <sentence label="waterpark">VANDLANDET</sentence>
     <sentence label="boardwalk">STRANDPROMENADEN</sentence>
     <sentence label="gotoprison">GÅ I FÆNGSEL</sentence>
     <sentence label="prison">I FÆNGSEL / PÅ BESØG</sentence>
     <sentence label="chance">CHANCE</sentence>
     <sentence label="freeparking">GRATIS PARKERING</sentence>
+
+    <sentence label="currency">₩�[VALUE]</sentence>
+    <sentence label="bankName">Banken®</sentence>
+
+    <!-- square descriptions -->
+    <sentence label="burgerjointdesc">Du er ankommet til din yndlings Burger Joint. Deres kartoffelfries er dannet som dinosaurer</sentence>
+    <sentence label="pizzeriadesc">Du er ankommet til byens bedste Pizza Place. De er berømte for deres pepperoni-pizza</sentence>
+    <sentence label="candystoredesc">Du er ankommet til den farverige slikbutik. På fredage kan du lave dit eget slik og vælge smagen</sentence>
+    <sentence label="icecreamparlordesc">Du er ankommet til den altid åbne isbar. De har altid 50 forskellige varianter at vælge imellem</sentence>
+    <sentence label="museumdesc">Du er ankommet til museet. I øjeblikket har de en særlig udstilling om rummet</sentence>
+    <sentence label="librarydesc">Du er ankommet til biblioteket. De har den største tegneseriesektion i hele verden</sentence>
+    <sentence label="skateparkdesc">Du er ankommet til Skatepark. De udlejer gratis farverige hjelme til alle, der har brug for en</sentence>
+    <sentence label="swimmingpooldesc">Du er ankommet til swimmingpoolen. Svøm indtil din hud ligner en rosin</sentence>
+    <sentence label="arcadedesc">Du er ankommet til Arcade. De har alt fra Pac Man til Donkey Kong</sentence>
+    <sentence label="cinemadesc">Du er ankommet til biografen. De tilbyder 4D-filmvisninger og gratis popcorn til børn</sentence>
+    <sentence label="toystoredesc">Du er ankommet til legetøjsbutikken. Deres mest populære solgte vare er Monopoly Junior</sentence>
+    <sentence label="petstoredesc">Du er ankommet til Dyrehandlen. Hvis du køber et dyr, kan du få et navneskilt med det</sentence>
+    <sentence label="bowlingalleydesc">Du er ankommet til bowlinghallen. Hvis du vinder, får du en gratis sodavand</sentence>
+    <sentence label="zoodesc">Du er ankommet til zoologisk have. Du kan gå og kæledyrsvenlige geder i petting-sektionen</sentence>
+    <sentence label="waterparkdec">Du er ankommet til vandlandet. Du kan vælge at få en løveflåd eller en enhjørningsflåd</sentence>
+    <sentence label="boardwalkdesc">Du er ankommet til Board Walk. Hvis du er heldig, kan du se delfiner lege i vandet</sentence>
+    <sentence label="gotoprisondesc">Du skal gå i fængsel. Dit stykke flyttes til fængselspladsen</sentence>
+    <sentence label="prisondesc">Du er kommet på besøg i fængslet. Husk at sige hej til spillerne der er i øjeblikket</sentence>
+    <sentence label="chancedesc">Du får lov til at trække et chancekort</sentence>
+    <sentence label="freeparkingdesc">SCORE! Du har en gratis parkeringsplads. Du kan hvile, indtil det bliver din tur igen</sentence>
+    <sentence label="startdesc">Du får en startbonus!</sentence>
+
+    <!-- chancecard buttons -->
+    <sentence label="moveButton">Ryk</sentence>
+    <sentence label="moveButton1">1</sentence>
+    <sentence label="moveButton2">2</sentence>
+    <sentence label="moveButton3">3</sentence>
+    <sentence label="moveButton4">4</sentence>
+    <sentence label="moveButton5">5</sentence>
+
+    <sentence label="takeButton">Tag et andet kort</sentence>
+    <sentence label="takecard">Tag et chancekort</sentence>
+
+    <!-- chancecard desc -->
+    <sentence label="startCardOnUseDesc">Ryk til �[START_SQUARE_NAME]. Du vil da få �[MONEY]</sentence> <!-- money value instead of '2'? -->
+    <sentence label="jailCardOnDrawDesc">Med dette kort kan du komme ud af fængslet gratis. Opbevar det, indtil det er nødvendigt.</sentence>
+    <sentence label="jailCardOnUseDesc">Du bruger dit komme ud af fængsel til gratis kort og frigives; kortet returneres til bunken</sentence>
+    <sentence label="homeworkCardOnUseDesc">Du har lavet alle dine lektier! Du modtager �[MONEY].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="candyCardOnUseDesc">Du har spist for meget slik. Du skal betale �[PRICE] til �[BANK_NAME].
+    </sentence> <!-- money value instead of '2'? -->
+    <sentence label="birthdayCardOnUseDesc">Det er din fødselsdag! Alle skal betale dig �[PRICE].
+    </sentence> <!-- money value instead of '1'? -->
+    <sentence label="boardwalkCardOnUseDesc">Ryk til strandpromenaden</sentence>
+    <sentence label="moveUpToCardOnUseDesc">Ryk op til 5 felter frem.</sentence>
+    <sentence label="takeCardOrMoveCardOnUseDesc">Ryk 1 felt frem eller tag et andet chancekort.</sentence>
+    <sentence label="propertyCardOnUseDesc">WRITE_DESCRIPTION_HERE</sentence>
+
+    <sentence label="figureCardOnDrawDesc">Giv dette kort til [PLAYER_PIECE] og tag et andet chancekort.\n�[PLAYER_PIECE]: På din næste tur skal du flytte til en tilgængelig ejendom og købe den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
+    <sentence label="figureCardOnUseDesc">�[PLAYER_NAME]: Flyt til enhver tilgængelig ejendom og køb den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
+
+    <!-- Simple words -->
+    <sentence label="yes">Ja</sentence>
+    <sentence label="no">Nej</sentence>
+
+
+    <!-- Player instructions -->
+    <sentence label="requestSpecifyNumPlayers">Angiv antallet af spillere</sentence>
+    <sentence label="requestPlayerName">Skriv venligst dit navn, spiller �[PLAYER_NUMBER] (Efterlad et tomt navn for at få et tilfældigt navn)</sentence>
+    <sentence label="requestPlayerAge">Skriv din alder, �[PLAYER_NAME]</sentence>
+    <sentence label="choosePiece">�[PLAYER_NAME]: Vælg en brik.</sentence>
+    <sentence label="winningMessage">�[PLAYER_BANKRUPT_NAME] er gået konkurs og efterlader �[WINNING_PLAYER_NAME] som vinderen.</sentence>
+    <sentence label="winningMessageTie">�[PLAYER_BANKRUPT_NAME] er gået konkurs og efterlader �[WINNING_PLAYER_NAME] lige med vinderen.</sentence>
+    <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE_NAME] tur!</sentence>
+    <sentence label="rollButton">Kast</sentence>
+    <sentence label="buyplace">Du køber nu �[PROPERTY_NAME] for �[PRICE]</sentence>
+    <sentence label="payRent">Du skylder �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
+    <sentence label="paidRelease">Du skal betale �[PRICE_FOR_FREEDOM] for at forlade dette elendige sted og genvinde din frihed.</sentence>
+    <sentence label="startMessage">�[PLAYER_NAME] er yngst og vil derfor starte.</sentence>
+    <sentence label="askPlayerAdvanced">Vil I spille med avanceret regler? (Nu du ellers ville gå bankerot, kan du sælge dine ejendomme)</sentence>
+
+
+    <sentence label="sellProperties">Du skylder �[DEBT] til �[CREDITOR_NAME]. Vælg nedenunder de ejendomme, du ønsker at sælge til �[CREDITOR_NAME]:</sentence>
+    <sentence label="sellPropertiesBankrupt">Du skylder �[DEBT] til �[CREDITOR_NAME] men alt i alt ejer du kun �[NET_WORTH]. Du er gået fallit.</sentence>
+    <sentence label="nextBtn">Næste</sentence>
+    <sentence label="previousBtn">Forrige</sentence>
+
+
+
+    <!-- Error messages -->
+    <sentence label="unknownError">En ukendt fejl er sket.</sentence>
+    <sentence label="invalidNumber">Skal være et nummer mellem �[MIN_NUMBER] og �[MAX_NUMBER].</sentence>
+    <sentence label="invalidName">Ugyldigt navn</sentence>
+
+
 </locale>

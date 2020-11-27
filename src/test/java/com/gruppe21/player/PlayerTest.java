@@ -19,13 +19,6 @@ public class PlayerTest {
         assertEquals("Bob", player.getName());
     }
 
-    @Test
-    public void nameWithoutSTest() {
-        Player player = new Player();  // make instance of Player called player
-        player.setName("Bob");
-
-        assertEquals(false, player.isNameEndsWithS());
-    }
 
     @Test
     public void changeNameTest() {
@@ -36,23 +29,6 @@ public class PlayerTest {
         assertEquals("Clara", player.getName());
     }
 
-    @Test
-    public void nameWithSTest() {
-        Player player = new Player();  // make instance of Player called player
-        player.setName("Louis");
 
-
-        assertEquals(true, player.isNameEndsWithS());
-    }
-
-    @Test
-    public void changeNameContainsSTest() {
-        Player player = new Player();  // make instance of Player called player
-        player.setName("Bob");
-        player.setName("Louis");
-
-
-        assertEquals(true, player.isNameEndsWithS());
-    }
 
 }
