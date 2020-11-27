@@ -108,12 +108,10 @@ public class ChanceCardMove extends ChanceCard {
             moveButtons[i] = localisation.getStringValue("moveButton" + (i+1));
         }
 
-        int moveForwardChosen = 0;
         String moveUpToResult = GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionOnUseLabel), moveButtons);
         for (int i = 0; i < numMoveButtons; i++) {
             if (moveUpToResult.equals(moveButtons[i])){
-                moveForwardChosen = i;
-                game.movePlayerBy(player, moveForwardChosen);
+                game.movePlayerBy(player, i + 1);
                 return;
             }
         }
