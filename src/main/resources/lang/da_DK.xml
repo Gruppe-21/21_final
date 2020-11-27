@@ -95,6 +95,7 @@
 
 
     <sentence label="sellProperties">Du skylder �[DEBT] til �[CREDITOR_NAME]. Vælg nedenunder de ejendomme, du ønsker at sælge til �[CREDITOR_NAME]:</sentence>
+    <sentence label="sellPropertiesBankrupt">Du skylder �[DEBT] til �[CREDITOR_NAME] men alt i alt ejer du kun �[NET_WORTH]. Du er gået fallit.</sentence>
     <sentence label="nextBtn">Næste</sentence>
     <sentence label="previousBtn">Forrige</sentence>
 
