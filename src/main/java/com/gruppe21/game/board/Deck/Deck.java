@@ -18,12 +18,12 @@ public class Deck {
 
     public Deck(){
         SHUFFLE_CARDS = true; //Should be read from file.
-        CARDS_BEFORE_SHUFFLE = 20; //should be read from file.
         try {
             cards = BoardLoader.loadCards("cards");
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
+        CARDS_BEFORE_SHUFFLE = cards.size();
 
     }
 

@@ -63,14 +63,16 @@ public class ChanceCardMove extends ChanceCard {
         }
     }
 
-    private void moveToSquareAndPurchase(Game game, Player player, PropertySquare... validSquare){
-        if (validSquare.length == 0) {return;} //The player owns all properties. Something should be done; The player should at least be told.
+    private void moveToSquareAndPurchase(Game game, Player player, PropertySquare... validSquare) {
+        if (validSquare.length == 0) {
+            return;
+        } //The player owns all properties. Something should be done; The player should at least be told.
         //Todo: pick square, move(teleport) to it and buy it. (Should probably inform the player if it will bankrupt them)
 
     }
 
 
-    private void freeColorSquare(Game game, Player player){
+    private void freeColorSquare(Game game, Player player) {
         PropertySquare[] vaildSquares = game.getBoard().getSquaresWithColor(colors);
         String[] vaildSquaresNameLabels = new String[vaildSquares.length];
         for (int i = 0; i < vaildSquares.length; i++) {
@@ -80,11 +82,11 @@ public class ChanceCardMove extends ChanceCard {
         PropertySquare chosenSquare = (PropertySquare) game.getBoard().getSquareFromLabel(GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionOnUseLabel, vaildSquaresNameLabels)));
         game.teleportPlayer(player, chosenSquare);
         Player propertyOwner = chosenSquare.getOwner();
-       if(propertyOwner != null){
-           chosenSquare.handleLandOn(player);
-       }else{
-           chosenSquare.purchaseProperty(player, 0);
-       }
+        if (propertyOwner != null) {
+            chosenSquare.handleLandOn(player);
+        } else {
+            chosenSquare.purchaseProperty(player, 0);
+        }
 
     }
 
@@ -93,24 +95,24 @@ public class ChanceCardMove extends ChanceCard {
         String description = localisation.getStringValue(descriptionOnUseLabel);
         String moveButton = localisation.getStringValue("moveButton");
         String takeButton = localisation.getStringValue("takeButton");
-        if (GUIManager.getInstance().getUserChoice(description, moveButton, takeButton)){
+        if (GUIManager.getInstance().getUserChoice(description, moveButton, takeButton)) {
             game.movePlayerBy(player, 1);
         } else {
             player.drawChanceCard(game.getDeck(), game);
         }
     }
 
-    private void moveUpTo(Game game, Player player){
+    private void moveUpTo(Game game, Player player) {
         int numMoveButtons = 5;
         Localisation localisation = Localisation.getInstance();
         String[] moveButtons = new String[numMoveButtons];
         for (int i = 0; i < numMoveButtons; i++) {
-            moveButtons[i] = localisation.getStringValue("moveButton" + (i+1));
+            moveButtons[i] = localisation.getStringValue("moveButton" + (i + 1));
         }
 
         String moveUpToResult = GUIManager.getInstance().waitForUserButtonPress(Localisation.getInstance().getStringValue(descriptionOnUseLabel), moveButtons);
         for (int i = 0; i < numMoveButtons; i++) {
-            if (moveUpToResult.equals(moveButtons[i])){
+            if (moveUpToResult.equals(moveButtons[i])) {
                 game.movePlayerBy(player, i + 1);
                 return;
             }
@@ -119,9 +121,9 @@ public class ChanceCardMove extends ChanceCard {
         moveUpTo(game, player);
     }
 
-    private void giveCardToFigure(Game game, Player user){
-        for (Player player: game.getPlayers()) {
-            if(player.getPiece() == getPlayerPiece()){
+    private void giveCardToFigure(Game game, Player user) {
+        for (Player player : game.getPlayers()) {
+            if (player.getPiece() == getPlayerPiece()) {
                 player.getOwnedCards().add(this);
             }
         }

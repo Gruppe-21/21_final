@@ -1,5 +1,6 @@
 package com.gruppe21.player;
 
+import com.gruppe21.game.Game;
 import com.gruppe21.gui.GUIManager;
 
 public class BankBalance {
@@ -47,9 +48,11 @@ public class BankBalance {
         if (creditor == parent) return;
         if (getBalance() < debit)
         {
-            debit -= getBalance();
-            transferMoney(getBalance(), creditor);
-            debit -= parent.sellProperties(debit, creditor);
+            if (Game.isIsAdvanced()) {
+                debit -= getBalance();
+                transferMoney(getBalance(), creditor);
+                debit -= parent.sellProperties(debit, creditor);
+            }
         }
         addBalance(-debit);
         if (creditor != null){ //creditor == null -> creditor is the bank
