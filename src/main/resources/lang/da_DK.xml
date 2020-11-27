@@ -77,6 +77,9 @@
     <sentence label="figureCardOnDrawDesc">Giv dette kort til [PLAYER_PIECE] og tag et andet chancekort.\n�[PLAYER_PIECE]: På din næste tur skal du flytte til en tilgængelig ejendom og købe den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
     <sentence label="figureCardOnUseDesc">�[PLAYER_NAME]: Flyt til enhver tilgængelig ejendom og køb den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
 
+    <!-- Simple words -->
+    <sentence label="yes">Ja</sentence>
+    <sentence label="no">Nej</sentence>
 
 
     <!-- Player instructions -->
