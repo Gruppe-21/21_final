@@ -97,7 +97,8 @@ public class GUIWrapper {
     }
 
     public GUI_Field getFieldFromSquare(Square square) {
-        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getNameLabel());
+        if (square == null) return null;
+        String squareName = (square.getClass() == PropertySquare.class ? ((PropertySquare)square).getGUIName() : square.getName());
         return square.getClass() == PropertySquare.class ? getFieldFromName(squareName) : getSpecialFieldFromSquareType(square);
     }
 

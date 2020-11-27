@@ -143,29 +143,30 @@ public class GUIManager {
     public void selectLanguage(Square[] squares){
         String[] locales = Localisation.getInstance().getAllLocales();
         int numLocales = locales.length;
-        OurArrayList<String> localeNames = new OurArrayList<>(numLocales);
-        for (String locale : locales) {
-          localeNames.add(locale.split(" ")[1]);
+        String[] localeNames = new String[numLocales];
+        for (int i = 0; i < numLocales; i++) {
+            //Is all language codes are the same length using substring might be faster
+            localeNames[i] = locales[i].split(" ")[1];
         }
 
-        String pressed = waitForUserButtonPress("Choose a language", localeNames.toArray(new String[numLocales]));
+        //If there were more than two options getUserSelection should be used instead
+        String pressed = waitForUserButtonPress("Choose a language", localeNames);
 
-        for (String locale : locales) {
-            if(locale.contains(pressed)){
-                Localisation.getInstance().setCurrentLocale(locale.split(" ")[0]);
+        for (int i = 0; i < locales.length; i++) {
+            if (localeNames[i].equals(pressed)){
+                Localisation.getInstance().setCurrentLocale(locales[i].split(" ")[0]);
                 break;
             }
         }
 
         for (Square square : squares) {
            GUI_Field field = guiWrapper.getFieldFromSquare(square);
-        if(field != null){
-
+        if(field != null) {
 
 
             String subtext = "";
-            if(square.getClass() == PropertySquare.class){
-                PropertySquare p = (PropertySquare)square;
+            if (square.getClass() == PropertySquare.class) {
+                PropertySquare p = (PropertySquare) square;
                 field.setBackGroundColor(p.getColor());
                 subtext = p.getSubtext();
             }
