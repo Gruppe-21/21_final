@@ -27,7 +27,6 @@ public class PrisonSquare extends Square {
         GUIManager guiManager = GUIManager.getInstance();
         Localisation localisation = Localisation.getInstance();
         //If a "get out of jail free" card is available, it is used.
-        //Todo: the player should probably be told
         for (ChanceCard cCard : player.getOwnedCards().toArray(new ChanceCard[0])) {
             if (cCard.getClass() == ChanceCardGetOutOfJailFree.class){
                 cCard.use(game, player);
