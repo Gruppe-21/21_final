@@ -19,10 +19,10 @@ public class Game {
     private final char MIN_PLAYERS = 2;
     private final char MAX_PLAYERS = 4;
 
+    //Should not be static, but there is not time to make it correctly
     public static boolean isIsAdvanced() {
         return isAdvanced;
     }
-
     private static boolean isAdvanced = true;
 
     private Localisation localisation;
