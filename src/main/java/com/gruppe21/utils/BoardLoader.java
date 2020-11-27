@@ -101,7 +101,7 @@ public class BoardLoader {
                 squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
                 break;
             case "PrisonSquare":
-                squares.add(new PrisonSquare("prison", "prisondesc", "paidrelease", 2));
+                squares.add(new PrisonSquare("prison", "prisondesc", "paidRelease", 2));
                 break;
         }
     }
