@@ -45,7 +45,9 @@ public class BankBalance {
      */
     public void transferMoney(int debit, Player creditor){
         if (creditor == parent) return;
-        if (getBalance() - debit < 0) {
+        if (getBalance() < debit)
+        {
+            transferMoney(getBalance(), creditor);
             debit -= parent.sellProperties(debit, creditor);
         }
         addBalance(-debit);

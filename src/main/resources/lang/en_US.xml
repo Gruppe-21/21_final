@@ -57,7 +57,7 @@
     <sentence label="startdesc">You get a start bonus!</sentence>
 
     <!-- chancecard buttons -->
-    <sentence label="moveButton">Ryk</sentence>
+    <sentence label="moveButton">Move</sentence>
     <sentence label="moveButton1">1</sentence>
     <sentence label="moveButton2">2</sentence>
     <sentence label="moveButton3">3</sentence>
@@ -104,6 +104,7 @@
 
 
     <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
+    <sentence label="sellPropertiesBankrupt">You owe �[DEBT] to �[CREDITOR_NAME] yet your net worth is only �[NET_WORTH]. You have gone bankrupt; everything you own is now theirs to do with as they please</sentence>
     <sentence label="nextBtn">Next</sentence>
     <sentence label="previousBtn">Back</sentence>
 
