@@ -100,7 +100,7 @@
     <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
     <sentence label="paidRelease">You have to pay �[PRICE_FOR_FREEDOM] to leave this wretched place and regain your freedom.</sentence>
     <sentence label="startMessage">�[PLAYER_NAME] will start as they are youngest</sentence>
-    <sentence label="askPlayerAdvanced">Vil I spille med avanceret regler? (Nu du ellers ville gå bankerot, kan du sælge dine ejendomme)</sentence>
+    <sentence label="askPlayerAdvanced">Do you want to enabled advanced rules? (When going into debt, you can sell your properties to avoid bankruptcy)</sentence>
 
 
     <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
