@@ -46,8 +46,6 @@ public class Game {
         this(players, dice, false);
     }
 
-
-
     public Board getBoard() {
         return board;
     }
@@ -81,6 +79,9 @@ public class Game {
         board = new Board();
         this.isTest = isTest;
         guiManager.initGUI(board);
+
+
+
 
         //Should make sure that 1 < players.length < 5  and dice.length = 1
         this.deck = new Deck();

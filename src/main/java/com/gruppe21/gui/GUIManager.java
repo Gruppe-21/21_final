@@ -6,6 +6,8 @@ import com.gruppe21.game.board.Board;
 import com.gruppe21.game.board.squares.PropertySquare;
 import com.gruppe21.game.board.squares.Square;
 import com.gruppe21.player.Player;
+import com.gruppe21.utils.arrayutils.OurArrayList;
+import com.gruppe21.utils.localisation.Localisation;
 
 import java.awt.*;
 
@@ -26,7 +28,9 @@ public class GUIManager {
     public void initGUI(Board board) {
         if (isTest) return;
         guiWrapper = new GUIWrapper();
+
         guiWrapper.reloadGUI(board.getSquares());
+        selectLanguage();
     }
 
     public void addPlayersToGUI(Player[] players) {
@@ -135,4 +139,28 @@ public class GUIManager {
     public void closeGUI() {
         if (guiWrapper != null) guiWrapper.close();
     }
+
+    public void selectLanguage(){
+        String[] locales = Localisation.getInstance().getAllLocales();
+        int numLocales = locales.length;
+        OurArrayList<String> localeNames = new OurArrayList<>(numLocales);
+        for (String locale : locales) {
+          localeNames.add(locale.split(" ")[1]);
+        }
+
+        String pressed = waitForUserButtonPress("Choose a language", localeNames.toArray(new String[numLocales]));
+
+        for (String locale : locales) {
+            if(locale.contains(pressed)){
+                Localisation.getInstance().setCurrentLocale(locale.split(" ")[0]);
+                break;
+            }
+        }
+
+        guiWrapper.updateGUIFields();
+
+
+    }
+
+
 }
