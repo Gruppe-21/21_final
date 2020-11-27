@@ -92,6 +92,7 @@
     <sentence label="payRent">Du skylder �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
     <sentence label="paidRelease">Du skal betale �[PRICE_FOR_FREEDOM] for at forlade dette elendige sted og genvinde din frihed.</sentence>
     <sentence label="startMessage">�[PLAYER_NAME] er yngst og vil derfor starte.</sentence>
+    <sentence label="askPlayerAdvanced">Do you want to enabled advanced rules? (When going into debt, you can sell your properties to avoid bankruptcy)</sentence>
 
 
     <sentence label="sellProperties">Du skylder �[DEBT] til �[CREDITOR_NAME]. Vælg nedenunder de ejendomme, du ønsker at sælge til �[CREDITOR_NAME]:</sentence>

@@ -68,15 +68,12 @@
     <sentence label="takecard">Take a chance card</sentence>
 
     <!-- chancecard desc -->
-    <sentence label="startCardOnUseDesc">Move to �[START_SQUARE_NAME]. Receive will receive �[MONEY]</sentence> <!-- money value instead of '2'? -->
+    <sentence label="startCardOnUseDesc">Move to �[START_SQUARE_NAME]. Receive will receive �[MONEY]</sentence>
     <sentence label="jailCardOnDrawDesc">With this card you can get out of jail for free. Keep it until needed.</sentence>
     <sentence label="jailCardOnUseDesc">You use your get out of jail for free card and is released; the card is returned to the pile</sentence>
-    <sentence label="homeworkCardOnUseDesc">You have done all your homework! You receive �[MONEY].
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to �[BANK_NAME].
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdayCardOnUseDesc">It's your birthday! Everyone must pay you �[PRICE].
-    </sentence> <!-- money value instead of '1'? -->
+    <sentence label="homeworkCardOnUseDesc">You have done all your homework! You receive �[MONEY].</sentence>
+    <sentence label="candyCardOnUseDesc">You have eaten to much candy. You must pay �[PRICE] to �[BANK_NAME].</sentence>
+    <sentence label="birthdayCardOnUseDesc">It's your birthday! Everyone must pay you �[PRICE].</sentence>
     <sentence label="boardwalkCardOnUseDesc">Move to BOARDWALK.</sentence>
     <sentence label="moveUpToCardOnUseDesc">Move UP TO 5 squares forward.</sentence>
     <sentence label="takeCardOrMoveCardOnUseDesc">Move 1 square forward or take another chance card.</sentence>
@@ -101,6 +98,7 @@
     <sentence label="payRent">You owe �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
     <sentence label="paidRelease">You have to pay �[PRICE_FOR_FREEDOM] to leave this wretched place and regain your freedom.</sentence>
     <sentence label="startMessage">�[PLAYER_NAME] will start as they are youngest</sentence>
+    <sentence label="askPlayerAdvanced">Vil I spille med avanceret regler? (Nu du ellers ville gå bankerot, kan du sælge dine ejendomme)</sentence>
 
 
     <sentence label="sellProperties">You owe �[DEBT] to �[CREDITOR_NAME]. Please select below the properties you wish to sell to �[CREDITOR_NAME]:</sentence>
@@ -112,8 +110,7 @@
 
     <!-- Error messages -->
     <sentence label="unknownError">An unknown error has occurred.</sentence>
-    <sentence label="invalidNumber">Must be a number between �[MIN_NUMBER] and �[MAX_NUMBER].
-    </sentence>
+    <sentence label="invalidNumber">Must be a number between �[MIN_NUMBER] and �[MAX_NUMBER].</sentence>
     <sentence label="invalidName">Invalid name</sentence>
 
 
