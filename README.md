@@ -10,7 +10,7 @@
  * @author Gülsen
 ```
 
-# :moneybag: CDIO del 3 :money_with_wings:
+# :moneybag: Matador: Java Edition :money_with_wings:
 Dette er vores repo til del 3 af CDIO :)
 
 ## Trello boards
