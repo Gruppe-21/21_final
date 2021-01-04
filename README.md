@@ -7,23 +7,15 @@
  * @author Tobias Nyholm Maneschijn
  * @author Rasmus Nylander
  * @author Troels Christoffersen
+ * @author Gülsen
 ```
 
-# CDIO del 3
+# :moneybag: CDIO del 3 :money_with_wings:
 Dette er vores repo til del 3 af CDIO :)
 
-
-## Project board (Code only)
-https://github.com/Gruppe-21/21_del3/projects/2?fullscreen=true
-
 ## Trello boards
-[Agile Board](https://trello.com/b/5o6evYm7)
-[Rapport Board](https://trello.com/b/Ndx97ZVg)
-
-## Overleaf Link + Git Repository
-- https://github.com/Gruppe-21/CDIO-3-Rapport
-- https://www.overleaf.com/project/5fa03f64efe54a000131cc69 
-
+[<img src="https://www.shareicon.net/data/2016/10/18/844179_trello-icon_512x512.png" width="25"/> Agile Board](https://trello.com/b/xdOw33v4)
+[<img src="https://cdn.iconscout.com/icon/free/png-512/trello-6-569395.png" width="28"/> Rapport Board](https://trello.com/b/qTeQJrhg)
 
 ## Localisation
 Adding new languages are done in file lang.xml in the Maven resources directory.
