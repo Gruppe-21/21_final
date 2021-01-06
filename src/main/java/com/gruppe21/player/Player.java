@@ -64,7 +64,9 @@ public class Player {
         return totalValue;
     }
 
-    public int getStatusEffects
+    public int getStatusEffects(){
+        return statusEffects;
+    }
 
 }
 
