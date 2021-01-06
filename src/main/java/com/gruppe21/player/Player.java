@@ -13,7 +13,7 @@ public class Player {
     private int totalValue;
     private int numSubscribers = 0;
     Deck heldCards;
-    private int statusEffect;
+    private int statusEffects;
 
     Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
 
@@ -63,6 +63,8 @@ public class Player {
     public int getTotalValue(){
         return totalValue;
     }
+
+    public int getStatusEffects
 
 }
 
