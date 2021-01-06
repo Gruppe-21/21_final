@@ -8,6 +8,10 @@ public class PlayerController {
         player = new Player();
     }
 
+    public void takeTurn(){
+
+    }
+
 
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
