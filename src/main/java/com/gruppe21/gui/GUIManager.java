@@ -8,6 +8,8 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class GUIManager {
+    //Do we want to use display/set chance cards?
+
     private static final Color backgroundColor = Color.WHITE;
 
     private GUI gui;
@@ -17,7 +19,14 @@ public class GUIManager {
      *
      * @param board
      */
-    public GUIManager(Board board){
+    public GUIManager(Board board, Player... players){
+        //This probably should *not* be done in the constructor as the players probably first should choose language.
+        //Or maybe that should just be done here first? The players should also give their names and choose a piece
+        //presumably this has already happened, or should GUIManager be responsible for that? That seems kinda wrong to
+        //me but maybe that would be best. If not then this really shouldn't be done here, as we should probably
+        //get that information before creating the board and adding the players. Or maybe we want to add them to the
+        //GUI first, and then update it as the players provide us with that sweet, thick, creamy knowledge we all so
+        //desperately desire.
         Square[] squares = board.getSqaures();
         fields = new GUI_Field[squares.length];
         for (int i = 0; i < squares.length; i++) {
@@ -28,10 +37,22 @@ public class GUIManager {
 
     /**
      *
+     * @param dieValueA
+     * @param dieValueB
+     * @return
+     */
+    public int rollDice(int dieValueA, int dieValueB){
+
+    }
+
+    /**
+     *
      */
     public void movePlayer(){
         //TODO: movePlayer
     }
+
+
 
 
     //Player inputs
@@ -76,7 +97,7 @@ public class GUIManager {
      * @param options
      * @return
      */
-    public String getUserSelection(String message, String... options){
+    public String getUserChoiceDropDown(String message, String... options){
         //TODO: getUserChoice
     }
 
@@ -109,6 +130,9 @@ public class GUIManager {
     public int getUserInteger(String message, int minValue, int maxValue){
 
     }
+
+
+
 
 
 
