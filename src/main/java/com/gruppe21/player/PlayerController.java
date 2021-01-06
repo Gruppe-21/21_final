@@ -9,6 +9,14 @@ public class PlayerController {
     }
 
 
+    public CardController drawCard(Deck deck){
+        CardController card = deck.nextCard();
+        //Todo: probably call some function on the card
+    }
+
+
+
+
     /**
      * Transfers money to another player. If the player does not have enough money, their properties are sold.
      * @param debit is the amount of money transferred out of the account.
