@@ -1,12 +1,5 @@
 package com.gruppe21.player;
-import com.gruppe21.game.Game;
-import com.gruppe21.game.board.Deck.Deck;
-import com.gruppe21.game.board.chancecard.ChanceCard;
-import com.gruppe21.game.board.squares.PropertySquare;
-import com.gruppe21.gui.GUIManager;
-import com.gruppe21.utils.arrayutils.OurArrayList;
-import com.gruppe21.utils.localisation.Localisation;
-import gui_fields.GUI_Player;
+import com.gruppe21.squares.controllers.SquareController;
 
 import java.util.Objects;
 
@@ -17,8 +10,14 @@ public class Player {
 
     SquareController position;
     int balance;
+    int totalValue;
     int numSubscribers = 0;
     Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
+
+    public Player(){
+        this.balance = START_FUNDS;
+        this.totalValue = START_FUNDS;
+    }
 
     public void subscribeToOnMoved(Object subscriber){
         //Lengthens array if too short
@@ -45,6 +44,16 @@ public class Player {
 
     public void teleportTo(SquareController squareController){
 
+    }
+
+    public int getBalance(){
+        return this.getBalance();
+    }
+
+    public int setBalance(int balance){
+        totalValue += balance - this.balance;
+        this.balance = balance;
+        return getBalance();
     }
 
 }
