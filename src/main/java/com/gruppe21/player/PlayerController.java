@@ -11,7 +11,7 @@ public class PlayerController {
 
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
-        //Todo: probably call some function on the card
+        //Todo: probably call some function on the card. Also maybe add it to the players deck.
     }
 
 
