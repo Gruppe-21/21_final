@@ -11,14 +11,21 @@ public class GUIManager {
 
     private static final Color backgroundColor = Color.WHITE;
 
+    private static GUIManager guiManager;
+
     private GUI gui;
     private GUI_Field[] fields;
+
+    public GUIManager getInstance(){
+        if (guiManager == null) guiManager = new GUIManager();
+        return guiManager;
+    }
 
     /**
      *
      * @param board
      */
-    public GUIManager(Board board, PlayerController... playerControllers){
+    private GUIManager(Board board, PlayerController... playerControllers){
         //This probably should *not* be done in the constructor as the players probably first should choose a language.
         //Or maybe that should just be done here first? The players should also give their names and choose a piece/color?
         //presumably this has already happened, or should GUIManager be responsible for that? That seems kinda wrong to
@@ -26,6 +33,7 @@ public class GUIManager {
         //get that information before creating the board and adding the players. Or maybe we want to add them to the
         //GUI first, and then update it as the players provide us with that sweet, thick, creamy knowledge we all so
         //desperately desire.
+        //Also now it's a singleton it definitely probably shouldn't be done here.
         Square[] squares = board.getSqaures();
         fields = new GUI_Field[squares.length];
         for (int i = 0; i < squares.length; i++) {
