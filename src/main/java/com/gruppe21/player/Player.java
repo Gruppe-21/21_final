@@ -12,11 +12,13 @@ public class Player {
     int balance;
     int totalValue;
     int numSubscribers = 0;
+    Deck heldCards;
     Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
 
     public Player(){
         this.balance = START_FUNDS;
         this.totalValue = START_FUNDS;
+        heldCards = new Deck();
     }
 
     public void subscribeToOnMoved(Object subscriber){
