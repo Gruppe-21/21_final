@@ -3,11 +3,121 @@ package com.gruppe21.gui;
 import com.gruppe21.player.Player;
 import com.gruppe21.utils.localisation.Localisation;
 import gui_fields.*;
+import gui_main.GUI;
 
 import java.awt.*;
 
 public class GUIManager {
+    private static final Color backgroundColor = Color.WHITE;
 
+    private GUI gui;
+    private GUI_Field[] fields;
+
+    /**
+     *
+     * @param board
+     */
+    public GUIManager(Board board){
+        Square[] squares = board.getSqaures();
+        fields = new GUI_Field[squares.length];
+        for (int i = 0; i < squares.length; i++) {
+            fields[i] = squares.getField();
+        }
+        gui = new GUI(fields, backgroundColor);
+    }
+
+    /**
+     *
+     */
+    public void movePlayer(){
+        //TODO: movePlayer
+    }
+
+
+    //Player inputs
+
+    /**
+     *
+     * @param message
+     */
+    public void waitForUserAcknowledgement(String message) {
+
+    }
+
+
+
+    /**
+     *
+     * @param message
+     * @param trueChoice
+     * @param falseChoice
+     * @return
+     */
+    public boolean getUserBoolean(String message, String trueChoice, String falseChoice){
+        //TODO: getUserBoolean
+    }
+
+    /**
+     *
+     * @param message
+     * @param buttonText
+     * @return
+     */
+    public String getUserButtonPress(String message, String... buttonText) {
+        //TODO: getUserButtonPress
+    }
+
+
+    //Notice this is different from getUserBoolean, which previously was called get user choice
+
+    /**
+     *
+     * @param message
+     * @param options
+     * @return
+     */
+    public String getUserSelection(String message, String... options){
+        //TODO: getUserChoice
+    }
+
+
+    /**
+     *
+     * @param message
+     * @return
+     */
+    public String getUserTextInput(String message) {
+
+    }
+
+    /**
+     *
+     * @param message
+     * @return
+     */
+    public int getUserInteger(String message){
+
+    }
+
+    /**
+     *
+     * @param message
+     * @param minValue
+     * @param maxValue
+     * @return
+     */
+    public int getUserInteger(String message, int minValue, int maxValue){
+
+    }
+
+
+
+
+
+
+
+
+/*
     public static GUIManager instance;
     public boolean isTest;
     private GUIWrapper guiWrapper;
@@ -162,9 +272,6 @@ public class GUIManager {
 
         }
         guiWrapper.updateGUIFields();
-
-
     }
-
-
+*/
 }
