@@ -13,7 +13,16 @@
 
     <movecard onUseDescription="takeCardOrMoveCardOnUseDesc" type="TakeOrMove"/>
 
-    <!-- Free Property cards -->
+    <!-- BuildingFees cards -->
+
+
+    <!-- ModifyMoney cards -->
+
+
+    <!-- MoveRelative cards -->
+
+
+    <!-- MoveToNearest cards -->
     <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="brown"/>
     <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="orange"/>
     <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="orange,green"/>
@@ -22,12 +31,9 @@
     <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="cyan,red"/>
     <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="brown,yellow"/>
 
+    <!-- TeleportToNearest cards -->
+    <teleportcard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" type="Teleportation"/>
 
-    <!-- Figure cards -->
-    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Dog"/>
-    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Cat"/>
-    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Boat"/>
-    <movecard onDrawDescription="figureCardOnDrawDesc" onUseDescription="figureCardOnUseDesc" type="Figure" piece="Car"/>
-    <!-- Jail cards -->
+    <!-- Pardon cards -->
     <jailcard onDrawDescription="jailCardOnDrawDesc" onUseDescription="jailCardOnUseDesc"/>
 </cards>
