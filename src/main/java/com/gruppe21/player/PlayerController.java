@@ -45,7 +45,6 @@ public class PlayerController {
      * @return getBalance() new balance
      */
     public int addBalance(int value) {
-        setBalance(getBalance() + value);
-        return getBalance();
+        return player.setBalance(player.getBalance()) + value);
     }
 }
