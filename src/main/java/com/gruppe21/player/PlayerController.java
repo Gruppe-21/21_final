@@ -34,7 +34,7 @@ public class PlayerController {
         }
         addBalance(-debit);
         if (creditor != null){ //creditor == null -> creditor is the bank
-            creditor.getBankBalance().addBalance(debit);
+            creditor.addBalance(debit);
         }
     }
 
@@ -44,8 +44,8 @@ public class PlayerController {
      * @param amount
      * @return getBalance() new balance
      */
-    public int addBalance(int amount) {
-        setBalance(getBalance() + amount);
+    public int addBalance(int value) {
+        setBalance(getBalance() + value);
         return getBalance();
     }
 }
