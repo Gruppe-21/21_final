@@ -7,4 +7,9 @@ public class PropertySquareController extends SquareController {
     public PropertySquareController(Square model, SquareView view) {
         super(model, view);
     }
+
+    @Override
+    public void onMoveTo(PlayerController playerController) {
+        super.onMoveTo(playerController);
+    }
 }
