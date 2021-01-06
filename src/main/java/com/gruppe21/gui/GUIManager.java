@@ -1,11 +1,6 @@
 package com.gruppe21.gui;
 
-
-import com.gruppe21.game.Die;
-import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.squares.*;
 import com.gruppe21.player.Player;
-import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import gui_fields.*;
 
