@@ -27,7 +27,7 @@ public class PlayerController {
      */
     public void transferMoney(int debit, PlayerController creditor){
         if (creditor == this) return;
-        if (player.totalValue < debit){
+        if (player.getTotalValue() < debit){
             //We have gone bankrupt
             //Sell houses
             //Transfer cash

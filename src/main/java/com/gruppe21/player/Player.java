@@ -9,10 +9,12 @@ public class Player {
     private static final int START_FUNDS = 30000;
 
     SquareController position;
-    int balance;
-    int totalValue;
-    int numSubscribers = 0;
+    private int balance;
+    private int totalValue;
+    private int numSubscribers = 0;
     Deck heldCards;
+    private int statusEffect;
+
     Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
 
     public Player(){
@@ -56,6 +58,10 @@ public class Player {
         totalValue += balance - this.balance;
         this.balance = balance;
         return getBalance();
+    }
+
+    public int getTotalValue(){
+        return totalValue;
     }
 
 }
