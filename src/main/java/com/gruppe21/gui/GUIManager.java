@@ -1,7 +1,6 @@
 package com.gruppe21.gui;
 
-import com.gruppe21.player.Player;
-import com.gruppe21.utils.localisation.Localisation;
+import com.gruppe21.player.PlayerController;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -19,9 +18,9 @@ public class GUIManager {
      *
      * @param board
      */
-    public GUIManager(Board board, Player... players){
-        //This probably should *not* be done in the constructor as the players probably first should choose language.
-        //Or maybe that should just be done here first? The players should also give their names and choose a piece
+    public GUIManager(Board board, PlayerController... playerControllers){
+        //This probably should *not* be done in the constructor as the players probably first should choose a language.
+        //Or maybe that should just be done here first? The players should also give their names and choose a piece/color?
         //presumably this has already happened, or should GUIManager be responsible for that? That seems kinda wrong to
         //me but maybe that would be best. If not then this really shouldn't be done here, as we should probably
         //get that information before creating the board and adding the players. Or maybe we want to add them to the
@@ -33,6 +32,9 @@ public class GUIManager {
             fields[i] = squares.getField();
         }
         gui = new GUI(fields, backgroundColor);
+        for (GUI_Player gui_player : playerControllers.getPlayer().getGuiplayer()) {
+            gui.addPlayer(gui_player);
+        }
     }
 
     /**
