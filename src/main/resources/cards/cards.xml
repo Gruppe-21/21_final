@@ -20,20 +20,20 @@
 
 
     <!-- MoveRelative cards -->
-
+    <moveRelativecard onUseDescription="frederiksbergCardOnUseDesc"  type="MoveToSquare" label="Frederiksberg Allé"/>
+    <moveRelativecard onUseDescription="mols-linjenCardOnUseDesc"  type="MoveToSquare" label="Mols-Linien"/>
+    <moveRelativecard onUseDescription="grønningenCardOnUseDesc"  type="MoveToSquare" label="Grønningen"/>
+    <moveRelativecard onUseDescription="vimmelskaftetCardOnUseDesc"  type="MoveToSquare" label="Vimmelskaftet"/>
+    <moveRelativecard onUseDescription="strandvejenCardOnUseDesc"  type="MoveToSquare" label="Strandvejen"/>
 
     <!-- MoveToNearest cards -->
-    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="brown"/>
-    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="orange"/>
-    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="orange,green"/>
-    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="cyan"/>
-    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="pink,blue"/>
-    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="cyan,red"/>
-    <movecard onUseDescription="propertyCardOnUseDesc" type="FreeSquare" color="brown,yellow"/>
+    <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Rederi"/>
+    <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Færge"/>
 
     <!-- TeleportToNearest cards -->
-    <teleportcard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" type="Teleportation"/>
+    <teleportcard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" type="Teleport" label="Fængslet"/>
+    <teleportcard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" type="Teleport" label="Rådhuspladsen"/>
 
     <!-- Pardon cards -->
-    <jailcard onDrawDescription="jailCardOnDrawDesc" onUseDescription="jailCardOnUseDesc"/>
+    <pardoncard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/>
 </cards>
