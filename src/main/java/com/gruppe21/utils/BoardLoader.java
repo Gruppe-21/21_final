@@ -1,6 +1,10 @@
 package com.gruppe21.utils;
 
+import com.gruppe21.squares.controllers.CardSquareController;
+import com.gruppe21.squares.controllers.PropertySquareController;
+import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.squares.models.*;
+import com.gruppe21.squares.views.SquareView;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
@@ -24,14 +28,14 @@ public class BoardLoader {
     public static String TAG_CARD = "cards";
 
 
-    public static Square[] loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
+    public static SquareController[] loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument(BOARD_DIRECTORY + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, TAG_BOARD);
 
         return getSquaresFromNodeList(boardNodes);
     }
 
-    private static Square[] getSquaresFromNodeList(NodeList boardNodes) {
+    private static SquareController[] getSquaresFromNodeList(NodeList boardNodes) {
         int elementsCount = 0;
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
@@ -40,7 +44,7 @@ public class BoardLoader {
                 elementsCount++;
             }
         }
-        Square[] squares = new Square[elementsCount];
+        SquareController[] squares = new SquareController[elementsCount];
 
         int currentElementIndex = 0;
         for (int i = 0; i < boardNodes.getLength(); i++) {
@@ -53,22 +57,32 @@ public class BoardLoader {
         return squares;
     }
 
-    private static Square addXMLSquareToArrayList(Element tag) {
+    private static SquareController addXMLSquareToArrayList(Element tag) {
         Localisation localisation = new Localisation();
         String elementName = tag.getNodeName();
         switch (elementName) {
             case "StartSquare":
-                return new MoneySquare(tag);
+                MoneySquare moneySquareModel = new MoneySquare(tag);
+                SquareView moneyView = new SquareView();
+                return new SquareController(moneySquareModel, moneyView);
             case "PropertySquare":
-                return new PropertySquare(tag);
+                PropertySquare propertyModel = new PropertySquare(tag);
+                SquareView propertyView = new SquareView();
+                return new PropertySquareController(propertyModel, propertyView);
             case "ChanceSquare":
-                return new CardSquare(tag);
+                CardSquare cardSquareModel = new CardSquare(tag);
+                SquareView cardSquareView = new SquareView();
+                return new CardSquareController(cardSquareModel, cardSquareView);
             case "GoToPrisonSquare":
-                return new TeleportSquare(tag);
+                TeleportSquare teleportSquareModel = new TeleportSquare(tag);
+                SquareView teleportSquareView = new SquareView();
+                return new SquareController(teleportSquareModel, teleportSquareView);
             case "PrisonSquare":
             case "FreeParkingSquare":
             default:
-                return new Square(tag);
+                Square squareModel = new Square(tag);
+                SquareView squareView = new SquareView();
+                return new SquareController(squareModel, squareView);
         }
     }
 
