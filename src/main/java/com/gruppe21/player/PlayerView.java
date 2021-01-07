@@ -19,9 +19,18 @@ public class PlayerView {
         this(name, balance, new GUI_Car(primaryColor, secondaryColor, carType, pattern));
     }
 
+    /**
+     *
+     * @param diceValues
+     */
     public void rollDice(int... diceValues){
-        GUIManager.getInstance().waitForUserAcknowledgement("ROLL TEXT (PlayerView rollDice)"); //TODO: use localisation
+        GUIManager guiManager = GUIManager.getInstance();
+        //tells the player to roll
+        guiManager.waitForUserAcknowledgement("ROLL TEXT (PlayerView rollDice)"); //TODO: use localisation
+        //What if there isn't two values?
+        guiManager.rollDice(diceValues[0], diceValues[1]);
     }
+
 
     public void movePlayer(SquareController squareController){
         GUIManager.getInstance().setPlayerPosition(gui_player, squareController.getSquareField());
