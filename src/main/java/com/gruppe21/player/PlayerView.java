@@ -9,13 +9,8 @@ import gui_fields.GUI_Player;
 import java.awt.*;
 
 public class PlayerView {
-    private GUI_Player guiPlayer;
 
     public PlayerView(){
-    }
-
-    public void initGuiPlayer(String name, int balance, GUI_Car car){
-        guiPlayer = new GUI_Player(name, balance, car);
     }
 
     /**
@@ -42,6 +37,10 @@ public class PlayerView {
     public GUI_Car customiseCar(){
         //TODO: ask player to customise their car.
         return new GUI_Car(colors[colorToUse], Color.black, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
+    }
+
+    public void addToGui(GUI_Player guiPlayer){
+        GUIManager.getInstance().addPlayer(guiPlayer);
     }
 
     //Temporary

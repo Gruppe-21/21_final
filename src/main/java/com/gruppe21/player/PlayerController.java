@@ -2,6 +2,7 @@ package com.gruppe21.player;
 
 import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.SquareController;
+import gui_fields.GUI_Player;
 
 public class PlayerController {
 
@@ -14,9 +15,10 @@ public class PlayerController {
         player = new Player();
         playerView = new PlayerView();
         player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
+        player.setGuiPlayer(new GUI_Player(player.getName(), player.getBalance(), playerView.customiseCar()));
+
         playerView.initGuiPlayer(player.getName(), player.getBalance(), playerView.customiseCar());
-
-
+        playerView.addToGui(player.getGuiPlayer());
     }
 
     public void takeTurn(){

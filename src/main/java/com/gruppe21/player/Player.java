@@ -1,5 +1,6 @@
 package com.gruppe21.player;
 import com.gruppe21.squares.controllers.SquareController;
+import gui_fields.GUI_Player;
 
 import java.util.Objects;
 
@@ -19,6 +20,8 @@ public class Player {
     private int totalValue;
     private Deck heldCards;
     private int statusEffects;
+
+    private GUI_Player guiPlayer;
 
     private int numSubscribers = 0;
 
@@ -91,5 +94,12 @@ public class Player {
         return this.heldCards;
     }
 
+    public GUI_Player getGuiPlayer() {
+        return guiPlayer;
+    }
+
+    public void setGuiPlayer(GUI_Player guiPlayer) {
+        this.guiPlayer = guiPlayer;
+    }
 }
 
