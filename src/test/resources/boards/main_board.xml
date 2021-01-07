@@ -6,7 +6,7 @@
                     rent_1house="250" rent_2house="750" rent_3house="2250" rent_4house="4000" rent_hotel="6000"
                     houseCost="1000" hotelCost="1000" pawnValue="600"/>
     <ChanceSquare id="3" label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"  rent_base="50"
+    <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue" rent_base="50"
                     rent_1house="250" rent_2house="750" rent_3house="2250" rent_4house="4000" rent_hotel="6000"
                     houseCost="1000" hotelCost="1000" pawnValue="600"/>
     <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
@@ -17,7 +17,8 @@
                     rent_1house="600" rent_2house="1800" rent_3house="5400" rent_4house="8000" rent_hotel="11000"
                     houseCost="1000" hotelCost="1000" pawnValue="1000"/>
     <ChanceSquare id="8" label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare id="9" label="valby langgade" description="valbyLanggadedesc" price="2000" color="orange" rent_base="100"
+    <PropertySquare id="9" label="valby langgade" description="valbyLanggadedesc" price="2000" color="orange"
+                    rent_base="100"
                     rent_1house="600" rent_2house="1800" rent_3house="5400" rent_4house="8000" rent_hotel="11000"
                     houseCost="1000" hotelCost="1000" pawnValue="1000"/>
     <PropertySquare id="10" label="allégade" description="allégadedesc" price="2400" color="orange" rent_base="150"
@@ -25,7 +26,8 @@
                     houseCost="1000" hotelCost="1000" pawnValue="1200"/>
     <PrisonVisitSquare id="11" label="på besøg" description="påBesøgdesc"/>
 
-    <PropertySquare id="12" label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="brown" rent_base="200"
+    <PropertySquare id="12" label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="brown"
+                    rent_base="200"
                     rent_1house="1000" rent_2house="3000" rent_3house="9000" rent_4house="12500" rent_hotel="15000"
                     houseCost="2000" hotelCost="2000" pawnValue="1400"/>
     <PropertySquare id="13" label="tuborg squash tapperi" description="tuborgSquashTapperidesc" price="3000"
@@ -33,12 +35,14 @@
     <PropertySquare id="14" label="bülowsvej" description="bülowsvejdesc" price="2800" color="brown" rent_base="200"
                     rent_1house="1000" rent_2house="3000" rent_3house="9000" rent_4house="12500" rent_hotel="15000"
                     houseCost="2000" hotelCost="2000" pawnValue="1400"/>
-    <PropertySquare id="15" label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="brown" rent_base="250"
+    <PropertySquare id="15" label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="brown"
+                    rent_base="250"
                     rent_1house="1250" rent_2house="3750" rent_3house="10000" rent_4house="14000" rent_hotel="18000"
                     houseCost="2000" hotelCost="2000" pawnValue="1600"/>
     <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="shippingCompany"/>
 
-    <PropertySquare id="17" label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey" rent_base="300"
+    <PropertySquare id="17" label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"
+                    rent_base="300"
                     rent_1house="1400" rent_2house="4000" rent_3house="11000" rent_4house="15000" rent_hotel="19000"
                     houseCost="2000" hotelCost="2000" pawnValue="1800"/>
     <ChanceSquare id="18" label="prøv lykken" description="prøvLykkendesc"/>
@@ -77,7 +81,8 @@
     <PropertySquare id="32" label="amagertorv" description="amagertorvdesc" price="6000" color="yellow" rent_base="550"
                     rent_1house="2600" rent_2house="7800" rent_3house="18000" rent_4house="22000" rent_hotel="25000"
                     houseCost="4000" hotelCost="4000" pawnValue="3000"/>
-    <PropertySquare id="33" label="vimmelskaftet" description="vimmelskaftetdesc" price="6000" color="yellow" rent_base="550"
+    <PropertySquare id="33" label="vimmelskaftet" description="vimmelskaftetdesc" price="6000" color="yellow"
+                    rent_base="550"
                     rent_1house="2600" rent_2house="7800" rent_3house="18000" rent_4house="22000" rent_hotel="25000"
                     houseCost="4000" hotelCost="4000" pawnValue="3000"/>
     <ChanceSquare id="34" label="prøv lykken" description="prøvLykkendesc"/>
@@ -87,11 +92,13 @@
     <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
 
     <ChanceSquare id="37" label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple" rent_base="700"
+    <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple"
+                    rent_base="700"
                     rent_1house="3500" rent_2house="10000" rent_3house="22000" rent_4house="26000" rent_hotel="30000"
                     houseCost="4000" hotelCost="4000" pawnValue="3500"/>
     <AddedTaxSquare id="39" label="ekstraordinær statsskat" description="ekstraordinærStatsskat" price="2000"/>
-    <PropertySquare id="40" label="rådhuspladsen" description="rådhuspladsendesc" price="8000" color="purple" rent_base="1000"
+    <PropertySquare id="40" label="rådhuspladsen" description="rådhuspladsendesc" price="8000" color="purple"
+                    rent_base="1000"
                     rent_1house="4000" rent_2house="12000" rent_3house="28000" rent_4house="34000" rent_hotel="40000"
                     houseCost="4000" hotelCost="4000" pawnValue="4000"/>
 
