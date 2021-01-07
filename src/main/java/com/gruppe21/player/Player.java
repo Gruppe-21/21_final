@@ -8,12 +8,14 @@ import java.util.Objects;
 public class Player {
     private static final int START_FUNDS = 30000;
 
-    SquareController position;
+    private String name;
+    private SquareController position;
     private int balance;
     private int totalValue;
-    private int numSubscribers = 0;
     Deck heldCards;
     private int statusEffects;
+
+    private int numSubscribers = 0;
 
     Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
 
@@ -66,6 +68,14 @@ public class Player {
 
     public int getStatusEffects(){
         return statusEffects;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
 }
