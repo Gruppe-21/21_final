@@ -38,6 +38,7 @@ public class ColorUtil {
                 return new Color(255,254,255);
             case "lightpink"
                 return new Color(255,230,235);
+            case ""
             default:
                 return Color.white;
         }
