@@ -25,6 +25,10 @@ public class Player {
         heldCards = new Deck();
     }
 
+    /**
+     *
+     * @param subscriber
+     */
     public void subscribeToOnMoved(Object subscriber){
         //Lengthens array if too short
         if (numSubscribers == onMovedSubscribers.length){
@@ -38,17 +42,17 @@ public class Player {
         numSubscribers++;
     }
 
+    /**
+     *
+     */
     private void notifyMove(){
         for (Object subscriber: onMovedSubscribers) {
             //notify them!
         }
     }
 
-    public void moveTo(SquareController squareController){
-
-    }
-
-    public void teleportTo(SquareController squareController){
+    public void updatePosition(SquareController squareController){
+        position = squareController;
 
     }
 
