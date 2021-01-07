@@ -7,6 +7,11 @@ import java.util.Objects;
 
 public class Player {
     private static final int START_FUNDS = 30000;
+    private static final int MAX_NAME_LENGTH = 25;
+
+    public static int getMaxNameLength() {
+        return MAX_NAME_LENGTH;
+    }
 
     private String name;
     private SquareController position;
