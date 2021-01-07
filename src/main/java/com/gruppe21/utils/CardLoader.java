@@ -15,7 +15,7 @@ public class CardLoader {
     public static String CARD_DIRECTORY = "/cards/";
     public static String TAG_CARD = "cards";
 
-    // Henter kort fra XML?
+    // Henter kort fra XML
     public static OurArrayList<Card> loadCards(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument(CARD_DIRECTORY + fileName); // Finder mappen /cards/ i resources
         NodeList cardNodes = XMLUtil.getNodeListFromTag(document, TAG_CARD); // Leder efter root-tag i /cards/ mappen
@@ -50,8 +50,13 @@ public class CardLoader {
             case "moveRelativecard":
                 final String square_IDStr = tag.getAttribute("ID"); // Gemmer indholdet af ID-tag
                 final int square_ID = square_IDStr.equals("") ? 0 : Integer.parseInt(square_IDStr); // Omdanner String til int
-                // final MoveRelativeCard type = MoveRelativeCard.valueOf(tag.getAttribute("type"));
-                chanceCards.add(new MoveRelativeCard(null, descriptionOnUseLabel, square_ID)); // Tilføjer kort til array.
+                //final MoveRelativeCard type = MoveRelativeCard.valueOf(tag.getAttribute("type"));
+
+                Card cardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,square_ID);
+                CardView view = new CardView();
+                CardController controller = new CardController(cardModel, view);
+
+                // TO-DO tilføj controller til array, når det er blevet gjort muligt :)
                 break;
             case "jailcard":
                 chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionOnDrawLabel, descriptionOnUseLabel));
