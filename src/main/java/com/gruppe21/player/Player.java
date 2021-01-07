@@ -12,7 +12,7 @@ public class Player {
     private SquareController position;
     private int balance;
     private int totalValue;
-    Deck heldCards;
+    private Deck heldCards;
     private int statusEffects;
 
     private int numSubscribers = 0;
@@ -76,6 +76,10 @@ public class Player {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public CardController getHeldCards(){
+        return this.heldCards;
     }
 
 }
