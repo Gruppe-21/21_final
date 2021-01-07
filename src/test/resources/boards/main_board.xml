@@ -14,6 +14,8 @@
     <PropertySquare label="allégade" description="allégadedesc" price="2400" color="red"/>
     <PrisonVisitSquare label="på besøg" description="påBesøgdesc"/>
 
+    <PropertySquare label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="yellow"/>
+
 
 
     <PropertySquare label="" description="" price="" color=""/>
