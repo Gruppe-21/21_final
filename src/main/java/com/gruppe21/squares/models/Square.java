@@ -97,4 +97,12 @@ public class Square {
     public void setGuiField(GUI_Field guiField) {
         this.guiField = guiField;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
 }
