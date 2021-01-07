@@ -10,10 +10,12 @@ public class Game {
     private final PlayerController[] playerControllers;
     private final Board board;
 
-    public Game(int numPlayers){
+    public Game(Board board, int numPlayers){
+        this.board = board;
         if (numPlayers < MIN_PLAYERS || numPlayers > MAX_PLAYERS){} //Throw exception
         this.numPlayers = numPlayers;
         playerControllers = new PlayerController[this.numPlayers];
+
     }
 
     public int getNumPlayers() {
@@ -22,5 +24,9 @@ public class Game {
 
     public PlayerController[] getPlayerControllers() {
         return playerControllers;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 }
