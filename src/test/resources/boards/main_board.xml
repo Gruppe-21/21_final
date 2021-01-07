@@ -24,6 +24,7 @@
     <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare label="hellerupvej" description="hellerupvejdesc" price="3600" color="grey"/>
     <PropertySquare label="strandvejen" description="strandvejendesc" price="4000" color="grey"/>
+    <ParkingSquare label="parkering" description="parkeringdesc"/>
 
     <PropertySquare label="" description="" price="" color=""/>
 
@@ -40,7 +41,7 @@
     <PropertySquare label="skatepark" description="skateparkdesc" price="2" color="orange"/>
     <PropertySquare label="swimmingpool" description="swimmingpooldesc" price="2" color="orange"/>
 
-    <FreeParkingSquare/>
+
 
     <PropertySquare label="arcade" description="arcadedesc" price="3" color="red"/>
     <PropertySquare label="cinema"  description="cinemadesc" price="3" color="red"/>
