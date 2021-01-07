@@ -77,7 +77,13 @@ public class GUIManager {
      * @return
      */
     public void rollDice(int dieValueA, int dieValueB){
+        if (gui == null) return;
         //if (isTest) return;
+    }
+
+    public void displayCard(String message){
+        if (gui == null) return;
+        gui.displayChanceCard(message);
     }
 
 
