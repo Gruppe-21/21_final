@@ -89,6 +89,10 @@ public class PlayerController {
         return player.setBalance(player.getBalance() + value);
     }
 
+    public String getName(){
+        return player.getName();
+    }
+
     public Player getPlayer() {
         return player;
     }
