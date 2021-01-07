@@ -29,17 +29,9 @@ public class PlayerController {
         getPlayer().updatePosition(squareController);
     }
 
-    public void teleportBy(int distance){
-
-    }
-
     public void moveTo(SquareController squareController){
         teleportTo(squareController);
         squareController.onMoveTo(this);
-    }
-
-    public void moveBy(int distance){
-
     }
 
 
