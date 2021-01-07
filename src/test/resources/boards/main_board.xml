@@ -18,7 +18,7 @@
     <PropertySquare label="tuborg squash" description="tuborgSquashdesc" price="3000" color="special"/>
     <PropertySquare label="bülowsvej" description="bülowsvejdesc" price="2800" color="yellow"/>
     <PropertySquare label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="yellow"/>
-    <PropertySquare label="mols-linien" description="mols-liniendesc" price="4000" color="special"/>
+    <PropertySquare label="mols-linien" description="mols-liniendesc" price="4000" color="red"/>
 
     <PropertySquare label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
 
