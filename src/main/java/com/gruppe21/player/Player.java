@@ -1,5 +1,6 @@
 package com.gruppe21.player;
 import com.gruppe21.squares.controllers.SquareController;
+import gui_fields.GUI_Player;
 
 import java.util.Objects;
 
@@ -7,13 +8,22 @@ import java.util.Objects;
 
 public class Player {
     private static final int START_FUNDS = 30000;
+    private static final int MAX_NAME_LENGTH = 25;
 
-    SquareController position;
+    public static int getMaxNameLength() {
+        return MAX_NAME_LENGTH;
+    }
+
+    private String name;
+    private SquareController position;
     private int balance;
     private int totalValue;
-    private int numSubscribers = 0;
-    Deck heldCards;
+    private Deck heldCards;
     private int statusEffects;
+
+    private GUI_Player guiPlayer;
+
+    private int numSubscribers = 0;
 
     Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
 
@@ -23,6 +33,10 @@ public class Player {
         heldCards = new Deck();
     }
 
+    /**
+     *
+     * @param subscriber
+     */
     public void subscribeToOnMoved(Object subscriber){
         //Lengthens array if too short
         if (numSubscribers == onMovedSubscribers.length){
@@ -36,18 +50,18 @@ public class Player {
         numSubscribers++;
     }
 
+    /**
+     *
+     */
     private void notifyMove(){
         for (Object subscriber: onMovedSubscribers) {
             //notify them!
         }
     }
 
-    public void moveTo(SquareController squareController){
-
-    }
-
-    public void teleportTo(SquareController squareController){
-
+    public void updatePosition(SquareController squareController){
+        position = squareController;
+        guiPlayer.getCar().setPosition(squareController.getSquareField());
     }
 
     public int getBalance(){
@@ -68,5 +82,24 @@ public class Player {
         return statusEffects;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public CardController getHeldCards(){
+        return this.heldCards;
+    }
+
+    public GUI_Player getGuiPlayer() {
+        return guiPlayer;
+    }
+
+    public void setGuiPlayer(GUI_Player guiPlayer) {
+        this.guiPlayer = guiPlayer;
+    }
 }
 
