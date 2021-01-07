@@ -45,6 +45,7 @@
     <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
     <ChanceSquare id="37" label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple"/>
 
     <PropertySquare id="" label="" description="" price="" color=""/>
 
