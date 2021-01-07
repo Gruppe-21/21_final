@@ -17,7 +17,9 @@
                     rent_1house="600" rent_2house="1800" rent_3house="5400" rent_4house="8000" rent_hotel="11000"
                     houseCost="1000" hotelCost="1000" pawnValue="1000"/>
     <ChanceSquare id="8" label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare id="9" label="valby langgade" description="valbyLanggadedesc" price="2000" color="orange"/>
+    <PropertySquare id="9" label="valby langgade" description="valbyLanggadedesc" price="2000" color="orange" rent_base="100"
+                    rent_1house="600" rent_2house="1800" rent_3house="5400" rent_4house="8000" rent_hotel="11000"
+                    houseCost="1000" hotelCost="1000" pawnValue="1000"/>
     <PropertySquare id="10" label="allégade" description="allégadedesc" price="2400" color="orange" rent_base="150"
                     rent_1house="800" rent_2house="2000" rent_3house="6000" rent_4house="9000" rent_hotel="12000"
                     houseCost="1000" hotelCost="1000" pawnValue="1200"/>
