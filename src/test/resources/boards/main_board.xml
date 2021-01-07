@@ -12,6 +12,7 @@
     <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare label="valby langgade" description="valbyLanggadedesc" price="2000" color="red"/>
     <PropertySquare label="allégade" description="allégadedesc" price="2400" color="red"/>
+    <PrisonVisitSquare label="på besøg" description="påBesøgdesc"/>
 
 
 
@@ -22,7 +23,7 @@
     <PropertySquare label="candystore" description="candystoredesc" price="1" color="cyan"/>
     <PropertySquare label="icecreamparlor" description="icecreamparlordesc" price="1" color="cyan"/>
 
-    <PrisonSquare/>
+
 
     <PropertySquare label="museum" description="museumdesc" price="2" color="pink"/>
     <PropertySquare label="library" description="librarydesc" price="2" color="pink"/>
