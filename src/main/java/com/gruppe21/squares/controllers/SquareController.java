@@ -28,6 +28,10 @@ public class SquareController {
         view.landedOnMessage(model, playerController.getPlayer());
     }
 
+    public SquareView getView(){ return view; }
+
+
+
 
 }
 
