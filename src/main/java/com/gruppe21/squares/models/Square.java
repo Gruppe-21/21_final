@@ -1,5 +1,8 @@
 package com.gruppe21.squares.models;
 
+import gui_fields.GUI_Empty;
+import gui_fields.GUI_Field;
+
 public class Square {
     /**
      * The effect that this square should apply to player when landed on
@@ -22,9 +25,17 @@ public class Square {
      */
     private String descriptionLocalisationId;
 
+    /**
+     * The visible field for the gui
+     */
+    private GUI_Field guiField;
+
+
+
     public Square(int statusEffect, int id) {
         this.statusEffect = statusEffect;
         this.id = id;
+        this.guiField = new GUI_Empty();
     }
 
     public int getStatusEffect() { return statusEffect; }
@@ -42,4 +53,12 @@ public class Square {
     public String getDescriptionLocalisationId() { return descriptionLocalisationId; }
 
     public void setDescriptionLocalisationId(String descriptionLocalisationId) { this.descriptionLocalisationId = descriptionLocalisationId; }
+
+    public GUI_Field getGuiField() {
+        return guiField;
+    }
+
+    public void setGuiField(GUI_Field guiField) {
+        this.guiField = guiField;
+    }
 }
