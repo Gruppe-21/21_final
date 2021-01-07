@@ -46,7 +46,9 @@
 
     <PropertySquare id="22" label="trianglen" description="trianglendesc" price="4400" color="red"/>
     <ChanceSquare id="23" label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare id="24" label="østerbrogade" description="østerbrogadedesc" price="4400" color="red"/>
+    <PropertySquare id="24" label="østerbrogade" description="østerbrogadedesc" price="4400" color="red" rent_base="350"
+                    rent_1house="1800" rent_2house="5000" rent_3house="14000" rent_4house="17500" rent_hotel="21000"
+                    houseCost="3000" hotelCost="3000" pawnValue="2200"/>
     <PropertySquare id="25" label="grønningen" description="grønningendesc" price="4800" color="red"/>
     <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
 
