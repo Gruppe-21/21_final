@@ -1,14 +1,43 @@
 package com.gruppe21.player;
 
+import com.gruppe21.game.GameController;
+import com.gruppe21.squares.controllers.SquareController;
+import gui_fields.GUI_Player;
+
 public class PlayerController {
 
     private Player player;
+    private PlayerView playerView;
+    private GameController gameController;
 
     public PlayerController(){
+        gameController = GameController.getInstance();
         player = new Player();
+        playerView = new PlayerView();
+        player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
+        player.setGuiPlayer(new GUI_Player(player.getName(), player.getBalance(), playerView.customiseCar()));
+
+        playerView.initGuiPlayer(player.getName(), player.getBalance(), playerView.customiseCar());
+        playerView.addToGui(player.getGuiPlayer());
     }
 
     public void takeTurn(){
+
+    }
+
+    public void moveTo(SquareController squareController){
+
+    }
+
+    public void moveBy(int distance){
+
+    }
+
+    public void teleportTo(SquareController squareController){
+
+    }
+
+    public void teleportBy(int distance){
 
     }
 

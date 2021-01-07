@@ -1,6 +1,4 @@
 package com.gruppe21.gui;
-
-import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
@@ -34,12 +32,21 @@ public class GUIManager {
      *
      * @param playerControllers
      */
+    /*
     public void addPlayers(PlayerController... playerControllers){
         //TODO: Figure out if players should be removed from the gui when they go bankrupt.
         for (PlayerController playerController: playerControllers) {
             gui.addPlayer(playerController.getGUIPlayer());
         }
 
+    }
+*/
+
+    public void addPlayer(GUI_Player... gui_players){
+        if (gui == null) return;
+        for (GUI_Player gui_player: gui_players) {
+            gui.addPlayer(gui_player);
+        }
     }
 
     /**
