@@ -1,6 +1,8 @@
-package com.gruppe21.card;
+package com.gruppe21.card.typeOfCards;
 
-public class TeleportToNearestCard extends Card{
+import com.gruppe21.card.typeOfCards.Card;
+
+public class TeleportToNearestCard extends Card {
     private final int id; //squareIndex prison?
 
     public TeleportToNearestCard(String descriptionOnDrawLabel, String descriptionOnUseLabel,int id) {

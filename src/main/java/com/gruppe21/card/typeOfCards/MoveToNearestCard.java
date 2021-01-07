@@ -1,6 +1,8 @@
-package com.gruppe21.card;
+package com.gruppe21.card.typeOfCards;
 
-public class MoveToNearestCard extends Card{
+import com.gruppe21.card.typeOfCards.Card;
+
+public class MoveToNearestCard extends Card {
 
     public MoveToNearestCard(String descriptionOnDrawLabel, String descriptionOnUseLabel) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);

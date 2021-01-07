@@ -1,6 +1,6 @@
-package com.gruppe21.card;
+package com.gruppe21.card.typeOfCards;
 
-public class BuildingFeesCard extends Card{
+public class BuildingFeesCard extends Card {
     private boolean hasBuilding; //Check for house or hotel
     private int feeAmount; //
 

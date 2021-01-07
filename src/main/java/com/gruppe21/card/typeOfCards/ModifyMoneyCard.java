@@ -1,6 +1,8 @@
-package com.gruppe21.card;
+package com.gruppe21.card.typeOfCards;
 
-public class ModifyMoneyCard extends Card{
+import com.gruppe21.card.typeOfCards.Card;
+
+public class ModifyMoneyCard extends Card {
     private int money;
 
     public ModifyMoneyCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int money) {

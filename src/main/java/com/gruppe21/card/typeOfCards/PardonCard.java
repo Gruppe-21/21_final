@@ -1,6 +1,8 @@
-package com.gruppe21.card;
+package com.gruppe21.card.typeOfCards;
 
-public class PardonCard extends Card{
+import com.gruppe21.card.typeOfCards.Card;
+
+public class PardonCard extends Card {
 
     public PardonCard(String descriptionOnDrawLabel, String descriptionOnUseLabel) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);

@@ -1,6 +1,8 @@
-package com.gruppe21.card;
+package com.gruppe21.card.typeOfCards;
 
-public class MoveRelativeCard extends Card{
+import com.gruppe21.card.typeOfCards.Card;
+
+public class MoveRelativeCard extends Card {
     private int square_ID; //squareIndex?
 
     public MoveRelativeCard(String descriptionOnDrawLabel,String descriptionOnUseLabel,int square_ID) {
