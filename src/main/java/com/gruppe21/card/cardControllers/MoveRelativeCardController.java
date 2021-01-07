@@ -1,14 +1,13 @@
 package com.gruppe21.card.cardControllers;
 
 import com.gruppe21.card.CardView;
-import com.gruppe21.card.typeOfCards.Card;
+import com.gruppe21.card.typeOfCards.MoveRelativeCard;
 
-public class MoveRelativeCardController {
-    private Card card;
-    private CardView cardView;
+public class MoveRelativeCardController extends CardController {
+    private MoveRelativeCard cardModel;
 
-    public MoveRelativeCardController(Card cardModel, CardView view) {
-        this.card = cardModel;
-        this.cardView = view;
+    public MoveRelativeCardController(CardView view, MoveRelativeCard cardModel) {
+        super(view);
+        this.cardModel = cardModel;
     }
 }

@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.Random;
 
 public class Deck {
-    private Card[] cards = new Card[20];
+    // private CardController[] cards = new CardController[32];
     private final int TOTAL_CARDS; // Antal af kort i alt
-    private int lastShuffle = 0;
+    private int cardsDrawn = 0;
     private boolean sinceLastShuffle;
 
     public Deck(){
@@ -23,20 +23,22 @@ public class Deck {
         TOTAL_CARDS = cards.length();
     }
 
-
+    /**
+     *
+     *  */
     public Card drawCard(){
-        Card card = cards[0];
+        CardController[] card = cards[0];
 
-        if (lastShuffle == TOTAL_CARDS) shuffleDeck();
-        lastShuffle++;
+        if (cardsDrawn == TOTAL_CARDS) shuffleDeck();
+        cardsDrawn++;
 
-        // Laver en kopi cardsCopy[] af cards[], hvor første index er fjernet
         Card[] cardsCopy = new Card[cards.length-1];
-        for(int i = 0, j = 1; i < cards.length; i++, j++){ //Er det muligt?
+        for(int i = 0, j = 1; j<cards.length; i++, j++){
             cardsCopy[i] = cards[j];
         }
         return card;
     }
+
 
     public void returnCard(--- returnCard){
 
