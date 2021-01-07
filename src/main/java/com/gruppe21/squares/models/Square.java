@@ -5,6 +5,7 @@ public class Square {
      * The effect that this square should apply to player when landed on
      */
     private int statusEffect;
+
     /**
      * Identifier for the square.
      * Use this for referencing on the board.
@@ -12,9 +13,14 @@ public class Square {
     private int id;
 
     /**
-     * Identifier used for getting the localized string
+     * Identifier used for getting the localized name of the square
      */
-    private String localisationId;
+    private String nameLocalisationId;
+
+    /**
+     * Identifier used for getting the localized description of the square
+     */
+    private String descriptionLocalisationId;
 
     public Square(int statusEffect, int id) {
         this.statusEffect = statusEffect;
@@ -29,8 +35,11 @@ public class Square {
 
     public void setId(int id) { this.id = id; }
 
-    public String getLocalisationId() { return localisationId; }
+    public String getNameLocalisationId() { return nameLocalisationId; }
 
-    public void setLocalisationId(String localisationId) { this.localisationId = localisationId; }
+    public void setNameLocalisationId(String nameLocalisationId) { this.nameLocalisationId = nameLocalisationId; }
 
+    public String getDescriptionLocalisationId() { return descriptionLocalisationId; }
+
+    public void setDescriptionLocalisationId(String descriptionLocalisationId) { this.descriptionLocalisationId = descriptionLocalisationId; }
 }
