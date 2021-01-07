@@ -1,18 +1,157 @@
 package com.gruppe21.gui;
 
-
-import com.gruppe21.game.Die;
-import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.squares.*;
-import com.gruppe21.player.Player;
-import com.gruppe21.utils.arrayutils.OurArrayList;
-import com.gruppe21.utils.localisation.Localisation;
+import com.gruppe21.player.PlayerController;
 import gui_fields.*;
+import gui_main.GUI;
 
 import java.awt.*;
 
 public class GUIManager {
+    //Do we want to use display/set chance cards?
 
+    private static final Color backgroundColor = Color.WHITE;
+
+    private static GUIManager guiManager;
+
+    private GUI gui;
+    private GUI_Field[] fields;
+
+    public GUIManager getInstance(){
+        if (guiManager == null) guiManager = new GUIManager();
+        return guiManager;
+    }
+
+    /**
+     *
+     * @param board
+     */
+    private GUIManager(Board board, PlayerController... playerControllers){
+        //This probably should *not* be done in the constructor as the players probably first should choose a language.
+        //Or maybe that should just be done here first? The players should also give their names and choose a piece/color?
+        //presumably this has already happened, or should GUIManager be responsible for that? That seems kinda wrong to
+        //me but maybe that would be best. If not then this really shouldn't be done here, as we should probably
+        //get that information before creating the board and adding the players. Or maybe we want to add them to the
+        //GUI first, and then update it as the players provide us with that sweet, thick, creamy knowledge we all so
+        //desperately desire.
+        //Also now it's a singleton it definitely probably shouldn't be done here.
+        Square[] squares = board.getSqaures();
+        fields = new GUI_Field[squares.length];
+        for (int i = 0; i < squares.length; i++) {
+            fields[i] = squares.getField();
+        }
+        gui = new GUI(fields, backgroundColor);
+        for (GUI_Player gui_player : playerControllers.getPlayer().getGuiplayer()) {
+            gui.addPlayer(gui_player);
+        }
+    }
+
+    /**
+     *
+     * @param dieValueA
+     * @param dieValueB
+     * @return
+     */
+    public int rollDice(int dieValueA, int dieValueB){
+
+    }
+
+    /**
+     *
+     */
+    public void movePlayer(){
+        //TODO: movePlayer
+    }
+
+
+
+
+    //Player inputs
+
+    /**
+     *
+     * @param message
+     */
+    public void waitForUserAcknowledgement(String message) {
+
+    }
+
+
+
+    /**
+     *
+     * @param message
+     * @param trueChoice
+     * @param falseChoice
+     * @return
+     */
+    public boolean getUserBoolean(String message, String trueChoice, String falseChoice){
+        //TODO: getUserBoolean
+    }
+
+    /**
+     *
+     * @param message
+     * @param buttonText
+     * @return
+     */
+    public String getUserButtonPress(String message, String... buttonText) {
+        //TODO: getUserButtonPress
+    }
+
+
+    //Notice this is different from getUserBoolean, which previously was called get user choice
+
+    /**
+     *
+     * @param message
+     * @param options
+     * @return
+     */
+    public String getUserChoiceDropDown(String message, String... options){
+        //TODO: getUserChoice
+    }
+
+
+    /**
+     *
+     * @param message
+     * @return
+     */
+    public String getUserTextInput(String message) {
+
+    }
+
+    /**
+     *
+     * @param message
+     * @return
+     */
+    public int getUserInteger(String message){
+
+    }
+
+    /**
+     *
+     * @param message
+     * @param minValue
+     * @param maxValue
+     * @return
+     */
+    public int getUserInteger(String message, int minValue, int maxValue){
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+/*
     public static GUIManager instance;
     public boolean isTest;
     private GUIWrapper guiWrapper;
@@ -167,9 +306,6 @@ public class GUIManager {
 
         }
         guiWrapper.updateGUIFields();
-
-
     }
-
-
+*/
 }
