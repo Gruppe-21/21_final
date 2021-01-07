@@ -11,7 +11,8 @@
                     houseCost="1000" hotelCost="1000" pawnValue="600"/>
     <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
                      value_alt="10%"/>
-    <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany" rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
+    <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"
+                    rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
 
     <PropertySquare id="7" label="roskildevej" description="roskildevejdesc" price="2000" color="orange" rent_base="100"
                     rent_1house="600" rent_2house="1800" rent_3house="5400" rent_4house="8000" rent_hotel="11000"
@@ -39,7 +40,8 @@
                     rent_base="250"
                     rent_1house="1250" rent_2house="3750" rent_3house="10000" rent_4house="14000" rent_hotel="18000"
                     houseCost="2000" hotelCost="2000" pawnValue="1600"/>
-    <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="shippingCompany" rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
+    <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="shippingCompany"
+                    rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
 
     <PropertySquare id="17" label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"
                     rent_base="300"
@@ -64,7 +66,8 @@
     <PropertySquare id="25" label="grønningen" description="grønningendesc" price="4800" color="red" rent_base="400"
                     rent_1house="2000" rent_2house="6000" rent_3house="15000" rent_4house="18500" rent_hotel="22000"
                     houseCost="3000" hotelCost="3000" pawnValue="2400"/>
-    <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany" rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
+    <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"
+                    rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
 
     <PropertySquare id="27" label="bredgade" description="bredgadedesc" price="5200" color="white" rent_base="450"
                     rent_1house="2200" rent_2house="6600" rent_3house="16000" rent_4house="19500" rent_hotel="23000"
@@ -72,7 +75,8 @@
     <PropertySquare id="28" label="kgs. nytorv" description="kgs.nytorvdesc" price="5200" color="white" rent_base="450"
                     rent_1house="2200" rent_2house="6600" rent_3house="16000" rent_4house="19500" rent_hotel="23000"
                     houseCost="3000" hotelCost="3000" pawnValue="2600"/>
-    <PropertySquare id="29" label="coca cola tapperi" description="cocaColaTapperidesc" price="3000" color="business" rent_owned1="100" rent_owned2="200" pawnValue="1500"/>
+    <PropertySquare id="29" label="coca cola tapperi" description="cocaColaTapperidesc" price="3000" color="business"
+                    rent_owned1="100" rent_owned2="200" pawnValue="1500"/>
     <PropertySquare id="30" label="østergade" description="østergadedesc" price="5600" color="white" rent_base="500"
                     rent_1house="2400" rent_2house="7200" rent_3house="17000" rent_4house="20500" rent_hotel="24000"
                     houseCost="3000" hotelCost="3000" pawnValue="2800"/>
@@ -89,7 +93,8 @@
     <PropertySquare id="35" label="nygade" description="nygadedesc" price="6400" color="yellow" rent_base="600"
                     rent_1house="3000" rent_2house="9000" rent_3house="20000" rent_4house="24000" rent_hotel="28000"
                     houseCost="4000" hotelCost="4000" pawnValue="3200"/>
-    <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany" rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
+    <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"
+                    rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
 
     <ChanceSquare id="37" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple"
