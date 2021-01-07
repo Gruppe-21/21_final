@@ -47,7 +47,7 @@
     <ChanceSquare id="37" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple"/>
     <AddedTaxSquare id="39" label="ekstraordinær statsskat" description="ekstraordinærStatsskat" price="2000"/>
-    <PropertySquare id="" label="" description="" price="" color=""/>
+    <PropertySquare id="40" label="rådhuspladsen" description="rådhuspladsendesc" price="8000" color="purple"/>
 
     <PropertySquare id="" label="" description="" price="" color=""/>
 
