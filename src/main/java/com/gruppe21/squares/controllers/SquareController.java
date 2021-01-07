@@ -29,7 +29,7 @@ public class SquareController {
         view.landedOnMessage(model, playerController.getPlayer());
     }
 
-    public GUI_Field getSquareGUIField(){return model.getGuiField();}
+    public GUI_Field getSquareField(){return model.getGuiField();}
 
     public SquareView getView(){ return view; }
 
