@@ -3,6 +3,8 @@
     <StartSquare label="start"/>
 
     <PropertySquare label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
+    <ChanceSquare label="prøv lykken" description="prøvlykkendesc"/>
+    <PropertySquare label="" description="" price="" color=""/>
 
 
 
