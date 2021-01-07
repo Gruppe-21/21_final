@@ -26,7 +26,7 @@
     <PropertySquare label="strandvejen" description="strandvejendesc" price="4000" color="grey"/>
     <ParkingSquare label="parkering" description="parkeringdesc"/>
 
-    <PropertySquare label="" description="" price="" color=""/>
+    <PropertySquare label="trianglen" description="trianglendesc" price="4400" color="red"/>
 
     <PropertySquare label="" description="" price="" color=""/>
     <GoToPrisonSquare/>
