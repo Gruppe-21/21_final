@@ -17,7 +17,6 @@ public class PlayerController {
         CardController card = deck.nextCard();
         player.getHeldCards().addCard(card);
         card.onDraw(this);
-        //Todo: probably call some function on the card. Also maybe add it to the players deck.
     }
 
 
