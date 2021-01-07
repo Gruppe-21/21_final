@@ -21,6 +21,7 @@
     <PropertySquare label="mols-linien" description="mols-liniendesc" price="4000" color="red"/>
 
     <PropertySquare label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
+    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
 
 
     <PropertySquare label="" description="" price="" color=""/>
