@@ -1,6 +1,5 @@
 package com.gruppe21.gui;
-
-import com.gruppe21.player.PlayerController;
+import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -25,24 +24,57 @@ public class GUIManager {
      *
      * @param board
      */
-    private GUIManager(Board board, PlayerController... playerControllers){
-        //This probably should *not* be done in the constructor as the players probably first should choose a language.
-        //Or maybe that should just be done here first? The players should also give their names and choose a piece/color?
-        //presumably this has already happened, or should GUIManager be responsible for that? That seems kinda wrong to
-        //me but maybe that would be best. If not then this really shouldn't be done here, as we should probably
-        //get that information before creating the board and adding the players. Or maybe we want to add them to the
-        //GUI first, and then update it as the players provide us with that sweet, thick, creamy knowledge we all so
-        //desperately desire.
-        //Also now it's a singleton it definitely probably shouldn't be done here.
-        Square[] squares = board.getSqaures();
-        fields = new GUI_Field[squares.length];
-        for (int i = 0; i < squares.length; i++) {
-            fields[i] = squares.getField();
-        }
+    private GUIManager(){
         gui = new GUI(fields, backgroundColor);
-        for (GUI_Player gui_player : playerControllers.getPlayer().getGuiplayer()) {
+    }
+
+    /**
+     *
+     * @param playerControllers
+     */
+    /*
+    public void addPlayers(PlayerController... playerControllers){
+        //TODO: Figure out if players should be removed from the gui when they go bankrupt.
+        for (PlayerController playerController: playerControllers) {
+            gui.addPlayer(playerController.getGUIPlayer());
+        }
+
+    }
+*/
+
+    public void addPlayer(GUI_Player... gui_players){
+        if (gui == null) return;
+        for (GUI_Player gui_player: gui_players) {
             gui.addPlayer(gui_player);
         }
+    }
+
+    /**
+     *
+     * @param board
+     */
+    public void displayBoard(Board board){
+        SquareController[] squareControllers = board.getSquareControllers();
+        fields = new GUI_Field[squareControllers.length];
+        for (int i = 0; i < squareControllers.length; i++) {
+            fields[i] = squareControllers[i].getSquareField();
+        }
+        reloadGUI();
+    }
+
+    /**
+     *
+     */
+    private void reloadGUI(){
+       gui.close();
+       gui = new GUI(fields, backgroundColor);
+    }
+
+    /**
+     *
+     */
+    public void close(){
+        if (gui != null) gui.close();
     }
 
     /**
@@ -51,15 +83,32 @@ public class GUIManager {
      * @param dieValueB
      * @return
      */
-    public int rollDice(int dieValueA, int dieValueB){
-
+    public void rollDice(int dieValueA, int dieValueB){
+        if (gui == null) return;
+        //TODO: randomize rotation and position
+        gui.setDice(dieValueA, dieValueB);
     }
 
     /**
      *
+     * @param message
      */
-    public void movePlayer(){
-        //TODO: movePlayer
+    public void displayCard(String message){
+        if (gui == null) return;
+        gui.displayChanceCard(message);
+    }
+
+
+    //
+    //Should this method even be here or should playerView do this itself?
+    //
+    /**
+     *
+     * @param player
+     * @param field
+     */
+    public void setPlayerPosition(GUI_Player player, GUI_Field field){
+        player.getCar().setPosition(field);
     }
 
 
@@ -72,7 +121,8 @@ public class GUIManager {
      * @param message
      */
     public void waitForUserAcknowledgement(String message) {
-
+        if (gui == null) return;
+        gui.showMessage(message);
     }
 
 
@@ -85,7 +135,8 @@ public class GUIManager {
      * @return
      */
     public boolean getUserBoolean(String message, String trueChoice, String falseChoice){
-        //TODO: getUserBoolean
+        if (gui == null) return Math.random() < 0.5;
+        return gui.getUserLeftButtonPressed(message, trueChoice, falseChoice);
     }
 
     /**
@@ -95,12 +146,12 @@ public class GUIManager {
      * @return
      */
     public String getUserButtonPress(String message, String... buttonText) {
-        //TODO: getUserButtonPress
+        if (gui == null) return buttonText[(int) (Math.random() * (buttonText.length + 1))];
+        return gui.getUserButtonPressed(message, buttonText);
     }
 
 
     //Notice this is different from getUserBoolean, which previously was called get user choice
-
     /**
      *
      * @param message
@@ -108,7 +159,8 @@ public class GUIManager {
      * @return
      */
     public String getUserChoiceDropDown(String message, String... options){
-        //TODO: getUserChoice
+        if (gui == null) return buttonText[(int) (Math.random() * (options.length + 1))];
+        return gui.getUserSelection(message, options);
     }
 
 
@@ -118,8 +170,33 @@ public class GUIManager {
      * @return
      */
     public String getUserTextInput(String message) {
-
+        if (gui == null){
+            return getUserTextInput(message, 5, 25, false);
+        }
+        return gui.getUserString(message);
     }
+
+    /**
+     *
+     * @param message
+     * @param minLength
+     * @param maxLength
+     * @param allowWhiteSpace
+     * @return
+     */
+    public String getUserTextInput(String message, int minLength, int maxLength, boolean allowWhiteSpace) {
+        if (gui == null){
+            //Maybe should be in a different class. (Stringutils)
+            String randASCIIString = "";
+            int stringLength = minLength; // (int) (Math.random() * 21); //((25-5)+1) == 21
+            for (int i = 0; i < stringLength; i++) {
+                randASCIIString += ((int)(Math.random() * (('Z' - 'A') + 1))) + Math.random() < 0.5 ? 0 : 20;
+            }
+            return randASCIIString;
+        }
+        return gui.getUserString(message, minLength, maxLength, allowWhiteSpace);
+    }
+
 
     /**
      *
@@ -127,7 +204,8 @@ public class GUIManager {
      * @return
      */
     public int getUserInteger(String message){
-
+        if (gui == null) return getUserInteger(message, 0, 10000);
+        return gui.getUserInteger(message);
     }
 
     /**
@@ -138,7 +216,8 @@ public class GUIManager {
      * @return
      */
     public int getUserInteger(String message, int minValue, int maxValue){
-
+        if (gui == null) return (int) (Math.random() * (maxValue - minValue + 1))
+        return gui.getUserInteger(message, minValue, maxValue);
     }
 
 

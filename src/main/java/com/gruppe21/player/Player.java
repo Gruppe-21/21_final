@@ -1,5 +1,6 @@
 package com.gruppe21.player;
 import com.gruppe21.squares.controllers.SquareController;
+import gui_fields.GUI_Player;
 
 import java.util.Objects;
 
@@ -7,6 +8,11 @@ import java.util.Objects;
 
 public class Player {
     private static final int START_FUNDS = 30000;
+    private static final int MAX_NAME_LENGTH = 25;
+
+    public static int getMaxNameLength() {
+        return MAX_NAME_LENGTH;
+    }
 
     private String name;
     private SquareController position;
@@ -14,6 +20,8 @@ public class Player {
     private int totalValue;
     private Deck heldCards;
     private int statusEffects;
+
+    private GUI_Player guiPlayer;
 
     private int numSubscribers = 0;
 
@@ -25,6 +33,10 @@ public class Player {
         heldCards = new Deck();
     }
 
+    /**
+     *
+     * @param subscriber
+     */
     public void subscribeToOnMoved(Object subscriber){
         //Lengthens array if too short
         if (numSubscribers == onMovedSubscribers.length){
@@ -38,18 +50,18 @@ public class Player {
         numSubscribers++;
     }
 
+    /**
+     *
+     */
     private void notifyMove(){
         for (Object subscriber: onMovedSubscribers) {
             //notify them!
         }
     }
 
-    public void moveTo(SquareController squareController){
-
-    }
-
-    public void teleportTo(SquareController squareController){
-
+    public void updatePosition(SquareController squareController){
+        position = squareController;
+        guiPlayer.getCar().setPosition(squareController.getSquareField());
     }
 
     public int getBalance(){
@@ -82,5 +94,12 @@ public class Player {
         return this.heldCards;
     }
 
+    public GUI_Player getGuiPlayer() {
+        return guiPlayer;
+    }
+
+    public void setGuiPlayer(GUI_Player guiPlayer) {
+        this.guiPlayer = guiPlayer;
+    }
 }
 
