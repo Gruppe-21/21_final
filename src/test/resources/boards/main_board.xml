@@ -2,7 +2,9 @@
 <board>
     <StartSquare id="1" label="start" description="startdesc"/>
 
-    <PropertySquare id="2" label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
+    <PropertySquare id="2" label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue" rent_base="50"
+                    rent_1house="250" rent_2house="750" rent_3house="2250" rent_4house="4000" rent_hotel="6000"
+                    houseCost="1000" hotelCost="1000" pawnValue="600"/>
     <ChanceSquare id="3" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
     <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
@@ -16,7 +18,8 @@
     <PrisonVisitSquare id="11" label="på besøg" description="påBesøgdesc"/>
 
     <PropertySquare id="12" label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="brown"/>
-    <PropertySquare id="13" label="tuborg squash tapperi" description="tuborgSquashTapperidesc" price="3000" color="business"/>
+    <PropertySquare id="13" label="tuborg squash tapperi" description="tuborgSquashTapperidesc" price="3000"
+                    color="business"/>
     <PropertySquare id="14" label="bülowsvej" description="bülowsvejdesc" price="2800" color="brown"/>
     <PropertySquare id="15" label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="brown"/>
     <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="shippingCompany"/>
