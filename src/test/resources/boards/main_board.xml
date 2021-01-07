@@ -5,6 +5,7 @@
     <PropertySquare label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
     <ChanceSquare label="prøv lykken" description="prøvlykkendesc"/>
     <PropertySquare label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
+    <TaxSquare label="betal indkomstskat" value_main="4000" value_alt="10%"/>
 
 
 
