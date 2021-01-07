@@ -7,7 +7,7 @@
     <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
     <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
                      value_alt="10%"/>
-    <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
+    <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
 
     <PropertySquare id="7" label="roskildevej" description="roskildevejdesc" price="2000" color="orange"/>
     <ChanceSquare id="8" label="prøv lykken" description="prøvLykkendesc"/>
@@ -19,7 +19,7 @@
     <PropertySquare id="13" label="tuborg squash" description="tuborgSquashdesc" price="3000" color="red"/>
     <PropertySquare id="14" label="bülowsvej" description="bülowsvejdesc" price="2800" color="brown"/>
     <PropertySquare id="15" label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="brown"/>
-    <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="red"/>
+    <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="shippingCompany"/>
 
     <PropertySquare id="17" label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
     <ChanceSquare id="18" label="prøv lykken" description="prøvLykkendesc"/>
@@ -31,7 +31,7 @@
     <ChanceSquare id="23" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="24" label="østerbrogade" description="østerbrogadedesc" price="4400" color="red"/>
     <PropertySquare id="25" label="grønningen" description="grønningendesc" price="4800" color="red"/>
-    <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
+    <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
 
     <PropertySquare id="27" label="bredgade" description="bredgadedesc" price="5200" color="white"/>
     <PropertySquare id="28" label="kgs. nytorv" description="kgs.nytorvdesc" price="5200" color="white"/>
@@ -43,7 +43,7 @@
     <PropertySquare id="33" label="vimmelskaftet" description="vimmelskaftetdesc" price="6000" color="yellow"/>
     <ChanceSquare id="34" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="35" label="nygade" description="nygadedesc" price="6400" color="yellow"/>
-    <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
+    <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
 
     <ChanceSquare id="37" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple"/>
