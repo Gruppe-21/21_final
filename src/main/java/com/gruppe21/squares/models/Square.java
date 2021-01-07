@@ -3,6 +3,7 @@ package com.gruppe21.squares.models;
 public class Square {
     private int statusEffect;
     private int id;
+    private String localisationId;
 
     public Square(int statusEffect, int id) {
         this.statusEffect = statusEffect;
@@ -23,5 +24,13 @@ public class Square {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getLocalisationId() {
+        return localisationId;
+    }
+
+    public void setLocalisationId(String localisationId) {
+        this.localisationId = localisationId;
     }
 }
