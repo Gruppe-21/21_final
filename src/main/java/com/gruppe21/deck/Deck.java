@@ -14,13 +14,16 @@ public class Deck {
     private int cardsDrawn = 0;
     private boolean sinceLastShuffle;
 
+    /**
+     * Loads cards into an array called "cards"
+     */
     public Deck(){
         try {
             cards = CardLoader.loadCards("cards");
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
-        TOTAL_CARDS = cards.length();
+        TOTAL_CARDS = cards.length;
     }
 
     /**

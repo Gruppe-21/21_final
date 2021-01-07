@@ -34,7 +34,11 @@ public class CardLoader {
         return getCardsFromNodeList(cardNodes); // Return alt indhold af root-tag (cards)
     }
 
-    // Kører igennem alle child tags af root-tag (cards)
+    /**
+     * Checks every child tags from root-tag (cards)
+     * @param boardNodes
+     * @return
+     */
     private static CardController[] getCardsFromNodeList(NodeList boardNodes) {
         CardController[] chanceCards = new CardController[32];
 
