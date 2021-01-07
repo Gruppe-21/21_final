@@ -32,6 +32,8 @@
     <PropertySquare id="25" label="grønningen" description="grønningendesc" price="4800" color="red"/>
     <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
+    <PropertySquare id="27" label="bredgade" description="bredgadedesc" price="5200" color="white"/>
+
     <PropertySquare id="" label="" description="" price="" color=""/>
     <GoToPrisonSquare/>
 
