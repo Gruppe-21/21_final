@@ -5,7 +5,8 @@
     <PropertySquare id="2" label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
     <ChanceSquare id="3" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
-    <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000" value_alt="10%"/>
+    <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
+                     value_alt="10%"/>
     <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
     <PropertySquare id="7" label="roskildevej" description="roskildevejdesc" price="2000" color="red"/>
@@ -48,9 +49,5 @@
     <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple"/>
     <AddedTaxSquare id="39" label="ekstraordinær statsskat" description="ekstraordinærStatsskat" price="2000"/>
     <PropertySquare id="40" label="rådhuspladsen" description="rådhuspladsendesc" price="8000" color="purple"/>
-
-    <PropertySquare id="" label="" description="" price="" color=""/>
-
-
 
 </board>
