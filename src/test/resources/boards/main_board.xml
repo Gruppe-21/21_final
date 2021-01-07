@@ -64,7 +64,7 @@
     <PropertySquare id="25" label="grønningen" description="grønningendesc" price="4800" color="red" rent_base="400"
                     rent_1house="2000" rent_2house="6000" rent_3house="15000" rent_4house="18500" rent_hotel="22000"
                     houseCost="3000" hotelCost="3000" pawnValue="2400"/>
-    <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
+    <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany" rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
 
     <PropertySquare id="27" label="bredgade" description="bredgadedesc" price="5200" color="white" rent_base="450"
                     rent_1house="2200" rent_2house="6600" rent_3house="16000" rent_4house="19500" rent_hotel="23000"
