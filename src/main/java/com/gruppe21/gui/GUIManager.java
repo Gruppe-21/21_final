@@ -35,7 +35,7 @@ public class GUIManager {
      * @param playerControllers
      */
     public void addPlayers(PlayerController... playerControllers){
-        //TODO: Figure out if players should be removed from the gui when the go bankrupt.
+        //TODO: Figure out if players should be removed from the gui when they go bankrupt.
         for (PlayerController playerController: playerControllers) {
             gui.addPlayer(playerController.getGUIPlayer());
         }
