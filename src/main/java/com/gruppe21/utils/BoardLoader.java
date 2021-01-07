@@ -78,11 +78,7 @@ public class BoardLoader {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
-        String name = tag.getAttribute("label");
-        String priceStr = tag.getAttribute("price");
-        int price = priceStr.isEmpty() ? 0 : parseInt(tag.getAttribute("price"));
-        Color color = ColorUtil.getColor(tag.getAttribute("color"));
-        String description = tag.getAttribute("description");
+
 
         switch (elementName) {
             case "StartSquare":
