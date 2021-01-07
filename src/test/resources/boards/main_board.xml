@@ -20,6 +20,8 @@
     <PropertySquare label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="yellow"/>
     <PropertySquare label="mols-linien" description="mols-liniendesc" price="4000" color="special"/>
 
+    <PropertySquare label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
+
 
     <PropertySquare label="" description="" price="" color=""/>
 
