@@ -21,6 +21,7 @@ public class PlayerController {
         CardController card = deck.nextCard();
         player.getHeldCards().addCard(card);
         card.onDraw(this);
+        return card; //Should it return void?
     }
 
 
