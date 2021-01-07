@@ -29,6 +29,7 @@
     <PropertySquare label="trianglen" description="trianglendesc" price="4400" color="red"/>
     <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare label="østerbrogade" description="østerbrogadedesc" price="4400" color="red"/>
+    <PropertySquare label="grønningen" description="grønningendesc" price="4800" color="red"/>
 
     <PropertySquare label="" description="" price="" color=""/>
     <GoToPrisonSquare/>
