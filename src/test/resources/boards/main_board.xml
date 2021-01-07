@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <board>
-    <StartSquare label="start" description="startdesc"/>
+    <StartSquare id="1" label="start" description="startdesc"/>
 
-    <PropertySquare label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
-    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
-    <TaxSquare label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000" value_alt="10%"/>
-    <PropertySquare label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
+    <PropertySquare id="2" label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
+    <ChanceSquare id="3" label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
+    <TaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000" value_alt="10%"/>
+    <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
-    <PropertySquare label="roskildevej" description="roskildevejdesc" price="2000" color="red"/>
-    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare label="valby langgade" description="valbyLanggadedesc" price="2000" color="red"/>
-    <PropertySquare label="allégade" description="allégadedesc" price="2400" color="red"/>
-    <PrisonVisitSquare label="på besøg" description="påBesøgdesc"/>
+    <PropertySquare id="7" label="roskildevej" description="roskildevejdesc" price="2000" color="red"/>
+    <ChanceSquare id="8" label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare id="9" label="valby langgade" description="valbyLanggadedesc" price="2000" color="red"/>
+    <PropertySquare id="10" label="allégade" description="allégadedesc" price="2400" color="red"/>
+    <PrisonVisitSquare id="11" label="på besøg" description="påBesøgdesc"/>
 
-    <PropertySquare label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="yellow"/>
-    <PropertySquare label="tuborg squash" description="tuborgSquashdesc" price="3000" color="red"/>
-    <PropertySquare label="bülowsvej" description="bülowsvejdesc" price="2800" color="yellow"/>
-    <PropertySquare label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="yellow"/>
-    <PropertySquare label="mols-linien" description="mols-liniendesc" price="4000" color="red"/>
+    <PropertySquare id="12" label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="yellow"/>
+    <PropertySquare id="13" label="tuborg squash" description="tuborgSquashdesc" price="3000" color="red"/>
+    <PropertySquare id="14" label="bülowsvej" description="bülowsvejdesc" price="2800" color="yellow"/>
+    <PropertySquare id="15" label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="yellow"/>
+    <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="red"/>
 
-    <PropertySquare label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
-    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare label="hellerupvej" description="hellerupvejdesc" price="3600" color="grey"/>
-    <PropertySquare label="strandvejen" description="strandvejendesc" price="4000" color="grey"/>
-    <ParkingSquare label="parkering" description="parkeringdesc"/>
+    <PropertySquare id="17" label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
+    <ChanceSquare id="18" label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare id="19" label="hellerupvej" description="hellerupvejdesc" price="3600" color="grey"/>
+    <PropertySquare id="20" label="strandvejen" description="strandvejendesc" price="4000" color="grey"/>
+    <ParkingSquare id="21" label="parkering" description="parkeringdesc"/>
 
-    <PropertySquare label="trianglen" description="trianglendesc" price="4400" color="red"/>
-    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare label="østerbrogade" description="østerbrogadedesc" price="4400" color="red"/>
-    <PropertySquare label="grønningen" description="grønningendesc" price="4800" color="red"/>
-    <PropertySquare label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
+    <PropertySquare id="22" label="trianglen" description="trianglendesc" price="4400" color="red"/>
+    <ChanceSquare id="23" label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare id="24" label="østerbrogade" description="østerbrogadedesc" price="4400" color="red"/>
+    <PropertySquare id="25" label="grønningen" description="grønningendesc" price="4800" color="red"/>
+    <PropertySquare id="26" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
-    <PropertySquare label="" description="" price="" color=""/>
+    <PropertySquare id="" label="" description="" price="" color=""/>
     <GoToPrisonSquare/>
 
 
