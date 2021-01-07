@@ -6,7 +6,9 @@
                     rent_1house="250" rent_2house="750" rent_3house="2250" rent_4house="4000" rent_hotel="6000"
                     houseCost="1000" hotelCost="1000" pawnValue="600"/>
     <ChanceSquare id="3" label="prøv lykken" description="prøvLykkendesc"/>
-    <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
+    <PropertySquare id="4" label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"  rent_base="50"
+                    rent_1house="250" rent_2house="750" rent_3house="2250" rent_4house="4000" rent_hotel="6000"
+                    houseCost="1000" hotelCost="1000" pawnValue="600"/>
     <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
                      value_alt="10%"/>
     <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
