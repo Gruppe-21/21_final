@@ -9,7 +9,8 @@
     <PropertySquare label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
     <PropertySquare label="roskildevej" description="roskildevejdesc" price="2000" color="red"/>
-
+    <ChanceSquare label="prøv lykken" description="prøvlykkendesc"/>
+    <PropertySquare label="" description="" price="" color=""/>
 
 
 
