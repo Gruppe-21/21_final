@@ -42,6 +42,7 @@
     <PropertySquare id="33" label="vimmelskaftet" description="vimmelskaftetdesc" price="6000" color="yellow"/>
     <ChanceSquare id="34" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="35" label="nygade" description="nygadedesc" price="6400" color="yellow"/>
+    <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
     <PropertySquare id="" label="" description="" price="" color=""/>
 
