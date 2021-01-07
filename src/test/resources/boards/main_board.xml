@@ -28,34 +28,8 @@
 
     <PropertySquare label="" description="" price="" color=""/>
 
-    <PropertySquare label="pizzeria" description="pizzeriadesc" price="1" color="brown"/>
-    <ChanceSquare/>
-    <PropertySquare label="candystore" description="candystoredesc" price="1" color="cyan"/>
-    <PropertySquare label="icecreamparlor" description="icecreamparlordesc" price="1" color="cyan"/>
-
-
-
-    <PropertySquare label="museum" description="museumdesc" price="2" color="pink"/>
-    <PropertySquare label="library" description="librarydesc" price="2" color="pink"/>
-    <ChanceSquare/>
-    <PropertySquare label="skatepark" description="skateparkdesc" price="2" color="orange"/>
-    <PropertySquare label="swimmingpool" description="swimmingpooldesc" price="2" color="orange"/>
-
-
-
-    <PropertySquare label="arcade" description="arcadedesc" price="3" color="red"/>
-    <PropertySquare label="cinema"  description="cinemadesc" price="3" color="red"/>
-    <ChanceSquare/>
-    <PropertySquare label="toystore" description="toystoredesc" price="3" color="yellow"/>
-    <PropertySquare label="petstore" description="petstoredesc" price="3" color="yellow"/>
-
+    <PropertySquare label="" description="" price="" color=""/>
     <GoToPrisonSquare/>
-
-    <PropertySquare label="bowlingalley" description="bowlingalleydesc" price="4" color="green"/>
-    <PropertySquare label="zoo" price="4" description="zoodesc" color="green"/>
-    <ChanceSquare/>
-    <PropertySquare label="waterpark" description="waterparkedesc" price="5" color="blue"/>
-    <PropertySquare label="boardwalk" description="boardwalkdesc" price="5" color="blue"/>
 
 
 </board>
