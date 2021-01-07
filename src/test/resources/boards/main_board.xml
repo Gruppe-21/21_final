@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <board>
-    <StartSquare label="go"/>
+    <StartSquare label="start"/>
 
     <PropertySquare label="burgerjoint" description="burgerjointdesc" price="1" color="brown"/>
     <PropertySquare label="pizzeria" description="pizzeriadesc" price="1" color="brown"/>
