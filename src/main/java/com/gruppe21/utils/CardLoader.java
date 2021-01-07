@@ -52,14 +52,22 @@ public class CardLoader {
                 final int square_ID = square_IDStr.equals("") ? 0 : Integer.parseInt(square_IDStr); // Omdanner String til int
                 //final MoveRelativeCard type = MoveRelativeCard.valueOf(tag.getAttribute("type"));
 
-                Card cardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,square_ID);
+                MoveRelativeCard cardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,square_ID);
                 CardView view = new CardView();
-                CardController controller = new CardController(cardModel, view);
+                MoveRelativeCardController controller = new MoveRelativeCardController(cardModel, view);
 
+                String[] str = new String[5];
+
+                Card[] str2 = new Card[46];
                 // TO-DO tilføj controller til array, når det er blevet gjort muligt :)
                 break;
-            case "jailcard":
-                chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionOnDrawLabel, descriptionOnUseLabel));
+
+            case "modifyMoneycard":
+
+                ModifyMoneyCard moneyCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,square_ID);
+                CardView view = new CardView();
+                MoneyCardController controller = new MoneyCardController(moneyCardModel, view);
+
                 break;
             case "movecard":
                 final String label = tag.getAttribute("label");

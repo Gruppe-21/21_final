@@ -26,7 +26,7 @@
     <modifyMoneycard onUseDescription="premiumBond" money="1000" type="ModifyMoney" label="Premium Bond"/>        <!-- Kort 17 nr. 2-->
     <modifyMoneycard onUseDescription="oldFurniture" money="1000" type="ModifyMoney" label="Old Furniture"/>      <!-- Kort 18 -->
     <modifyMoneycard onUseDescription="utilityGarden" money="200" type="ModifyMoney" label="Utility Garden"/>     <!-- Kort 19 -->
-    <!-- <modifyMoneycard onUseDescription="mataforLegat" money="40000" type="ModifyMoney" label="Matador Legat"/> --> <!-- Kort 20 -->
+    <!-- <modifyMoneycard onUseDescription="matadorLegat" money="40000" type="ModifyMoney" label="Matador Legat"/>     Kort 20 -->
 
     <!-- MoveRelative cards -->
     <moveRelativecard onUseDescription="startCardOnUseDesc" square_ID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
