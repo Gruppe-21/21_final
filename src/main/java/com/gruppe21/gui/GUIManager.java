@@ -78,9 +78,14 @@ public class GUIManager {
      */
     public void rollDice(int dieValueA, int dieValueB){
         if (gui == null) return;
-        //if (isTest) return;
+        //TODO: randomize rotation and position
+        gui.setDice(dieValueA, dieValueB);
     }
 
+    /**
+     *
+     * @param message
+     */
     public void displayCard(String message){
         if (gui == null) return;
         gui.displayChanceCard(message);
