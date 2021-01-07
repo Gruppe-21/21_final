@@ -39,6 +39,8 @@
     <PrisonSquare id="31" label="de fængsles" description="deFængslesdesc"/>
 
     <PropertySquare id="32" label="amagertorv" description="amagertorvdesc" price="6000" color="yellow"/>
+    <PropertySquare id="33" label="vimmelskaftet" description="vimmelskaftetdesc" price="6000" color="yellow"/>
+
 
     <PropertySquare id="" label="" description="" price="" color=""/>
 
