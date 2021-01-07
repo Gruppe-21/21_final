@@ -12,4 +12,7 @@ public class PropertySquareController extends SquareController {
     public void onMoveTo(PlayerController playerController) {
         super.onMoveTo(playerController);
     }
+
+
+    jhahhah
 }
