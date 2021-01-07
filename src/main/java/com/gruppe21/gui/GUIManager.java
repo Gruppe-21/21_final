@@ -103,7 +103,8 @@ public class GUIManager {
      * @param message
      */
     public void waitForUserAcknowledgement(String message) {
-
+        if (gui == null) return;
+        gui.showMessage(message);
     }
 
 
@@ -116,7 +117,8 @@ public class GUIManager {
      * @return
      */
     public boolean getUserBoolean(String message, String trueChoice, String falseChoice){
-        //TODO: getUserBoolean
+        if (gui == null) return Math.random() < 0.5;
+        return gui.getUserLeftButtonPressed(message, trueChoice, falseChoice);
     }
 
     /**
@@ -126,7 +128,8 @@ public class GUIManager {
      * @return
      */
     public String getUserButtonPress(String message, String... buttonText) {
-        //TODO: getUserButtonPress
+        if (gui == null) return buttonText[(int) (Math.random() * (buttonText.length + 1))];
+        return gui.getUserButtonPressed(message, buttonText);
     }
 
 
@@ -139,7 +142,8 @@ public class GUIManager {
      * @return
      */
     public String getUserChoiceDropDown(String message, String... options){
-        //TODO: getUserChoice
+        if (gui == null) return buttonText[(int) (Math.random() * (options.length + 1))];
+        return gui.getUserSelection(message, options);
     }
 
 
@@ -149,8 +153,25 @@ public class GUIManager {
      * @return
      */
     public String getUserTextInput(String message) {
-
+        if (gui == null){
+            return getUserTextInput(message, 5, 25, false);
+        }
+        return gui.getUserString(message);
     }
+
+    public String getUserTextInput(String message, int minLength, int maxLength, boolean allowWhiteSpace) {
+        if (gui == null){
+            //Maybe should be in a different class. (Stringutils)
+            String randASCIIString = "";
+            int stringLength = minLength; // (int) (Math.random() * 21); //((25-5)+1) == 21
+            for (int i = 0; i < stringLength; i++) {
+                randASCIIString += ((int)(Math.random() * (('Z' - 'A') + 1))) + Math.random() < 0.5 ? 0 : 20;
+            }
+            return randASCIIString;
+        }
+        return gui.getUserString(message, minLength, maxLength, allowWhiteSpace);
+    }
+
 
     /**
      *
