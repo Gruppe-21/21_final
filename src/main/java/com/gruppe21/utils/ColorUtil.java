@@ -34,6 +34,10 @@ public class ColorUtil {
                 return new Color(240, 40, 40);
             case "white":
                 return Color.WHITE;
+            case "milk":
+                return new Color(255,254,255);
+            case "lightpink"
+                return new Color(255,230,235);
             default:
                 return Color.white;
         }
