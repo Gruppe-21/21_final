@@ -134,7 +134,6 @@ public class GUIManager {
 
 
     //Notice this is different from getUserBoolean, which previously was called get user choice
-
     /**
      *
      * @param message
@@ -159,6 +158,14 @@ public class GUIManager {
         return gui.getUserString(message);
     }
 
+    /**
+     *
+     * @param message
+     * @param minLength
+     * @param maxLength
+     * @param allowWhiteSpace
+     * @return
+     */
     public String getUserTextInput(String message, int minLength, int maxLength, boolean allowWhiteSpace) {
         if (gui == null){
             //Maybe should be in a different class. (Stringutils)
@@ -179,7 +186,8 @@ public class GUIManager {
      * @return
      */
     public int getUserInteger(String message){
-
+        if (gui == null) return getUserInteger(message, 0, 10000);
+        return gui.getUserInteger(message);
     }
 
     /**
@@ -190,7 +198,8 @@ public class GUIManager {
      * @return
      */
     public int getUserInteger(String message, int minValue, int maxValue){
-
+        if (gui == null) return (int) (Math.random() * (maxValue - minValue + 1))
+        return gui.getUserInteger(message, minValue, maxValue);
     }
 
 
