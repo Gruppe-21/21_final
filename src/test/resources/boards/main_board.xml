@@ -17,7 +17,7 @@
     <PropertySquare label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="yellow"/>
     <PropertySquare label="tuborg squash" description="tuborgSquashdesc" price="3000" color="special"/>
     <PropertySquare label="bülowsvej" description="bülowsvejdesc" price="2800" color="yellow"/>
-
+    <PropertySquare label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="yellow"/>
 
 
     <PropertySquare label="" description="" price="" color=""/>
