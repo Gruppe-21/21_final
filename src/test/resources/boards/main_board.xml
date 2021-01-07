@@ -72,7 +72,7 @@
     <PropertySquare id="28" label="kgs. nytorv" description="kgs.nytorvdesc" price="5200" color="white" rent_base="450"
                     rent_1house="2200" rent_2house="6600" rent_3house="16000" rent_4house="19500" rent_hotel="23000"
                     houseCost="3000" hotelCost="3000" pawnValue="2600"/>
-    <PropertySquare id="29" label="coca cola tapperi" description="cocaColaTapperidesc" price="3000" color="business"/>
+    <PropertySquare id="29" label="coca cola tapperi" description="cocaColaTapperidesc" price="3000" color="business" rent_owned1="100" rent_owned2="200" pawnValue="1500"/>
     <PropertySquare id="30" label="østergade" description="østergadedesc" price="5600" color="white" rent_base="500"
                     rent_1house="2400" rent_2house="7200" rent_3house="17000" rent_4house="20500" rent_hotel="24000"
                     houseCost="3000" hotelCost="3000" pawnValue="2800"/>
