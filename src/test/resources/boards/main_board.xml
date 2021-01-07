@@ -22,6 +22,7 @@
 
     <PropertySquare label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
     <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare label="hellerupvej" description="hellerupvejdesc" price="3600" color="grey"/>
 
 
     <PropertySquare label="" description="" price="" color=""/>
