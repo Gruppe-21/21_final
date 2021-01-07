@@ -2,7 +2,10 @@
 <board>
     <StartSquare label="start"/>
 
-    <PropertySquare label="burgerjoint" description="burgerjointdesc" price="1" color="brown"/>
+    <PropertySquare label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
+
+
+
     <PropertySquare label="pizzeria" description="pizzeriadesc" price="1" color="brown"/>
     <ChanceSquare/>
     <PropertySquare label="candystore" description="candystoredesc" price="1" color="cyan"/>
