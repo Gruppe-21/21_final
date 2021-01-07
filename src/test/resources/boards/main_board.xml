@@ -15,7 +15,8 @@
     <PrisonVisitSquare label="på besøg" description="påBesøgdesc"/>
 
     <PropertySquare label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="yellow"/>
-
+    <PropertySquare label="tuborg squash" description="tuborgSquashdesc" price="3000" color="special"/>
+    <PropertySquare label="" description="" price="" color=""/>
 
 
     <PropertySquare label="" description="" price="" color=""/>
