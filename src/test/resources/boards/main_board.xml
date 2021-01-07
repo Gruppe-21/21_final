@@ -8,7 +8,8 @@
     <TaxSquare label="betal indkomstskat" description="betalindkomstskatdesc" value_main="4000" value_alt="10%"/>
     <PropertySquare label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
-    <PropertySquare label="" description="" price="" color=""/>
+    <PropertySquare label="roskildevej" description="roskildevejdesc" price="2000" color="red"/>
+
 
 
 
