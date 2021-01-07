@@ -1,7 +1,13 @@
 package com.gruppe21.squares.models;
 
+import com.gruppe21.utils.ColorUtil;
 import gui_fields.GUI_Empty;
 import gui_fields.GUI_Field;
+import org.w3c.dom.Element;
+
+import java.awt.*;
+
+import static java.lang.Integer.parseInt;
 
 public class Square {
     /**
@@ -30,29 +36,59 @@ public class Square {
      */
     private GUI_Field guiField;
 
+    /**
+     * The background color
+     */
+    private Color color;
 
-
-    public Square(int statusEffect, int id) {
-        this.statusEffect = statusEffect;
-        this.id = id;
+    public Square(int id, String nameLocalisationId, String descriptionLocalisationId, Color color, int statusEffect) {
         this.guiField = new GUI_Empty();
+        this.id = id;
+        this.nameLocalisationId = nameLocalisationId;
+        this.descriptionLocalisationId = descriptionLocalisationId;
+        this.color = color;
+        this.statusEffect = statusEffect;
     }
 
-    public int getStatusEffect() { return statusEffect; }
+    public Square(Element xmlTag) {
+        this(parseInt(xmlTag.getAttribute("id")),
+                xmlTag.getAttribute("label"),
+                xmlTag.getAttribute("description"),
+                ColorUtil.getColor(xmlTag.getAttribute("color")),
+                0);
+    }
 
-    public void setStatusEffect(int statusEffect) { this.statusEffect = statusEffect; }
+    public int getStatusEffect() {
+        return statusEffect;
+    }
 
-    public int getId() { return id; }
+    public void setStatusEffect(int statusEffect) {
+        this.statusEffect = statusEffect;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNameLocalisationId() { return nameLocalisationId; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setNameLocalisationId(String nameLocalisationId) { this.nameLocalisationId = nameLocalisationId; }
+    public String getNameLocalisationId() {
+        return nameLocalisationId;
+    }
 
-    public String getDescriptionLocalisationId() { return descriptionLocalisationId; }
+    public void setNameLocalisationId(String nameLocalisationId) {
+        this.nameLocalisationId = nameLocalisationId;
+    }
 
-    public void setDescriptionLocalisationId(String descriptionLocalisationId) { this.descriptionLocalisationId = descriptionLocalisationId; }
+    public String getDescriptionLocalisationId() {
+        return descriptionLocalisationId;
+    }
+
+    public void setDescriptionLocalisationId(String descriptionLocalisationId) {
+        this.descriptionLocalisationId = descriptionLocalisationId;
+    }
 
     public GUI_Field getGuiField() {
         return guiField;
