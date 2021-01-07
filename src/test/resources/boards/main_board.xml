@@ -44,6 +44,8 @@
     <PropertySquare id="35" label="nygade" description="nygadedesc" price="6400" color="yellow"/>
     <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
+    <ChanceSquare id="37" label="prøv lykken" description="prøvLykkendesc"/>
+
     <PropertySquare id="" label="" description="" price="" color=""/>
 
 
