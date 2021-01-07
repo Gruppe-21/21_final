@@ -3,6 +3,10 @@ package com.gruppe21.utils;
 import com.gruppe21.game.board.chancecard.*;
 import com.gruppe21.game.board.squares.*;
 import com.gruppe21.player.PlayerPiece;
+import com.gruppe21.squares.models.CardSquare;
+import com.gruppe21.squares.models.MoneySquare;
+import com.gruppe21.squares.models.PropertySquare;
+import com.gruppe21.squares.models.Square;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
@@ -45,14 +49,15 @@ public class BoardLoader {
         return getCardsFromNodeList(cardNodes);
     }
 
-    private static OurArrayList<Square> getSquaresFromNodeList(NodeList boardNodes) {
-        OurArrayList<Square> squares = new OurArrayList<Square>();
+    private static Square[] getSquaresFromNodeList(NodeList boardNodes) {
+        Square[] squares = new Square[boardNodes.getLength()];
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node node = boardNodes.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) node;
-                addXMLSquareToArrayList(squares, tag);
+                Square square = makeSquare(tag);
+                squares[i] = square;
 
             }
         }
@@ -60,39 +65,22 @@ public class BoardLoader {
         return squares;
     }
 
-    private static OurArrayList<ChanceCard> getCardsFromNodeList(NodeList boardNodes) {
-        OurArrayList<ChanceCard> chanceCards = new OurArrayList<ChanceCard>();
 
-        for (int i = 0; i < boardNodes.getLength(); i++) {
-            Node nNode = boardNodes.item(i);
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element tag = (Element) nNode;
-                addXMLChanceCardToArrayList(chanceCards, tag);
-            }
-
-        }
-        return chanceCards;
-    }
-
-    private static void addXMLSquareToArrayList(OurArrayList<Square> squares, Element tag) {
+    private static Square makeSquare(Element tag) {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
-        String name = tag.getAttribute("label");
-        String priceStr = tag.getAttribute("price");
-        int price = priceStr.isEmpty() ? 0 : parseInt(tag.getAttribute("price"));
-        Color color = ColorUtil.getColor(tag.getAttribute("color"));
-        String description = tag.getAttribute("description");
+
 
         switch (elementName) {
             case "StartSquare":
-                squares.add(new StartSquare("go", "startdesc"));
+                return new MoneySquare(tag);
                 break;
             case "PropertySquare":
-                squares.add(new PropertySquare(name, description, price, color));
+                return new PropertySquare(tag);
                 break;
             case "ChanceSquare":
-                squares.add(new ChanceSquare("chance", "takecard"));
+                return new CardSquare(tag);
                 break;
             case "FreeParkingSquare":
                 squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
