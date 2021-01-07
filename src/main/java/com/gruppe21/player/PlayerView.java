@@ -9,14 +9,13 @@ import gui_fields.GUI_Player;
 import java.awt.*;
 
 public class PlayerView {
-    private GUI_Player gui_player;
+    private GUI_Player guiPlayer;
 
-    public PlayerView(String name, int balance, GUI_Car car){
-        gui_player = new GUI_Player(name, balance, car);
+    public PlayerView(){
     }
 
-    public PlayerView(String name, int balance, Color primaryColor, Color secondaryColor, GUI_Car.Type carType, GUI_Car.Pattern pattern){
-        this(name, balance, new GUI_Car(primaryColor, secondaryColor, carType, pattern));
+    public void initGuiPlayer(String name, int balance, GUI_Car car){
+        guiPlayer = new GUI_Player(name, balance, car);
     }
 
     /**
@@ -33,9 +32,19 @@ public class PlayerView {
 
 
     public void movePlayer(SquareController squareController){
-        GUIManager.getInstance().setPlayerPosition(gui_player, squareController.getSquareField());
+        GUIManager.getInstance().setPlayerPosition(guiPlayer, squareController.getSquareField());
     }
 
+    public String chooseName(int minLength, int maxLength){
+        return GUIManager.getInstance().getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
+    }
 
+    public GUI_Car customiseCar(){
+        //TODO: ask player to customise their car.
+        return new GUI_Car(colors[colorToUse], Color.black, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
+    }
 
+    //Temporary
+    private static Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
+    private static int colorToUse = 0;
 }
