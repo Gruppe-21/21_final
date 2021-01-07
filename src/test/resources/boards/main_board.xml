@@ -35,7 +35,7 @@
 
     <PropertySquare id="27" label="bredgade" description="bredgadedesc" price="5200" color="white"/>
     <PropertySquare id="28" label="kgs. nytorv" description="kgs.nytorvdesc" price="5200" color="white"/>
-    <PropertySquare id="29" label="coca cola" description="cocaColadesc" price="3000" color="red"/>
+    <PropertySquare id="29" label="coca cola tapperi" description="cocaColaTapperidesc" price="3000" color="red"/>
     <PropertySquare id="30" label="østergade" description="østergadedesc" price="5600" color="white"/>
     <PrisonSquare id="31" label="de fængsles" description="deFængslesdesc"/>
 
