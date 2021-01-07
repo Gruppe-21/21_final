@@ -1,14 +1,30 @@
 package com.gruppe21.player;
 
+import com.gruppe21.squares.controllers.SquareController;
+
 public class PlayerController {
 
     private Player player;
+    private PlayerView playerView;
 
     public PlayerController(){
         player = new Player();
+        playerView = new PlayerView()
     }
 
     public void takeTurn(){
+
+    }
+
+    public void moveTo(SquareController squareController){
+
+    }
+
+    public void moveBy(int distance){
+
+    }
+
+    public void teleportTo(SquareController squareController){
 
     }
 
