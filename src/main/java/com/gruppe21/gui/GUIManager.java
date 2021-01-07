@@ -1,6 +1,7 @@
 package com.gruppe21.gui;
 
 import com.gruppe21.player.PlayerController;
+import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -25,24 +26,48 @@ public class GUIManager {
      *
      * @param board
      */
-    private GUIManager(Board board, PlayerController... playerControllers){
-        //This probably should *not* be done in the constructor as the players probably first should choose a language.
-        //Or maybe that should just be done here first? The players should also give their names and choose a piece/color?
-        //presumably this has already happened, or should GUIManager be responsible for that? That seems kinda wrong to
-        //me but maybe that would be best. If not then this really shouldn't be done here, as we should probably
-        //get that information before creating the board and adding the players. Or maybe we want to add them to the
-        //GUI first, and then update it as the players provide us with that sweet, thick, creamy knowledge we all so
-        //desperately desire.
-        //Also now it's a singleton it definitely probably shouldn't be done here.
-        Square[] squares = board.getSqaures();
-        fields = new GUI_Field[squares.length];
-        for (int i = 0; i < squares.length; i++) {
-            fields[i] = squares.getField();
-        }
+    private GUIManager(){
         gui = new GUI(fields, backgroundColor);
-        for (GUI_Player gui_player : playerControllers.getPlayer().getGuiplayer()) {
-            gui.addPlayer(gui_player);
+    }
+
+    /**
+     *
+     * @param playerControllers
+     */
+    public void addPlayers(PlayerController... playerControllers){
+        //TODO: Figure out if players should be removed from the gui when the go bankrupt.
+        for (PlayerController playerController: playerControllers) {
+            gui.addPlayer(playerController.getGUIPlayer());
         }
+
+    }
+
+    /**
+     *
+     * @param board
+     */
+    public void displayBoard(Board board){
+        SquareController[] squareControllers = board.getSquareControllers();
+        fields = new GUI_Field[squareControllers.length];
+        for (int i = 0; i < squareControllers.length; i++) {
+            fields[i] = squareControllers[i].getSquareField();
+        }
+        reloadGUI();
+    }
+
+    /**
+     *
+     */
+    private void reloadGUI(){
+       gui.close();
+       gui = new GUI(fields, backgroundColor);
+    }
+
+    /**
+     *
+     */
+    public void close(){
+        if (gui != null) gui.close();
     }
 
     /**
@@ -51,15 +76,21 @@ public class GUIManager {
      * @param dieValueB
      * @return
      */
-    public int rollDice(int dieValueA, int dieValueB){
-
+    public void rollDice(int dieValueA, int dieValueB){
+        //if (isTest) return;
     }
 
+
+    //
+    //Should this method even be here or should playerView do this itself?
+    //
     /**
      *
+     * @param player
+     * @param field
      */
-    public void movePlayer(){
-        //TODO: movePlayer
+    public void setPlayerPosition(GUI_Player player, GUI_Field field){
+        player.getCar().setPosition(field);
     }
 
 
