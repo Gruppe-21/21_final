@@ -15,10 +15,10 @@
     <PropertySquare id="10" label="allégade" description="allégadedesc" price="2400" color="red"/>
     <PrisonVisitSquare id="11" label="på besøg" description="påBesøgdesc"/>
 
-    <PropertySquare id="12" label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="yellow"/>
+    <PropertySquare id="12" label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="brown"/>
     <PropertySquare id="13" label="tuborg squash" description="tuborgSquashdesc" price="3000" color="red"/>
-    <PropertySquare id="14" label="bülowsvej" description="bülowsvejdesc" price="2800" color="yellow"/>
-    <PropertySquare id="15" label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="yellow"/>
+    <PropertySquare id="14" label="bülowsvej" description="bülowsvejdesc" price="2800" color="brown"/>
+    <PropertySquare id="15" label="gl. kongevej" description="gl.kongevejdesc" price="3200" color="brown"/>
     <PropertySquare id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="red"/>
 
     <PropertySquare id="17" label="bernstorffsvej" description="bernstorffsvejdesc" price="3600" color="grey"/>
