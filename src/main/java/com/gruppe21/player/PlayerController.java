@@ -12,7 +12,11 @@ public class PlayerController {
 
     }
 
-
+    /**
+     *
+     * @param deck
+     * @return
+     */
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
         player.getHeldCards().addCard(card);
