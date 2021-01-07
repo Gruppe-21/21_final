@@ -3,14 +3,14 @@
     <StartSquare label="start"/>
 
     <PropertySquare label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
-    <ChanceSquare label="prøv lykken" description="prøvlykkendesc"/>
+    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare label="hvidovrevej" description="hvidovrevejdesc" price="1200" color="blue"/>
-    <TaxSquare label="betal indkomstskat" description="betalindkomstskatdesc" value_main="4000" value_alt="10%"/>
+    <TaxSquare label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000" value_alt="10%"/>
     <PropertySquare label="scandlines" description="scandlinesdesc" price="4000" color="blue"/>
 
     <PropertySquare label="roskildevej" description="roskildevejdesc" price="2000" color="red"/>
-    <ChanceSquare label="prøv lykken" description="prøvlykkendesc"/>
-    <PropertySquare label="" description="" price="" color=""/>
+    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare label="valby langgade" description="valbyLanggadedesc" price="2000" color="red"/>
 
 
 
