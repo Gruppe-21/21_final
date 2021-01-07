@@ -2,7 +2,7 @@ package com.gruppe21.player;
 
 public class PlayerController {
 
-    Player player;
+    private Player player;
 
     public PlayerController(){
         player = new Player();
@@ -58,5 +58,9 @@ public class PlayerController {
      */
     public int addBalance(int value) {
         return player.setBalance(player.getBalance() + value);
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
