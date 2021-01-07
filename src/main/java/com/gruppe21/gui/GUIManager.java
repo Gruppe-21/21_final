@@ -1,6 +1,4 @@
 package com.gruppe21.gui;
-
-import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
