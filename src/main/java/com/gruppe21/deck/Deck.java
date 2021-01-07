@@ -1,38 +1,35 @@
 package com.gruppe21.deck;
 
-import com.gruppe21.card.typeOfCards.Card;
+import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.utils.CardLoader;
-import jdk.internal.org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.Random;
 
 public class Deck {
-    // private CardController[] cards = new CardController[32];
-    private final int TOTAL_CARDS; // Antal af kort i alt
+    private final int TOTAL_CARDS;
+    private CardController[] cards = new CardController[32];
     private int cardsDrawn = 0;
     private boolean sinceLastShuffle;
 
     public Deck(){
         try {
             cards = CardLoader.loadCards("cards");
-        } catch (ParserConfigurationException | IOException | SAXException e) {
+        } catch (ParserConfigurationException | IOException | org.xml.sax.SAXException e) {
             e.printStackTrace();
         }
         TOTAL_CARDS = cards.length();
     }
 
-    /**
-     *
-     *  */
-    public Card drawCard(){
-        CardController[] card = cards[0];
+    /** husk kommentar */
+    public CardController drawCard(){
+        CardController card = cards[0];
 
         if (cardsDrawn == TOTAL_CARDS) shuffleDeck();
         cardsDrawn++;
 
-        Card[] cardsCopy = new Card[cards.length-1];
+        CardController[] cardsCopy = new CardController[cards.length-1];
         for(int i = 0, j = 1; j<cards.length; i++, j++){
             cardsCopy[i] = cards[j];
         }
