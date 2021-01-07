@@ -61,7 +61,7 @@ public class Player {
 
     public void updatePosition(SquareController squareController){
         position = squareController;
-
+        guiPlayer.getCar().setPosition(squareController.getSquareField());
     }
 
     public int getBalance(){
