@@ -15,13 +15,16 @@ public class GameController {
     GameView gameView;
     private GameController(){
         gameView = new GameView();
-        game = new Game(gameView.askNumberOfPlayers(Game.MIN_PLAYERS, Game.MAX_PLAYERS));
+        gameView.selectLanguage();
+        game = new Game(new Board(), gameView.askNumberOfPlayers(Game.MIN_PLAYERS, Game.MAX_PLAYERS));
+        gameView.displayBoard(game.getBoard());
         initPlayers();
     }
 
     private void initPlayers(){
         for (int i = 0; i < game.getNumPlayers(); i++) {
             game.getPlayerControllers()[i] = new PlayerController();
+            game.getPlayerControllers()[i].teleportTo(game.getBoard().getFirstSquareController()); //Maybe this happens automatically
         }
     }
     
