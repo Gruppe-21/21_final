@@ -89,7 +89,7 @@
     <PropertySquare id="35" label="nygade" description="nygadedesc" price="6400" color="yellow" rent_base="600"
                     rent_1house="3000" rent_2house="9000" rent_3house="20000" rent_4house="24000" rent_hotel="28000"
                     houseCost="4000" hotelCost="4000" pawnValue="3200"/>
-    <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"/>
+    <PropertySquare id="36" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany" rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
 
     <ChanceSquare id="37" label="prøv lykken" description="prøvLykkendesc"/>
     <PropertySquare id="38" label="frederiksberggade" description="frederiksberggadedesc" price="7000" color="purple"
