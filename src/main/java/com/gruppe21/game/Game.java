@@ -1,24 +1,32 @@
 package com.gruppe21.game;
-//Todo:
-// Add AI controlled players
 
-import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.Deck.Deck;
-import com.gruppe21.game.board.chancecard.ChanceCard;
-import com.gruppe21.game.board.chancecard.ChanceCardGetOutOfJailFree;
-import com.gruppe21.game.board.squares.PrisonSquare;
-import com.gruppe21.game.board.squares.Square;
-import com.gruppe21.gui.GUIManager;
-import com.gruppe21.player.Player;
-import com.gruppe21.player.PlayerPiece;
-import com.gruppe21.utils.arrayutils.OurArrayList;
-import com.gruppe21.utils.localisation.Localisation;
-import com.gruppe21.utils.stringutils.RandomNameGenerator;
+import com.gruppe21.player.PlayerController;;
 
 public class Game {
-    private final char MIN_PLAYERS = 3;
-    private final char MAX_PLAYERS = 6;
+    public static final char MIN_PLAYERS = 3;
+    public static final char MAX_PLAYERS = 6;
 
+    private final int numPlayers;
+    private final PlayerController[] playerControllers;
+    private final Board board;
 
+    public Game(Board board, int numPlayers){
+        this.board = board;
+        if (numPlayers < MIN_PLAYERS || numPlayers > MAX_PLAYERS){} //Throw exception
+        this.numPlayers = numPlayers;
+        playerControllers = new PlayerController[this.numPlayers];
 
+    }
+
+    public int getNumPlayers() {
+        return numPlayers;
+    }
+
+    public PlayerController[] getPlayerControllers() {
+        return playerControllers;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
 }

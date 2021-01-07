@@ -1,18 +1,236 @@
 package com.gruppe21.gui;
-
-
-import com.gruppe21.game.Die;
-import com.gruppe21.game.board.Board;
-import com.gruppe21.game.board.squares.*;
-import com.gruppe21.player.Player;
-import com.gruppe21.utils.arrayutils.OurArrayList;
-import com.gruppe21.utils.localisation.Localisation;
+import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
+import gui_main.GUI;
 
 import java.awt.*;
 
 public class GUIManager {
+    //Do we want to use display/set chance cards?
 
+    private static final Color backgroundColor = Color.WHITE;
+
+    private static GUIManager guiManager;
+
+    private GUI gui;
+    private GUI_Field[] fields;
+
+    public static GUIManager getInstance(){
+        if (guiManager == null) guiManager = new GUIManager();
+        return guiManager;
+    }
+
+    /**
+     *
+     * @param board
+     */
+    private GUIManager(){
+        gui = new GUI(fields, backgroundColor);
+    }
+
+    /**
+     *
+     * @param playerControllers
+     */
+    /*
+    public void addPlayers(PlayerController... playerControllers){
+        //TODO: Figure out if players should be removed from the gui when they go bankrupt.
+        for (PlayerController playerController: playerControllers) {
+            gui.addPlayer(playerController.getGUIPlayer());
+        }
+
+    }
+*/
+
+    public void addPlayer(GUI_Player... gui_players){
+        if (gui == null) return;
+        for (GUI_Player gui_player: gui_players) {
+            gui.addPlayer(gui_player);
+        }
+    }
+
+    /**
+     *
+     * @param board
+     */
+    public void displayBoard(Board board){
+        SquareController[] squareControllers = board.getSquareControllers();
+        fields = new GUI_Field[squareControllers.length];
+        for (int i = 0; i < squareControllers.length; i++) {
+            fields[i] = squareControllers[i].getSquareField();
+        }
+        reloadGUI();
+    }
+
+    /**
+     *
+     */
+    private void reloadGUI(){
+       gui.close();
+       gui = new GUI(fields, backgroundColor);
+    }
+
+    /**
+     *
+     */
+    public void close(){
+        if (gui != null) gui.close();
+    }
+
+    /**
+     *
+     * @param dieValueA
+     * @param dieValueB
+     * @return
+     */
+    public void rollDice(int dieValueA, int dieValueB){
+        if (gui == null) return;
+        //TODO: randomize rotation and position
+        gui.setDice(dieValueA, dieValueB);
+    }
+
+    /**
+     *
+     * @param message
+     */
+    public void displayCard(String message){
+        if (gui == null) return;
+        gui.displayChanceCard(message);
+    }
+
+
+    //
+    //Should this method even be here or should playerView do this itself?
+    //
+    /**
+     *
+     * @param player
+     * @param field
+     */
+    public void setPlayerPosition(GUI_Player player, GUI_Field field){
+        player.getCar().setPosition(field);
+    }
+
+
+
+
+    //Player inputs
+
+    /**
+     *
+     * @param message
+     */
+    public void waitForUserAcknowledgement(String message) {
+        if (gui == null) return;
+        gui.showMessage(message);
+    }
+
+
+
+    /**
+     *
+     * @param message
+     * @param trueChoice
+     * @param falseChoice
+     * @return
+     */
+    public boolean getUserBoolean(String message, String trueChoice, String falseChoice){
+        if (gui == null) return Math.random() < 0.5;
+        return gui.getUserLeftButtonPressed(message, trueChoice, falseChoice);
+    }
+
+    /**
+     *
+     * @param message
+     * @param buttonText
+     * @return
+     */
+    public String getUserButtonPress(String message, String... buttonText) {
+        if (gui == null) return buttonText[(int) (Math.random() * (buttonText.length + 1))];
+        return gui.getUserButtonPressed(message, buttonText);
+    }
+
+
+    //Notice this is different from getUserBoolean, which previously was called get user choice
+    /**
+     *
+     * @param message
+     * @param options
+     * @return
+     */
+    public String getUserChoiceDropDown(String message, String... options){
+        if (gui == null) return buttonText[(int) (Math.random() * (options.length + 1))];
+        return gui.getUserSelection(message, options);
+    }
+
+
+    /**
+     *
+     * @param message
+     * @return
+     */
+    public String getUserTextInput(String message) {
+        if (gui == null){
+            return getUserTextInput(message, 5, 25, false);
+        }
+        return gui.getUserString(message);
+    }
+
+    /**
+     *
+     * @param message
+     * @param minLength
+     * @param maxLength
+     * @param allowWhiteSpace
+     * @return
+     */
+    public String getUserTextInput(String message, int minLength, int maxLength, boolean allowWhiteSpace) {
+        if (gui == null){
+            //Maybe should be in a different class. (Stringutils)
+            String randASCIIString = "";
+            int stringLength = minLength; // (int) (Math.random() * 21); //((25-5)+1) == 21
+            for (int i = 0; i < stringLength; i++) {
+                randASCIIString += ((int)(Math.random() * (('Z' - 'A') + 1))) + Math.random() < 0.5 ? 0 : 20;
+            }
+            return randASCIIString;
+        }
+        return gui.getUserString(message, minLength, maxLength, allowWhiteSpace);
+    }
+
+
+    /**
+     *
+     * @param message
+     * @return
+     */
+    public int getUserInteger(String message){
+        if (gui == null) return getUserInteger(message, 0, 10000);
+        return gui.getUserInteger(message);
+    }
+
+    /**
+     *
+     * @param message
+     * @param minValue
+     * @param maxValue
+     * @return
+     */
+    public int getUserInteger(String message, int minValue, int maxValue){
+        if (gui == null) return (int) (Math.random() * (maxValue - minValue + 1))
+        return gui.getUserInteger(message, minValue, maxValue);
+    }
+
+
+
+
+
+
+
+
+
+
+
+/*
     public static GUIManager instance;
     public boolean isTest;
     private GUIWrapper guiWrapper;
@@ -167,9 +385,6 @@ public class GUIManager {
 
         }
         guiWrapper.updateGUIFields();
-
-
     }
-
-
+*/
 }

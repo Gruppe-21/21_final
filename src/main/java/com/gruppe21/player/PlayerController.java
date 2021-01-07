@@ -1,21 +1,50 @@
 package com.gruppe21.player;
 
+import com.gruppe21.game.GameController;
+import com.gruppe21.squares.controllers.SquareController;
+import gui_fields.GUI_Player;
+
 public class PlayerController {
 
-    Player player;
+    private Player player;
+    private PlayerView playerView;
+    private GameController gameController;
 
     public PlayerController(){
+        gameController = GameController.getInstance();
         player = new Player();
+        playerView = new PlayerView();
+        player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
+        player.setGuiPlayer(new GUI_Player(player.getName(), player.getBalance(), playerView.customiseCar()));
+
+        playerView.initGuiPlayer(player.getName(), player.getBalance(), playerView.customiseCar());
+        playerView.addToGui(player.getGuiPlayer());
     }
 
     public void takeTurn(){
 
     }
 
+    public void teleportTo(SquareController squareController){
+        getPlayer().updatePosition(squareController);
+    }
 
+    public void moveTo(SquareController squareController){
+        teleportTo(squareController);
+        squareController.onMoveTo(this);
+    }
+
+
+    /**
+     *
+     * @param deck
+     * @return
+     */
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
-        //Todo: probably call some function on the card. Also maybe add it to the players deck.
+        player.getHeldCards().addCard(card);
+        card.onDraw(this);
+        return card; //Should it return void?
     }
 
 
@@ -58,5 +87,13 @@ public class PlayerController {
      */
     public int addBalance(int value) {
         return player.setBalance(player.getBalance() + value);
+    }
+
+    public String getName(){
+        return player.getName();
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
