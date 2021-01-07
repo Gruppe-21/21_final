@@ -13,23 +13,25 @@ import java.io.IOException;
 public class CardLoader {
 
     public static String CARD_DIRECTORY = "/cards/";
-    public static String TAG_CARD = "/cards/";
+    public static String TAG_CARD = "cards";
 
-    public static OurArrayList<ChanceCard> loadCards(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        Document document = XMLUtil.getXMLDocument(CARD_DIRECTORY + fileName);
-        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, TAG_CARD);
+    // Henter kort fra XML?
+    public static OurArrayList<Card> loadCards(String fileName) throws ParserConfigurationException, IOException, SAXException {
+        Document document = XMLUtil.getXMLDocument(CARD_DIRECTORY + fileName); // Finder mappen /cards/ i resources
+        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, TAG_CARD); // Leder efter root-tag i /cards/ mappen
 
-        return getCardsFromNodeList(cardNodes);
+        return getCardsFromNodeList(cardNodes); // Return alt indhold af root-tag (cards)
     }
 
-    private static OurArrayList<ChanceCard> getCardsFromNodeList(NodeList boardNodes) {
-        OurArrayList<ChanceCard> chanceCards = new OurArrayList<ChanceCard>();
+    // Kører igennem alle child tags af root-tag (cards)
+    private static OurArrayList<Card> getCardsFromNodeList(NodeList boardNodes) {
+        OurArrayList<Card> chanceCards = new OurArrayList<Card>();
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node nNode = boardNodes.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) nNode;
-                addXMLChanceCardToArrayList(chanceCards, tag);
+                addXMLChanceCardToArrayList(chanceCards, tag); // Går til nedenstående funktion
             }
 
         }
@@ -37,17 +39,19 @@ public class CardLoader {
     }
 
 
-    private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
+    //Tager XML og loader ind i et Array
+    private static void addXMLChanceCardToArrayList(OurArrayList<Card> chanceCards, Element tag) {
         String elementName = tag.getNodeName();
-        final String descriptionOnDrawLabel = tag.getAttribute("onDrawDescription");
-        final String descriptionOnUseLabel = tag.getAttribute("onUseDescription");
+        final String descriptionOnDrawLabel = tag.getAttribute("onDrawDescription"); // Gemmer onDraw for alle kort
+        final String descriptionOnUseLabel = tag.getAttribute("onUseDescription"); // Gemmer onDraw for alle kort
 
+        // Ud fra tag finder den forskellige oplysninger om kortene
         switch (elementName) {
-            case "moneycard":
-                final String moneyStr = tag.getAttribute("money");
-                final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
-                final MoneyCardType type = MoneyCardType.valueOf(tag.getAttribute("type"));
-                chanceCards.add(new ChanceCardMoney(null, descriptionOnUseLabel, money, type));
+            case "moveRelativecard":
+                final String square_IDStr = tag.getAttribute("ID"); // Gemmer indholdet af ID-tag
+                final int square_ID = square_IDStr.equals("") ? 0 : Integer.parseInt(square_IDStr); // Omdanner String til int
+                // final MoveRelativeCard type = MoveRelativeCard.valueOf(tag.getAttribute("type"));
+                chanceCards.add(new MoveRelativeCard(null, descriptionOnUseLabel, square_ID)); // Tilføjer kort til array.
                 break;
             case "jailcard":
                 chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionOnDrawLabel, descriptionOnUseLabel));

@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
     <movecard onUseDescription="startCardOnUseDesc" type="MoveToSquare" label="go"/>
+    <movecard onUseDescription="boardwalkCardOnUseDesc"  type="MoveToSquare" label="boardwalk"/>
+    <movecard onUseDescription="moveUpToCardOnUseDesc" type="MoveUpTo" ismoveupto="true"/>
+    <movecard onUseDescription="takeCardOrMoveCardOnUseDesc" type="TakeOrMove"/>
 
     <moneycard onUseDescription="homeworkCardOnUseDesc" money="2"  type="Bank"/>
     <moneycard onUseDescription="candyCardOnUseDesc" money="2" type="Bank"/>
-
     <moneycard onUseDescription="birthdayCardOnUseDesc" money="1"  type="Birthday"/>
-
-    <movecard onUseDescription="boardwalkCardOnUseDesc"  type="MoveToSquare" label="boardwalk"/>
-
-    <movecard onUseDescription="moveUpToCardOnUseDesc" type="MoveUpTo" ismoveupto="true"/>
-
-    <movecard onUseDescription="takeCardOrMoveCardOnUseDesc" type="TakeOrMove"/>
 
     <!-- BuildingFees cards -->
 
@@ -20,7 +16,7 @@
 
 
     <!-- MoveRelative cards -->
-    <moveRelativecard onUseDescription="frederiksbergCardOnUseDesc"  type="MoveToSquare" label="Frederiksberg Allé"/>
+    <moveRelativecard onUseDescription="frederiksbergCardOnUseDesc" square_ID="11" label="Frederiksberg Allé"/>
     <moveRelativecard onUseDescription="mols-linjenCardOnUseDesc"  type="MoveToSquare" label="Mols-Linien"/>
     <moveRelativecard onUseDescription="grønningenCardOnUseDesc"  type="MoveToSquare" label="Grønningen"/>
     <moveRelativecard onUseDescription="vimmelskaftetCardOnUseDesc"  type="MoveToSquare" label="Vimmelskaftet"/>
