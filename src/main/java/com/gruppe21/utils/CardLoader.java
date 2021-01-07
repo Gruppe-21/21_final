@@ -1,5 +1,6 @@
 package com.gruppe21.utils;
 
+import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -17,8 +18,15 @@ public class CardLoader {
     public static CardController[] cards = new CardController[32];
     public static int cardsAdded = 0;
 
+    /**
+     * Receives cards from XML
+     * @param fileName
+     * @return
+     * @throws ParserConfigurationException
+     * @throws IOException
+     * @throws SAXException
+     */
 
-    // Henter kort fra XML
     public static CardController[] loadCards(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument(CARD_DIRECTORY + fileName); // Finder mappen /cards/ i resources
         NodeList cardNodes = XMLUtil.getNodeListFromTag(document, TAG_CARD); // Leder efter root-tag i /cards/ mappen
@@ -41,8 +49,11 @@ public class CardLoader {
         return chanceCards;
     }
 
-
-    //Tager XML og loader ind i et Array
+    /**
+     * Tags XML and loads them into an array
+     * @param chanceCards
+     * @param tag
+     */
     private static void addXMLChanceCardToArrayList(CardController[] chanceCards, Element tag) {
         String elementName = tag.getNodeName();
         final String descriptionOnDrawLabel = tag.getAttribute("onDrawDescription"); // Gemmer onDraw for alle kort
