@@ -38,6 +38,8 @@
     <PropertySquare id="30" label="østergade" description="østergadedesc" price="5600" color="white"/>
     <PrisonSquare id="31" label="de fængsles" description="deFængslesdesc"/>
 
+    <PropertySquare id="32" label="amagertorv" description="amagertorvdesc" price="6000" color="yellow"/>
+
     <PropertySquare id="" label="" description="" price="" color=""/>
 
 
