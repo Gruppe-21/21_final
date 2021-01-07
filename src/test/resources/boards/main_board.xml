@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <board>
-    <StartSquare label="start"/>
+    <StartSquare label="start" description="startdesc"/>
 
     <PropertySquare label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue"/>
     <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
