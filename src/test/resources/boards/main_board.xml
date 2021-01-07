@@ -27,6 +27,8 @@
     <ParkingSquare label="parkering" description="parkeringdesc"/>
 
     <PropertySquare label="trianglen" description="trianglendesc" price="4400" color="red"/>
+    <ChanceSquare label="prøv lykken" description="prøvLykkendesc"/>
+    <PropertySquare label="" description="" price="" color=""/>
 
     <PropertySquare label="" description="" price="" color=""/>
     <GoToPrisonSquare/>
