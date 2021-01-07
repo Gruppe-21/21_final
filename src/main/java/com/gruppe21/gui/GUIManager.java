@@ -16,7 +16,7 @@ public class GUIManager {
     private GUI gui;
     private GUI_Field[] fields;
 
-    public GUIManager getInstance(){
+    public static GUIManager getInstance(){
         if (guiManager == null) guiManager = new GUIManager();
         return guiManager;
     }
