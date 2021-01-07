@@ -8,6 +8,7 @@ public class Game {
 
     private final int numPlayers;
     private final PlayerController[] playerControllers;
+    private int currentPlayerIndex;
     private final Board board;
 
     public Game(Board board, int numPlayers){
@@ -24,6 +25,25 @@ public class Game {
 
     public PlayerController[] getPlayerControllers() {
         return playerControllers;
+    }
+
+    public PlayerController getCurrentPlayer() {
+        return playerControllers[currentPlayerIndex];
+    }
+
+    public void setCurrentPlayer(PlayerController currentPlayer){
+        if (getCurrentPlayer() == currentPlayer) return;
+        int oldIndex = currentPlayerIndex++;
+        while (currentPlayerIndex != oldIndex){
+            if (getCurrentPlayer() == currentPlayer) return;
+        }
+        //Should throw exception if we get here
+    }
+
+    public PlayerController nextPlayer(){
+        currentPlayerIndex++;
+        currentPlayerIndex %= getPlayerControllers().length;
+        return getCurrentPlayer()
     }
 
     public Board getBoard() {
