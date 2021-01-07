@@ -12,7 +12,9 @@
     <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
                      value_alt="10%"/>
     <PropertySquare id="6" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"
-                    rent_owned1="500" rent_owned2="1000" rent_owned3="2000" rent_owned4="4000" pawnValue="2000"/>
+                    rent_base="500" pawnValue="2000"/>
+
+    <!-- Husk logik med rent id6-->
 
     <PropertySquare id="7" label="roskildevej" description="roskildevejdesc" price="2000" color="orange" rent_base="100"
                     rent_1house="600" rent_2house="1800" rent_3house="5400" rent_4house="8000" rent_hotel="11000"
