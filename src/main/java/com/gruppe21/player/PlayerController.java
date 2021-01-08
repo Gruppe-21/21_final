@@ -35,9 +35,11 @@ public class PlayerController {
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            switch (playerView.chooseJailRemoval(player.getHeldCards().getCardOfClass(PardonCard.class), status.getTimeInJail() < 3)){
+            CardController pardonCard = player.getHeldCards().getCardOfClass(PardonCard.class);
+            switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
+                    pardonCard.onUse();
                     break;
                 }
                 case 50 : { // '2'
