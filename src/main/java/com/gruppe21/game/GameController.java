@@ -34,12 +34,13 @@ public class GameController {
      */
     public void startGame(){
         while (game.getNumPlayers() > 1){
-            doRound(game.getNextPlayer());
+            doRound(game.nextPlayer());
         }
     }
 
     /**
      *
+     * @param playerController
      */
     private void doRound(PlayerController playerController){
         playerController.takeTurn(game.getBoard());
