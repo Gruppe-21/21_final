@@ -31,6 +31,10 @@ public class Game {
         return playerControllers[currentPlayerIndex];
     }
 
+    /**
+     *
+     * @param currentPlayer
+     */
     public void setCurrentPlayer(PlayerController currentPlayer){
         if (getCurrentPlayer() == currentPlayer) return;
         int oldIndex = currentPlayerIndex++;
