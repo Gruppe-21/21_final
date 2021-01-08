@@ -3,6 +3,9 @@ package com.gruppe21.utils;
 import com.gruppe21.game.board.chancecard.*;
 import com.gruppe21.game.board.squares.*;
 import com.gruppe21.player.PlayerPiece;
+import com.gruppe21.squares.controllers.CardSquareController;
+import com.gruppe21.squares.controllers.PropertySquareController;
+import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
@@ -13,7 +16,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.awt.*;
 import java.io.IOException;
 
 import static java.lang.Integer.parseInt;
@@ -52,7 +54,7 @@ public class BoardLoader {
             Node node = boardNodes.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) node;
-                addXMLSquareToArrayList(squares, tag);
+                addXMLSquareToArray(squares, tag);
 
             }
         }
@@ -74,31 +76,27 @@ public class BoardLoader {
         return chanceCards;
     }
 
-    private static void addXMLSquareToArrayList(OurArrayList<Square> squares, Element tag) {
+    private static void addXMLSquareToArray(SquareController squares, Element tag) {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
 
 
         switch (elementName) {
-            case "StartSquare":
-                squares.add(new StartSquare("go", "startdesc"));
-                break;
+            //case "StartSquare":
+            //    return new SquareController;
             case "PropertySquare":
-                squares.add(new PropertySquare(name, description, price, color));
-                break;
+                return new PropertySquareController;
             case "ChanceSquare":
-                squares.add(new ChanceSquare("chance", "takecard"));
-                break;
+                return new CardSquareController;
             case "FreeParkingSquare":
-                squares.add(new FreeParkingSquare("freeparking", "freeparkingdesc"));
-                break;
-            case "GoToPrisonSquare":
-                squares.add(new GoToPrisonSquare("gotoprison", "gotoprisondesc"));
-                break;
-            case "PrisonSquare":
-                squares.add(new PrisonSquare("prison", "prisondesc", "paidRelease", 2));
-                break;
+                return new SquareController;
+            //case "GoToPrisonSquare":
+            //    return new SquareController;
+            //case "PrisonSquare";
+            //    return new SquareController;
+            else
+                return new SquareController;
         }
     }
 
