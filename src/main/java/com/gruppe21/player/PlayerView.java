@@ -30,6 +30,7 @@ public class PlayerView {
         GUIManager.getInstance().setPlayerPosition(guiPlayer, squareController.getSquareField());
     }
 */
+
     public String chooseName(int minLength, int maxLength){
         return GUIManager.getInstance().getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
     }
@@ -41,6 +42,23 @@ public class PlayerView {
 
     public void addToGui(GUI_Player guiPlayer){
         GUIManager.getInstance().addPlayer(guiPlayer);
+    }
+
+
+    /**
+     *
+     * @param hasPardon
+     * @param mayRollForFreedom
+     * @return an {@code int} representing the players choice. 49 ('1') means they chose to use a pardon,
+     *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay
+     */
+    public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom){
+        String[] options = new String[1 + (hasPardon ? 1 : 0) + (mayRollForFreedom ? 1 : 0)];
+        for (int i = 0; i < options.length; i++) {
+            options[i] = i + ": JAIL REMOVAL CHOICE " + i + ", PlayerView chooseJailRemoval";
+        }
+        int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
+        return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
     }
 
     //Temporary

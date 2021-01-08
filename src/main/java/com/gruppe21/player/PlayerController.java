@@ -32,14 +32,28 @@ public class PlayerController {
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
         StatusEffects status = player.getStatusEffects();
         if (diceRolls[0] == diceRolls[1])
-            status.setIdenticalDice(status.getIdenticalDice() + 1);
+            status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
-        if (player.getStatusEffects().isImprisoned()){
-            //TODO: Implement prison
-            player.getStatusEffects().setImprisoned(false);
+        if (status.isImprisoned()){
+            switch (playerView.chooseJailRemoval(player.getHeldCards().getCardOfClass(PardonCardController.class), status.getTimeInJail() < 3)){
+                case 49 : { // '1'
+                    //Use pardon card
+                    break;
+                }
+                case 50 : { // '2'
+                    if(status.getIdenticalDice() > 0) player.getStatusEffects().setImprisoned(false);
+                    break;
+                }
+                case 51 : { // '3'
+                    transferMoney(1000, null);
+                    player.getStatusEffects().setImprisoned(false);
+                }
+            }
         }
         playerView.rollDice(diceRolls);
-        moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
+
+        if (!status.isImprisoned())
+            moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
     }
 
     /**
