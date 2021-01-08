@@ -4,11 +4,14 @@ import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
+import java.util.Random;
+
 public class PlayerController {
 
     private Player player;
     private PlayerView playerView;
     private GameController gameController;
+    private static final Random random = new Random();
 
     public PlayerController(){
         gameController = GameController.getInstance();
@@ -16,19 +19,38 @@ public class PlayerController {
         playerView = new PlayerView();
         player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
         player.setGuiPlayer(new GUI_Player(player.getName(), player.getBalance(), playerView.customiseCar()));
-
-        playerView.initGuiPlayer(player.getName(), player.getBalance(), playerView.customiseCar());
         playerView.addToGui(player.getGuiPlayer());
     }
 
-    public void takeTurn(){
-
+    /**
+     *
+     */
+    public void takeTurn(Board board){
+        int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
+        StatusEffects status = player.getStatusEffects();
+        if (diceRolls[0] == diceRolls[1])
+            status.setIdenticalDice(status.getIdenticalDice() + 1);
+        else status.setIdenticalDice(0);
+        if (player.getStatusEffects().isImprisoned()){
+            //Implement prison
+            player.getStatusEffects().setImprisoned(false);
+        }
+        playerView.rollDice(diceRolls);
+        moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
     }
 
+    /**
+     *
+     * @param squareController
+     */
     public void teleportTo(SquareController squareController){
         getPlayer().updatePosition(squareController);
     }
 
+    /**
+     *
+     * @param squareController
+     */
     public void moveTo(SquareController squareController){
         teleportTo(squareController);
         squareController.onMoveTo(this);

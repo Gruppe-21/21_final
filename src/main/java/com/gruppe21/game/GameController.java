@@ -26,21 +26,23 @@ public class GameController {
             game.getPlayerControllers()[i] = new PlayerController();
             game.getPlayerControllers()[i].teleportTo(game.getBoard().getFirstSquareController()); //Maybe this happens automatically
         }
-        game.setCurrentPlayer(gameView.askForFirstPlayer(game.getPlayerControllers()));
+        game.setNextPlayer(gameView.askForFirstPlayer(game.getPlayerControllers()));
     }
 
     /**
      *
      */
     public void startGame(){
-        doRound();
+        while (game.getNumPlayers() > 1){
+            doRound(game.getNextPlayer());
+        }
     }
 
     /**
      *
      */
-    private void doRound(){
-
+    private void doRound(PlayerController playerController){
+        playerController.takeTurn();
     }
     
 
