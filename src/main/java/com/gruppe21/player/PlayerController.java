@@ -31,6 +31,8 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
+        //Build houses
+
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
         StatusEffects status = player.getStatusEffects();
         if (diceRolls[0] == diceRolls[1])
@@ -141,6 +143,7 @@ public class PlayerController {
     public int liquidateAssets(int minAmount, boolean optional){
         //TODO: Implement liquidateAssets
         //Sell houses, hotels and/or properties to the bank
+        //Mortgage properties
         //Sell or trade properties and/or cards to other players.
     }
 
