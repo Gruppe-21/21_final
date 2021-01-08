@@ -6,10 +6,7 @@ import com.gruppe21.player.PlayerPiece;
 import com.gruppe21.squares.controllers.CardSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
-import com.gruppe21.squares.models.CardSquare;
-import com.gruppe21.squares.models.MoneySquare;
-import com.gruppe21.squares.models.PropertySquare;
-import com.gruppe21.squares.models.Square;
+import com.gruppe21.squares.models.*;
 import com.gruppe21.squares.views.SquareView;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
@@ -81,12 +78,11 @@ public class BoardLoader {
                 CardSquare cardSquareModel = new CardSquare(tag);
                 SquareView cardView = new SquareView();
                 return new SquareController(cardSquareModel, cardView);
-            case "FreeParkingSquare":
-            //    return new SquareController;
-            case "GoToPrisonSquare":
-            //    return new SquareController;
-            //case "PrisonSquare";
-            //    return new SquareController;
+            case "TeleportSquare":
+                TeleportSquare teleportSquareModel = new TeleportSquare(tag);
+                SquareView SquareView = new SquareView();
+                return new SquareController(teleportSquareModel, SquareView);
+
             default:
                 Square squareModel = new Square(tag);
                 SquareView squareView = new SquareView();
