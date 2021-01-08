@@ -3,6 +3,7 @@ package com.gruppe21.squares.models;
 import com.gruppe21.utils.ColorUtil;
 import gui_fields.GUI_Empty;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Start;
 import org.w3c.dom.Element;
 
 import java.awt.*;
@@ -42,7 +43,7 @@ public class Square {
     private Color color;
 
     public Square(int id, String nameLocalisationId, String descriptionLocalisationId, Color color, int statusEffect) {
-        this.guiField = new GUI_Empty();
+        this.guiField = new GUI_Start();
         this.id = id;
         this.nameLocalisationId = nameLocalisationId;
         this.descriptionLocalisationId = descriptionLocalisationId;
