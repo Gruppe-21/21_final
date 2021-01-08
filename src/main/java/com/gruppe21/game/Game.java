@@ -40,10 +40,14 @@ public class Game {
         //Should throw exception if we get here
     }
 
+    /**
+     *
+     * @return
+     */
     public PlayerController nextPlayer(){
         currentPlayerIndex++;
         currentPlayerIndex %= getPlayerControllers().length;
-        return getCurrentPlayer()
+        return getCurrentPlayer();
     }
 
     public Board getBoard() {
