@@ -46,4 +46,8 @@ public class Board {
     public void setSquareControllers(SquareController[] squareControllers) {
         this.squareControllers = squareControllers;
     }
+
+    public SquareController getFirstSquareController() {
+    return squareControllers[0];
+    }
 }
