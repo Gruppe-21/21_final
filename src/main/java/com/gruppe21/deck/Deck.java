@@ -106,11 +106,11 @@ public class Deck {
         cardsDrawn = 0;
         Random rand = new Random();
         for (int i = 0; i < cards.length; i++) {
-            int rand_int = rand.nextInt(6);
-            CardController[] temp = new CardController[32];
-            temp[i] = cards[i];
-            temp[rand_int] = cards[i];
+            CardController tempController;
+            int rand_int = rand.nextInt(cards.length);
+            tempController = cards[i];
             cards[i] = cards[rand_int];
+            cards[rand_int] = tempController;
         }
     }
 }
