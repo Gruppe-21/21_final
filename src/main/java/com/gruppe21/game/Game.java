@@ -52,13 +52,14 @@ public class Game {
      *
      * @return
      */
-    public PlayerController nextPlayer(){
+    public PlayerController nextPlayer() {
         currentPlayerIndex++;
         currentPlayerIndex %= getPlayerControllers().length;
         return getCurrentPlayer();
-    ]
+    }
 
     public Board getBoard() {
         return board;
     }
 }
+
