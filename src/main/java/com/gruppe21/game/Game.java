@@ -43,7 +43,8 @@ public class Game {
 
     /**
      *
-     * @param playerController
+     * @param playerController the PlayerController of the player to be removed
+     * @return                 a new PlayerController array without the passed PlayerController
      */
     public PlayerController[] removePlayer(PlayerController playerController){ //This would be a lot simpler if we used a dynamic data structure
         PlayerController[] newControllerArray = new PlayerController[--numPlayers];
