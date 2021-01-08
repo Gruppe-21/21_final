@@ -27,6 +27,7 @@ public class PlayerController {
 
     /**
      *
+     * @param board
      */
     public void takeTurn(Board board){
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
