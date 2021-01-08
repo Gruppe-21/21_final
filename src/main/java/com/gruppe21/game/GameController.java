@@ -28,6 +28,20 @@ public class GameController {
         }
         game.setCurrentPlayer(gameView.askForFirstPlayer(game.getPlayerControllers()));
     }
+
+    /**
+     *
+     */
+    public void startGame(){
+        doRound();
+    }
+
+    /**
+     *
+     */
+    private void doRound(){
+
+    }
     
 
 }
