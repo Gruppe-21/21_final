@@ -127,6 +127,7 @@ public class PlayerController {
      * @return
      */
     public int liquidateAssets(int minAmount){
+        //TODO: Implement liquidateAssets
         //Sell houses, hotels and/or properties to the bank
         //Sell or trade properties and/or cards to other players.
 
