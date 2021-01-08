@@ -44,12 +44,21 @@ public class PlayerView {
         GUIManager.getInstance().addPlayer(guiPlayer);
     }
 
-    public char chooseJailRemoval(){
-        String[] options = new String[3];
+
+    /**
+     *
+     * @param hasPardon
+     * @param mayRollForFreedom
+     * @return an int representing the players choice. 1 means they chose to use a pardon,
+     *         2 means they chose to roll the dice and 3 means they chose to pay
+     */
+    public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom){
+        String[] options = new String[1 + (hasPardon ? 1 : 0) + (mayRollForFreedom ? 1 : 0)];
         for (int i = 0; i < options.length; i++) {
             options[i] = i + ": JAIL REMOVAL CHOICE " + i + ", PlayerView chooseJailRemoval";
         }
-        return GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0);
+        int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
+        return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
     }
 
     //Temporary
