@@ -118,7 +118,7 @@ public class PlayerController {
      * @return
      */
     public int liquidateAssets(){
-        liquidateAssets(-1);
+         liquidateAssets(-1);
     }
 
     /**
@@ -129,6 +129,8 @@ public class PlayerController {
     public int liquidateAssets(int minAmount){
         //Sell houses, hotels and/or properties to the bank
         //Sell or trade properties and/or cards to other players.
+
+        return minAmount; //Temporary! It's just to allow compiling.
     }
 
 
