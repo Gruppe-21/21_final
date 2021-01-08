@@ -1,5 +1,8 @@
 package com.gruppe21.player;
 
+import com.gruppe21.card.cardControllers.CardController;
+import com.gruppe21.card.typeOfCards.PardonCard;
+import com.gruppe21.deck.Deck;
 import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
@@ -32,7 +35,7 @@ public class PlayerController {
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            switch (playerView.chooseJailRemoval(player.getHeldCards().getCardOfClass(PardonCardController.class), status.getTimeInJail() < 3)){
+            switch (playerView.chooseJailRemoval(player.getHeldCards().getCardOfClass(PardonCard.class), status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
                     break;
@@ -78,7 +81,8 @@ public class PlayerController {
      */
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
-        player.getHeldCards().addCard(card);
+        //player.getHeldCards().addCard(card);
+        player.getHeldCards().returnCard(card);
         card.onDraw(this);
         return card; //Should it return void?
     }
