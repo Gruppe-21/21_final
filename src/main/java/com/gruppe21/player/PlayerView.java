@@ -49,8 +49,8 @@ public class PlayerView {
      *
      * @param hasPardon
      * @param mayRollForFreedom
-     * @return an int representing the players choice. 1 means they chose to use a pardon,
-     *         2 means they chose to roll the dice and 3 means they chose to pay
+     * @return an {@code int} representing the players choice. 49 ('1') means they chose to use a pardon,
+     *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay
      */
     public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom){
         String[] options = new String[1 + (hasPardon ? 1 : 0) + (mayRollForFreedom ? 1 : 0)];
