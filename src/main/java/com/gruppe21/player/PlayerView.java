@@ -1,9 +1,7 @@
 package com.gruppe21.player;
 
 import com.gruppe21.gui.GUIManager;
-import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Car;
-import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 
 import java.awt.*;
@@ -24,12 +22,6 @@ public class PlayerView {
         //What if there isn't two values?
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }
-
-/*
-    public void movePlayer(SquareController squareController){
-        GUIManager.getInstance().setPlayerPosition(guiPlayer, squareController.getSquareField());
-    }
-*/
 
     public String chooseName(int minLength, int maxLength){
         return GUIManager.getInstance().getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
@@ -61,6 +53,16 @@ public class PlayerView {
         return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
     }
 
+    /**
+     *
+     * @param name
+     * @param price
+     * @param liquidate
+     * @return
+     */
+    public boolean askPurchase(String name, int price, boolean liquidateAssets){
+        return GUIManager.getInstance().getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
+    }
 
 
     //Temporary
