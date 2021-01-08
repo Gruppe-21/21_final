@@ -27,7 +27,7 @@
     <PropertySquare id="10" label="allégade" description="allégadedesc" price="2400" color="orange" rent_base="150"
                     rent_1house="800" rent_2house="2000" rent_3house="6000" rent_4house="9000" rent_hotel="12000"
                     houseCost="1000" hotelCost="1000" pawnValue="1200"/>
-    <PrisonVisitSquare id="11" label="på besøg" description="påBesøgdesc"/>
+    <Square id="11" label="på besøg" description="påBesøgdesc"/>
 
     <PropertySquare id="12" label="frederiksberg allé" description="frederiksbergAllédesc" price="2800" color="green"
                     rent_base="200"
