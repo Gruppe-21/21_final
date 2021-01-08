@@ -94,10 +94,14 @@ public class PlayerController {
 
 
     /**
-     * Transfers money to another player. If the player does not have enough money, their properties are sold.
-     * @param debit is the amount of money transferred out of the account.
+     * Transfers money to another player or the bank.
+     * <p>If bankrupted by the transfer their buildings are first sold and
+     * then everything the own is transferred to the creditor.</p>
+     * <p>Otherwise, if the player does not have enough cash
+     * assets of their own choosing are liquidated.</p>
+     * @param debit the amount of money transferred out of the account.
      *              Can be a negative number in which case money is transferred into the account instead.
-     * @param creditor is the player which receives the money.
+     * @param creditor the player which receives the money.
      *                 if creditor == null the money is given to the bank.
      *
      */
@@ -139,13 +143,22 @@ public class PlayerController {
         //Sell or trade properties and/or cards to other players.
     }
 
+    /**
+     *
+     * @param price the price of the property.
+     * @return true if the property was purchased and false if it was not.
+     */
+    public boolean purchaseProperty(int price){
+
+    }
+
 
 
     /**
-     * add value of parameter "amount" to current balance
+     * add value of parameter {@code amount} to current balance
      *
-     * @param amount
-     * @return getBalance() new balance
+     * @param amount the amount to added to the balance. Can be a negative number.
+     * @return {@code getBalance()} new balance
      */
     public int addBalance(int value) {
         return player.setBalance(player.getBalance() + value);

@@ -46,11 +46,11 @@ public class PlayerView {
 
 
     /**
-     *
-     * @param hasPardon
-     * @param mayRollForFreedom
+     * Asks the player to choose a method of release from prison.
+     * @param hasPardon true if the player can use a <code>PardonCard</code.>
+     * @param mayRollForFreedom true if the player may roll to be released.
      * @return an {@code int} representing the players choice. 49 ('1') means they chose to use a pardon,
-     *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay
+     *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay.
      */
     public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom){
         String[] options = new String[1 + (hasPardon ? 1 : 0) + (mayRollForFreedom ? 1 : 0)];
@@ -60,6 +60,8 @@ public class PlayerView {
         int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
         return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
     }
+
+
 
     //Temporary
     private static Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
