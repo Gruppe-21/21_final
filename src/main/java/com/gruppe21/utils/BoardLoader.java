@@ -6,7 +6,10 @@ import com.gruppe21.player.PlayerPiece;
 import com.gruppe21.squares.controllers.CardSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
+import com.gruppe21.squares.models.MoneySquare;
+import com.gruppe21.squares.models.PropertySquare;
 import com.gruppe21.squares.models.Square;
+import com.gruppe21.squares.views.SquareView;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
@@ -34,7 +37,7 @@ public class BoardLoader {
 
 
 
-    public static Square[] loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
+    public static SquareController[] loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument(BOARD_DIRECTORY + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, TAG_BOARD);
 
@@ -42,14 +45,14 @@ public class BoardLoader {
     }
 
 
-    private static Square[] getSquaresFromNodeList(NodeList boardNodes) {
-        Square[] squares = new Square[40];
+    private static SquareController[] getSquaresFromNodeList(NodeList boardNodes) {
+        SquareController[] squares = new SquareController[boardNodes.getLength()];
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node node = boardNodes.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) node;
-                addXMLSquareToArray(squares, tag);
+                squares[i] = ConvertFromXMLtoSquareController(tag);
 
             }
         }
@@ -58,27 +61,33 @@ public class BoardLoader {
     }
 
 
-    private static void addXMLSquareToArray(Square[] squares, Element tag) {
+    private static SquareController ConvertFromXMLtoSquareController(Element tag) {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
 
 
         switch (elementName) {
-            //case "StartSquare":
-            //    return new SquareController;
+            case "StartSquare":
+                MoneySquare moneySquareModel = new MoneySquare(tag);
+                SquareView moneyView = new SquareView();
+                return new SquareController(moneySquareModel, moneyView);
             case "PropertySquare":
-                return new PropertySquareController;
+                PropertySquare propertyModel = new PropertySquare(tag);
+                SquareView propertyView = new SquareView();
+                return new PropertySquareController(propertyModel, propertyView);
             case "ChanceSquare":
                 return new CardSquareController;
-            //case "FreeParkingSquare":
+            case "FreeParkingSquare":
             //    return new SquareController;
-            //case "GoToPrisonSquare":
+            case "GoToPrisonSquare":
             //    return new SquareController;
             //case "PrisonSquare";
             //    return new SquareController;
-            else
-                return new SquareController;
+            default:
+                Square squareModel = new Square(tag);
+                SquareView squareView = new SquareView();
+                return new SquareController(squareModel, squareView);
         }
     }
 
