@@ -4,6 +4,7 @@ import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.typeOfCards.PardonCard;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.game.GameController;
+import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
@@ -128,8 +129,8 @@ public class PlayerController {
      *
      * @return
      */
-    public void liquidateAssets(){
-         liquidateAssets(-1);
+    public int liquidateAssets(){
+         liquidateAssets(-1, true);
     }
 
     /**
@@ -137,7 +138,7 @@ public class PlayerController {
      * @param minAmount
      * @return
      */
-    public void liquidateAssets(int minAmount){
+    public int liquidateAssets(int minAmount, boolean optional){
         //TODO: Implement liquidateAssets
         //Sell houses, hotels and/or properties to the bank
         //Sell or trade properties and/or cards to other players.
@@ -148,14 +149,24 @@ public class PlayerController {
      * @param price the price of the property.
      * @return true if the property was purchased and false if it was not.
      */
-    public boolean purchaseProperty(int price){
-
+    public boolean purchaseProperty(PropertySquareController property) {
+        if (property.getPrice > player.getTotalValue()) return false; //tell them maybe
+        int missingCash = property.getPrice() - player.getBalance();
+        do{
+            if (!playerView.askPurchase(property.getName(), property.getPrice(), missingCash > 0))
+                return false;
+            if (missingCash > 0)
+                liquidateAssets(missingCash, true);
+        } while ((missingCash = property.getPrice() - player.getBalance()) > 0);
+        transferMoney(property.getPrice(), property.getOwner()); //property.getOwner() should always return null here.
+        player.addOwnedProperty(property);
+        property.setOwner(this);
     }
 
 
 
     /**
-     * add value of parameter {@code amount} to current balance
+     * Add value of parameter {@code amount} to current balance
      *
      * @param amount the amount to added to the balance. Can be a negative number.
      * @return {@code getBalance()} new balance
@@ -168,6 +179,7 @@ public class PlayerController {
         return player.getName();
     }
 
+    //Preferably don't use this; it might be removed in the future.
     public Player getPlayer() {
         return player;
     }
