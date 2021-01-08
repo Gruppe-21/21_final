@@ -1,7 +1,5 @@
 package com.gruppe21.card.typeOfCards;
 
-import com.gruppe21.card.typeOfCards.Card;
-
 public class ModifyMoneyCard extends Card {
     private int money;
 

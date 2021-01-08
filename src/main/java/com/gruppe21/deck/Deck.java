@@ -14,11 +14,11 @@ public class Deck {
     private boolean sinceLastShuffle;
 
     /**
-     * Loads cards into an array called "cards"
+     * Loads cards from fileName into an array called cards
      */
-    public Deck(){
+    public Deck(String fileName){
         try {
-            cards = CardLoader.loadCards("cards");
+            cards = CardLoader.loadCards(fileName); //"cards"
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
@@ -26,19 +26,25 @@ public class Deck {
     }
 
     /**
-     * Draws a card from the card deck
+     * Deck constructor which has an empty array of CardControllers
+     */
+    public Deck(){
+        CardController[] cards = new CardController[0];
+        TOTAL_CARDS = 0;
+    }
+
+
+
+    /**
+     * Draws first card from deck
      * @return card
      */
-    public CardController drawCard(){
-        CardController card = cards[0];
+    public CardController nextCard(){
+        CardController card = cards[0]; // Top cards/first card
 
         if (cardsDrawn == TOTAL_CARDS) shuffleDeck();
         cardsDrawn++;
 
-        // Marcus: int j bør kunne ændres til i++? Hvad er mest læsbart (j vs. i++)?
-        // for(int i = 0; i++ <cards.length; i++){
-        //    cardsCopy[i] = cards[i++];
-        //}
         CardController[] cardsCopy = new CardController[cards.length-1];
         for(int i = 0, j = 1; j<cards.length; i++, j++){
             cardsCopy[i] = cards[j];
@@ -61,7 +67,7 @@ public class Deck {
     }
 
     /**
-     * Shuffles the cards in a random way
+     * Shuffles the cards in a random order
      */
     public void shuffleDeck() {
         cardsDrawn = 0;
