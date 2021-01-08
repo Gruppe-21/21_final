@@ -30,6 +30,7 @@ public class PlayerView {
         GUIManager.getInstance().setPlayerPosition(guiPlayer, squareController.getSquareField());
     }
 */
+
     public String chooseName(int minLength, int maxLength){
         return GUIManager.getInstance().getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
     }
@@ -41,6 +42,14 @@ public class PlayerView {
 
     public void addToGui(GUI_Player guiPlayer){
         GUIManager.getInstance().addPlayer(guiPlayer);
+    }
+
+    public char chooseJailRemoval(){
+        String[] options = new String[3];
+        for (int i = 0; i < options.length; i++) {
+            options[i] = i + ": JAIL REMOVAL CHOICE " + i + ", PlayerView chooseJailRemoval";
+        }
+        return GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0);
     }
 
     //Temporary
