@@ -8,7 +8,6 @@ import java.io.IOException;
 
 import org.xml.sax.SAXException;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -16,10 +15,9 @@ public class Deck {
     private final int TOTAL_CARDS;
     private CardController[] cards = new CardController[32];
     private int cardsDrawn = 0;
-    private boolean sinceLastShuffle;
 
     /**
-     * Loads cards from fileName into an array called cards
+     * Deck constructor which loads cards from fileName into an array called cards
      */
     public Deck(String fileName) {
         try {
@@ -39,9 +37,9 @@ public class Deck {
     }
 
 
+
     /**
-     * Draws first card from deck
-     *
+     * Draw first card from deck
      * @return card
      */
     public CardController nextCard() {
@@ -50,49 +48,21 @@ public class Deck {
         if (cardsDrawn == TOTAL_CARDS) shuffleDeck();
         cardsDrawn++;
 
-        CardController[] cardsCopy = new CardController[cards.length - 1];
-        for (int i = 0, j = 1; j < cards.length; i++, j++) {
-            cardsCopy[i] = cards[j];
-        }
+        removeCard(card);
+
         return card;
     }
 
-
     /**
-     * Remove all cards of certain type
+     * Remove one card of certain CardController type
+     * @param removeCard
      */
     public void removeCard(CardController removeCard) {
-        int removeIndex = 0;
-        // boolean contains = Arrays.stream(cards).anyMatch(removeCard::equals);
-        boolean contains = cards.equals(removeCard);
-
-        if (contains) {
-            for(int l = 0; l < cards.length; l++){
-                if(removeCard == cards[l]){
-                    removeIndex = l;
-                    break;
-                }
-            }
-            int temp = cards.length - removeIndex;
-            CardController[] cardsCopy = new CardController[cards.length-1];
-            for (int i = 0; i < cards.length-1; i++){
-                if(removeCard==cards[removeIndex]) {
-                    i++;
-                    continue;
-                }
-                cardsCopy[i] = cards[i];
-            }
-        }
-    }
-
-
-    //boolean contains = cards[0].equals(removeCard);
-    public void removeCardMarcusEdition(CardController removeCard) {
         int removeIndex = 0;
         CardController[] cardsCopy = new CardController[cards.length-1];
         boolean contains = Arrays.stream(cards).anyMatch(removeCard::equals);
 
-        // Finder index for hvor det ønskede kort befinder sig
+        // Finds index of removeCard in cards array
         if (contains) {
             for(int i = 0; i < cards.length; i++){
                 if(removeCard == cards[i]){
@@ -101,7 +71,7 @@ public class Deck {
                 }
             }
 
-            // Sorterer det ønskede kort ud af cards
+            // Sorts removeCard out of cards array
             int i=0,j=0;
             while(i < cards.length){
                 if(cards[i] != cards[removeIndex]){
@@ -115,11 +85,8 @@ public class Deck {
 
     }
 
-
-
     /**
      * Returns a card (putBackCard) to deck
-     *
      * @param putBackCard
      */
     public void returnCard(CardController putBackCard) {
@@ -131,7 +98,6 @@ public class Deck {
         }
         this.cards = cardsCopy;
     }
-
 
     /**
      * Shuffles the cards in a random order
