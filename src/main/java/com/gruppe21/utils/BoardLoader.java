@@ -6,6 +6,7 @@ import com.gruppe21.player.PlayerPiece;
 import com.gruppe21.squares.controllers.CardSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
+import com.gruppe21.squares.models.Square;
 import com.gruppe21.utils.arrayutils.OurArrayList;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
@@ -33,22 +34,16 @@ public class BoardLoader {
 
 
 
-    public static OurArrayList<Square> loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
+    public static Square[] loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
         Document document = XMLUtil.getXMLDocument(BOARD_DIRECTORY + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, TAG_BOARD);
 
         return getSquaresFromNodeList(boardNodes);
     }
 
-    public static OurArrayList<ChanceCard> loadCards(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        Document document = XMLUtil.getXMLDocument(CARD_DIRECTORY + fileName);
-        NodeList cardNodes = XMLUtil.getNodeListFromTag(document, TAG_CARD);
 
-        return getCardsFromNodeList(cardNodes);
-    }
-
-    private static OurArrayList<Square> getSquaresFromNodeList(NodeList boardNodes) {
-        OurArrayList<Square> squares = new OurArrayList<Square>();
+    private static Square[] getSquaresFromNodeList(NodeList boardNodes) {
+        Square[] squares = new Square[40];
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node node = boardNodes.item(i);
@@ -62,21 +57,8 @@ public class BoardLoader {
         return squares;
     }
 
-    private static OurArrayList<ChanceCard> getCardsFromNodeList(NodeList boardNodes) {
-        OurArrayList<ChanceCard> chanceCards = new OurArrayList<ChanceCard>();
 
-        for (int i = 0; i < boardNodes.getLength(); i++) {
-            Node nNode = boardNodes.item(i);
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element tag = (Element) nNode;
-                addXMLChanceCardToArrayList(chanceCards, tag);
-            }
-
-        }
-        return chanceCards;
-    }
-
-    private static void addXMLSquareToArray(SquareController squares, Element tag) {
+    private static void addXMLSquareToArray(Square[] squares, Element tag) {
         Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
@@ -89,8 +71,8 @@ public class BoardLoader {
                 return new PropertySquareController;
             case "ChanceSquare":
                 return new CardSquareController;
-            case "FreeParkingSquare":
-                return new SquareController;
+            //case "FreeParkingSquare":
+            //    return new SquareController;
             //case "GoToPrisonSquare":
             //    return new SquareController;
             //case "PrisonSquare";
@@ -100,33 +82,7 @@ public class BoardLoader {
         }
     }
 
-    private static void addXMLChanceCardToArrayList(OurArrayList<ChanceCard> chanceCards, Element tag) {
-        String elementName = tag.getNodeName();
-        final String descriptionOnDrawLabel = tag.getAttribute("onDrawDescription");
-        final String descriptionOnUseLabel = tag.getAttribute("onUseDescription");
 
-        switch (elementName) {
-            case "moneycard":
-                final String moneyStr = tag.getAttribute("money");
-                final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
-                final MoneyCardType type = MoneyCardType.valueOf(tag.getAttribute("type"));
-                chanceCards.add(new ChanceCardMoney(null, descriptionOnUseLabel, money, type));
-                break;
-            case "jailcard":
-                chanceCards.add(new ChanceCardGetOutOfJailFree(descriptionOnDrawLabel, descriptionOnUseLabel));
-                break;
-            case "movecard":
-                final String label = tag.getAttribute("label");
-                final String color = tag.getAttribute("color");
-                final MoveCardType t = MoveCardType.valueOf(tag.getAttribute("type"));
-                final String playerPieceStr = tag.getAttribute("piece");
-                final PlayerPiece playerPiece = playerPieceStr.isEmpty() ? PlayerPiece.Boat : PlayerPiece.valueOf(playerPieceStr);
-                chanceCards.add(new ChanceCardMove(null, descriptionOnUseLabel, t, label, playerPiece, color));
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + elementName);
-        }
-    }
 
 
 }
