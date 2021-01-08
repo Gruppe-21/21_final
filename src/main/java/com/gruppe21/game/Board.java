@@ -22,6 +22,10 @@ public class Board {
     }
 
     public SquareController getSquareControllerFromId(int id) {
+        for (SquareController squareController : squareControllers) {
+            if(squareController.getId() == id)
+                return squareController;
+        }
         return null;
     }
 
