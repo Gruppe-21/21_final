@@ -13,8 +13,9 @@ public class CardSquareController extends SquareController {
     }
 
     @Override
-    public void onMoveTo(PlayerController playerController) {
+    public CardController onMoveTo(PlayerController playerController, Deck deck) {
         super.onMoveTo(playerController);
-        return Deck.nextCard();
+        CardController cardController = deck.nextCard();
+        return cardController;
     }
 }
