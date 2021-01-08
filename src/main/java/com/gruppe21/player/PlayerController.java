@@ -32,7 +32,7 @@ public class PlayerController {
             status.setIdenticalDice(status.getIdenticalDice() + 1);
         else status.setIdenticalDice(0);
         if (player.getStatusEffects().isImprisoned()){
-            //Implement prison
+            //TODO: Implement prison
             player.getStatusEffects().setImprisoned(false);
         }
         playerView.rollDice(diceRolls);

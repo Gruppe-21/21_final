@@ -25,11 +25,11 @@ public class PlayerView {
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }
 
-
+/*
     public void movePlayer(SquareController squareController){
         GUIManager.getInstance().setPlayerPosition(guiPlayer, squareController.getSquareField());
     }
-
+*/
     public String chooseName(int minLength, int maxLength){
         return GUIManager.getInstance().getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
     }
