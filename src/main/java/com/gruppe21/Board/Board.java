@@ -11,7 +11,12 @@ import java.io.IOException;
 
 public class Board {
 
+
+
     SquareController[] square;
+    public SquareController[] getSquare() {
+        return square;
+    }
 
     public Board(SquareController[] square){
 
