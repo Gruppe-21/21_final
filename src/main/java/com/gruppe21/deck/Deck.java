@@ -1,10 +1,15 @@
 package com.gruppe21.deck;
+
 import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.utils.CardLoader;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+
 import org.xml.sax.SAXException;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Deck {
@@ -16,7 +21,7 @@ public class Deck {
     /**
      * Loads cards from fileName into an array called cards
      */
-    public Deck(String fileName){
+    public Deck(String fileName) {
         try {
             cards = CardLoader.loadCards(fileName); //"cards"
         } catch (ParserConfigurationException | IOException | SAXException e) {
@@ -28,43 +33,105 @@ public class Deck {
     /**
      * Deck constructor which has an empty array of CardControllers
      */
-    public Deck(){
+    public Deck() {
         CardController[] cards = new CardController[0];
         TOTAL_CARDS = 0;
     }
 
 
-
     /**
      * Draws first card from deck
+     *
      * @return card
      */
-    public CardController nextCard(){
+    public CardController nextCard() {
         CardController card = cards[0]; // Top cards/first card
 
         if (cardsDrawn == TOTAL_CARDS) shuffleDeck();
         cardsDrawn++;
 
-        CardController[] cardsCopy = new CardController[cards.length-1];
-        for(int i = 0, j = 1; j<cards.length; i++, j++){
+        CardController[] cardsCopy = new CardController[cards.length - 1];
+        for (int i = 0, j = 1; j < cards.length; i++, j++) {
             cardsCopy[i] = cards[j];
         }
         return card;
     }
 
+
+    /**
+     * Remove all cards of certain type
+     */
+    public void removeCard(CardController removeCard) {
+        int removeIndex = 0;
+        // boolean contains = Arrays.stream(cards).anyMatch(removeCard::equals);
+        boolean contains = cards.equals(removeCard);
+
+        if (contains) {
+            for(int l = 0; l < cards.length; l++){
+                if(removeCard == cards[l]){
+                    removeIndex = l;
+                    break;
+                }
+            }
+            int temp = cards.length - removeIndex;
+            CardController[] cardsCopy = new CardController[cards.length-1];
+            for (int i = 0; i < cards.length-1; i++){
+                if(removeCard==cards[removeIndex]) {
+                    i++;
+                    continue;
+                }
+                cardsCopy[i] = cards[i];
+            }
+        }
+    }
+
+
+    //boolean contains = cards[0].equals(removeCard);
+    public void removeCardMarcusEdition(CardController removeCard) {
+        int removeIndex = 0;
+        CardController[] cardsCopy = new CardController[cards.length-1];
+        boolean contains = Arrays.stream(cards).anyMatch(removeCard::equals);
+
+        // Finder index for hvor det ønskede kort befinder sig
+        if (contains) {
+            for(int i = 0; i < cards.length; i++){
+                if(removeCard == cards[i]){
+                    removeIndex = i;
+                    break;
+                }
+            }
+
+            // Sorterer det ønskede kort ud af cards
+            int i=0,j=0;
+            while(i < cards.length){
+                if(cards[i] != cards[removeIndex]){
+                    cardsCopy[j] = cards[i];
+                    j++;
+                }
+                i++;
+            }
+            this.cards = cardsCopy;
+        }
+
+    }
+
+
+
     /**
      * Returns a card (putBackCard) to deck
+     *
      * @param putBackCard
      */
     public void returnCard(CardController putBackCard) {
-        CardController[] cardsCopy = new CardController[cards.length+1];
+        CardController[] cardsCopy = new CardController[cards.length + 1];
         for (int i = 0; i < cards.length; i++) {
             cardsCopy[i] = cards[i];
             if (cards[i] == cards[cards.length - 1])
-                cardsCopy[i+1] = putBackCard;
+                cardsCopy[i + 1] = putBackCard;
         }
         this.cards = cardsCopy;
     }
+
 
     /**
      * Shuffles the cards in a random order
