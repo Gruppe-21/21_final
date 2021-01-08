@@ -65,8 +65,9 @@ public class Game {
     }
 
     /**
-     *
-     * @param currentPlayer
+     * Sets the current player to the passed PlayerController.
+     * If the passed PlayerController is not in the list of players then nothing is changed.
+     * @param currentPlayer the PlayerController of the new current player.
      */
     public void setCurrentPlayer(PlayerController currentPlayer){
         if (getCurrentPlayer() == currentPlayer) return;
@@ -77,14 +78,40 @@ public class Game {
         //Should throw exception if we get here
     }
 
+
     /**
-     *
-     * @return
+     * Sets the next player to the passed PlayerController.
+     * If the passed PlayerController is not in the list of players then nothing is changed.
+     * @param nextPlayer the PlayerController of the new next player.
+     */
+    public void setNextPlayer(PlayerController nextPlayer){
+        if (getNextPlayer() == nextPlayer) return;
+        int oldIndex = currentPlayerIndex++;
+        while (currentPlayerIndex != oldIndex){
+            if (getNextPlayer() == nextPlayer) return;
+        }
+        //Should throw exception if we get here
+    }
+
+    /**
+     * Sets the current player to be the next player and returns this player.
+     * This is different from getNextPlayer() which does not change the current player.
+     * @return the PlayerController of the next player
      */
     public PlayerController nextPlayer() {
         currentPlayerIndex++;
         currentPlayerIndex %= getPlayerControllers().length;
         return getCurrentPlayer();
+    }
+
+    /**
+     * Returns the PlayerController of the next player.
+     * Unlike nextPlayer() the current player is unchanged.
+     * @return the PlayerController of the next player
+     * @see nextPlayer()
+     */
+    public PlayerController getNextPlayer() {
+        return getPlayerControllers()[(currentPlayerIndex + 1) % numPlayers];
     }
 
     public Board getBoard() {
