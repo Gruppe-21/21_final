@@ -59,6 +59,18 @@ public class Player {
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public SquareController getPosition(){
+        return position;
+    }
+
+    /**
+     *
+     * @param squareController
+     */
     public void updatePosition(SquareController squareController){
         position = squareController;
         guiPlayer.getCar().setPosition(squareController.getSquareField());
