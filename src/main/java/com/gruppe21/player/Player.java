@@ -19,7 +19,7 @@ public class Player {
     private int balance;
     private int totalValue;
     private Deck heldCards;
-    private int statusEffects;
+    private StatusEffects statusEffects;
 
     private GUI_Player guiPlayer;
 
@@ -31,6 +31,7 @@ public class Player {
         this.balance = START_FUNDS;
         this.totalValue = START_FUNDS;
         heldCards = new Deck();
+        statusEffects = new StatusEffects();
     }
 
     /**
@@ -59,6 +60,18 @@ public class Player {
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public SquareController getPosition(){
+        return position;
+    }
+
+    /**
+     *
+     * @param squareController
+     */
     public void updatePosition(SquareController squareController){
         position = squareController;
         guiPlayer.getCar().setPosition(squareController.getSquareField());
@@ -78,7 +91,7 @@ public class Player {
         return totalValue;
     }
 
-    public int getStatusEffects(){
+    public StatusEffects getStatusEffects(){
         return statusEffects;
     }
 
@@ -90,7 +103,7 @@ public class Player {
         this.name = name;
     }
 
-    public CardController getHeldCards(){
+    public Deck getHeldCards(){
         return this.heldCards;
     }
 
