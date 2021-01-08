@@ -43,7 +43,7 @@ public class Localisation {
     }
 
     public String[] getAllLocales() {
-        ArrayList<String> localeNames = new ArrayList<>();
+        ArrayList<String> localeNames = new ArrayList<>(); // HUSK: ingen ArrayList
         InputStream in = getClass().getResourceAsStream(LANG_DIRECTORY);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
