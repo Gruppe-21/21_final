@@ -6,6 +6,7 @@ import com.gruppe21.player.PlayerPiece;
 import com.gruppe21.squares.controllers.CardSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
+import com.gruppe21.squares.models.CardSquare;
 import com.gruppe21.squares.models.MoneySquare;
 import com.gruppe21.squares.models.PropertySquare;
 import com.gruppe21.squares.models.Square;
@@ -68,7 +69,7 @@ public class BoardLoader {
 
 
         switch (elementName) {
-            case "StartSquare":
+            case "MoneySquare":
                 MoneySquare moneySquareModel = new MoneySquare(tag);
                 SquareView moneyView = new SquareView();
                 return new SquareController(moneySquareModel, moneyView);
@@ -76,8 +77,10 @@ public class BoardLoader {
                 PropertySquare propertyModel = new PropertySquare(tag);
                 SquareView propertyView = new SquareView();
                 return new PropertySquareController(propertyModel, propertyView);
-            case "ChanceSquare":
-                return new CardSquareController;
+            case "CardSquare":
+                CardSquare cardSquareModel = new CardSquare(tag);
+                SquareView cardView = new SquareView();
+                return new SquareController(cardSquareModel, cardView);
             case "FreeParkingSquare":
             //    return new SquareController;
             case "GoToPrisonSquare":
