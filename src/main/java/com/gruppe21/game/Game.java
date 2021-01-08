@@ -43,8 +43,8 @@ public class Game {
 
     /**
      *
-     * @param playerController the PlayerController of the player to be removed
-     * @return                 a new PlayerController array without the passed PlayerController
+     * @param playerController the {@code PlayerController} of the player to be removed
+     * @return                 a new {@code PlayerController} array without the passed {@code PlayerController}
      */
     public PlayerController[] removePlayer(PlayerController playerController){ //This would be a lot simpler if we used a dynamic data structure
         PlayerController[] newControllerArray = new PlayerController[--numPlayers];
@@ -65,9 +65,9 @@ public class Game {
     }
 
     /**
-     * Sets the current player to the passed PlayerController.
-     * If the passed PlayerController is not in the list of players then nothing is changed.
-     * @param currentPlayer the PlayerController of the new current player.
+     * Sets the current player to the passed {@code PlayerController}.
+     * If the passed {@code PlayerController} is not in the list of players then nothing is changed.
+     * @param currentPlayer the {@code PlayerController} of the new current player.
      */
     public void setCurrentPlayer(PlayerController currentPlayer){
         if (getCurrentPlayer() == currentPlayer) return;
@@ -80,9 +80,9 @@ public class Game {
 
 
     /**
-     * Sets the next player to the passed PlayerController.
-     * If the passed PlayerController is not in the list of players then nothing is changed.
-     * @param nextPlayer the PlayerController of the new next player.
+     * Sets the next player to the passed {@code PlayerController}.
+     * If the passed {@code PlayerController} is not in the list of players then nothing is changed.
+     * @param nextPlayer the {@code PlayerController} of the new next player.
      */
     public void setNextPlayer(PlayerController nextPlayer){
         if (getNextPlayer() == nextPlayer) return;
@@ -95,8 +95,8 @@ public class Game {
 
     /**
      * Sets the current player to be the next player and returns this player.
-     * This is different from getNextPlayer() which does not change the current player.
-     * @return the PlayerController of the next player
+     * This is different from {@code getNextPlayer()} which does not change the current player.
+     * @return the {@code PlayerController} of the next player
      */
     public PlayerController nextPlayer() {
         currentPlayerIndex++;
@@ -105,10 +105,10 @@ public class Game {
     }
 
     /**
-     * Returns the PlayerController of the next player.
-     * Unlike nextPlayer() the current player is unchanged.
-     * @return the PlayerController of the next player
-     * @see nextPlayer()
+     * Returns the {@code PlayerController} of the next player.
+     * Unlike {@code nextPlayer()} the current player is unchanged.
+     * @return the {@code PlayerController} of the next player
+     * @see {@code nextPlayer()}
      */
     public PlayerController getNextPlayer() {
         return getPlayerControllers()[(currentPlayerIndex + 1) % numPlayers];
