@@ -42,7 +42,7 @@ public class GameController {
      *
      */
     private void doRound(PlayerController playerController){
-
+        playerController.takeTurn();
     }
     
 
