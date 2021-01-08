@@ -25,21 +25,15 @@ public class PlayerController {
 
     }
 
-    public void moveTo(SquareController squareController){
-
-    }
-
-    public void moveBy(int distance){
-
-    }
-
     public void teleportTo(SquareController squareController){
-
+        getPlayer().updatePosition(squareController);
     }
 
-    public void teleportBy(int distance){
-
+    public void moveTo(SquareController squareController){
+        teleportTo(squareController);
+        squareController.onMoveTo(this);
     }
+
 
     /**
      *
@@ -93,6 +87,10 @@ public class PlayerController {
      */
     public int addBalance(int value) {
         return player.setBalance(player.getBalance() + value);
+    }
+
+    public String getName(){
+        return player.getName();
     }
 
     public Player getPlayer() {
