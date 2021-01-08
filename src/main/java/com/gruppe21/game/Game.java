@@ -6,8 +6,8 @@ public class Game {
     public static final char MIN_PLAYERS = 3;
     public static final char MAX_PLAYERS = 6;
 
-    private final int numPlayers;
-    private final PlayerController[] playerControllers;
+    private int numPlayers;
+    private PlayerController[] playerControllers;
     private int currentPlayerIndex;
     private final Board board;
 
@@ -27,10 +27,18 @@ public class Game {
         return playerControllers;
     }
 
+    public void removePlayer(PlayerController playerController){
+
+    }
+
     public PlayerController getCurrentPlayer() {
         return playerControllers[currentPlayerIndex];
     }
 
+    /**
+     *
+     * @param currentPlayer
+     */
     public void setCurrentPlayer(PlayerController currentPlayer){
         if (getCurrentPlayer() == currentPlayer) return;
         int oldIndex = currentPlayerIndex++;
@@ -40,11 +48,15 @@ public class Game {
         //Should throw exception if we get here
     }
 
+    /**
+     *
+     * @return
+     */
     public PlayerController nextPlayer(){
         currentPlayerIndex++;
         currentPlayerIndex %= getPlayerControllers().length;
-        return getCurrentPlayer()
-    }
+        return getCurrentPlayer();
+    ]
 
     public Board getBoard() {
         return board;
