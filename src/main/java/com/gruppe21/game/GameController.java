@@ -19,6 +19,7 @@ public class GameController {
         game = new Game(new Board(), gameView.askNumberOfPlayers(Game.MIN_PLAYERS, Game.MAX_PLAYERS));
         gameView.displayBoard(game.getBoard());
         initPlayers();
+        gameView.askForFirstPlayer(game.getPlayerControllers());
     }
 
     private void initPlayers(){
