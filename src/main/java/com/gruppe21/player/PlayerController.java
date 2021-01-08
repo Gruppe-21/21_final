@@ -96,24 +96,42 @@ public class PlayerController {
      */
     public void transferMoney(int debit, PlayerController creditor){
         if (creditor == this) return;
-        if (player.getTotalValue() < debit){
+        if (player.getTotalValue() < debit){ //We have gone bankrupt
             //We have gone bankrupt
             //Sell houses
             //Transfer cash
             //Transfer properties
             return;
         }
-        if (player.getBalance() < debit)
+        if (player.getBalance() < debit) //We can pay but we don't have enough cash
         {
-            debit -= player.getBalance();
-            transferMoney(player.getBalance(), creditor); //If we don't have enough cash, we first transfer what we have.
-            debit -= sellProperties(debit, creditor); //It should be possible to trade with other players here too
+            liquidateAssets(debit - player.getBalance());
         }
         addBalance(-debit);
         if (creditor != null){ //creditor == null -> creditor is the bank
             creditor.addBalance(debit);
         }
     }
+
+    /**
+     *
+     * @return
+     */
+    public int liquidateAssets(){
+        liquidateAssets(-1);
+    }
+
+    /**
+     *
+     * @param minAmount
+     * @return
+     */
+    public int liquidateAssets(int minAmount){
+        //Sell houses, hotels and/or properties to the bank
+        //Sell or trade properties and/or cards to other players.
+    }
+
+
 
     /**
      * add value of parameter "amount" to current balance
