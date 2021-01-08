@@ -3,19 +3,22 @@ package com.gruppe21.card.cardControllers;
 import com.gruppe21.card.CardView;
 import com.gruppe21.card.typeOfCards.MoveRelativeCard;
 import com.gruppe21.deck.Deck;
+import com.gruppe21.utils.localisation.Localisation;
 
 public class MoveRelativeCardController extends CardController {
-    private MoveRelativeCard model;
 
+    private MoveRelativeCard model;
+    private Localisation localisation;
     public MoveRelativeCardController(CardView view, MoveRelativeCard cardModel) {
         super(view);
+        localisation = Localisation.getInstance();
         this.model = cardModel;
     }
-
+/*
 
     @Override
     protected void onDraw(CardView view, MoveRelativeCard model) {
-        String description = localisation.getStringValue(descriptionOnDrawLabel);
+        String description = localisation.getStringValue(model.);
     }
 
     protected int use(Deck deck, CardController putBackCard, MoveRelativeCard model){
@@ -27,6 +30,6 @@ public class MoveRelativeCardController extends CardController {
         return square_ID;
     }
 
-
+*/
 
 }

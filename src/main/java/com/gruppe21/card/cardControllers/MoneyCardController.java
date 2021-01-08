@@ -11,7 +11,7 @@ public class MoneyCardController extends CardController  {
         super(view);
         this.card = cardModel;
     }
-
+/*
 
     @Override
     protected void onDraw(Deck deck) {
@@ -23,4 +23,5 @@ public class MoneyCardController extends CardController  {
         super.use(deck,putBackCard);
 
     }
+*/
 }

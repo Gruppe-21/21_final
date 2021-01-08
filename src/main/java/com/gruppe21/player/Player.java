@@ -1,4 +1,5 @@
 package com.gruppe21.player;
+import com.gruppe21.deck.Deck;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 

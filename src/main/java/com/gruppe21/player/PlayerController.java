@@ -1,5 +1,8 @@
 package com.gruppe21.player;
 
+import com.gruppe21.card.cardControllers.CardController;
+import com.gruppe21.deck.Deck;
+import com.gruppe21.game.Board;
 import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
@@ -64,8 +67,8 @@ public class PlayerController {
      */
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
-        player.getHeldCards().addCard(card);
-        card.onDraw(this);
+        player.getHeldCards().returnCard(card);
+       // card.onDraw(this);
         return card; //Should it return void?
     }
 
@@ -80,6 +83,7 @@ public class PlayerController {
      *                 if creditor == null the money is given to the bank.
      *
      */
+    /*
     public void transferMoney(int debit, PlayerController creditor){
         if (creditor == this) return;
         if (player.getTotalValue() < debit){
@@ -100,11 +104,10 @@ public class PlayerController {
             creditor.addBalance(debit);
         }
     }
-
+*/
     /**
      * add value of parameter "amount" to current balance
      *
-     * @param amount
      * @return getBalance() new balance
      */
     public int addBalance(int value) {
