@@ -103,7 +103,7 @@ public class Player {
         this.name = name;
     }
 
-    public CardController getHeldCards(){
+    public Deck getHeldCards(){
         return this.heldCards;
     }
 
