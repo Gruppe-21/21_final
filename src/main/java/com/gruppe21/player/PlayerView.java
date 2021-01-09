@@ -1,9 +1,7 @@
 package com.gruppe21.player;
 
 import com.gruppe21.gui.GUIManager;
-import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Car;
-import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 
 import java.awt.*;
@@ -25,12 +23,6 @@ public class PlayerView {
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }
 
-/*
-    public void movePlayer(SquareController squareController){
-        GUIManager.getInstance().setPlayerPosition(guiPlayer, squareController.getSquareField());
-    }
-*/
-
     public String chooseName(int minLength, int maxLength){
         return GUIManager.getInstance().getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
     }
@@ -46,11 +38,11 @@ public class PlayerView {
 
 
     /**
-     *
-     * @param hasPardon
-     * @param mayRollForFreedom
+     * Asks the player to choose a method of release from prison.
+     * @param hasPardon true if the player can use a <code>PardonCard</code.>
+     * @param mayRollForFreedom true if the player may roll to be released.
      * @return an {@code int} representing the players choice. 49 ('1') means they chose to use a pardon,
-     *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay
+     *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay.
      */
     public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom){
         String[] options = new String[1 + (hasPardon ? 1 : 0) + (mayRollForFreedom ? 1 : 0)];
@@ -60,6 +52,18 @@ public class PlayerView {
         int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
         return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
     }
+
+    /**
+     *
+     * @param name
+     * @param price
+     * @param liquidate
+     * @return
+     */
+    public boolean askPurchase(String name, int price, boolean liquidateAssets){
+        return GUIManager.getInstance().getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
+    }
+
 
     //Temporary
     private static Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};

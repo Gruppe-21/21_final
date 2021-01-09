@@ -1,6 +1,10 @@
 package com.gruppe21.player;
 
+import com.gruppe21.card.cardControllers.CardController;
+import com.gruppe21.card.typeOfCards.PardonCard;
+import com.gruppe21.deck.Deck;
 import com.gruppe21.game.GameController;
+import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
@@ -24,17 +28,22 @@ public class PlayerController {
 
     /**
      *
+     * @param board
      */
     public void takeTurn(Board board){
+        //Build houses
+
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
         StatusEffects status = player.getStatusEffects();
         if (diceRolls[0] == diceRolls[1])
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            switch (playerView.chooseJailRemoval(player.getHeldCards().getCardOfClass(PardonCardController.class), status.getTimeInJail() < 3)){
+            CardController pardonCard = player.getHeldCards().getCardOfClass(PardonCard.class);
+            switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
+                    pardonCard.onUse();
                     break;
                 }
                 case 50 : { // '2'
@@ -78,7 +87,8 @@ public class PlayerController {
      */
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
-        player.getHeldCards().addCard(card);
+        //player.getHeldCards().addCard(card);
+        player.getHeldCards().returnCard(card);
         card.onDraw(this);
         return card; //Should it return void?
     }
@@ -87,27 +97,29 @@ public class PlayerController {
 
 
     /**
-     * Transfers money to another player. If the player does not have enough money, their properties are sold.
-     * @param debit is the amount of money transferred out of the account.
+     * Transfers money to another player or the bank.
+     * <p>If bankrupted by the transfer their buildings are first sold and
+     * then everything the own is transferred to the creditor.</p>
+     * <p>Otherwise, if the player does not have enough cash
+     * assets of their own choosing are liquidated.</p>
+     * @param debit the amount of money transferred out of the account.
      *              Can be a negative number in which case money is transferred into the account instead.
-     * @param creditor is the player which receives the money.
+     * @param creditor the player which receives the money.
      *                 if creditor == null the money is given to the bank.
      *
      */
     public void transferMoney(int debit, PlayerController creditor){
         if (creditor == this) return;
-        if (player.getTotalValue() < debit){
+        if (player.getTotalValue() < debit){ //We have gone bankrupt
             //We have gone bankrupt
             //Sell houses
             //Transfer cash
             //Transfer properties
             return;
         }
-        if (player.getBalance() < debit)
+        if (player.getBalance() < debit) //We can pay but we don't have enough cash
         {
-            debit -= player.getBalance();
-            transferMoney(player.getBalance(), creditor); //If we don't have enough cash, we first transfer what we have.
-            debit -= sellProperties(debit, creditor); //It should be possible to trade with other players here too
+            liquidateAssets(debit - player.getBalance());
         }
         addBalance(-debit);
         if (creditor != null){ //creditor == null -> creditor is the bank
@@ -116,10 +128,51 @@ public class PlayerController {
     }
 
     /**
-     * add value of parameter "amount" to current balance
      *
-     * @param amount
-     * @return getBalance() new balance
+     * @return
+     */
+    public int liquidateAssets(){
+         liquidateAssets(-1, true);
+    }
+
+    /**
+     *
+     * @param minAmount
+     * @return
+     */
+    public int liquidateAssets(int minAmount, boolean optional){
+        //TODO: Implement liquidateAssets
+        //Sell houses, hotels and/or properties to the bank
+        //Mortgage properties
+        //Sell or trade properties and/or cards to other players.
+    }
+
+    /**
+     *
+     * @param price the price of the property.
+     * @return true if the property was purchased and false if it was not.
+     */
+    public boolean purchaseProperty(PropertySquareController property) {
+        if (property.getPrice > player.getTotalValue()) return false; //tell them maybe
+        int missingCash = property.getPrice() - player.getBalance();
+        do{
+            if (!playerView.askPurchase(property.getName(), property.getPrice(), missingCash > 0))
+                return false;
+            if (missingCash > 0)
+                liquidateAssets(missingCash, true);
+        } while ((missingCash = property.getPrice() - player.getBalance()) > 0);
+        transferMoney(property.getPrice(), property.getOwner()); //property.getOwner() should always return null here.
+        player.addOwnedProperty(property);
+        property.setOwner(this);
+    }
+
+
+
+    /**
+     * Add value of parameter {@code amount} to current balance
+     *
+     * @param amount the amount to added to the balance. Can be a negative number.
+     * @return {@code getBalance()} new balance
      */
     public int addBalance(int value) {
         return player.setBalance(player.getBalance() + value);
@@ -129,6 +182,7 @@ public class PlayerController {
         return player.getName();
     }
 
+    //Preferably don't use this; it might be removed in the future.
     public Player getPlayer() {
         return player;
     }

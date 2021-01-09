@@ -1,4 +1,6 @@
 package com.gruppe21.player;
+import com.gruppe21.deck.Deck;
+import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
@@ -19,6 +21,8 @@ public class Player {
     private int balance;
     private int totalValue;
     private Deck heldCards;
+    private PropertySquareController[] ownedProperties;
+    private int numOwnedProperties = 0;
     private StatusEffects statusEffects;
 
     private GUI_Player guiPlayer;
@@ -31,6 +35,7 @@ public class Player {
         this.balance = START_FUNDS;
         this.totalValue = START_FUNDS;
         heldCards = new Deck();
+        ownedProperties = new PropertySquareController[4];
         statusEffects = new StatusEffects();
     }
 
@@ -105,6 +110,38 @@ public class Player {
 
     public Deck getHeldCards(){
         return this.heldCards;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public PropertySquareController[] getOwnedProperties(){
+        PropertySquareController[] properties = new PropertySquareController[numOwnedProperties];
+        for (int i = 0; i < numOwnedProperties; i++) {
+            properties[i] = ownedProperties[i];
+        }
+        return properties;
+    }
+
+    public void addOwnedProperty(PropertySquareController propertySquareController){
+        numOwnedProperties++;
+        if (numOwnedProperties > ownedProperties.length){
+            PropertySquareController[] newArray = new PropertySquareController[numOwnedProperties * 2];
+            for (int i = 0; i < ownedProperties.length; i++) {
+                newArray[i] = ownedProperties[i];
+            }
+            ownedProperties = newArray;
+        }
+        ownedProperties[numOwnedProperties-1] = propertySquareController;
+    }
+
+    public void removeOwnedProperty(PropertySquareController propertySquareController){
+        for (int i = 0; i < numOwnedProperties; i++) {
+            if (ownedProperties[i] == propertySquareController){
+                ownedProperties[i] = ownedProperties[--numOwnedProperties];
+            }
+        }
     }
 
     public GUI_Player getGuiPlayer() {

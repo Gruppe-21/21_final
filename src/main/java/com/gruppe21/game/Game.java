@@ -97,6 +97,7 @@ public class Game {
      * Sets the current player to be the next player and returns this player.
      * This is different from {@code getNextPlayer()} which does not change the current player.
      * @return the {@code PlayerController} of the next player
+     * @see getNextPlayer
      */
     public PlayerController nextPlayer() {
         currentPlayerIndex++;
@@ -108,7 +109,7 @@ public class Game {
      * Returns the {@code PlayerController} of the next player.
      * Unlike {@code nextPlayer()} the current player is unchanged.
      * @return the {@code PlayerController} of the next player
-     * @see {@code nextPlayer()}
+     * @see nextPlayer()
      */
     public PlayerController getNextPlayer() {
         return getPlayerControllers()[(currentPlayerIndex + 1) % numPlayers];
