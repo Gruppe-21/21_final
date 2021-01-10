@@ -167,9 +167,24 @@ public class PlayerController {
                 liquidateAssets(missingCash, true);
         } while ((missingCash = price - player.getBalance()) > 0);
         transferMoney(price, property.getOwner()); //property.getOwner() should always return null here.
-        player.addOwnedProperty(property);
         property.setOwner(this); //This maybe shouldn't be done here? Maybe it should be done by the SquareController instead?
         return true;
+    }
+
+    /**
+     *
+     * @param propertySquareController
+     */
+    public void addOwnedProperty(PropertySquareController propertySquareController){
+        player.addOwnedProperty(propertySquareController);
+    }
+
+    /**
+     *
+     * @param propertySquareController
+     */
+    public void removeOwnedProperty(PropertySquareController propertySquareController){
+        player.removeOwnedProperty(propertySquareController);
     }
 
 
