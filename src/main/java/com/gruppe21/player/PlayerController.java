@@ -147,23 +147,26 @@ public class PlayerController {
         //Sell or trade properties and/or cards to other players.
     }
 
+
+    //TODO: split into askToPurchaseProperty and purchaseProperty? That way it can be called after fx players has traded
     /**
      * <p>Asks the player if they want to purchase the property. If they do, payment is transferred to the current owner,
      * the property it is added to their list of owned properties, the owner of the property is changed to the player
      * and the method returns true. Otherwise it simply returns false.</p>
      * @param property the {@code PropertySquareController} of the property to, potentially, be purchased.
+     * @param price the price of the property.
      * @return true if the property was purchased and false if it was not.
      */
-    public boolean purchaseProperty(PropertySquareController property) {
-        if (property.getPrice() > player.getTotalValue()) return false; //tell them maybe
-        int missingCash = property.getPrice() - player.getBalance();
+    public boolean purchaseProperty(PropertySquareController property, int price) {
+        if (price > player.getTotalValue()) return false; //tell them maybe
+        int missingCash = price - player.getBalance();
         do{
-            if (!playerView.askPurchase(property.getName(), property.getPrice(), missingCash > 0))
+            if (!playerView.askPurchase(property.getName(), price, missingCash > 0))
                 return false;
             if (missingCash > 0)
                 liquidateAssets(missingCash, true);
-        } while ((missingCash = property.getPrice() - player.getBalance()) > 0);
-        transferMoney(property.getPrice(), property.getOwner()); //property.getOwner() should always return null here.
+        } while ((missingCash = price - player.getBalance()) > 0);
+        transferMoney(price, property.getOwner()); //property.getOwner() should always return null here.
         player.addOwnedProperty(property);
         property.setOwner(this); //This maybe shouldn't be done here? Maybe it should be done by the SquareController instead?
         return true;
