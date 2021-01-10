@@ -6,9 +6,11 @@ import com.gruppe21.deck.Deck;
 
 public class MoneyCardController extends CardController  {
     private ModifyMoneyCard card;
+    private final int modifyValue;
 
-    public MoneyCardController(CardView view, ModifyMoneyCard card) {
+    public MoneyCardController(CardView view, ModifyMoneyCard card, int modifyValue) {
         super(view, card);
+        this.modifyValue = modifyValue;
     }
 
 
