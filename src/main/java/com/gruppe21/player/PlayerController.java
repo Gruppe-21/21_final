@@ -119,7 +119,7 @@ public class PlayerController {
         }
         if (player.getBalance() < debit) //We can pay but we don't have enough cash
         {
-            liquidateAssets(debit - player.getBalance());
+            liquidateAssets(debit - player.getBalance(), false);
         }
         addBalance(-debit);
         if (creditor != null){ //creditor == null -> creditor is the bank
