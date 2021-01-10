@@ -4,6 +4,7 @@ import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
+import java.awt.*;
 import java.util.Objects;
 
 //Todo: add possesiveName
@@ -150,6 +151,10 @@ public class Player {
 
     public void setGuiPlayer(GUI_Player guiPlayer) {
         this.guiPlayer = guiPlayer;
+    }
+
+    public Color[] getColors(){
+        return new Color[] {guiPlayer.getPrimaryColor(), guiPlayer.getSecondaryColor()};
     }
 }
 
