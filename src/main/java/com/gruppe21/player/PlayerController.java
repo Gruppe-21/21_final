@@ -8,6 +8,7 @@ import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
+import java.awt.*;
 import java.util.Random;
 
 public class PlayerController {
@@ -203,8 +204,8 @@ public class PlayerController {
         return player.getName();
     }
 
-    public Color getColor(){
-        return player.getColor();
+    public Color[] getColors(){
+        return player.getColors();
     }
 
     //Preferably don't use this; it might be removed in the future.
