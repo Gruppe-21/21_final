@@ -15,7 +15,7 @@ public abstract class CardController {
 
     public abstract void onDraw(PlayerController playerController);
 
-    public abstract void onUse(PlayerController playerController);
+    public abstract void use(PlayerController playerController);
 
     /**
      * Returns the {@code Class} object of the {@code CardController}'s {@code Card}

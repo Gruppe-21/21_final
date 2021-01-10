@@ -45,7 +45,7 @@ public class PlayerController {
             switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
-                    pardonCard.onUse(this);
+                    pardonCard.use(this);
                     break;
                 }
                 case 50 : { // '2'
