@@ -10,7 +10,7 @@ import gui_fields.GUI_Field;
  *
  */
 public class SquareController {
-    final private Square model;
+    final protected Square model;
     final private SquareView view;
 
     public SquareController(Square model, SquareView view) {
