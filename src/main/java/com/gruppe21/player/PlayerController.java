@@ -4,6 +4,7 @@ import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.typeOfCards.PardonCard;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.game.GameController;
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
@@ -158,7 +159,7 @@ public class PlayerController {
      * @param price the price of the property.
      * @return true if the property was purchased and false if it was not.
      */
-    public boolean purchaseProperty(PropertySquareController property, int price) {
+    public boolean purchaseProperty(OwnableSquareController property, int price) {
         if (price > player.getTotalValue()) return false; //tell them maybe
         int missingCash = price - player.getBalance();
         do{
@@ -176,7 +177,7 @@ public class PlayerController {
      *
      * @param propertySquareController
      */
-    public void addOwnedProperty(PropertySquareController propertySquareController){
+    public void addOwnedProperty(OwnableSquareController propertySquareController){
         player.addOwnedProperty(propertySquareController);
     }
 
@@ -184,7 +185,7 @@ public class PlayerController {
      *
      * @param propertySquareController
      */
-    public void removeOwnedProperty(PropertySquareController propertySquareController){
+    public void removeOwnedProperty(OwnableSquareController propertySquareController){
         player.removeOwnedProperty(propertySquareController);
     }
 
@@ -193,7 +194,7 @@ public class PlayerController {
     /**
      * Add value of parameter {@code amount} to current balance
      *
-     * @param amount the amount to added to the balance. Can be a negative number.
+     * @param value the value to be added to the balance. Can be a negative number.
      * @return {@code getBalance()} new balance
      */
     public int addBalance(int value) {
