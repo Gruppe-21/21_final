@@ -7,8 +7,8 @@ import com.gruppe21.utils.localisation.Localisation;
 import gui_fields.GUI_Field;
 
 public class SquareView {
-    final private GUIManager guiManager;
-    final private Localisation localisation;
+    final protected GUIManager guiManager;
+    final protected Localisation localisation;
 
     public SquareView() {
         guiManager = GUIManager.getInstance();
