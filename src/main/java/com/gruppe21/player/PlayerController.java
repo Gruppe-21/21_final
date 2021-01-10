@@ -155,7 +155,7 @@ public class PlayerController {
      * @return true if the property was purchased and false if it was not.
      */
     public boolean purchaseProperty(PropertySquareController property) {
-        if (property.getPrice > player.getTotalValue()) return false; //tell them maybe
+        if (property.getPrice() > player.getTotalValue()) return false; //tell them maybe
         int missingCash = property.getPrice() - player.getBalance();
         do{
             if (!playerView.askPurchase(property.getName(), property.getPrice(), missingCash > 0))
@@ -167,6 +167,7 @@ public class PlayerController {
         player.addOwnedProperty(property);
         property.setOwner(this); //This maybe shouldn't be done here? Maybe it should be done by the SquareController instead?
         return true;
+        //
     }
 
 
