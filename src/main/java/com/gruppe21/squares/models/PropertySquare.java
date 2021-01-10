@@ -34,12 +34,25 @@ public class PropertySquare extends Square {
                 parseInt(xmlTag.getAttribute("price"))); // price
     }
 
+    public GUI_Street getGuiField() {
+        return (GUI_Street) (super.getGuiField());
+    }
+
+    public void setGuiField(GUI_Street guiField) {
+        super.setGuiField(guiField);
+    }
+
     public int getHouses() {
         return houses;
     }
 
     public void setHouses(int houses) {
         this.houses = houses;
+        if (houses == 5){
+            getGuiField().setHouses(0);
+            getGuiField().setHotel(true);
+        }
+        else getGuiField().setHouses(houses);
     }
 
     public int getPrice() {
