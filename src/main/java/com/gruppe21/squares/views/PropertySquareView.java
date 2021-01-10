@@ -5,22 +5,14 @@ import gui_fields.GUI_Street;
 
 import java.awt.*;
 
-public class PropertySquareView extends SquareView{
-    Color borderColor = Color.black;
+public class PropertySquareView extends OwnableSquareView{
 
     /**
      *
      * @param model
      */
     public void updateOwner(PropertySquare model) {
-        if (model.getOwner() == null) {
-            model.getGuiField().setBorder(borderColor);
-        } else {
-            Color[] borderColors = model.getOwner().getColors();
-            if (borderColors[0].equals(borderColors[1])) borderColors[1] = borderColor;
-            model.getGuiField().setBorder(borderColors[0], borderColors[1]);
-            //model.getGuiField().setBorder(borderColors[0], borderColor);
-        }
+        super.updateOwner(model);
         updateRent(model);
     }
 

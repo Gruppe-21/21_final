@@ -14,23 +14,18 @@ import java.awt.*;
 
 import static java.lang.Integer.parseInt;
 
-public class PropertySquare extends Square {
+public class PropertySquare extends OwnableSquare {
     private int maxNumHouses;
     private int houses;
     private int buildingCost;
-    private int price;
-    private int[] rent;
-    private PlayerController owner; //owner = null -> owner is the bank.
     private PropertySquareController[] group;
 
     public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, int... rent) {
-        super(id, label, description, color, statusEffect);
-        this.price = price;
+        super(id, label, description, color, statusEffect, price);
         this.buildingCost = buildingCost;
         this.rent = rent;
         maxNumHouses = rent.length - 1;
         houses = 0;
-        owner = null;
         GUI_Street street = new GUI_Street();
         setGuiField(street);
     }
@@ -76,14 +71,6 @@ public class PropertySquare extends Square {
         return buildingCost;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public int getRent(){
         if (owner == null) return 0; //This should never happen
         if (houses == 0){
@@ -104,6 +91,6 @@ public class PropertySquare extends Square {
     }
 
     public void setGroup(PropertySquareController[] group){
-        this.group = group;
+        super.setGroup(group);
     }
 }
