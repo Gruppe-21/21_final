@@ -82,14 +82,6 @@ public class PropertySquare extends OwnableSquare {
         return rent[houses];
     }
 
-    public PlayerController getOwner(){
-        return owner;
-    }
-
-    public void setOwner(PlayerController owner){
-        this.owner = owner;
-    }
-
     public void setGroup(PropertySquareController[] group){
         super.setGroup(group);
     }
