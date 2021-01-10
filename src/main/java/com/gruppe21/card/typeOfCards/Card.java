@@ -8,4 +8,12 @@ public abstract class Card {
         this.descriptionOnDrawLabel = descriptionOnDrawLabel;
         this.descriptionOnUseLabel = descriptionOnUseLabel;
     }
+
+    public String getDescriptionOnDrawLabel() {
+        return descriptionOnDrawLabel;
+    }
+
+    public String getDescriptionOnUseLabel() {
+        return descriptionOnDrawLabel;
+    }
 }
