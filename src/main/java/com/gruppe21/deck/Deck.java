@@ -9,11 +9,15 @@ import java.io.IOException;
 import org.xml.sax.SAXException;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Random;
 
 public class Deck {
-    private final int TOTAL_CARDS;
+    private int totalCards;
+    private int currentNumCards;
     private CardController[] cards = new CardController[32];
+    private CardController[] returnedCards;
+    private int numCardsReturned = 0;
     private int cardsDrawn = 0;
 
     /**
@@ -25,7 +29,9 @@ public class Deck {
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
-        TOTAL_CARDS = cards.length;
+        totalCards = cards.length;
+        currentNumCards = totalCards;
+        returnedCards = new CardController[totalCards];
     }
 
     /**
@@ -33,70 +39,96 @@ public class Deck {
      */
     public Deck() {
         CardController[] cards = new CardController[0];
-        TOTAL_CARDS = 0;
+        totalCards = 0;
+        currentNumCards = 0;
+        returnedCards = new CardController[0];
     }
 
 
+    public CardController drawCardOfClass(Class cardClass){
+        for (int i = cardsDrawn; i < currentNumCards; i++) {
+            if(cards[i].getCardClass().equals(cardClass)){
+                CardController drawnCard = cards[i];
+                cards[i] = cards[cardsDrawn];
+                cards[cardsDrawn] = cards[i];
+                cardsDrawn++;
+                return cards[i];
+            }
+        }
+        return null;
+    }
 
     /**
      * Draw first card from deck
-     * @return card
+     * @return top card
      */
     public CardController nextCard() {
-        CardController card = cards[0]; // Top cards/first card
-
-        if (cardsDrawn == TOTAL_CARDS) shuffleDeck();
+        if (cardsDrawn == currentNumCards) {
+            cards = returnedCards;
+            currentNumCards = numCardsReturned;
+            numCardsReturned = 0;
+            shuffleDeck();
+            cardsDrawn = 0;
+        }
+        CardController card = cards[cardsDrawn]; // Top cards/first card
         cardsDrawn++;
-
-        removeCard(card);
-
         return card;
     }
 
     /**
-     * Remove one card of certain CardController type
+     * Remove a specific card from the deck
      * @param removeCard
      */
     public void removeCard(CardController removeCard) {
-        int removeIndex = 0;
-        CardController[] cardsCopy = new CardController[cards.length-1];
         boolean contains = Arrays.stream(cards).anyMatch(removeCard::equals);
+        if (!contains) return;
 
+        int removeIndex = 0;
+        CardController[] cardsCopy = new CardController[cards.length - 1];
         // Finds index of removeCard in cards array
-        if (contains) {
-            for(int i = 0; i < cards.length; i++){
-                if(removeCard == cards[i]){
-                    removeIndex = i;
-                    break;
-                }
+        for (int i = 0; i < cards.length; i++) {
+            if (removeCard == cards[i]) {
+                removeIndex = i;
+                break;
             }
-
-            // Sorts removeCard out of cards array
-            int i=0,j=0;
-            while(i < cards.length){
-                if(cards[i] != cards[removeIndex]){
-                    cardsCopy[j] = cards[i];
-                    j++;
-                }
-                i++;
-            }
-            this.cards = cardsCopy;
         }
-
+        // Sorts removeCard out of cards array
+        int i = 0, j = 0;
+        while (i < cards.length) {
+            if (cards[i] != cards[removeIndex]) {
+                cardsCopy[j] = cards[i];
+                j++;
+            }
+            i++;
+        }
+        this.cards = cardsCopy;
+        totalCards--;
+        currentNumCards--;
+        if (removeIndex < cardsDrawn) cardsDrawn--;
     }
 
     /**
-     * Returns a card (putBackCard) to deck
-     * @param putBackCard
+     * Adds a card to the bottom of the deck.
+     * @param card the card to be added
      */
-    public void returnCard(CardController putBackCard) {
-        CardController[] cardsCopy = new CardController[cards.length + 1];
+    public void addCard(CardController card){
+        totalCards++;
+        currentNumCards++;
+        CardController[] cardControllers = new CardController[totalCards];
         for (int i = 0; i < cards.length; i++) {
-            cardsCopy[i] = cards[i];
-            if (cards[i] == cards[cards.length - 1])
-                cardsCopy[i + 1] = putBackCard;
+            cardControllers[i] = cards[i];
         }
-        this.cards = cardsCopy;
+        cardControllers[totalCards - 1] = card;
+        cards = cardControllers;
+    }
+
+    /**
+     * Returns a card to deck.
+     * @param card card to be returned
+     */
+    public void returnCard(CardController card) {
+        returnedCards[numCardsReturned] = card;
+        numCardsReturned++;
     }
 
     /**
@@ -105,9 +137,9 @@ public class Deck {
     public void shuffleDeck() {
         cardsDrawn = 0;
         Random rand = new Random();
-        for (int i = 0; i < cards.length; i++) {
+        for (int i = 0; i < currentNumCards; i++) {
             CardController tempController;
-            int rand_int = rand.nextInt(cards.length);
+            int rand_int = rand.nextInt(currentNumCards);
             tempController = cards[i];
             cards[i] = cards[rand_int];
             cards[rand_int] = tempController;
