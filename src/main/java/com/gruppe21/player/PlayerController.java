@@ -132,7 +132,7 @@ public class PlayerController {
      * @return
      */
     public int liquidateAssets(){
-         liquidateAssets(-1, true);
+         return liquidateAssets(-1, true);
     }
 
     /**
@@ -167,7 +167,6 @@ public class PlayerController {
         player.addOwnedProperty(property);
         property.setOwner(this); //This maybe shouldn't be done here? Maybe it should be done by the SquareController instead?
         return true;
-        //
     }
 
 
