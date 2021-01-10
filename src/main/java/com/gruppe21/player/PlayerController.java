@@ -203,6 +203,10 @@ public class PlayerController {
         return player.getName();
     }
 
+    public Color getColor(){
+        return player.getColor();
+    }
+
     //Preferably don't use this; it might be removed in the future.
     public Player getPlayer() {
         return player;
