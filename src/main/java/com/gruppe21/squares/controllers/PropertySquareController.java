@@ -2,11 +2,7 @@ package com.gruppe21.squares.controllers;
 
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.models.PropertySquare;
-import com.gruppe21.squares.models.Square;
 import com.gruppe21.squares.views.PropertySquareView;
-import com.gruppe21.squares.views.SquareView;
-import gui_fields.GUI_Empty;
-import gui_fields.GUI_Street;
 
 public class PropertySquareController extends OwnableSquareController {
     PropertySquare model;
