@@ -1,5 +1,6 @@
 package com.gruppe21.squares.models;
 
+import com.gruppe21.game.Game;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
@@ -14,17 +15,16 @@ import java.awt.*;
 import static java.lang.Integer.parseInt;
 
 public class PropertySquare extends Square {
-    private int groupId;
     public int maxNumHouses;
     private int houses;
     private int buildingCost;
     private int price;
     private int[] rent;
     private PlayerController owner; //owner = null -> owner is the bank.
+    private PropertySquareController[] group;
 
-    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int groupId, int price, int buildingCost, int[] rent) {
+    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, int[] rent) {
         super(id, label, description, color, statusEffect);
-        this.groupId = groupId;
         this.price = price;
         this.buildingCost = buildingCost;
         this.rent = rent;
@@ -85,10 +85,9 @@ public class PropertySquare extends Square {
         this.price = price;
     }
 
-    public int getRent(Board board){
+    public int getRent(){
         if (owner == null) return 0; //This should never happen
         if (houses == 0){
-            PropertySquareController[] group = (PropertySquareController[])(board.getPropertySquareControllerGroup(groupId));
             for (PropertySquareController squareController: group) {
                 if (squareController.getOwner() != getOwner()) return rent[0];
             }
@@ -103,5 +102,9 @@ public class PropertySquare extends Square {
 
     public void setOwner(PlayerController owner){
         this.owner = owner;
+    }
+
+    public void setGroup(PropertySquareController[] group){
+        this.group = group;
     }
 }
