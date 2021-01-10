@@ -15,7 +15,7 @@ import java.awt.*;
 import static java.lang.Integer.parseInt;
 
 public class PropertySquare extends Square {
-    public int maxNumHouses;
+    private int maxNumHouses;
     private int houses;
     private int buildingCost;
     private int price;
@@ -59,6 +59,10 @@ public class PropertySquare extends Square {
         return groupId;
     }
 
+    public int getMaxNumHouses(){
+        return maxNumHouses;
+    }
+
     public int getHouses() {
         return houses;
     }
@@ -66,11 +70,6 @@ public class PropertySquare extends Square {
     public void setHouses(int houses) {
         this.houses = houses;
         if (this.houses < 0) this.houses = 0;
-        if (houses == maxNumHouses){
-            getGuiField().setHouses(0);
-            getGuiField().setHotel(true);
-        }
-        else getGuiField().setHouses(houses);
     }
 
     public void addHouse(int numHouses){
