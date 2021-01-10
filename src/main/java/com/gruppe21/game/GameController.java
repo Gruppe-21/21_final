@@ -45,6 +45,14 @@ public class GameController {
     private void doRound(PlayerController playerController){
         playerController.takeTurn(game.getBoard());
     }
+
+    /**
+     *
+     * @return
+     */
+    public PlayerController[] getPlayerControllers(){
+        return game.getPlayerControllers();
+    }
     
 
 }
