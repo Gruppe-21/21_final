@@ -1,5 +1,6 @@
 package com.gruppe21.squares.models;
 
+import com.gruppe21.player.PlayerController;
 import com.gruppe21.utils.ColorUtil;
 import gui_fields.GUI_Empty;
 import gui_fields.GUI_Field;
@@ -13,11 +14,13 @@ import static java.lang.Integer.parseInt;
 public class PropertySquare extends Square {
     private int houses;
     private int price;
+    private PlayerController owner; //owner = null -> owner is the bank.
 
     public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price) {
         super(id, label, description, color, statusEffect);
         this.price = price;
         houses = 0;
+        owner = null;
         GUI_Street street = new GUI_Street();
         setGuiField(street);
     }
@@ -45,5 +48,13 @@ public class PropertySquare extends Square {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public PlayerController getOwner(){
+        return owner;
+    }
+
+    public void setOwner(PlayerController owner){
+        this.owner = owner;
     }
 }
