@@ -192,7 +192,7 @@ public class PlayerController {
 
 
     /**
-     * Add value of parameter {@code amount} to current balance
+     * Add value of parameter {@code value} to current balance
      *
      * @param value the value to be added to the balance. Can be a negative number.
      * @return {@code getBalance()} new balance
@@ -207,6 +207,10 @@ public class PlayerController {
 
     public Color[] getColors(){
         return player.getColors();
+    }
+
+    public Deck getHeldCards(){
+        return player.getHeldCards();
     }
 
     //Preferably don't use this; it might be removed in the future.
