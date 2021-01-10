@@ -31,6 +31,10 @@ public class SquareController {
 
     public GUI_Field getSquareField(){return model.getGuiField();}
 
+    public String getName(){
+        return view.getName(model);
+    }
+
     public SquareView getView(){ return view; }
 
 
