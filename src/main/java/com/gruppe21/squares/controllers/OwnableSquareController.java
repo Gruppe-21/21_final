@@ -2,10 +2,8 @@ package com.gruppe21.squares.controllers;
 
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.models.OwnableSquare;
-import com.gruppe21.squares.models.PropertySquare;
 import com.gruppe21.squares.models.Square;
 import com.gruppe21.squares.views.OwnableSquareView;
-import com.gruppe21.squares.views.PropertySquareView;
 import com.gruppe21.squares.views.SquareView;
 
 public abstract class OwnableSquareController extends SquareController {
@@ -14,6 +12,20 @@ public abstract class OwnableSquareController extends SquareController {
 
     public OwnableSquareController(Square model, SquareView view) {
         super(model, view);
+    }
+
+    @Override
+    public void onMoveTo(PlayerController playerController) {
+        if (getOwner() == null) {
+            if (!playerController.purchaseProperty(this, model.getPrice())) {
+                //Auction
+            }
+        } else if (getOwner() != playerController) {
+            playerController.transferMoney(model.getRent(), getOwner());
+        }
+        else{
+            super.onMoveTo(playerController);
+        }
     }
 
     public PlayerController getOwner(){
