@@ -33,6 +33,13 @@ public class PropertySquareController extends SquareController {
         if (model.getOwner() != null) model.getOwner().removeOwnedProperty(this);
         if (newOwner != null) newOwner.addOwnedProperty(this);
         model.setOwner(newOwner);
-
+        view.updateOwner(model);
     }
+
+    public void addHouse(){
+        if (model.getHouses() == model.getMaxNumHouses()) return; //Throw exception?
+        model.addHouse(1);
+        view.updateHouses(model);
+    }
+
 }
