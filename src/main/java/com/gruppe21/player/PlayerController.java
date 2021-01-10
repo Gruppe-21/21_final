@@ -119,7 +119,7 @@ public class PlayerController {
         }
         if (player.getBalance() < debit) //We can pay but we don't have enough cash
         {
-            liquidateAssets(debit - player.getBalance());
+            liquidateAssets(debit - player.getBalance(), false);
         }
         addBalance(-debit);
         if (creditor != null){ //creditor == null -> creditor is the bank
@@ -132,7 +132,7 @@ public class PlayerController {
      * @return
      */
     public int liquidateAssets(){
-         liquidateAssets(-1, true);
+         return liquidateAssets(-1, true);
     }
 
     /**
@@ -148,12 +148,14 @@ public class PlayerController {
     }
 
     /**
-     *
-     * @param price the price of the property.
+     * <p>Asks the player if they want to purchase the property. If they do, payment is transferred to the current owner,
+     * the property it is added to their list of owned properties, the owner of the property is changed to the player
+     * and the method returns true. Otherwise it simply returns false.</p>
+     * @param property the {@code PropertySquareController} of the property to, potentially, be purchased.
      * @return true if the property was purchased and false if it was not.
      */
     public boolean purchaseProperty(PropertySquareController property) {
-        if (property.getPrice > player.getTotalValue()) return false; //tell them maybe
+        if (property.getPrice() > player.getTotalValue()) return false; //tell them maybe
         int missingCash = property.getPrice() - player.getBalance();
         do{
             if (!playerView.askPurchase(property.getName(), property.getPrice(), missingCash > 0))
@@ -163,7 +165,8 @@ public class PlayerController {
         } while ((missingCash = property.getPrice() - player.getBalance()) > 0);
         transferMoney(property.getPrice(), property.getOwner()); //property.getOwner() should always return null here.
         player.addOwnedProperty(property);
-        property.setOwner(this);
+        property.setOwner(this); //This maybe shouldn't be done here? Maybe it should be done by the SquareController instead?
+        return true;
     }
 
 
