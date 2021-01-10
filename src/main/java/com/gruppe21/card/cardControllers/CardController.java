@@ -13,6 +13,16 @@ public abstract class CardController {
         this.card = card;
     }
 
-    protected abstract void onDraw(PlayerController playerController);
+    public abstract void onDraw(PlayerController playerController);
+
+    public abstract void onUse(PlayerController playerController);
+
+    /**
+     * Returns the {@code Class} object of the {@code CardController}'s {@code Card}
+     * @return the {@code Class} object of the card
+     */
+    public Class getCardClass(){
+        return card.getClass();
+    }
 
 }
