@@ -76,6 +76,10 @@ public class PropertySquare extends Square {
         setHouses(getHouses() + numHouses);
     }
 
+    public int getBuildingCost(){
+        return buildingCost;
+    }
+
     public int getPrice() {
         return price;
     }

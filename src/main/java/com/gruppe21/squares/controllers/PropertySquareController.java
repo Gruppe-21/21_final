@@ -42,4 +42,8 @@ public class PropertySquareController extends SquareController {
         view.updateHouses(model);
     }
 
+    public int getBuildingCost(){
+        return model.getBuildingCost();
+    }
+
 }
