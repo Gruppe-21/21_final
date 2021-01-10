@@ -2,6 +2,7 @@ package com.gruppe21.card.cardControllers;
 
 import com.gruppe21.card.CardView;
 import com.gruppe21.card.typeOfCards.Card;
+import com.gruppe21.deck.Deck;
 import com.gruppe21.player.PlayerController;
 
 public abstract class CardController {
@@ -13,9 +14,19 @@ public abstract class CardController {
         this.card = card;
     }
 
-    public abstract void onDraw(PlayerController playerController);
+    public Deck getReturnDeck(){
+        return card.getDeckToReturnTo();
+    }
 
-    public abstract void use(PlayerController playerController);
+    public void setReturnDeck(Deck deck){
+        card.setDeckToReturnTo(deck);
+    }
+
+    public abstract void onDraw(PlayerController drawer);
+
+    public void use(PlayerController user){
+        //Tell user something
+    }
 
     /**
      * Returns the {@code Class} object of the {@code CardController}'s {@code Card}
