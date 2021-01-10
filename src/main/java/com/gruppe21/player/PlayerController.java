@@ -4,10 +4,12 @@ import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.typeOfCards.PardonCard;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.game.GameController;
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
+import java.awt.*;
 import java.util.Random;
 
 public class PlayerController {
@@ -147,26 +149,44 @@ public class PlayerController {
         //Sell or trade properties and/or cards to other players.
     }
 
+
+    //TODO: split into askToPurchaseProperty and purchaseProperty? That way it can be called after fx players has traded
     /**
      * <p>Asks the player if they want to purchase the property. If they do, payment is transferred to the current owner,
      * the property it is added to their list of owned properties, the owner of the property is changed to the player
      * and the method returns true. Otherwise it simply returns false.</p>
      * @param property the {@code PropertySquareController} of the property to, potentially, be purchased.
+     * @param price the price of the property.
      * @return true if the property was purchased and false if it was not.
      */
-    public boolean purchaseProperty(PropertySquareController property) {
-        if (property.getPrice() > player.getTotalValue()) return false; //tell them maybe
-        int missingCash = property.getPrice() - player.getBalance();
+    public boolean purchaseProperty(OwnableSquareController property, int price) {
+        if (price > player.getTotalValue()) return false; //tell them maybe
+        int missingCash = price - player.getBalance();
         do{
-            if (!playerView.askPurchase(property.getName(), property.getPrice(), missingCash > 0))
+            if (!playerView.askPurchase(property.getName(), price, missingCash > 0))
                 return false;
             if (missingCash > 0)
                 liquidateAssets(missingCash, true);
-        } while ((missingCash = property.getPrice() - player.getBalance()) > 0);
-        transferMoney(property.getPrice(), property.getOwner()); //property.getOwner() should always return null here.
-        player.addOwnedProperty(property);
+        } while ((missingCash = price - player.getBalance()) > 0);
+        transferMoney(price, property.getOwner()); //property.getOwner() should always return null here.
         property.setOwner(this); //This maybe shouldn't be done here? Maybe it should be done by the SquareController instead?
         return true;
+    }
+
+    /**
+     *
+     * @param propertySquareController
+     */
+    public void addOwnedProperty(OwnableSquareController propertySquareController){
+        player.addOwnedProperty(propertySquareController);
+    }
+
+    /**
+     *
+     * @param propertySquareController
+     */
+    public void removeOwnedProperty(OwnableSquareController propertySquareController){
+        player.removeOwnedProperty(propertySquareController);
     }
 
 
@@ -174,7 +194,7 @@ public class PlayerController {
     /**
      * Add value of parameter {@code amount} to current balance
      *
-     * @param amount the amount to added to the balance. Can be a negative number.
+     * @param value the value to be added to the balance. Can be a negative number.
      * @return {@code getBalance()} new balance
      */
     public int addBalance(int value) {
@@ -183,6 +203,10 @@ public class PlayerController {
 
     public String getName(){
         return player.getName();
+    }
+
+    public Color[] getColors(){
+        return player.getColors();
     }
 
     //Preferably don't use this; it might be removed in the future.
