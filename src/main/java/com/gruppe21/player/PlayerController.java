@@ -41,11 +41,11 @@ public class PlayerController {
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            CardController pardonCard = player.getHeldCards().getCardOfClass(PardonCard.class);
+            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCard.class);
             switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
-                    pardonCard.onUse();
+                    pardonCard.onUse(this);
                     break;
                 }
                 case 50 : { // '2'
