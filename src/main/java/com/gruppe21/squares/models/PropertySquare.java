@@ -23,7 +23,7 @@ public class PropertySquare extends Square {
     private PlayerController owner; //owner = null -> owner is the bank.
     private PropertySquareController[] group;
 
-    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, int[] rent) {
+    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, int... rent) {
         super(id, label, description, color, statusEffect);
         this.price = price;
         this.buildingCost = buildingCost;
@@ -53,10 +53,6 @@ public class PropertySquare extends Square {
 
     public void setGuiField(GUI_Street guiField) {
         super.setGuiField(guiField);
-    }
-
-    public int getGroupId(){
-        return groupId;
     }
 
     public int getMaxNumHouses(){
