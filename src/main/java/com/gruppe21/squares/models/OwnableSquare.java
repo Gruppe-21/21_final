@@ -2,9 +2,7 @@ package com.gruppe21.squares.models;
 
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.OwnableSquareController;
-import com.gruppe21.squares.controllers.PropertySquareController;
 import gui_fields.GUI_Ownable;
-import gui_fields.GUI_Street;
 import org.w3c.dom.Element;
 
 import java.awt.*;
@@ -52,7 +50,7 @@ public abstract class OwnableSquare extends Square {
         this.owner = owner;
     }
 
-    public void setGroup(OwnableSquareController[] group){
+    protected void setGroup(OwnableSquareController[] group){
         this.group = group;
     }
 }
