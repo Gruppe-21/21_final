@@ -1,6 +1,8 @@
 package com.gruppe21.squares.models;
 
 import com.gruppe21.player.PlayerController;
+import com.gruppe21.squares.controllers.PropertySquareController;
+import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.utils.ColorUtil;
 import gui_fields.GUI_Empty;
 import gui_fields.GUI_Field;
@@ -12,13 +14,21 @@ import java.awt.*;
 import static java.lang.Integer.parseInt;
 
 public class PropertySquare extends Square {
+    private int groupId;
+    public int maxNumHouses;
     private int houses;
+    private int buildingCost;
     private int price;
+    private int[] rent;
     private PlayerController owner; //owner = null -> owner is the bank.
 
-    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price) {
+    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int groupId, int price, int buildingCost, int[] rent) {
         super(id, label, description, color, statusEffect);
+        this.groupId = groupId;
         this.price = price;
+        this.buildingCost = buildingCost;
+        this.rent = rent;
+        maxNumHouses = rent.length - 1;
         houses = 0;
         owner = null;
         GUI_Street street = new GUI_Street();
@@ -31,7 +41,10 @@ public class PropertySquare extends Square {
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0, // StatusEffect
-                parseInt(xmlTag.getAttribute("price"))); // price
+                parseInt(xmlTag.getAttribute("buildingCost")),
+                parseInt(xmlTag.getAttribute("price")),  // price
+                //TODO: read rent array
+        );
     }
 
     public GUI_Street getGuiField() {
@@ -42,17 +55,26 @@ public class PropertySquare extends Square {
         super.setGuiField(guiField);
     }
 
+    public int getGroupId(){
+        return groupId;
+    }
+
     public int getHouses() {
         return houses;
     }
 
     public void setHouses(int houses) {
         this.houses = houses;
-        if (houses == 5){
+        if (this.houses < 0) this.houses = 0;
+        if (houses == maxNumHouses){
             getGuiField().setHouses(0);
             getGuiField().setHotel(true);
         }
         else getGuiField().setHouses(houses);
+    }
+
+    public void addHouse(int numHouses){
+        setHouses(getHouses() + numHouses);
     }
 
     public int getPrice() {
@@ -61,6 +83,18 @@ public class PropertySquare extends Square {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getRent(Board board){
+        if (owner == null) return 0; //This should never happen
+        if (houses == 0){
+            PropertySquareController[] group = (PropertySquareController[])(board.getPropertySquareControllerGroup(groupId));
+            for (PropertySquareController squareController: group) {
+                if (squareController.getOwner() != getOwner()) return rent[0];
+            }
+            return rent[0] * 2;
+        }
+        return rent[houses];
     }
 
     public PlayerController getOwner(){
