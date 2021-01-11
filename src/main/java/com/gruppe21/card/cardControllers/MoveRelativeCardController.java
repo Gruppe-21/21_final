@@ -7,13 +7,11 @@ import com.gruppe21.player.PlayerController;
 import com.gruppe21.utils.localisation.Localisation;
 
 public class MoveRelativeCardController extends CardController {
+    private MoveRelativeCard card;
+    private CardView view;
 
-    private MoveRelativeCard model;
-    private Localisation localisation;
-    public MoveRelativeCardController(CardView view, MoveRelativeCard cardModel) {
-        super(view, cardModel);
-        localisation = Localisation.getInstance();
-        this.model = cardModel;
+    public MoveRelativeCardController(CardView view, MoveRelativeCard card) {
+        super(view, card);
     }
 
     @Override

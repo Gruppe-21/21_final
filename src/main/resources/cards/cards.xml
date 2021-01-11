@@ -34,16 +34,16 @@
 
 
     <!-- MoveRelative cards -->
-    <moveRelativecard onUseDescription="startCardOnUseDesc" square_ID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
-    <moveRelativecard onUseDescription="startCardOnUseDesc" square_ID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 2 -->
-    <!-- <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" square_ID="" type="MoveToSquare" label="ThreeForward"/>          Kort 25 -->
-    <!-- <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" square_ID="" type="MoveToSquare" label="ThreeBackward"/>        Kort 26 -->
-    <moveRelativecard onUseDescription="frederiksbergCardOnUseDesc" square_ID="11" type="MoveToSquare" label="Frederiksberg Allé"/> <!-- Kort 27 -->
-    <moveRelativecard onUseDescription="mols-linjenCardOnUseDesc"  square_ID="15" type="MoveToSquare" label="Mols-Linien"/>         <!-- Kort 29 -->
-    <moveRelativecard onUseDescription="groenningenCardOnUseDesc"  square_ID="24" type="MoveToSquare" label="Grønningen"/>          <!-- Kort 30 -->
-    <moveRelativecard onUseDescription="vimmelskaftetCardOnUseDesc" square_ID="32" type="MoveToSquare" label="Vimmelskaftet"/>      <!-- Kort 31 -->
-    <moveRelativecard onUseDescription="strandvejenCardOnUseDesc" square_ID="19" type="MoveToSquare" label="Strandvejen"/>          <!-- Kort 33 -->
-    <moveRelativecard onUseDescription="raadhuspladsenCardOnUseDesc" square_ID="39" type="MoveToSquare" label="Raadhuspladsen"/>    <!-- Kort 34 -->
+    <moveRelativecard onUseDescription="startCardOnUseDesc" squareID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
+    <moveRelativecard onUseDescription="startCardOnUseDesc" squareID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 2 -->
+    <!-- <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeForward"/>          Kort 25 -->
+    <!-- <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeBackward"/>        Kort 26 -->
+    <moveRelativecard onUseDescription="frederiksbergCardOnUseDesc" squareID="11" type="MoveToSquare" label="Frederiksberg Allé"/> <!-- Kort 27 -->
+    <moveRelativecard onUseDescription="mols-linjenCardOnUseDesc" squareID="15" type="MoveToSquare" label="Mols-Linien"/>         <!-- Kort 29 -->
+    <moveRelativecard onUseDescription="groenningenCardOnUseDesc" squareID="24" type="MoveToSquare" label="Grønningen"/>          <!-- Kort 30 -->
+    <moveRelativecard onUseDescription="vimmelskaftetCardOnUseDesc" squareID="32" type="MoveToSquare" label="Vimmelskaftet"/>      <!-- Kort 31 -->
+    <moveRelativecard onUseDescription="strandvejenCardOnUseDesc" squareID="19" type="MoveToSquare" label="Strandvejen"/>          <!-- Kort 33 -->
+    <moveRelativecard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Raadhuspladsen"/>    <!-- Kort 34 -->
 
     <!-- MoveToNearest cards -->
     <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Rederi"/>
