@@ -9,7 +9,7 @@ public class Game {
     private final int initialNumberOfPlayers;
     private int numPlayers;
     private PlayerController[] playerControllers;
-    private int currentPlayerIndex;
+    private int currentPlayerIndex = -1;
     private final Board board;
 
     public Game(Board board, int numPlayers){
@@ -112,7 +112,7 @@ public class Game {
      * @see nextPlayer()
      */
     public PlayerController getNextPlayer() {
-        return getPlayerControllers()[(currentPlayerIndex + 1) % numPlayers];
+        return getPlayerControllers()[(currentPlayerIndex + 1) % numPlayers]; // TODO set to currentPlayerIndex +1
     }
 
     public Board getBoard() {
