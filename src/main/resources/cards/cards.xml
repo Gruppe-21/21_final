@@ -43,7 +43,7 @@
     <moveRelativecard onUseDescription="groenningenCardOnUseDesc" squareID="24" type="MoveToSquare" label="Grønningen"/>           <!-- Kort 30 -->
     <moveRelativecard onUseDescription="vimmelskaftetCardOnUseDesc" squareID="32" type="MoveToSquare" label="Vimmelskaftet"/>      <!-- Kort 31 -->
     <moveRelativecard onUseDescription="strandvejenCardOnUseDesc" squareID="19" type="MoveToSquare" label="Strandvejen"/>          <!-- Kort 33 -->
-    <moveRelativecard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Raadhuspladsen"/>    <!-- Kort 34 -->
+    <moveRelativecard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Rådhuspladsen"/>    <!-- Kort 34 -->
 
     <!-- MoveToNearest cards -->
     <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Rederi"/>  <!-- Kort 28 -->
