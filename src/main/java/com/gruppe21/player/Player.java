@@ -169,15 +169,13 @@ public class Player {
     public OwnableSquareController[] getNonMortgagedProperties(){
         OwnableSquareController[] nonMortgagedProperties = new OwnableSquareController[getNumNonMortgagedProperties()];
         int addedProperties = 0;
-        for (int i = 0; i < ; i++) {
-            
+        for (int i = 0; i < getOwnedProperties().length; i++) {
+            if (!ownedProperties[i].isMortgaged()){
+                nonMortgagedProperties[addedProperties] = ownedProperties[i];
+                addedProperties++;
+            }
         }
-        for (int i = 0; i < nonMortgagedProperties.length; i++) {
-            while (ownedProperties[i].isMortgaged()) i++;
-        }
-        for (OwnableSquareController property: getOwnedProperties()) {
-
-        }
+        return nonMortgagedProperties;
     }
 
     private int getNumNonMortgagedProperties(){
