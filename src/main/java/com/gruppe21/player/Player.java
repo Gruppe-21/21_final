@@ -85,7 +85,7 @@ public class Player {
     }
 
     public int getBalance(){
-        return this.getBalance();
+        return balance;
     }
 
     public int setBalance(int balance){

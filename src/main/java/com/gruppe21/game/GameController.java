@@ -15,6 +15,9 @@ public class GameController {
     GameView gameView;
     private GameController(){
         gameView = new GameView();
+    }
+
+    public void initGame(){
         gameView.selectLanguage();
         game = new Game(new Board(), gameView.askNumberOfPlayers(Game.MIN_PLAYERS, Game.MAX_PLAYERS));
         gameView.displayBoard(game.getBoard());
