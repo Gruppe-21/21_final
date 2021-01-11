@@ -2,9 +2,8 @@ package com.gruppe21.card.cardControllers;
 
 import com.gruppe21.card.CardView;
 import com.gruppe21.card.typeOfCards.MoveRelativeCard;
-import com.gruppe21.deck.Deck;
 import com.gruppe21.player.PlayerController;
-import com.gruppe21.utils.localisation.Localisation;
+import com.gruppe21.game.Board;
 
 public class MoveRelativeCardController extends CardController {
     private MoveRelativeCard card;
@@ -18,22 +17,14 @@ public class MoveRelativeCardController extends CardController {
     public void onDraw(PlayerController drawer) {
         use(drawer);
     }
-/*
 
     @Override
-    protected void onDraw(CardView view, MoveRelativeCard model) {
-        String description = localisation.getStringValue(model.);
+    public void use(PlayerController user){
+        super.use(user);
+        int moveToSquareID = card.getSquareID();
+
+        user.moveTo(Board.getSquareControllerFromId(moveToSquareID));
+
     }
-
-    protected int use(Deck deck, CardController putBackCard, MoveRelativeCard model){
-        super.use(deck,putBackCard);
-        String description = localisation.getStringValue(descriptionOnUseLabel);
-
-        int square_ID = model.getSquare_ID();
-
-        return square_ID;
-    }
-
-*/
 
 }

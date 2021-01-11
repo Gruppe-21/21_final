@@ -1,15 +1,17 @@
 package com.gruppe21.card.typeOfCards;
 
 public class MoveRelativeCard extends Card {
-    private int square_ID; //squareIndex?
+    private int squareID;
 
-    public MoveRelativeCard(String descriptionOnDrawLabel,String descriptionOnUseLabel,int square_ID) {
+
+    public MoveRelativeCard(String descriptionOnDrawLabel,String descriptionOnUseLabel,int squareID) {
+
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
-        this.square_ID = square_ID;
+        this.squareID = squareID;
+
     }
 
-
-    public int getSquare_ID() {
-        return square_ID;
+    public int getSquareID() {
+        return squareID;
     }
 }

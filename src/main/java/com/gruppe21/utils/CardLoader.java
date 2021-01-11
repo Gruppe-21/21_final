@@ -71,10 +71,10 @@ public class CardLoader {
         // Ud fra tag finder den forskellige oplysninger om kortene
         switch (elementName) {
             case "moveRelativeCard":
-                final String square_IDStr = tag.getAttribute("ID"); // Gemmer indholdet af ID-tag som String
-                final int square_ID = square_IDStr.equals("") ? 0 : Integer.parseInt(square_IDStr); // Omdanner String til int
+                final String squareIDStr = tag.getAttribute("squareIndex"); // Gemmer indholdet af squareID-tag som String
+                final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
 
-                MoveRelativeCard moveCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,square_ID);
+                MoveRelativeCard moveCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,squareID);
                 CardView moveView = new CardView();
                 MoveRelativeCardController moveController = new MoveRelativeCardController(moveView,moveCardModel);
 
