@@ -1,4 +1,5 @@
 package com.gruppe21.gui;
+import com.gruppe21.game.Board;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
@@ -22,15 +23,20 @@ public class GUIManager {
 
     /**
      *
-     * @param board
+     *
      */
     private GUIManager(){
+        fields = new GUI_Field[1];
+        GUI_Street empty = new GUI_Street();
+        empty.setDescription("");
+        empty.setTitle("");
+        fields[0] = empty;
         gui = new GUI(fields, backgroundColor);
     }
 
     /**
      *
-     * @param playerControllers
+     *
      */
     /*
     public void addPlayers(PlayerController... playerControllers){
@@ -159,7 +165,7 @@ public class GUIManager {
      * @return
      */
     public String getUserChoiceDropDown(String message, String... options){
-        if (gui == null) return buttonText[(int) (Math.random() * (options.length + 1))];
+        if (gui == null) return options[(int) (Math.random() * (options.length + 1))];
         return gui.getUserSelection(message, options);
     }
 

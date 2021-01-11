@@ -3,6 +3,7 @@ package com.gruppe21.player;
 import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.typeOfCards.PardonCard;
 import com.gruppe21.deck.Deck;
+import com.gruppe21.game.Board;
 import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
@@ -149,6 +150,7 @@ public class PlayerController {
         //Sell houses, hotels and/or properties to the bank
         //Mortgage properties
         //Sell or trade properties and/or cards to other players.
+        return 0;
     }
 
 

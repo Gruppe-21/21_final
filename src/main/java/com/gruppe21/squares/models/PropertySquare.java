@@ -37,7 +37,7 @@ public class PropertySquare extends OwnableSquare {
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0, // StatusEffect
                 parseInt(xmlTag.getAttribute("buildingCost")),
-                parseInt(xmlTag.getAttribute("price")),  // price
+                parseInt(xmlTag.getAttribute("price"))  // price
                 //TODO: read rent array
         );
     }
