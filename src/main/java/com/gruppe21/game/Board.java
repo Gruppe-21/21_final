@@ -15,6 +15,8 @@ public class Board {
     public Board(){
         try {
             squareControllers = BoardLoader.loadBoard("main_board");
+
+
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
             squareControllers = new SquareController[0];
