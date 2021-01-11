@@ -19,7 +19,6 @@ public class GameController {
         game = new Game(new Board(), gameView.askNumberOfPlayers(Game.MIN_PLAYERS, Game.MAX_PLAYERS));
         gameView.displayBoard(game.getBoard());
         initPlayers();
-        gameView.askForFirstPlayer(game.getPlayerControllers());
     }
 
     private void initPlayers(){
@@ -27,6 +26,32 @@ public class GameController {
             game.getPlayerControllers()[i] = new PlayerController();
             game.getPlayerControllers()[i].teleportTo(game.getBoard().getFirstSquareController()); //Maybe this happens automatically
         }
+        game.setNextPlayer(gameView.askForFirstPlayer(game.getPlayerControllers()));
+    }
+
+    /**
+     *
+     */
+    public void startGame(){
+        while (game.getNumPlayers() > 1){
+            doRound(game.nextPlayer());
+        }
+    }
+
+    /**
+     *
+     * @param playerController
+     */
+    private void doRound(PlayerController playerController){
+        playerController.takeTurn(game.getBoard());
+    }
+
+    /**
+     *
+     * @return
+     */
+    public PlayerController[] getPlayerControllers(){
+        return game.getPlayerControllers();
     }
     
 

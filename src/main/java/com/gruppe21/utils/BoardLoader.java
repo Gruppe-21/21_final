@@ -31,7 +31,7 @@ public class BoardLoader {
     public static String BOARD_DIRECTORY = "/boards/";
     public static String CARD_DIRECTORY = "/cards/";
     public static String TAG_BOARD = "board";
-    public static String TAG_CARD = "cards";
+    public static String TAG_CARD = "/cards/";
 
 
 
@@ -42,9 +42,9 @@ public class BoardLoader {
         return getSquaresFromNodeList(boardNodes);
     }
 
-
     private static SquareController[] getSquaresFromNodeList(NodeList boardNodes) {
         SquareController[] squares = new SquareController[boardNodes.getLength()];
+
 
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node node = boardNodes.item(i);
@@ -58,9 +58,7 @@ public class BoardLoader {
         return squares;
     }
 
-
     private static SquareController ConvertFromXMLtoSquareController(Element tag) {
-        Localisation localisation = new Localisation();
 
         String elementName = tag.getNodeName();
 
@@ -82,7 +80,6 @@ public class BoardLoader {
                 TeleportSquare teleportSquareModel = new TeleportSquare(tag);
                 SquareView SquareView = new SquareView();
                 return new SquareController(teleportSquareModel, SquareView);
-
             default:
                 Square squareModel = new Square(tag);
                 SquareView squareView = new SquareView();
