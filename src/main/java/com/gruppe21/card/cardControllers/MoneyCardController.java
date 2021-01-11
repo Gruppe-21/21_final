@@ -30,18 +30,34 @@ public class MoneyCardController extends CardController  {
     public void use(PlayerController user) {
         super.use(user); // text to view
 
-        if (card.getDescriptionOnUseLabel().equals("matadorLegate") && user.getPlayer().getTotalValue() > 15000) { // Total value or cash value? getDesc?
-            user.transferMoney(-card.getModifyValue(), user); // negative number?
-        } else {
+        if (card.getIsLegat() && user.getPlayer().getTotalValue() > card.getMinMoney()) { // (15000) Total value or cash value? getDesc?
+            user.transferMoney(-card.getModifyValue(), user); // (40000) negative number?
+        } else if(isHouseAndHotelCard()){
+            if(user.getPlayer().getOwnedProperties().length > 0){
+                int totalFee = 0;
+
+                // Calculate price for house
+                // totalFee += card.getMoneyHouse()
+
+                // Calculate price for hotel
+                // totalFee += card.getMoneyHotel
+
+                user.transferMoney(totalFee, user);
+            }
+        }else{
             if (card.isFromBank()) user.addBalance(-card.getModifyValue()); // negative number?
             else {
                 for (PlayerController playerController : GameController.getInstance().getPlayerControllers()) {
                     playerController.transferMoney(card.getModifyValue(), user);
                 }
             }
-            user.getHeldCards().removeCard(this);
-            getReturnDeck().returnCard(this);
         }
+        user.getHeldCards().removeCard(this);
+        getReturnDeck().returnCard(this);
+    }
+
+    public boolean isHouseAndHotelCard(){
+        return this.card.getMoneyHouse() > 0;
     }
 
 }

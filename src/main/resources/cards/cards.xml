@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
-    <!-- BuildingFees cards - skal laves, hvis vi en dag bliver gode nok :) -->
+    <!-- BuildingFees cards -->
+    <buildingFeecard onUseDescription="oilPrices" moneyHouse="-500" moneyHotel="-2000" type="BuildingFee" label="Oil Prices" isBank="false"/>         <!-- Kort 1  -->
+    <buildingFeecard onUseDescription="propertyTax" moneyHouse="-800" moneyHotel="-2300" type="BuildingFee" label="Property Tax" isBank="false"/>     <!-- Kort 2 -->
 
     <!-- ModifyMoney cards -->
     <modifyMoneycard onUseDescription="fullStopOnUse" money="-1000" type="ModifyMoney" label="FullStop" isBank="false"/>         <!-- Kort 3  -->
@@ -30,7 +32,8 @@
     <modifyMoneycard onUseDescription="party" money="500" type="ModifyMoney" label="Party" isBank="true"/>                       <!-- Kort 22 -->
     <modifyMoneycard onUseDescription="familyParty" money="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
 
-
+    <!-- LegateMoney cards -->
+    <legateMoneycard onUseDescription="matadorLegate" money="40000" minMoney="15000" type="ModifyMoney" label="Matador Legate" isBank="false"/>   <!-- Kort 20 -->
 
     <!-- MoveRelative cards -->
     <moveRelativecard onUseDescription="startCardOnUseDesc" squareID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
