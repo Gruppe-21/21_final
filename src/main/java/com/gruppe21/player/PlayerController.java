@@ -146,6 +146,9 @@ public class PlayerController {
      * @return
      */
     public int liquidateAssets(int minAmount, boolean optional){
+        int startBalance = player.getBalance();
+        playerView.chooseHowToLiquidate(optional);
+
         //TODO: Implement liquidateAssets
         //Sell houses, hotels and/or properties to the bank
         //Mortgage properties
@@ -195,6 +198,7 @@ public class PlayerController {
 
 
     public void purchaseBuildings(){
+        //Todo: limit the number of houses and hotels in play at once
         PropertySquareController[] buildableProperties = player.getBuildableProperties();
         if (buildableProperties.length == 0) return;
         PropertySquareController toBuild = playerView.choosePropertyBuildBuilding(buildableProperties);
