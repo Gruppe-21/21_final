@@ -6,7 +6,7 @@ import com.gruppe21.squares.models.Square;
 import com.gruppe21.squares.views.OwnableSquareView;
 import com.gruppe21.squares.views.SquareView;
 
-public abstract class OwnableSquareController extends SquareController {
+public class OwnableSquareController extends SquareController {
     OwnableSquare model;
     OwnableSquareView view;
 
