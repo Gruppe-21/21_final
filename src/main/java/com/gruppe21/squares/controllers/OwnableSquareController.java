@@ -54,6 +54,16 @@ public class OwnableSquareController extends SquareController {
         return false;
     }
 
+    /**
+     * Sells this property to the bank
+     */
+    public void sell(){
+        this.getOwner().addBalance(model.getPrice());
+        this.getOwner().removeOwnedProperty(this);
+        this.model.setOwner(null);
+        //TODO: auction
+    }
+
     public boolean isMortgaged(){
         return model.isMortgaged();
     }

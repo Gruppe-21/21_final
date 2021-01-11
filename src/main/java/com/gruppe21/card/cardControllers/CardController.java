@@ -3,6 +3,7 @@ package com.gruppe21.card.cardControllers;
 import com.gruppe21.card.CardView;
 import com.gruppe21.card.typeOfCards.Card;
 import com.gruppe21.deck.Deck;
+import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 
 public abstract class CardController {
@@ -22,11 +23,29 @@ public abstract class CardController {
         card.setDeckToReturnTo(deck);
     }
 
+    /**
+     * @param drawer Player that draws card
+     */
     public abstract void onDraw(PlayerController drawer);
 
+    /**
+     * Method that display the cards description
+     * @param user Player that uses card
+     */
     public void use(PlayerController user){
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }
+
+    // Used for cards with connection to board. blah blah
+    public void use(PlayerController user, Board board){
+        cardView.displayCard(card.getDescriptionOnUseLabel());
+    }
+
+
+
+
+
+
 
     /**
      * Returns the {@code Class} object of the {@code CardController}'s {@code Card}

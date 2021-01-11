@@ -6,8 +6,8 @@ import com.gruppe21.card.typeOfCards.PardonCard;
 import com.gruppe21.player.PlayerController;
 
 public class PardonCardController extends CardController {
-    protected CardView cardView;
-    protected Card card;
+    private CardView cardView;
+    private Card card;
 
     public PardonCardController(CardView view, PardonCard card) {
         super(view, card);
