@@ -20,5 +20,10 @@ public abstract class OwnableSquareView extends SquareView {
             model.getGuiField().setBorder(borderColors[0], borderColors[1]);
             //model.getGuiField().setBorder(borderColors[0], borderColor);
         }
+        updateRent(model);
+    }
+
+    public void updateRent(OwnableSquare model){
+        model.getGuiField().setRent(Integer.toString(model.getRent()));
     }
 }
