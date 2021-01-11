@@ -1,19 +1,21 @@
 package com.gruppe21.prison;
 
-import com.gruppe21.squares.controllers.SquareController;
+import com.gruppe21.player.StatusEffects;
 
 public class Prison {
 
-    private boolean isImprisoned;
+    StatusEffects statuseffects;
 
-    public boolean GoToPrison(Playercontroller playercontroller , SquareController squareController, boolean isimprisoned){
-        this.isImprisoned = isimprisoned.isImprisoned(true);
-
-        return isImprisoned;
+    public StatusEffects GoToPrison(StatusEffects statusEffects){
+        this.statuseffects = statusEffects;
+        statuseffects.setImprisoned(true);
+        return statuseffects;
 
 
     }
-    public void GetOutOfPrison(){
-        return isImprisoned(false);
+    public StatusEffects GetOutOfPrison(StatusEffects statusEffects){
+        this.statuseffects = statusEffects;
+        statuseffects.setImprisoned(false);
+        return statuseffects;
     }
 }
