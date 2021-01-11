@@ -114,17 +114,16 @@ public class CardLoader {
                 cardsAdded++;
                 break;
             case "modifyMoneycard":
-                final String moneyStr = tag.getAttribute("money");
-                final String bankStr = tag.getAttribute("isBank"); //tilf'jet
-                boolean isBank = false;
-                if(bankStr.equals("true")) isBank=true;
-                final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
+                final String moneyCardStr = tag.getAttribute("money");
+                final String bankMoneyCardStr = tag.getAttribute("isBank"); //tilf'jet
+                boolean isBankMoneyCard = bankMoneyCardStr.equals("") ? false : Boolean.parseBoolean(bankMoneyCardStr);
+                final int moneyMoneyCard = moneyCardStr.equals("") ? 0 : Integer.parseInt(moneyCardStr);
 
-                ModifyMoneyCard moneyCardModel = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,money,isBank);
-                CardView moneyView = new CardView();
-                MoneyCardController moneyController = new MoneyCardController(moneyView,moneyCardModel);
+                ModifyMoneyCard moneyCardModelMoneyCard = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel, moneyMoneyCard,isBankMoneyCard);
+                CardView moneyViewMoneyCard = new CardView();
+                MoneyCardController moneyControllerMoneyCard = new MoneyCardController(moneyViewMoneyCard,moneyCardModelMoneyCard);
 
-                cards[cardsAdded] = moneyController;
+                cards[cardsAdded] = moneyControllerMoneyCard;
                 cardsAdded++;
                 break;
             case "prisonCard":
