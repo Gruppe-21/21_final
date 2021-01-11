@@ -16,7 +16,7 @@ public class MoveRelativeCardController extends CardController {
 
     @Override
     public void onDraw(PlayerController drawer) {
-
+        use(drawer);
     }
 /*
 
