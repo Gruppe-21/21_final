@@ -35,9 +35,20 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
-        purchaseBuildings();
-        //Build houses
-
+        boolean roll = false;
+        while (!roll){
+            switch (playerView.startTurn()){
+                case 1 : {
+                    roll = true;
+                }
+                case 2 : {
+                    purchaseBuildings();
+                }
+                case 3 : {
+                    liquidateAssets();
+                }
+            }
+        }
 
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
         lastRollForBrewery = diceRolls[0] + diceRolls[1];
