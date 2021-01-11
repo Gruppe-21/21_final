@@ -35,6 +35,10 @@ public class Board {
 
     }
 }
+    public Square getSquareAtIndex(int index) {
+        Square square = squares(index);
+        return square;
+    }
 
     //public CardSquare(int id, String label, String description, Color color, int statusEffect)
 

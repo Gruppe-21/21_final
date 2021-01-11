@@ -33,4 +33,8 @@ public class BoardLoaderTest {
 
         assertEquals(false, list == null);
     }
+
+    @Test
+    public void getSquare() {
+    }
 }

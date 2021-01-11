@@ -12,6 +12,10 @@ public class BoardTest {
     public void getSquareAtNumberReturnsString() {
         Board board = new Board();
 
-        assertEquals("pizzeria", board.getSquareAtIndex(2).getNameLabel());
+        assertEquals("hvidovrevej", board.getSquareAtIndex(4).getNameLabel());
+    }
+
+    @Test
+    public void getSquare() {
     }
 }
