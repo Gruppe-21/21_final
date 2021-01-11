@@ -4,7 +4,7 @@ import com.gruppe21.squares.models.OwnableSquare;
 
 import java.awt.*;
 
-public abstract class OwnableSquareView extends SquareView {
+public class OwnableSquareView extends SquareView {
     Color borderColor = Color.black;
 
     /**
