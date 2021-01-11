@@ -9,6 +9,8 @@ public class PropertySquareController extends OwnableSquareController {
     PropertySquareView view;
     public PropertySquareController(PropertySquare model, PropertySquareView view) {
         super(model, view);
+        this.model = model;
+        this.view = view;
     }
 
     @Override
@@ -16,15 +18,44 @@ public class PropertySquareController extends OwnableSquareController {
         super.onMoveTo(playerController);
     }
 
+    public int getNumHouses(){
+        return model.getHouses();
+    }
 
     public void addHouse(){
         if (model.getHouses() == model.getMaxNumHouses()) return; //Throw exception?
         model.addHouse(1);
         view.updateHouses(model);
     }
+    
+    public void sellHouses(int numHouses){
+        if (numHouses < 1) return;
+        if (numHouses > getNumHouses()) numHouses = getNumHouses();
+        model.setHouses(getNumHouses() - numHouses);
+        getOwner().addBalance((getBuildingCost() *numHouses)/2);
+        view.updateHouses(model);
+    }
 
     public int getBuildingCost(){
         return model.getBuildingCost();
+    }
+
+    @Override
+    public boolean mayBuild(){
+        if (this.getOwner() == null || this.getNumHouses() >= model.getMaxNumHouses()) return false;
+        for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
+            if (property.getOwner() != this.getOwner() || this.getNumHouses() - property.getNumHouses() > 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void mortgage(){
+        if (isMortgaged()) return;
+        sellHouses(getNumHouses());
+        super.mortgage();
     }
 
 }

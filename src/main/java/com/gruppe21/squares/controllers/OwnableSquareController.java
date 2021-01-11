@@ -2,16 +2,16 @@ package com.gruppe21.squares.controllers;
 
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.models.OwnableSquare;
-import com.gruppe21.squares.models.Square;
 import com.gruppe21.squares.views.OwnableSquareView;
-import com.gruppe21.squares.views.SquareView;
 
-public abstract class OwnableSquareController extends SquareController {
+public class OwnableSquareController extends SquareController {
     OwnableSquare model;
     OwnableSquareView view;
 
-    public OwnableSquareController(Square model, SquareView view) {
+    public OwnableSquareController(OwnableSquare model, OwnableSquareView view) {
         super(model, view);
+        this.model = model;
+        this.view = view;
     }
 
     @Override
@@ -41,5 +41,23 @@ public abstract class OwnableSquareController extends SquareController {
         if (newOwner != null) newOwner.addOwnedProperty(this);
         model.setOwner(newOwner);
         view.updateOwner(model);
+    }
+
+    /**
+     * Returns a boolean indicating if buildings may be build on the property.
+     * @return boolean indicating if buildings may be build on the property.
+     */
+    public boolean mayBuild(){
+        return false;
+    }
+
+    public boolean isMortgaged(){
+        return model.isMortgaged();
+    }
+
+    public void mortgage(){
+        if (isMortgaged()) return;
+        model.setMortgaged(false);
+        getOwner().addBalance(model.getPrice());
     }
 }

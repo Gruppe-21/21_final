@@ -1,6 +1,7 @@
 package com.gruppe21.player;
 
 import com.gruppe21.gui.GUIManager;
+import com.gruppe21.squares.controllers.PropertySquareController;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 
@@ -62,6 +63,39 @@ public class PlayerView {
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
         return GUIManager.getInstance().getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
+    }
+
+    /**
+     *
+     * @param properties
+     * @return
+     */
+    public PropertySquareController choosePropertyBuildBuilding(PropertySquareController[] properties){
+        String[] choices = new String[properties.length];
+        for (int i = 0; i < properties.length; i++) {
+            choices[i] = properties[i].getName() + " " + properties[i].getBuildingCost();
+        }
+        String choice = GUIManager.getInstance().getUserChoiceDropDown("BUILD TEXT", choices);
+        for (int i = 0; i < choice.length(); i++) {
+            if (choice.equals(choices[i])) return properties[i];
+        }
+        return null;
+        //Throw exception
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int chooseHowToLiquidate(boolean optional) {
+        String[] buttons;
+        if (optional) {
+            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE", "4: BACK"};
+        } else {
+            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE"};
+        }
+        String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
+        return (choice.charAt(0) - '1');
     }
 
 

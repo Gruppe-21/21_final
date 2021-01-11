@@ -4,7 +4,7 @@ import com.gruppe21.squares.models.OwnableSquare;
 
 import java.awt.*;
 
-public abstract class OwnableSquareView extends SquareView {
+public class OwnableSquareView extends SquareView {
     Color borderColor = Color.black;
 
     /**
@@ -20,5 +20,10 @@ public abstract class OwnableSquareView extends SquareView {
             model.getGuiField().setBorder(borderColors[0], borderColors[1]);
             //model.getGuiField().setBorder(borderColors[0], borderColor);
         }
+        updateRent(model);
+    }
+
+    public void updateRent(OwnableSquare model){
+        model.getGuiField().setRent(Integer.toString(model.getRent()));
     }
 }

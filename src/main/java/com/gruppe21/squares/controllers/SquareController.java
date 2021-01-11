@@ -38,8 +38,9 @@ public class SquareController {
     public SquareView getView(){ return view; }
 
 
-
-
+    public int getId() {
+        return model.getId();
+    }
 }
 
 
