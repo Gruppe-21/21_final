@@ -4,8 +4,10 @@ import com.gruppe21.card.CardView;
 import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.cardControllers.MoneyCardController;
 import com.gruppe21.card.cardControllers.MoveRelativeCardController;
+import com.gruppe21.card.cardControllers.TeleportToNearestCardController;
 import com.gruppe21.card.typeOfCards.ModifyMoneyCard;
 import com.gruppe21.card.typeOfCards.MoveRelativeCard;
+import com.gruppe21.card.typeOfCards.TeleportToNearestCard;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -93,6 +95,17 @@ public class CardLoader {
                 MoneyCardController moneyController = new MoneyCardController(moneyView,moneyCardModel);
 
                 cards[cardsAdded] = moneyController;
+                cardsAdded++;
+                break;
+            case "prisonCard":
+                final String prisonSquareIDStr = tag.getAttribute("squareID"); // 11 (prison square)
+                final int prisonSquareID = prisonSquareIDStr.equals("") ? 0 : Integer.parseInt(prisonSquareIDStr);
+
+                TeleportToNearestCard prisonCard = new TeleportToNearestCard(descriptionOnDrawLabel,descriptionOnDrawLabel,prisonSquareID); // model
+                CardView prisonView = new CardView(); // view
+                TeleportToNearestCardController prisonController = new TeleportToNearestCardController(prisonView,prisonCard); // controller
+
+                cards[cardsAdded] = prisonController;
                 cardsAdded++;
                 break;
             default:

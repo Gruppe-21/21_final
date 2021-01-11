@@ -3,10 +3,15 @@ package com.gruppe21.card.typeOfCards;
 import com.gruppe21.card.typeOfCards.Card;
 
 public class TeleportToNearestCard extends Card {
-    private final int id; //squareIndex prison?
+    private int squareID; //squareIndex prison?
 
-    public TeleportToNearestCard(String descriptionOnDrawLabel, String descriptionOnUseLabel,int id) {
+    public TeleportToNearestCard(String descriptionOnDrawLabel, String descriptionOnUseLabel,int squareID) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
-        this.id = id;
+        this.squareID = squareID;
     }
+
+    public int getSquareID() {
+        return squareID;
+    }
+
 }
