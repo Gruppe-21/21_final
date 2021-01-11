@@ -100,7 +100,11 @@ public class PlayerView {
     }
 
     public OwnableSquareController choosePropertyToSell(OwnableSquareController[] properties){
+        //Todo: implement choosePropertyToSell
+    }
 
+    public OwnableSquareController choosePropertyToMortgage(OwnableSquareController[] properties){
+        //Todo: implement choosePropertyToMortgage
     }
 
 
