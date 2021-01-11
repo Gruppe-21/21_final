@@ -38,15 +38,15 @@ public class PlayerController {
         boolean roll = false;
         while (!roll){
             switch (playerView.startTurn()){
-                case 1 : {
+                case 0 : {
                     roll = true;
                     break;
                 }
-                case 2 : {
+                case 1 : {
                     purchaseBuildings();
                     break;
                 }
-                case 3 : {
+                case 2 : {
                     liquidateAssets();
                     break;
                 }
