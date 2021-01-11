@@ -52,6 +52,12 @@ public class PropertySquareController extends OwnableSquareController {
     }
 
     @Override
+    public void sell() {
+        sellHouses(getNumHouses());
+        super.sell();
+    }
+
+    @Override
     public void mortgage(){
         if (isMortgaged()) return;
         sellHouses(getNumHouses());

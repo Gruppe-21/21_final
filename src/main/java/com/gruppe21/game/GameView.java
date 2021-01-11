@@ -17,7 +17,7 @@ public class GameView {
                 GUIManager.getInstance().getUserChoiceDropDown(
                         "SELECT LANGUAGE, GameView selectLanguage",
                         Localisation.getInstance().getAllLocales()
-                )
+                ).substring(0,5)
         );
     }
 
