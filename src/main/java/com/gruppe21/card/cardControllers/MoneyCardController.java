@@ -12,7 +12,6 @@ public class MoneyCardController extends CardController  {
         super(view, card);
     }
 
-
     @Override
     public void onDraw(PlayerController drawer) {
         use(drawer);
@@ -20,7 +19,7 @@ public class MoneyCardController extends CardController  {
 
     @Override
     public void use(PlayerController user){
-        super.use(user);
+        super.use(user); // text to view
         if (card.isFromBank()) user.addBalance(card.getModifyValue());
         else {
             for (PlayerController playerController: GameController.getInstance().getPlayerControllers()) {
