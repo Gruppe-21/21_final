@@ -1,6 +1,7 @@
 package com.gruppe21.player;
 
 import com.gruppe21.gui.GUIManager;
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
@@ -96,6 +97,10 @@ public class PlayerView {
         }
         String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
         return (choice.charAt(0) - '1');
+    }
+
+    public OwnableSquareController choosePropertyToSell(OwnableSquareController[] properties){
+
     }
 
 
