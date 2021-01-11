@@ -37,6 +37,7 @@ public class PlayerView {
         GUIManager.getInstance().addPlayer(guiPlayer);
     }
 
+
     /**
      * Asks the player to choose a method of release from prison.
      * @param hasPardon true if the player can use a <code>PardonCard</code.>
@@ -57,7 +58,7 @@ public class PlayerView {
      *
      * @param name
      * @param price
-     * @param liquidateAssets
+     * @param liquidate
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
@@ -78,9 +79,25 @@ public class PlayerView {
         for (int i = 0; i < choice.length(); i++) {
             if (choice.equals(choices[i])) return properties[i];
         }
-        //Throw exception
         return null;
+        //Throw exception
     }
+
+    /**
+     *
+     * @return
+     */
+    public int chooseHowToLiquidate(boolean optional) {
+        String[] buttons;
+        if (optional) {
+            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE", "4: BACK"};
+        } else {
+            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE"};
+        }
+        String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
+        return (choice.charAt(0) - '1');
+    }
+
 
     //Temporary
     private static Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
