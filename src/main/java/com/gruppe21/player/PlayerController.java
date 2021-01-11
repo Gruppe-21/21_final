@@ -33,6 +33,7 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
+        purchaseBuildings();
         //Build houses
 
 
