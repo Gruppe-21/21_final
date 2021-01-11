@@ -60,6 +60,14 @@ public class GameController {
     public PlayerController[] getPlayerControllers(){
         return game.getPlayerControllers();
     }
+
+    /**
+     * Please don't use this if at all possible. Please.
+     * @return If you don't know, then use something else. Or even if you do know, then still do something else.
+     */
+    public PlayerController getCurrentPlayer(){
+        return game.getCurrentPlayer();
+    }
     
 
 }
