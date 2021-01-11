@@ -23,6 +23,7 @@ public abstract class Card {
     public void setDeckToReturnTo(Deck deckToReturnTo){
         this.deckToReturnTo = deckToReturnTo;
     }
+
     public Deck getDeckToReturnTo(){
         return deckToReturnTo;
     }
