@@ -7,6 +7,7 @@ import com.gruppe21.player.PlayerController;
 
 public class MoneyCardController extends CardController  {
     private ModifyMoneyCard card;
+    private CardView view;
 
     public MoneyCardController(CardView view, ModifyMoneyCard card) {
         super(view, card);

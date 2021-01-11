@@ -45,21 +45,22 @@ public class BoardLoader {
                 elementsCount++;
             }
         }
-        SquareController[] squares = new SquareController[elementsCount];
 
+        SquareController[] squares = new SquareController[elementsCount];
         int currentElementIndex = 0;
         for (int i = 0; i < boardNodes.getLength(); i++) {
             Node node = boardNodes.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element tag = (Element) node;
                 squares[currentElementIndex] = addXMLSquareToArrayList(tag);
+                currentElementIndex++;
             }
         }
+
         return squares;
     }
 
     private static SquareController addXMLSquareToArrayList(Element tag) {
-        Localisation localisation = new Localisation();
         String elementName = tag.getNodeName();
         switch (elementName) {
             case "StartSquare":
