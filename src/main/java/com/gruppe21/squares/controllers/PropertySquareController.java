@@ -41,4 +41,12 @@ public class PropertySquareController extends OwnableSquareController {
         return true;
     }
 
+    @Override
+    public void mortgage(){
+        if (isMortgaged()) return;
+        getOwner().addBalance(getBuildingCost() * getNumHouses());
+        model.setHouses(0);
+        super.mortgage();
+    }
+
 }
