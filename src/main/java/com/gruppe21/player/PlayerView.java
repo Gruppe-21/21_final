@@ -87,8 +87,14 @@ public class PlayerView {
      *
      * @return
      */
-    public int chooseHowToLiquidate(){
-        String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", "1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE");
+    public int chooseHowToLiquidate(boolean optional) {
+        String[] buttons;
+        if (optional) {
+            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE", "4: BACK"};
+        } else {
+            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE"};
+        }
+        String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
         return (choice.charAt(0) - '1');
     }
 
