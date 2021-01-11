@@ -41,11 +41,11 @@ public class PlayerController {
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            CardController pardonCard = player.getHeldCards().getCardOfClass(PardonCard.class);
+            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCard.class);
             switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
-                    pardonCard.onUse();
+                    pardonCard.use(this);
                     break;
                 }
                 case 50 : { // '2'
@@ -192,7 +192,7 @@ public class PlayerController {
 
 
     /**
-     * Add value of parameter {@code amount} to current balance
+     * Add value of parameter {@code value} to current balance
      *
      * @param value the value to be added to the balance. Can be a negative number.
      * @return {@code getBalance()} new balance
@@ -207,6 +207,10 @@ public class PlayerController {
 
     public Color[] getColors(){
         return player.getColors();
+    }
+
+    public Deck getHeldCards(){
+        return player.getHeldCards();
     }
 
     //Preferably don't use this; it might be removed in the future.
