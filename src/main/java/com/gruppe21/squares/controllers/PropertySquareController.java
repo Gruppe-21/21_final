@@ -58,4 +58,8 @@ public class PropertySquareController extends OwnableSquareController {
         super.mortgage();
     }
 
+    public String getGroupColor() {
+        return model.getGroupColor();
+    }
+
 }

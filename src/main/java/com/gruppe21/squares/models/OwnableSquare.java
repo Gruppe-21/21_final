@@ -61,7 +61,7 @@ public abstract class OwnableSquare extends Square {
         this.owner = owner;
     }
 
-    protected void setGroup(OwnableSquareController[] group){
+    public void setGroup(OwnableSquareController[] group){
         this.group = group;
     }
 

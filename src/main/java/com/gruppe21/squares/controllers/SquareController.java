@@ -43,6 +43,8 @@ public class SquareController {
     public int getId() {
         return model.getId();
     }
+
+
 }
 
 
