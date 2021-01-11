@@ -216,7 +216,7 @@ public class GUIManager {
      * @return
      */
     public int getUserInteger(String message, int minValue, int maxValue){
-        if (gui == null) return (int) (Math.random() * (maxValue - minValue + 1))
+        if (gui == null) return (int) (Math.random() * (maxValue - minValue + 1));
         return gui.getUserInteger(message, minValue, maxValue);
     }
 
