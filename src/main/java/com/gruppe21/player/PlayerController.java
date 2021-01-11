@@ -241,6 +241,10 @@ public class PlayerController {
         return player;
     }
 
+    public StatusEffects getStatusEffects(){
+        return player.getStatusEffects();
+    }
+
     //This makes me sad
     public int getLastRollForBrewery(){
         return lastRollForBrewery;
