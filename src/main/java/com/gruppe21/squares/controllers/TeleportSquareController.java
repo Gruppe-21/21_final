@@ -17,12 +17,18 @@ public class TeleportSquareController extends SquareController {
     }
 
 
-    public void onMoveTo(PlayerController playercontroller, StatusEffects statusEffects, Board board){
+    public void onMoveTo(PlayerController playercontroller, Board board){
 
-        this.statuseffects = statusEffects;
+        /*
+        this.statuseffects = playercontroller.getStatusEffects();
         statuseffects.setImprisoned(true);
 
+         */
+
         this.playerController = playercontroller;
+        playercontroller.getStatusEffects().setImprisoned(true);
+
+
         playerController.teleportTo(board.getSquareControllerFromId(31)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 31)
 
     }
