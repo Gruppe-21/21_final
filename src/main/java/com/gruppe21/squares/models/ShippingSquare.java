@@ -50,7 +50,4 @@ public class ShippingSquare extends OwnableSquare {
         return rent[numOwnedInGroup];
     }
 
-    public void setGroup(OwnableSquareController[] group){
-        super.setGroup(group);
-    }
 }
