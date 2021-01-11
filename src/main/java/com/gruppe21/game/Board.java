@@ -31,17 +31,38 @@ public class Board {
         return null;
     }
 
-    public SquareController closestSquareController(SquareController from, SquareController[] SquareControllers) {
-        return null;
+    /**
+     *
+     * @param from
+     * @param squareControllers
+     * @return
+     */
+    public SquareController closestSquareController(SquareController from, SquareController[] squareControllers) {
+        int indexCloset = 0, minDistance = getDistanceBetween(from, squareControllers[0]);
+        for (int i = 1; i < squareControllers.length; i++) {
+            int distance = getDistanceBetween(from, squareControllers[i]);
+            if (distance < minDistance){
+                minDistance = distance;
+                indexCloset = i;
+            }
+        }
+        return squareControllers[indexCloset];
     }
 
-    public int getDistanceBetween(SquareController a, SquareController b) {
-// USE Math.abs(b - a)
-        return 0;
+    /**
+     * Returns the distance going clockwise around the board between two squares.
+     * @param from
+     * @param to
+     * @return
+     */
+    public int getDistanceBetween(SquareController from, SquareController to) {
+        int a = getIndexOfSquareController(from), b = getIndexOfSquareController(to);
+        if (b < a) return getSquareControllers().length - a + b;
+        else return b - a;
     }
 
     public SquareController getSquareControllerRelativeTo(SquareController squareController, int distance){
-        return null;
+        return getSquareControllers()[(getIndexOfSquareController(squareController) + distance) % getSquareControllers().length];
     }
 
 
@@ -53,7 +74,18 @@ public class Board {
         this.squareControllers = squareControllers;
     }
 
+    /**
+     *
+     * @return
+     */
     public SquareController getFirstSquareController() {
     return squareControllers[0];
+    }
+
+    private int getIndexOfSquareController(SquareController squareController){
+        for (int i = 0; i < getSquareControllers().length; i++) {
+            if (squareControllers[i] == squareController) return i;
+        }
+        return -1;
     }
 }
