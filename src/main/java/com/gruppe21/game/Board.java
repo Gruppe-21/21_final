@@ -31,8 +31,22 @@ public class Board {
         return null;
     }
 
-    public SquareController closestSquareController(SquareController from, SquareController[] SquareControllers) {
-        return null;
+    /**
+     *
+     * @param from
+     * @param squareControllers
+     * @return
+     */
+    public SquareController closestSquareController(SquareController from, SquareController[] squareControllers) {
+        int indexCloset = 0, minDistance = getDistanceBetween(from, squareController[0]);
+        for (int i = 1; i < squareControllers.length; i++) {
+            int distance = getDistanceBetween(from, squareControllers[i]);
+            if (distance < minDistance){
+                minDistance = distance;
+                indexCloset = i;
+            }
+        }
+        return squareControllers[indexCloset];
     }
 
     /**
