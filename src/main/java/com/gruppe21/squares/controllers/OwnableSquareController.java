@@ -50,4 +50,14 @@ public abstract class OwnableSquareController extends SquareController {
     public boolean mayBuild(){
         return false;
     }
+
+    public boolean isMortgaged(){
+        return model.isMortgaged();
+    }
+
+    public void mortgage(){
+        if (isMortgaged()) return;
+        model.setMortgaged(false);
+        getOwner().addBalance(model.getPrice());
+    }
 }

@@ -25,6 +25,14 @@ public class PropertySquareController extends OwnableSquareController {
         model.addHouse(1);
         view.updateHouses(model);
     }
+    
+    public void sellHouses(int numHouses){
+        if (numHouses < 1) return;
+        if (numHouses > getNumHouses()) numHouses = getNumHouses();
+        model.setHouses(getNumHouses() - numHouses);
+        getOwner().addBalance((getBuildingCost() *numHouses)/2);
+        view.updateHouses(model);
+    }
 
     public int getBuildingCost(){
         return model.getBuildingCost();
@@ -39,6 +47,13 @@ public class PropertySquareController extends OwnableSquareController {
             }
         }
         return true;
+    }
+
+    @Override
+    public void mortgage(){
+        if (isMortgaged()) return;
+        sellHouses(getNumHouses());
+        super.mortgage();
     }
 
 }
