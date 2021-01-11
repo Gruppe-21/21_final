@@ -25,7 +25,7 @@ public abstract class CardController {
     public abstract void onDraw(PlayerController drawer);
 
     public void use(PlayerController user){
-        //Tell user something
+        cardView.displayCard(card.getDescriptionOnUseLabel());
     }
 
     /**
