@@ -13,7 +13,7 @@ public class Board {
 
 
 
-    SquareController[] square;
+    public SquareController[] square;
     public SquareController[] getSquare() {
         return square;
     }
