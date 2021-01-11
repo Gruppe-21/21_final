@@ -33,7 +33,7 @@ public class GameView {
         }
         String choosenPlayerName = GUIManager.getInstance().getUserChoiceDropDown("ASK FIRST PLAYER, GameView askForFirstPlayer", names);
         for (int i = 0; i < names.length; i++) {
-            if (choosenPlayerName.equals(playerControllers[i].getName())) return playerControllers[i];
+            if (choosenPlayerName.equals(names[i])) return playerControllers[i];
         }
         return null;
     }
