@@ -32,7 +32,7 @@ public class PlayerView {
 
     public GUI_Car customiseCar(){
         //TODO: ask player to customise their car.
-        return new GUI_Car(colors[colorToUse], Color.black, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
+        return new GUI_Car(colors[colorToUse++], Color.black, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
     }
 
     public void addToGui(GUI_Player guiPlayer){
