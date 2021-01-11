@@ -16,6 +16,9 @@ public class PropertySquareController extends OwnableSquareController {
         super.onMoveTo(playerController);
     }
 
+    public int getNumHouses(){
+        return model.getHouses();
+    }
 
     public void addHouse(){
         if (model.getHouses() == model.getMaxNumHouses()) return; //Throw exception?
@@ -29,8 +32,8 @@ public class PropertySquareController extends OwnableSquareController {
 
     @Override
     public boolean mayBuild(){
-        if (this.getOwner() == null) return false;
-        for (OwnableSquareController property: model.getGroup()) {
+        if (this.getOwner() == null || this.getNumHouses() >= model.getMaxNumHouses()) return false;
+        for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
             if (property.getOwner() != this.getOwner()){
                 return false;
             }
