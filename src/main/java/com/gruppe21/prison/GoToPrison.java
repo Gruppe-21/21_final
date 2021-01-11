@@ -1,4 +1,4 @@
-package com.gruppe21.prison;
+/*package com.gruppe21.prison;
 
 import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
@@ -25,3 +25,6 @@ public class GoToPrison {
     }
 
 }
+
+
+ */
