@@ -19,7 +19,7 @@ public class MoneySquare extends Square {
     }
 
     public MoneySquare(Element xmlTag){
-        this(   parseInt(xmlTag.getAttribute("id")), //Id
+        this(!xmlTag.getAttribute("id").equals("") ? parseInt(xmlTag.getAttribute("id")) : 0, //Id
                 xmlTag.getAttribute("label"), // Name ID
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color

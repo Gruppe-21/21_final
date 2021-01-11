@@ -1,5 +1,9 @@
 package com.gruppe21.squares.models;
 
+import com.gruppe21.game.Game;
+import com.gruppe21.player.PlayerController;
+import com.gruppe21.squares.controllers.PropertySquareController;
+import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.utils.ColorUtil;
 import gui_fields.GUI_Empty;
 import gui_fields.GUI_Field;
@@ -10,13 +14,17 @@ import java.awt.*;
 
 import static java.lang.Integer.parseInt;
 
-public class PropertySquare extends Square {
+public class PropertySquare extends OwnableSquare {
+    private int maxNumHouses;
     private int houses;
-    private int price;
+    private int buildingCost;
+    private PropertySquareController[] group;
 
-    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price) {
-        super(id, label, description, color, statusEffect);
-        this.price = price;
+    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, int... rent) {
+        super(id, label, description, color, statusEffect, price);
+        this.buildingCost = buildingCost;
+        this.rent = rent;
+        maxNumHouses = rent.length - 1;
         houses = 0;
         GUI_Street street = new GUI_Street();
         setGuiField(street);
@@ -28,7 +36,22 @@ public class PropertySquare extends Square {
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0, // StatusEffect
-                parseInt(xmlTag.getAttribute("price"))); // price
+                !xmlTag.getAttribute("buildingCost").equals("") ? parseInt(xmlTag.getAttribute("buildingCost")) : 0,
+                parseInt(xmlTag.getAttribute("price"))  // price
+                //TODO: read rent array
+        );
+    }
+
+    public GUI_Street getGuiField() {
+        return (GUI_Street) (super.getGuiField());
+    }
+
+    public void setGuiField(GUI_Street guiField) {
+        super.setGuiField(guiField);
+    }
+
+    public int getMaxNumHouses(){
+        return maxNumHouses;
     }
 
     public int getHouses() {
@@ -37,13 +60,29 @@ public class PropertySquare extends Square {
 
     public void setHouses(int houses) {
         this.houses = houses;
+        if (this.houses < 0) this.houses = 0;
     }
 
-    public int getPrice() {
-        return price;
+    public void addHouse(int numHouses){
+        setHouses(getHouses() + numHouses);
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public int getBuildingCost(){
+        return buildingCost;
+    }
+
+    public int getRent(){
+        if (owner == null) return 0; //This should never happen
+        if (houses == 0){
+            for (PropertySquareController squareController: group) {
+                if (squareController.getOwner() != getOwner()) return rent[0];
+            }
+            return rent[0] * 2;
+        }
+        return rent[houses];
+    }
+
+    public void setGroup(PropertySquareController[] group){
+        super.setGroup(group);
     }
 }

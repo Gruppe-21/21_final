@@ -10,7 +10,7 @@ import gui_fields.GUI_Field;
  *
  */
 public class SquareController {
-    final private Square model;
+    final protected Square model;
     final private SquareView view;
 
     public SquareController(Square model, SquareView view) {
@@ -31,11 +31,16 @@ public class SquareController {
 
     public GUI_Field getSquareField(){return model.getGuiField();}
 
+    public String getName(){
+        return view.getName(model);
+    }
+
     public SquareView getView(){ return view; }
 
 
-
-
+    public int getId() {
+        return model.getId();
+    }
 }
 
 

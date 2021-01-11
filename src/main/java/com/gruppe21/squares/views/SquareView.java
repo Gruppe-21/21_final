@@ -7,15 +7,15 @@ import com.gruppe21.utils.localisation.Localisation;
 import gui_fields.GUI_Field;
 
 public class SquareView {
-    final private GUIManager guiManager;
-    final private Localisation localisation;
+    final protected GUIManager guiManager;
+    final protected Localisation localisation;
 
     public SquareView() {
         guiManager = GUIManager.getInstance();
         localisation = Localisation.getInstance();
     }
 
-    public void updateText(Square model){
+    public void updateText(Square model) {
         String name = localisation.getStringValue(model.getNameLocalisationId());
         String description = localisation.getStringValue(model.getDescriptionLocalisationId());
 
@@ -33,5 +33,9 @@ public class SquareView {
         guiManager.waitForUserAcknowledgement(model.getDescriptionLocalisationId());
     }
 
-
+    public String getName(Square model) {
+        return localisation.getStringValue(model.getDescriptionLocalisationId());
     }
+
+
+}
