@@ -83,7 +83,14 @@ public class PlayerView {
         //Throw exception
     }
 
-
+    /**
+     *
+     * @return
+     */
+    public int chooseHowToLiquidate(){
+        String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", "1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE");
+        return (choice.charAt(0) - '1');
+    }
 
 
     //Temporary
