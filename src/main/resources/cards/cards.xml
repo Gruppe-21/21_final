@@ -26,10 +26,10 @@
     <modifyMoneycard onUseDescription="premiumBond" money="1000" type="ModifyMoney" label="Premium Bond" isBank="false"/>        <!-- Kort 17 nr. 2-->
     <modifyMoneycard onUseDescription="oldFurniture" money="1000" type="ModifyMoney" label="Old Furniture" isBank="false"/>      <!-- Kort 18 -->
     <modifyMoneycard onUseDescription="utilityGarden" money="200" type="ModifyMoney" label="Utility Garden" isBank="false"/>     <!-- Kort 19 -->
-    <!-- <modifyMoneycard onUseDescription="matadorLegat" money="40000" type="ModifyMoney" label="Matador Legat" isBank="false"/>     Kort 20 -->
+    <modifyMoneycard onUseDescription="matadorLegate" money="40000" type="ModifyMoney" label="Matador Legate" isBank="false"/>   <!-- Kort 20 -->
     <modifyMoneycard onUseDescription="birthday" money="200" type="ModifyMoney" label="Birthday" isBank="true"/>                 <!-- Kort 21 -->
     <modifyMoneycard onUseDescription="party" money="500" type="ModifyMoney" label="Party" isBank="true"/>                       <!-- Kort 22 -->
-    <modifyMoneycard onUseDescription="familyparty" money="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
+    <modifyMoneycard onUseDescription="familyParty" money="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
 
 
 
