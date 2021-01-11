@@ -4,6 +4,7 @@ import com.gruppe21.squares.controllers.CardSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.squares.models.*;
+import com.gruppe21.squares.views.PropertySquareView;
 import com.gruppe21.squares.views.SquareView;
 import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
@@ -67,7 +68,7 @@ public class BoardLoader {
                 return new SquareController(moneySquareModel, moneyView);
             case "PropertySquare":
                 PropertySquare propertyModel = new PropertySquare(tag);
-                SquareView propertyView = new SquareView();
+                PropertySquareView propertyView = new PropertySquareView();
                 return new PropertySquareController(propertyModel, propertyView);
             case "ChanceSquare":
                 CardSquare cardSquareModel = new CardSquare(tag);
