@@ -72,6 +72,36 @@ public class CardLoader {
 
         // Ud fra tag finder den forskellige oplysninger om kortene
         switch (elementName) {
+            case "buildingFeeCard":
+                final String moneyHouseStr = tag.getAttribute("moneyHouse");
+                final int moneyHouse = moneyHouseStr.equals("") ? 0 : Integer.parseInt(moneyHouseStr);
+                final String moneyHotelStr = tag.getAttribute("moneyHotel");
+                final int moneyHotel = moneyHotelStr.equals("") ? 0 : Integer.parseInt(moneyHotelStr);
+                final String feeBankStr = tag.getAttribute("isBank");
+                boolean feeIsBank = feeBankStr.equals("") ? false : Boolean.parseBoolean(feeBankStr);
+
+                ModifyMoneyCard feeMoneyCardModel = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel, feeIsBank,moneyHouse, moneyHotel);
+                CardView feeMoneyView = new CardView();
+                MoneyCardController feeMoneyController = new MoneyCardController(feeMoneyView,feeMoneyCardModel);
+
+                cards[cardsAdded] = feeMoneyController;
+                cardsAdded++;
+                break;
+            case "legateMoneyCard":
+                final String moneyLegateStr = tag.getAttribute("money");
+                final String minMoneyLegateStr = tag.getAttribute("minMoney");
+                final String legateBankStr = tag.getAttribute("isBank"); //tilf'jet
+                boolean legateIsBank = legateBankStr.equals("") ? false : Boolean.parseBoolean(legateBankStr);
+                final int legateMoney = moneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
+                final int minMoney = minMoneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
+
+                ModifyMoneyCard legateMoneyCardModelMoneyCard = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,legateIsBank,legateMoney, minMoney);
+                CardView legateMoneyViewMoneyCard = new CardView();
+                MoneyCardController legateMoneyControllerMoneyCard = new MoneyCardController(legateMoneyViewMoneyCard,legateMoneyCardModelMoneyCard);
+
+                cards[cardsAdded] = legateMoneyControllerMoneyCard;
+                cardsAdded++;
+                break;
             case "moveRelativeCard":
                 final String squareIDStr = tag.getAttribute("squareID"); // Gemmer indholdet af squareID-tag som String
                 final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
