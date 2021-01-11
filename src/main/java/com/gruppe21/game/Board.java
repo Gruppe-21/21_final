@@ -38,7 +38,7 @@ public class Board {
      * @return
      */
     public SquareController closestSquareController(SquareController from, SquareController[] squareControllers) {
-        int indexCloset = 0, minDistance = getDistanceBetween(from, squareController[0]);
+        int indexCloset = 0, minDistance = getDistanceBetween(from, squareControllers[0]);
         for (int i = 1; i < squareControllers.length; i++) {
             int distance = getDistanceBetween(from, squareControllers[i]);
             if (distance < minDistance){
