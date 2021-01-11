@@ -9,7 +9,6 @@ import java.io.IOException;
 import org.xml.sax.SAXException;
 
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Random;
 
 public class Deck {
@@ -44,13 +43,18 @@ public class Deck {
         returnedCards = new CardController[0];
     }
 
-
+    /**
+     * Draws a specific type of cards
+     * @param cardClass
+     * @return number of cards drawn
+     * @return null if no cards are drawn
+     */
     public CardController drawCardOfClass(Class cardClass){
         for (int i = cardsDrawn; i < currentNumCards; i++) {
             if(cards[i].getCardClass().equals(cardClass)){
                 CardController drawnCard = cards[i];
                 cards[i] = cards[cardsDrawn];
-                cards[cardsDrawn] = cards[i];
+                cards[cardsDrawn] = drawnCard;
                 cardsDrawn++;
                 return cards[i];
             }

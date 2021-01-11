@@ -2,7 +2,7 @@ package com.gruppe21.card.typeOfCards;
 
 public class ModifyMoneyCard extends Card {
     private int modifyValue;
-    private boolean fromBank;
+    private boolean fromBank; // tilføj label til cards.xml
 
     public ModifyMoneyCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int modifyValue, boolean fromBank) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);

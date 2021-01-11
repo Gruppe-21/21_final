@@ -83,10 +83,12 @@ public class CardLoader {
                 break;
             case "modifyMoneycard":
                 final String moneyStr = tag.getAttribute("money");
+                final String bankStr = tag.getAttribute("isBank"); //tilf'jet
+                boolean isBank = false;
+                if(bankStr.equals("true")) isBank=true;
                 final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
-                final boolean moneyFromBank = tag.getAttribute("moneyFromBank").equals("true");
 
-                ModifyMoneyCard moneyCardModel = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,money, moneyFromBank);
+                ModifyMoneyCard moneyCardModel = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,money,isBank);
                 CardView moneyView = new CardView();
                 MoneyCardController moneyController = new MoneyCardController(moneyView,moneyCardModel);
 
