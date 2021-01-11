@@ -39,20 +39,22 @@
     <!-- <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeForward"/>          Kort 25 -->
     <!-- <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeBackward"/>        Kort 26 -->
     <moveRelativecard onUseDescription="frederiksbergCardOnUseDesc" squareID="11" type="MoveToSquare" label="Frederiksberg Allé"/> <!-- Kort 27 -->
-    <moveRelativecard onUseDescription="mols-linjenCardOnUseDesc" squareID="15" type="MoveToSquare" label="Mols-Linien"/>         <!-- Kort 29 -->
-    <moveRelativecard onUseDescription="groenningenCardOnUseDesc" squareID="24" type="MoveToSquare" label="Grønningen"/>          <!-- Kort 30 -->
+    <moveRelativecard onUseDescription="mols-linjenCardOnUseDesc" squareID="15" type="MoveToSquare" label="Mols-Linien"/>          <!-- Kort 29 -->
+    <moveRelativecard onUseDescription="groenningenCardOnUseDesc" squareID="24" type="MoveToSquare" label="Grønningen"/>           <!-- Kort 30 -->
     <moveRelativecard onUseDescription="vimmelskaftetCardOnUseDesc" squareID="32" type="MoveToSquare" label="Vimmelskaftet"/>      <!-- Kort 31 -->
     <moveRelativecard onUseDescription="strandvejenCardOnUseDesc" squareID="19" type="MoveToSquare" label="Strandvejen"/>          <!-- Kort 33 -->
     <moveRelativecard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Raadhuspladsen"/>    <!-- Kort 34 -->
 
     <!-- MoveToNearest cards -->
-    <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Rederi"/>
-    <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Færge"/>
-
-    <!-- TeleportToNearest cards (Prison) -->
-    <teleportcard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" type="Teleport" label="Fængslet"/>
-    <teleportcard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" type="Teleport" label="Rådhuspladsen"/>
+    <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Rederi"/>  <!-- Kort 28 -->
+    <moveToNearestcard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
-    <pardoncard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/>
+    <pardoncard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 1 -->
+    <pardoncard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 2 -->
+
+    <!-- TeleportToNearest cards (Prison) -->
+    <prisoncard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 1 -->
+    <prisoncard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 2 -->
+
 </cards>
