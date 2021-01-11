@@ -34,7 +34,9 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
+        purchaseBuildings();
         //Build houses
+
 
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
         StatusEffects status = player.getStatusEffects();
@@ -192,6 +194,19 @@ public class PlayerController {
     }
 
 
+    public void purchaseBuildings(){
+        PropertySquareController[] buildableProperties = player.getBuildableProperties();
+        if (buildableProperties.length == 0) return;
+        PropertySquareController toBuild = playerView.choosePropertyBuildBuilding(buildableProperties);
+        //TODO: the player should be able to change their mind.
+        while (player.getBalance() < toBuild.getBuildingCost()){
+            liquidateAssets(toBuild.getBuildingCost() - player.getBalance(), true);
+            //TODO: the player should be able to pick another property
+        }
+        transferMoney(toBuild.getBuildingCost(), null);
+        toBuild.addHouse();
+    }
+
 
     /**
      * Add value of parameter {@code value} to current balance
@@ -219,4 +234,6 @@ public class PlayerController {
     public Player getPlayer() {
         return player;
     }
+
+
 }

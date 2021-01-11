@@ -146,6 +146,26 @@ public class Player {
         }
     }
 
+    /**
+     * Creates a new array containing all buildable properties owned by the player.
+     * @return a {@code PropertySquareController} array of the players buildable properties.
+     */
+    public PropertySquareController[] getBuildableProperties(){
+        PropertySquareController[] buildableProperties = new PropertySquareController[ownedProperties.length];
+        int numBuildableProperties = 0;
+        for (int i = 0; i < getOwnedProperties().length; i++) {
+            if (ownedProperties[i].mayBuild()) {
+                buildableProperties[i] = (PropertySquareController) ownedProperties[i];
+                numBuildableProperties++;
+            }
+        }
+        PropertySquareController[] tempArray = new PropertySquareController[numBuildableProperties];
+        for (int i = 0; i < numBuildableProperties; i++) {
+            tempArray[i] = buildableProperties[i];
+        }
+        return tempArray;
+    }
+
     public GUI_Player getGuiPlayer() {
         return guiPlayer;
     }
