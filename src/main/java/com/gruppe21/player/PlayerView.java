@@ -10,24 +10,35 @@ import gui_fields.GUI_Player;
 import java.awt.*;
 
 public class PlayerView {
+    Localisation localisation;
+    GUIManager guiManager;
 
     public PlayerView(){
+        localisation = Localisation.getInstance();
+        guiManager = GUIManager.getInstance();
     }
+
+    public int startTurn() {
+        return guiManager.getUserButtonPressed(localisation.getStringValue("startTurnMesgLabel"),
+                localisation.getStringValue("startTurnButtonLabel"),
+                localisation.getStringValue("purchaseBuildingsButtonLabel"),
+                localisation.getStringValue("liquidateAssetsButtonLabel"));
+    }
+
 
     /**
      *
      * @param diceValues
      */
     public void rollDice(int... diceValues){
-        GUIManager guiManager = GUIManager.getInstance();
         //tells the player to roll
-        guiManager.waitForUserAcknowledgement("ROLL TEXT (PlayerView rollDice)"); //TODO: use localisation
+        guiManager.waitForUserAcknowledgement(localisation.getStringValue("rollDiceMesgLabel")); //TODO: use localisation
         //What if there isn't two values?
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }
 
     public String chooseName(int minLength, int maxLength){
-        return GUIManager.getInstance().getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
+        return guiManager.getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
     }
 
     public GUI_Car customiseCar(){
@@ -36,7 +47,7 @@ public class PlayerView {
     }
 
     public void addToGui(GUI_Player guiPlayer){
-        GUIManager.getInstance().addPlayer(guiPlayer);
+        guiManager.addPlayer(guiPlayer);
     }
 
 
@@ -64,7 +75,7 @@ public class PlayerView {
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
-        return GUIManager.getInstance().getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
+        return guiManager.getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
     }
 
     /**
