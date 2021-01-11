@@ -27,4 +27,15 @@ public class PropertySquareController extends OwnableSquareController {
         return model.getBuildingCost();
     }
 
+    @Override
+    public boolean mayBuild(){
+        if (this.getOwner() == null) return false;
+        for (OwnableSquareController property: model.getGroup()) {
+            if (property.getOwner() != this.getOwner()){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
