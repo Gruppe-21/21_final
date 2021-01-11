@@ -44,7 +44,12 @@ public class Deck {
         returnedCards = new CardController[0];
     }
 
-
+    /**
+     * Draws a specific type of cards
+     * @param cardClass
+     * @return number of cards drawn
+     * @return null if no cards are drawn
+     */
     public CardController drawCardOfClass(Class cardClass){
         for (int i = cardsDrawn; i < currentNumCards; i++) {
             if(cards[i].getCardClass().equals(cardClass)){
