@@ -42,4 +42,12 @@ public abstract class OwnableSquareController extends SquareController {
         model.setOwner(newOwner);
         view.updateOwner(model);
     }
+
+    /**
+     * Returns a boolean indicating if buildings may be build on the property.
+     * @return boolean indicating if buildings may be build on the property.
+     */
+    public boolean mayBuild(){
+        return false;
+    }
 }
