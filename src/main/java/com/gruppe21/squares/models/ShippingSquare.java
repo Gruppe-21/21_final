@@ -13,7 +13,7 @@ import java.awt.*;
 import static java.lang.Integer.parseInt;
 
 public class ShippingSquare extends OwnableSquare {
-    private ShippingSquare[] group;
+    private OwnableSquareController[] group;
 
     public ShippingSquare(int id, String label, String description, Color color, int statusEffect, int price, int... rent) {
         super(id, label, description, color, statusEffect, price);
@@ -50,7 +50,7 @@ public class ShippingSquare extends OwnableSquare {
         return rent[numOwnedInGroup];
     }
 
-    public void setGroup(ShippingSquareController[] group){
+    public void setGroup(OwnableSquareController[] group){
         super.setGroup(group);
     }
 }
