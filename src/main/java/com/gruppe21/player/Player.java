@@ -166,6 +166,28 @@ public class Player {
         return tempArray;
     }
 
+    public OwnableSquareController[] getNonMortgagedProperties(){
+        OwnableSquareController[] nonMortgagedProperties = new OwnableSquareController[getNumNonMortgagedProperties()];
+        int addedProperties = 0;
+        for (int i = 0; i < ; i++) {
+            
+        }
+        for (int i = 0; i < nonMortgagedProperties.length; i++) {
+            while (ownedProperties[i].isMortgaged()) i++;
+        }
+        for (OwnableSquareController property: getOwnedProperties()) {
+
+        }
+    }
+
+    private int getNumNonMortgagedProperties(){
+        int numNonMortgagedProperties = 0;
+        for (OwnableSquareController property: getOwnedProperties()) {
+            if (!property.isMortgaged()) numNonMortgagedProperties++;
+        }
+        return numNonMortgagedProperties;
+    }
+
     public GUI_Player getGuiPlayer() {
         return guiPlayer;
     }
