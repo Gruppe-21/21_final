@@ -19,6 +19,7 @@ public class PlayerController {
     private PlayerView playerView;
     private GameController gameController;
     private static final Random random = new Random();
+    private int lastRollForBrewery = 0;
 
     public PlayerController(){
         gameController = GameController.getInstance();
@@ -39,6 +40,7 @@ public class PlayerController {
 
 
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
+        lastRollForBrewery = diceRolls[0] + diceRolls[1];
         StatusEffects status = player.getStatusEffects();
         if (diceRolls[0] == diceRolls[1])
             status.addIdenticalDice(1);
@@ -237,6 +239,15 @@ public class PlayerController {
     //Preferably don't use this; it might be removed in the future.
     public Player getPlayer() {
         return player;
+    }
+
+    public StatusEffects getStatusEffects(){
+        return player.getStatusEffects();
+    }
+
+    //This makes me sad
+    public int getLastRollForBrewery(){
+        return lastRollForBrewery;
     }
 
 

@@ -26,12 +26,11 @@ public class GUIManager {
      *
      */
     private GUIManager(){
-        fields = new GUI_Field[1];
-        GUI_Street empty = new GUI_Street();
-        empty.setDescription("");
-        empty.setTitle("");
-        fields[0] = empty;
-        gui = new GUI(fields, backgroundColor);
+        GUI_Street invisibleField = new GUI_Street();
+        invisibleField.setBorder(Color.WHITE);
+        invisibleField.setBackGroundColor(Color.WHITE);
+        invisibleField.setForeGroundColor(Color.WHITE);
+        gui = new GUI(new GUI_Field[] {invisibleField}, backgroundColor);
     }
 
     /**
