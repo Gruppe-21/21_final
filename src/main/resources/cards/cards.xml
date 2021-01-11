@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
-    <!-- BuildingFees cards - skal laves, hvis vi en dag bliver gode nok :) -->
+    <!-- BuildingFees cards -->
+    <buildingFeecard onUseDescription="oilPrices" moneyHouse="-500" moneyHotel="-2000" type="BuildingFee" label="Oil Prices" isBank="false"/>         <!-- Kort 1  -->
+    <buildingFeecard onUseDescription="propertyTax" moneyHouse="-800" moneyHotel="-2300" type="BuildingFee" label="Property Tax" isBank="false"/>     <!-- Kort 2 -->
 
     <!-- ModifyMoney cards -->
     <modifyMoneycard onUseDescription="fullStopOnUse" money="-1000" type="ModifyMoney" label="FullStop" isBank="false"/>         <!-- Kort 3  -->
@@ -26,18 +28,19 @@
     <modifyMoneycard onUseDescription="premiumBond" money="1000" type="ModifyMoney" label="Premium Bond" isBank="false"/>        <!-- Kort 17 nr. 2-->
     <modifyMoneycard onUseDescription="oldFurniture" money="1000" type="ModifyMoney" label="Old Furniture" isBank="false"/>      <!-- Kort 18 -->
     <modifyMoneycard onUseDescription="utilityGarden" money="200" type="ModifyMoney" label="Utility Garden" isBank="false"/>     <!-- Kort 19 -->
-    <modifyMoneycard onUseDescription="matadorLegate" money="40000" type="ModifyMoney" label="Matador Legate" isBank="false"/>   <!-- Kort 20 -->
     <modifyMoneycard onUseDescription="birthday" money="200" type="ModifyMoney" label="Birthday" isBank="true"/>                 <!-- Kort 21 -->
     <modifyMoneycard onUseDescription="party" money="500" type="ModifyMoney" label="Party" isBank="true"/>                       <!-- Kort 22 -->
     <modifyMoneycard onUseDescription="familyParty" money="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
 
-
+    <!-- LegateMoney cards -->
+    <legateMoneycard onUseDescription="matadorLegate" money="40000" minMoney="15000" type="ModifyMoney" label="Matador Legate" isBank="false"/>   <!-- Kort 20 -->
 
     <!-- MoveRelative cards -->
     <moveRelativecard onUseDescription="startCardOnUseDesc" squareID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
     <moveRelativecard onUseDescription="startCardOnUseDesc" squareID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 2 -->
-    <!-- <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeForward"/>          Kort 25 -->
-    <!-- <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeBackward"/>        Kort 26 -->
+    <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeForward"/>          <!-- Kort 25 -->
+    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeBackward"/>        <!-- Kort 26 nr. 1 -->
+    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeBackward"/>        <!-- Kort 26 nr. 2 -->
     <moveRelativecard onUseDescription="frederiksbergCardOnUseDesc" squareID="11" type="MoveToSquare" label="Frederiksberg Allé"/> <!-- Kort 27 -->
     <moveRelativecard onUseDescription="mols-linjenCardOnUseDesc" squareID="15" type="MoveToSquare" label="Mols-Linien"/>          <!-- Kort 29 -->
     <moveRelativecard onUseDescription="groenningenCardOnUseDesc" squareID="24" type="MoveToSquare" label="Grønningen"/>           <!-- Kort 30 -->
