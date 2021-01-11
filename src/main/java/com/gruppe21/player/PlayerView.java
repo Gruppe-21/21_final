@@ -1,7 +1,9 @@
 package com.gruppe21.player;
 
 import com.gruppe21.gui.GUIManager;
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
+import com.gruppe21.utils.localisation.Localisation;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 
@@ -96,6 +98,27 @@ public class PlayerView {
         }
         String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
         return (choice.charAt(0) - '1');
+    }
+
+    public OwnableSquareController chooseProperty(OwnableSquareController[] properties, String messageLabel){
+        String[] names = new String[properties.length];
+        for (int i = 0; i < names.length; i++) {
+            names[i] = properties[i].getName();
+        }
+        String choice = GUIManager.getInstance().getUserChoiceDropDown(Localisation.getInstance().getStringValue(messageLabel), names);
+        for (int i = 0; i < names.length; i++) {
+            if (choice.equals(names[i])) return properties[i];
+        }
+        return null;
+    }
+
+    public OwnableSquareController choosePropertyToSell(OwnableSquareController[] properties){
+        return chooseProperty(properties, "PROPERTY SELL LABEL HERE");
+
+    }
+
+    public OwnableSquareController choosePropertyToMortgage(OwnableSquareController[] properties){
+        return chooseProperty(properties, "PROPERTY MORTGAGE LABEL HERE");
     }
 
 

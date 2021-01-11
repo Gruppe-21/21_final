@@ -145,17 +145,34 @@ public class PlayerController {
     /**
      *
      * @param minAmount
+     * @param optional
      * @return
      */
     public int liquidateAssets(int minAmount, boolean optional){
         int startBalance = player.getBalance();
-        playerView.chooseHowToLiquidate(optional);
 
-        //TODO: Implement liquidateAssets
-        //Sell houses, hotels and/or properties to the bank
-        //Mortgage properties
-        //Sell or trade properties and/or cards to other players.
-        return 0;
+        while (true) {
+            switch (playerView.chooseHowToLiquidate(optional)) {
+                case 1: {
+                    //TODO: implement choice of selling property or building(s)
+                    playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
+                }
+                case 2: {
+                    OwnableSquareController[] nonMortgaged = player.getNonMortgagedProperties();
+                    playerView.choosePropertyToMortgage(nonMortgaged).mortgage();
+                }
+                case 3: {
+                    //TODO: implement trade
+                    //Sell or trade properties and/or cards to other players.
+                }
+                case 4: {
+                    return startBalance - player.getBalance();
+                }
+            }
+            if (!optional){
+                if (startBalance - player.getBalance() > minAmount) return (startBalance - player.getBalance()) + liquidateAssets();
+            }
+        }
     }
 
 
