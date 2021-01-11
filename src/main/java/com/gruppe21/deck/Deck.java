@@ -9,7 +9,6 @@ import java.io.IOException;
 import org.xml.sax.SAXException;
 
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Random;
 
 public class Deck {
@@ -55,7 +54,7 @@ public class Deck {
             if(cards[i].getCardClass().equals(cardClass)){
                 CardController drawnCard = cards[i];
                 cards[i] = cards[cardsDrawn];
-                cards[cardsDrawn] = cards[i];
+                cards[cardsDrawn] = drawnCard;
                 cardsDrawn++;
                 return cards[i];
             }

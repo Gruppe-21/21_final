@@ -3,16 +3,16 @@
     <!-- BuildingFees cards - skal laves, hvis vi en dag bliver gode nok :) -->
 
     <!-- ModifyMoney cards -->
-    <modifyMoneycard onUseDescription="fullStopOnUse" money="-1000" type="ModifyMoney" label="FullStop"/>         <!-- Kort 3  -->
-    <modifyMoneycard onUseDescription="carWashOnUse" money="-300" type="MoveToSquare" label="Carwash"/>           <!-- Kort 4 -->
-    <modifyMoneycard onUseDescription="beerOnUse" money="-200" type="ModifyMoney" label="Beer"/>                  <!-- Kort 5 -->
-    <modifyMoneycard onUseDescription="repairCarOnUse" money="-3000" type="ModifyMoney" label="RepairCar"/>       <!-- Kort 6 nr. 1-->
-    <modifyMoneycard onUseDescription="repairCarOnUse" money="-3000" type="ModifyMoney" label="RepairCar"/>       <!-- Kort 6 nr. 2-->
-    <modifyMoneycard onUseDescription="tiresOnUse" money="-1000" type="ModifyMoney" label="NewTires"/>            <!-- Kort 7 -->
-    <modifyMoneycard onUseDescription="payBillOnUse" money="-200" type="ModifyMoney" label="PayBill"/>            <!-- Kort 8 -->
-    <modifyMoneycard onUseDescription="carInsuranceOnUse" money="-1000" type="ModifyMoney" label="CarInsurance"/> <!-- Kort 9 -->
-    <modifyMoneycard onUseDescription="vacationOnUse" money="-200" type="ModifyMoney" label="Vacation"/>          <!-- Kort 10 -->
-    <modifyMoneycard onUseDescription="dentistOnUse" money="-2000" type="ModifyMoney" label="Dentist"/>           <!-- Kort 11 -->
+    <modifyMoneycard onUseDescription="fullStopOnUse" money="-1000" type="ModifyMoney" label="FullStop" isBank="false"/>         <!-- Kort 3  -->
+    <modifyMoneycard onUseDescription="carWashOnUse" money="-300" type="MoveToSquare" label="Carwash" isBank="false"/>           <!-- Kort 4 -->
+    <modifyMoneycard onUseDescription="beerOnUse" money="-200" type="ModifyMoney" label="Beer" isBank="false"/>                  <!-- Kort 5 -->
+    <modifyMoneycard onUseDescription="repairCarOnUse" money="-3000" type="ModifyMoney" label="RepairCar" isBank="false"/>       <!-- Kort 6 nr. 1-->
+    <modifyMoneycard onUseDescription="repairCarOnUse" money="-3000" type="ModifyMoney" label="RepairCar" isBank="false"/>       <!-- Kort 6 nr. 2-->
+    <modifyMoneycard onUseDescription="tiresOnUse" money="-1000" type="ModifyMoney" label="NewTires" isBank="false"/>            <!-- Kort 7 -->
+    <modifyMoneycard onUseDescription="payBillOnUse" money="-200" type="ModifyMoney" label="PayBill" isBank="false"/>            <!-- Kort 8 -->
+    <modifyMoneycard onUseDescription="carInsuranceOnUse" money="-1000" type="ModifyMoney" label="CarInsurance" isBank="false"/> <!-- Kort 9 -->
+    <modifyMoneycard onUseDescription="vacationOnUse" money="-200" type="ModifyMoney" label="Vacation" isBank="false"/>          <!-- Kort 10 -->
+    <modifyMoneycard onUseDescription="dentistOnUse" money="-2000" type="ModifyMoney" label="Dentist" isBank="false"/>           <!-- Kort 11 -->
 
     <modifyMoneycard onUseDescription="lotto" money="500" type="ModifyMoney" label="Lotto" isBank="false"/>                      <!-- Kort 12 nr. 1-->
     <modifyMoneycard onUseDescription="lotto" money="500" type="ModifyMoney" label="Lotto" isBank="false"/>                      <!-- Kort 12 nr. 2-->
