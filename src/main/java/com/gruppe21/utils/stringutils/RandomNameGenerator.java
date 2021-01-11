@@ -1,7 +1,6 @@
 package com.gruppe21.utils.stringutils;
 
 import com.gruppe21.player.Player;
-import com.gruppe21.utils.arrayutils.OurArrayList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +30,7 @@ public class RandomNameGenerator {
      * @param namesToAvoid
      * @return
      */
-    public static String GetNameDifferentFrom(String[] namesToAvoid) {
+   /* public static String GetNameDifferentFrom(String[] namesToAvoid) {
         OurArrayList<String> tempNames = new OurArrayList<String>();
 
         for (String name : names) {
@@ -65,4 +64,5 @@ public class RandomNameGenerator {
         }
         return RandomNameGenerator.GetNameDifferentFrom(actualNames.toArray(new String[actualNames.size()]));
     }
+*/
 }

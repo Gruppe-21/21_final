@@ -9,7 +9,7 @@ public class Game {
     private final int initialNumberOfPlayers;
     private int numPlayers;
     private PlayerController[] playerControllers;
-    private int currentPlayerIndex;
+    private int currentPlayerIndex = -1;
     private final Board board;
 
     public Game(Board board, int numPlayers){
