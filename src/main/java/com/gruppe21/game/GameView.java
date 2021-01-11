@@ -23,8 +23,7 @@ public class GameView {
     }
 
     public int askNumberOfPlayers(int minNumPlayers, int maxNumPlayers){
-        int a = GUIManager.getInstance().getUserInteger("ASK NUM PLAYERS, GameView askNumberOfPlayers", minNumPlayers, maxNumPlayers);
-        return a;
+        return GUIManager.getInstance().getUserInteger("ASK NUM PLAYERS, GameView askNumberOfPlayers", minNumPlayers, maxNumPlayers);
     }
 
     public PlayerController askForFirstPlayer(PlayerController... playerControllers){
