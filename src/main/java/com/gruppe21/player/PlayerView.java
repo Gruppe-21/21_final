@@ -79,8 +79,11 @@ public class PlayerView {
         for (int i = 0; i < choice.length(); i++) {
             if (choice.equals(choices[i])) return properties[i];
         }
+        return null;
         //Throw exception
     }
+
+
 
 
     //Temporary
