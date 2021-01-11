@@ -9,6 +9,8 @@ public class PropertySquareController extends OwnableSquareController {
     PropertySquareView view;
     public PropertySquareController(PropertySquare model, PropertySquareView view) {
         super(model, view);
+        this.model = model;
+        this.view = view;
     }
 
     @Override
