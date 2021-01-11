@@ -34,7 +34,6 @@ public class ModifyMoneyCard extends Card {
         this.minMoney = minMoney;
     }
 
-
     public int getModifyValue() {
         return modifyValue;
     }
