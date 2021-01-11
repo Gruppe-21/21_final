@@ -4,8 +4,10 @@ import com.gruppe21.card.CardView;
 import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.cardControllers.MoneyCardController;
 import com.gruppe21.card.cardControllers.MoveRelativeCardController;
+import com.gruppe21.card.cardControllers.TeleportToNearestCardController;
 import com.gruppe21.card.typeOfCards.ModifyMoneyCard;
 import com.gruppe21.card.typeOfCards.MoveRelativeCard;
+import com.gruppe21.card.typeOfCards.TeleportToNearestCard;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -71,10 +73,10 @@ public class CardLoader {
         // Ud fra tag finder den forskellige oplysninger om kortene
         switch (elementName) {
             case "moveRelativeCard":
-                final String square_IDStr = tag.getAttribute("ID"); // Gemmer indholdet af ID-tag som String
-                final int square_ID = square_IDStr.equals("") ? 0 : Integer.parseInt(square_IDStr); // Omdanner String til int
+                final String squareIDStr = tag.getAttribute("squareID"); // Gemmer indholdet af squareID-tag som String
+                final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
 
-                MoveRelativeCard moveCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,square_ID);
+                MoveRelativeCard moveCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,squareID);
                 CardView moveView = new CardView();
                 MoveRelativeCardController moveController = new MoveRelativeCardController(moveView,moveCardModel);
 
@@ -93,6 +95,17 @@ public class CardLoader {
                 MoneyCardController moneyController = new MoneyCardController(moneyView,moneyCardModel);
 
                 cards[cardsAdded] = moneyController;
+                cardsAdded++;
+                break;
+            case "prisonCard":
+                final String prisonSquareIDStr = tag.getAttribute("squareID"); // 11 (prison square)
+                final int prisonSquareID = prisonSquareIDStr.equals("") ? 0 : Integer.parseInt(prisonSquareIDStr);
+
+                TeleportToNearestCard prisonCard = new TeleportToNearestCard(descriptionOnDrawLabel,descriptionOnDrawLabel,prisonSquareID); // model
+                CardView prisonView = new CardView(); // view
+                TeleportToNearestCardController prisonController = new TeleportToNearestCardController(prisonView,prisonCard); // controller
+
+                cards[cardsAdded] = prisonController;
                 cardsAdded++;
                 break;
             default:
