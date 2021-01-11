@@ -40,12 +40,15 @@ public class PlayerController {
             switch (playerView.startTurn()){
                 case 1 : {
                     roll = true;
+                    break;
                 }
                 case 2 : {
                     purchaseBuildings();
+                    break;
                 }
                 case 3 : {
                     liquidateAssets();
+                    break;
                 }
             }
         }
