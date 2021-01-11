@@ -15,10 +15,14 @@ public class GameController {
     GameView gameView;
     private GameController(){
         gameView = new GameView();
+    }
+
+    public void initGame(){
         gameView.selectLanguage();
         game = new Game(new Board(), gameView.askNumberOfPlayers(Game.MIN_PLAYERS, Game.MAX_PLAYERS));
         gameView.displayBoard(game.getBoard());
         initPlayers();
+
     }
 
     private void initPlayers(){
@@ -26,7 +30,10 @@ public class GameController {
             game.getPlayerControllers()[i] = new PlayerController();
             game.getPlayerControllers()[i].teleportTo(game.getBoard().getFirstSquareController()); //Maybe this happens automatically
         }
-        game.setNextPlayer(gameView.askForFirstPlayer(game.getPlayerControllers()));
+        PlayerController first = gameView.askForFirstPlayer(game.getPlayerControllers());
+
+
+        game.setNextPlayer(first);
     }
 
     /**
@@ -44,6 +51,14 @@ public class GameController {
      */
     private void doRound(PlayerController playerController){
         playerController.takeTurn(game.getBoard());
+    }
+
+    /**
+     *
+     * @return
+     */
+    public PlayerController[] getPlayerControllers(){
+        return game.getPlayerControllers();
     }
     
 

@@ -3,6 +3,7 @@ package com.gruppe21.player;
 import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.typeOfCards.PardonCard;
 import com.gruppe21.deck.Deck;
+import com.gruppe21.game.Board;
 import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
@@ -33,7 +34,9 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
+        purchaseBuildings();
         //Build houses
+
 
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
         StatusEffects status = player.getStatusEffects();
@@ -41,11 +44,11 @@ public class PlayerController {
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            CardController pardonCard = player.getHeldCards().getCardOfClass(PardonCard.class);
+            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCard.class);
             switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
-                    pardonCard.onUse();
+                    pardonCard.use(this);
                     break;
                 }
                 case 50 : { // '2'
@@ -143,10 +146,14 @@ public class PlayerController {
      * @return
      */
     public int liquidateAssets(int minAmount, boolean optional){
+        int startBalance = player.getBalance();
+        playerView.chooseHowToLiquidate(optional);
+
         //TODO: Implement liquidateAssets
         //Sell houses, hotels and/or properties to the bank
         //Mortgage properties
         //Sell or trade properties and/or cards to other players.
+        return 0;
     }
 
 
@@ -190,9 +197,23 @@ public class PlayerController {
     }
 
 
+    public void purchaseBuildings(){
+        //Todo: limit the number of houses and hotels in play at once
+        PropertySquareController[] buildableProperties = player.getBuildableProperties();
+        if (buildableProperties.length == 0) return;
+        PropertySquareController toBuild = playerView.choosePropertyBuildBuilding(buildableProperties);
+        //TODO: the player should be able to change their mind.
+        while (player.getBalance() < toBuild.getBuildingCost()){
+            liquidateAssets(toBuild.getBuildingCost() - player.getBalance(), true);
+            //TODO: the player should be able to pick another property
+        }
+        transferMoney(toBuild.getBuildingCost(), null);
+        toBuild.addHouse();
+    }
+
 
     /**
-     * Add value of parameter {@code amount} to current balance
+     * Add value of parameter {@code value} to current balance
      *
      * @param value the value to be added to the balance. Can be a negative number.
      * @return {@code getBalance()} new balance
@@ -209,8 +230,14 @@ public class PlayerController {
         return player.getColors();
     }
 
+    public Deck getHeldCards(){
+        return player.getHeldCards();
+    }
+
     //Preferably don't use this; it might be removed in the future.
     public Player getPlayer() {
         return player;
     }
+
+
 }
