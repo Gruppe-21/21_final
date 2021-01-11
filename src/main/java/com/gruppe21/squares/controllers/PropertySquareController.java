@@ -34,7 +34,7 @@ public class PropertySquareController extends OwnableSquareController {
     public boolean mayBuild(){
         if (this.getOwner() == null || this.getNumHouses() >= model.getMaxNumHouses()) return false;
         for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
-            if (property.getOwner() != this.getOwner()){
+            if (property.getOwner() != this.getOwner() || this.getNumHouses() - property.getNumHouses() > 0){
                 return false;
             }
         }
