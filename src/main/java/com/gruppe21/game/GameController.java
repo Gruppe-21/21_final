@@ -31,8 +31,7 @@ public class GameController {
             game.getPlayerControllers()[i].teleportTo(game.getBoard().getFirstSquareController()); //Maybe this happens automatically
         }
         PlayerController first = gameView.askForFirstPlayer(game.getPlayerControllers());
-        System.out.println(first.getName());
-        System.out.println(game.getNextPlayer().getName());
+
 
         game.setNextPlayer(first);
     }

@@ -112,7 +112,7 @@ public class Game {
      * @see nextPlayer()
      */
     public PlayerController getNextPlayer() {
-        return getPlayerControllers()[(currentPlayerIndex + 1) % numPlayers]; // TODO set to currentPlayerIndex +1
+        return getPlayerControllers()[(currentPlayerIndex + 1) % numPlayers];
     }
 
     public Board getBoard() {
