@@ -1,8 +1,11 @@
 package com.gruppe21.player;
 import com.gruppe21.deck.Deck;
+import com.gruppe21.squares.controllers.OwnableSquareController;
+import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
+import java.awt.*;
 import java.util.Objects;
 
 //Todo: add possesiveName
@@ -20,6 +23,8 @@ public class Player {
     private int balance;
     private int totalValue;
     private Deck heldCards;
+    private OwnableSquareController[] ownedProperties;
+    private int numOwnedProperties = 0;
     private StatusEffects statusEffects;
 
     private GUI_Player guiPlayer;
@@ -32,6 +37,7 @@ public class Player {
         this.balance = START_FUNDS;
         this.totalValue = START_FUNDS;
         heldCards = new Deck();
+        ownedProperties = new PropertySquareController[4];
         statusEffects = new StatusEffects();
     }
 
@@ -108,12 +114,48 @@ public class Player {
         return this.heldCards;
     }
 
+    /**
+     *
+     * @return
+     */
+    public OwnableSquareController[] getOwnedProperties(){
+        OwnableSquareController[] properties = new PropertySquareController[numOwnedProperties];
+        for (int i = 0; i < numOwnedProperties; i++) {
+            properties[i] = ownedProperties[i];
+        }
+        return properties;
+    }
+
+    public void addOwnedProperty(OwnableSquareController propertySquareController){
+        numOwnedProperties++;
+        if (numOwnedProperties > ownedProperties.length){
+            OwnableSquareController[] newArray = new PropertySquareController[numOwnedProperties * 2];
+            for (int i = 0; i < ownedProperties.length; i++) {
+                newArray[i] = ownedProperties[i];
+            }
+            ownedProperties = newArray;
+        }
+        ownedProperties[numOwnedProperties-1] = propertySquareController;
+    }
+
+    public void removeOwnedProperty(OwnableSquareController propertySquareController){
+        for (int i = 0; i < numOwnedProperties; i++) {
+            if (ownedProperties[i] == propertySquareController){
+                ownedProperties[i] = ownedProperties[--numOwnedProperties];
+            }
+        }
+    }
+
     public GUI_Player getGuiPlayer() {
         return guiPlayer;
     }
 
     public void setGuiPlayer(GUI_Player guiPlayer) {
         this.guiPlayer = guiPlayer;
+    }
+
+    public Color[] getColors(){
+        return new Color[] {guiPlayer.getPrimaryColor(), guiPlayer.getSecondaryColor()};
     }
 }
 
