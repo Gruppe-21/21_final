@@ -1,15 +1,39 @@
 package com.gruppe21.card.cardControllers;
 
 import com.gruppe21.card.CardView;
-import com.gruppe21.card.typeOfCards.MoveRelativeCard;
+import com.gruppe21.card.typeOfCards.Card;
+import com.gruppe21.deck.Deck;
+import com.gruppe21.player.PlayerController;
 
 public abstract class CardController {
-    private CardView cardView;
+    protected CardView cardView;
+    protected Card card;
 
-    public CardController(CardView cardView){
+    public CardController(CardView cardView, Card card){
         this.cardView = cardView;
+        this.card = card;
     }
 
-    protected abstract void onDraw(CardView view, MoveRelativeCard model);
+    public Deck getReturnDeck(){
+        return card.getDeckToReturnTo();
+    }
+
+    public void setReturnDeck(Deck deck){
+        card.setDeckToReturnTo(deck);
+    }
+
+    public abstract void onDraw(PlayerController drawer);
+
+    public void use(PlayerController user){
+        //Tell user something
+    }
+
+    /**
+     * Returns the {@code Class} object of the {@code CardController}'s {@code Card}
+     * @return the {@code Class} object of the card
+     */
+    public Class getCardClass(){
+        return card.getClass();
+    }
 
 }
