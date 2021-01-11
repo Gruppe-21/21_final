@@ -5,10 +5,8 @@ public class MoveRelativeCard extends Card {
 
 
     public MoveRelativeCard(String descriptionOnDrawLabel,String descriptionOnUseLabel,int squareID) {
-
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
         this.squareID = squareID;
-
     }
 
     public int getSquareID() {

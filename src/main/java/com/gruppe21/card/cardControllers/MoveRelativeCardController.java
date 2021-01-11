@@ -13,18 +13,30 @@ public class MoveRelativeCardController extends CardController {
         super(view, card);
     }
 
+    /**
+     * Calls card use method when the {code:drawer}
+     * @param drawer Player that draws card
+     */
     @Override
     public void onDraw(PlayerController drawer) {
         use(drawer);
     }
 
+    /**
+     * Method that shows description and moves player {code user} to specific squareID
+     * @param user Player that uses card
+     */
     @Override
-    public void use(PlayerController user){
+    public void use(PlayerController user, Board board){
         super.use(user);
         int moveToSquareID = card.getSquareID();
 
-        user.moveTo(Board.getSquareControllerFromId(moveToSquareID));
+        // move player to ID
+        user.moveTo(board.getSquareControllerFromId(moveToSquareID));
 
+        // return card
+        user.getHeldCards().removeCard(this);
+        getReturnDeck().returnCard(this);
     }
 
 }
