@@ -10,6 +10,7 @@ import java.awt.*;
 public abstract class OwnableSquare extends Square {
     protected int price;
     protected int[] rent;
+    protected boolean mortgaged = false;
     protected PlayerController owner; //owner = null -> owner is the bank.
     protected OwnableSquareController[] group;
 
@@ -42,6 +43,14 @@ public abstract class OwnableSquare extends Square {
 
 
     abstract public int getRent();
+
+    public boolean isMortgaged(){
+        return mortgaged;
+    }
+
+    public void setMortgaged(boolean mortgaged){
+        this.mortgaged = mortgaged;
+    }
 
     public PlayerController getOwner(){
         return owner;
