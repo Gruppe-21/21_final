@@ -19,10 +19,11 @@ public class PlayerView {
     }
 
     public int startTurn() {
-        return guiManager.getUserButtonPressed(localisation.getStringValue("startTurnMesgLabel"),
+        return guiManager.getUserButtonPressed("STARTTURNMESG","STARTTURN","BUILDSTUFF","LIQUIDATEASSETS");/*
+                localisation.getStringValue("startTurnMesgLabel"),
                 localisation.getStringValue("startTurnButtonLabel"),
                 localisation.getStringValue("purchaseBuildingsButtonLabel"),
-                localisation.getStringValue("liquidateAssetsButtonLabel"));
+                localisation.getStringValue("liquidateAssetsButtonLabel"));*/
     }
 
 
@@ -107,7 +108,7 @@ public class PlayerView {
         } else {
             buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE"};
         }
-        String choice = GUIManager.getInstance().getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
+        String choice = guiManager.getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
         return (choice.charAt(0) - '1');
     }
 
@@ -116,7 +117,7 @@ public class PlayerView {
         for (int i = 0; i < names.length; i++) {
             names[i] = properties[i].getName();
         }
-        String choice = GUIManager.getInstance().getUserChoiceDropDown(Localisation.getInstance().getStringValue(messageLabel), names);
+        String choice = guiManager.getUserChoiceDropDown(localisation.getStringValue(messageLabel), names);
         for (int i = 0; i < names.length; i++) {
             if (choice.equals(names[i])) return properties[i];
         }
