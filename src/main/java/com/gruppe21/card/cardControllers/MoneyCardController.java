@@ -20,27 +20,29 @@ public class MoneyCardController extends CardController  {
     }
 
     /**
-     * Card that transfer money to {code: user}.
-     * <p> if the card is a matadorLegate card and the Player's {code:user} ?total/cash value? is under
+     * Card that manages money transaktions depending on card type
+     *
+     * <p> if the card is a matadorLegate card and the Player's {code:user} ?total value? is under
      * 15K, the user will receive 40K </p>
+     * <p> else if card is a building fee type card, and the {code:user} owns house and or hotels. The player will get
+     * a total fee depending on the amount of houses and hotels.</p>
      * <p> Otherwise the player will recieve money from bank or from the other players</p>
      * @param user Player that uses card
      */
     @Override
     public void use(PlayerController user) {
-        super.use(user); // text to view
+        super.use(user);
 
-        if (card.getIsLegat() && user.getPlayer().getTotalValue() > card.getMinMoney()) { // (15000) Total value or cash value? getDesc?
+        if (card.getIsLegat() && user.getPlayer().getTotalValue() > card.getMinMoney()) { // (15000) Total value or cash value?
             user.transferMoney(-card.getModifyValue(), user); // (40000) negative number?
         } else if(isHouseAndHotelCard()){
             if(user.getPlayer().getOwnedProperties().length > 0){
                 int totalFee = 0;
+                // Calculate price for house ?? --> mangler at blive lavet
+                // totalFee += card.getMoneyHouse() * numberOfhouses
 
-                // Calculate price for house
-                // totalFee += card.getMoneyHouse()
-
-                // Calculate price for hotel
-                // totalFee += card.getMoneyHotel
+                // Calculate price for hotel ?? --> mangler at blive lavet
+                // totalFee += card.getMoneyHotel() * hotelOfhotels
 
                 user.transferMoney(totalFee, user);
             }

@@ -16,16 +16,15 @@ public class ModifyMoneyCard extends Card {
         this.isBank = fromBank;
     }
 
-    // House/Hotel
+    // Used in building fee cards (House/Hotel)
     public ModifyMoneyCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, boolean fromBank, int moneyHouse, int moneyHotel) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
-        this.modifyValue = modifyValue;
         this.isBank = fromBank;
         this.moneyHouse = moneyHouse;
         this.moneyHotel = moneyHotel;
     }
 
-    // Used in matadorLegat
+    // Used in matadorLegat card
     public ModifyMoneyCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int modifyValue, boolean isBank,boolean isLegat,int minMoney) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
         this.modifyValue = modifyValue;
@@ -33,6 +32,7 @@ public class ModifyMoneyCard extends Card {
         this.isLegat = isLegat;
         this.minMoney = minMoney;
     }
+
 
     public int getModifyValue() {
         return modifyValue;
