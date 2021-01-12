@@ -117,7 +117,7 @@
                     rent_base="700"
                     rent_1house="3500" rent_2house="10000" rent_3house="22000" rent_4house="26000" rent_hotel="30000"
                     houseCost="4000" hotelCost="4000" pawnValue="3500"/>
-    <MoneySquare id="39" label="ekstraordinær statsskat" description="ekstraordinærStatsskat" price="2000"/>
+    <MoneySquare id="39" label="ekstraordinær statsskat" description="ekstraordinærStatsskat" price="-2000"/>
     <PropertySquare id="40" label="rådhuspladsen" description="rådhuspladsendesc" price="8000" color="purple"
                     rent_base="1000"
                     rent_1house="4000" rent_2house="12000" rent_3house="28000" rent_4house="34000" rent_hotel="40000"
