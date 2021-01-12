@@ -66,6 +66,14 @@ public class GameController {
     public PlayerController getCurrentPlayer(){
         return game.getCurrentPlayer();
     }
+
+    public int getHouses(int desiredNumber){
+        return game.getHouses(desiredNumber);
+    }
+
+    public int getHotels(int desiredNumber){
+        return game.getHotels(desiredNumber);
+    }
     
 
 }
