@@ -29,9 +29,6 @@ public class Player {
 
     private GUI_Player guiPlayer;
 
-    private int numSubscribers = 0;
-
-    Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
 
     public Player(){
         this.balance = START_FUNDS;
@@ -39,32 +36,6 @@ public class Player {
         heldCards = new Deck();
         ownedProperties = new PropertySquareController[4];
         statusEffects = new StatusEffects();
-    }
-
-    /**
-     *
-     * @param subscriber
-     */
-    public void subscribeToOnMoved(Object subscriber){
-        //Lengthens array if too short
-        if (numSubscribers == onMovedSubscribers.length){
-            Object[] temp = new Object[onMovedSubscribers.length * 2];
-            for (int i = 0; i < onMovedSubscribers.length; i++) {
-                temp[i] = onMovedSubscribers[i];
-            }
-            onMovedSubscribers = temp;
-        }
-        onMovedSubscribers[numSubscribers] = subscriber;
-        numSubscribers++;
-    }
-
-    /**
-     *
-     */
-    private void notifyMove(){
-        for (Object subscriber: onMovedSubscribers) {
-            //notify them!
-        }
     }
 
     /**
