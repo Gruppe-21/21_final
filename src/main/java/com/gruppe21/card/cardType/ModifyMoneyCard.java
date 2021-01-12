@@ -1,6 +1,4 @@
-package com.gruppe21.card.typeOfCards;
-
-import com.gruppe21.card.cardControllers.CardController;
+package com.gruppe21.card.cardType;
 
 public class ModifyMoneyCard extends Card {
     private int modifyValue;

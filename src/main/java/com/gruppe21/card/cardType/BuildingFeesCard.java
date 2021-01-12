@@ -1,4 +1,4 @@
-package com.gruppe21.card.typeOfCards;
+package com.gruppe21.card.cardType;
 
 public class BuildingFeesCard extends Card {
     private boolean hasBuilding; //Check for house or hotel

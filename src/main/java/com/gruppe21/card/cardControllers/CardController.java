@@ -1,10 +1,24 @@
 package com.gruppe21.card.cardControllers;
 
-import com.gruppe21.card.CardView;
-import com.gruppe21.card.typeOfCards.Card;
+import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.cardType.Card;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
+
+
+/** Oversigt over kort klasser
+ *
+ * MoveRelativeCard     --> 3 frem, 3 tilbage
+ * MoveToNearest        --> rederier og færger
+ * MoveToSquare         --> alle kort med et defineret squareID
+ * TeleportToNearestCard--> fængsel
+ *
+ * YES :D
+ */
+
+
+
 
 public abstract class CardController {
     protected CardView cardView;
@@ -36,7 +50,7 @@ public abstract class CardController {
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }
 
-    // Used for cards with connection to board. blah blah
+    // Used for cards with connection to board.
     public void use(PlayerController user, Board board){
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }

@@ -1,13 +1,8 @@
 package com.gruppe21.utils;
 
-import com.gruppe21.card.CardView;
-import com.gruppe21.card.cardControllers.CardController;
-import com.gruppe21.card.cardControllers.MoneyCardController;
-import com.gruppe21.card.cardControllers.MoveRelativeCardController;
-import com.gruppe21.card.cardControllers.TeleportToNearestCardController;
-import com.gruppe21.card.typeOfCards.ModifyMoneyCard;
-import com.gruppe21.card.typeOfCards.MoveRelativeCard;
-import com.gruppe21.card.typeOfCards.TeleportToNearestCard;
+import com.gruppe21.card.cardControllers.*;
+import com.gruppe21.card.cardType.*;
+import com.gruppe21.card.cardView.CardView;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -115,9 +110,9 @@ public class CardLoader {
                 final String squareIDStr = tag.getAttribute("squareID"); // Gemmer indholdet af squareID-tag som String
                 final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
 
-                MoveRelativeCard moveCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,squareID);
+                MoveToSquareCard moveCardModel = new MoveToSquareCard(descriptionOnDrawLabel,descriptionOnUseLabel,squareID);
                 CardView moveView = new CardView();
-                MoveRelativeCardController moveController = new MoveRelativeCardController(moveView,moveCardModel);
+                MoveToSquareCardController moveController = new MoveToSquareCardController(moveView,moveCardModel);
 
                 cards[cardsAdded] = moveController;
                 cardsAdded++;

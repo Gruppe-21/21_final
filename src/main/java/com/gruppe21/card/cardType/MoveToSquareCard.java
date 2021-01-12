@@ -1,10 +1,9 @@
-package com.gruppe21.card.typeOfCards;
+package com.gruppe21.card.cardType;
 
-public class MoveRelativeCard extends Card {
+public class MoveToSquareCard extends Card {
     private int squareID;
 
-
-    public MoveRelativeCard(String descriptionOnDrawLabel,String descriptionOnUseLabel,int squareID) {
+    public MoveToSquareCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int squareID) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
         this.squareID = squareID;
     }
@@ -12,4 +11,5 @@ public class MoveRelativeCard extends Card {
     public int getSquareID() {
         return squareID;
     }
+
 }
