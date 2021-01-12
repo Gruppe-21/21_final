@@ -7,18 +7,6 @@ import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 
 
-/** Oversigt over kort klasser
- *
- * MoveRelativeCard     --> 3 frem, 3 tilbage
- * MoveToNearest        --> rederier og færger
- * MoveToSquare         --> alle kort med et defineret squareID
- * TeleportToNearestCard--> fængsel
- *
- * YES :D
- */
-
-
-
 
 public abstract class CardController {
     protected CardView cardView;

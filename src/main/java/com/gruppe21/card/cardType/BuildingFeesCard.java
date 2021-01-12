@@ -6,7 +6,10 @@ public class BuildingFeesCard extends Card {
 
     public BuildingFeesCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, boolean hasBuilding, int feeAmount) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
-        this.hasBuilding = hasBuilding;
+        this.hasBuilding = hasBuilding; // skal laves om til at tjekke huse og hoteller
         this.feeAmount = feeAmount;
     }
+
+
+
 }
