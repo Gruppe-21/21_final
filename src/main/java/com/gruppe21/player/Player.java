@@ -21,7 +21,6 @@ public class Player {
     private String name;
     private SquareController position;
     private int balance;
-    private int totalValue;
     private Deck heldCards;
     private OwnableSquareController[] ownedProperties;
     private int numOwnedProperties = 0;
@@ -32,7 +31,6 @@ public class Player {
 
     public Player(){
         this.balance = START_FUNDS;
-        this.totalValue = START_FUNDS;
         heldCards = new Deck();
         ownedProperties = new PropertySquareController[4];
         statusEffects = new StatusEffects();
@@ -60,12 +58,15 @@ public class Player {
     }
 
     public int setBalance(int balance){
-        totalValue += balance - this.balance;
         this.balance = balance;
         return getBalance();
     }
 
     public int getTotalValue(){
+        int totalValue = getBalance();
+        for (int i = 0; i < numOwnedProperties; i++) {
+            totalValue += ownedProperties[i].getPropertyValue();
+        }
         return totalValue;
     }
 
