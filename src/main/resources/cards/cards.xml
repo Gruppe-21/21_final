@@ -33,7 +33,7 @@
     <modifyMoneycard onUseDescription="familyParty" money="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
 
     <!-- LegateMoney cards -->
-    <legateMoneycard onUseDescription="matadorLegate" money="40000" minMoney="15000" type="ModifyMoney" label="Matador Legate" isBank="false"/>   <!-- Kort 20 -->
+    <legateMoneycard onUseDescription="matadorLegate" money="40000" minMoney="15000" type="ModifyMoney" label="Matador Legate" isBank="false" isLegate="true"/>   <!-- Kort 20 -->
 
     <!-- MoveToSquare cards -->
     <moveToSquarecard onUseDescription="startCardOnUseDesc" squareID="1" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->

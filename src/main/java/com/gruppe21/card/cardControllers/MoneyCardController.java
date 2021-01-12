@@ -39,12 +39,12 @@ public class MoneyCardController extends CardController  {
             if(user.getPlayer().getOwnedProperties().length > 0){
                 int totalFee = 0;
 
+                // Calculate price for house ??
+                // totalFee += card.getMoneyHouse() * user.getPlayer().getNumberOfHouses;
 
-                // Calculate price for house ?? --> mangler at blive lavet
-                // totalFee += card.getMoneyHouse() * numberOfhouses
 
-                // Calculate price for hotel ?? --> mangler at blive lavet
-                // totalFee += card.getMoneyHotel() * hotelOfhotels
+                // Calculate price for hotel ??
+                // totalFee += card.getMoneyHotel() * user.getPlayer().getNumberOfHotels;
 
                 user.transferMoney(totalFee, user);
             }

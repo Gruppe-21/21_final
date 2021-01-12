@@ -99,7 +99,7 @@ public class CardLoader {
                 final int legateMoney = moneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
                 final int minMoney = minMoneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
 
-                ModifyMoneyCard legateMoneyCardModelMoneyCard = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,legateIsBank,legateMoney, minMoney);
+                ModifyMoneyCard legateMoneyCardModelMoneyCard = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,legateMoney,legateIsBank,IsLegate,minMoney);
                 CardView legateMoneyViewMoneyCard = new CardView();
                 MoneyCardController legateMoneyControllerMoneyCard = new MoneyCardController(legateMoneyViewMoneyCard,legateMoneyCardModelMoneyCard);
 
