@@ -33,7 +33,7 @@ public class TeleportSquareController extends SquareController {
 
     public void onMoveToFromBoard(PlayerController playercontroller, Board board) {
 
-        SquareController Prison = board.getSquareControllerFromId(FindSquareControllerID("PrisonSquare"));
+        SquareController Prison = board.getSquareControllerFromId(FindSquareControllerID("PrisonSquare", board));
 
         playercontroller.getStatusEffects().setImprisoned(true);
         playercontroller.teleportTo(Prison);
@@ -48,8 +48,11 @@ public class TeleportSquareController extends SquareController {
      */
     public int FindSquareControllerID (String SquareName, Board board){
         SquareController[] squareControllers = board.getSquareControllers();
-        int SquareControllerID = new int;
-        String[] Name;
+
+        int SquareControllerID = getId();                                                               // Mangler mere arbejde, men det her er ideen
+
+        String[] Name;                                                                                  // Skal indeholde alle navnene på Squares og sammenlignes med den ønskede square
+
 
 
 
