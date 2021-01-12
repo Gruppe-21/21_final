@@ -2,16 +2,18 @@ package com.gruppe21.card.cardControllers;
 
 import com.gruppe21.card.CardView;
 import com.gruppe21.card.typeOfCards.MoveRelativeCard;
-import com.gruppe21.player.PlayerController;
+import com.gruppe21.card.typeOfCards.TeleportToNearestCard;
 import com.gruppe21.game.Board;
+import com.gruppe21.player.PlayerController;
 
-public class MoveRelativeCardController extends CardController {
-    private MoveRelativeCard card;
+public class TeleportToNearestCardController extends CardController{
+    private TeleportToNearestCard card;
     private CardView view;
 
-    public MoveRelativeCardController(CardView view, MoveRelativeCard card) {
+    public TeleportToNearestCardController(CardView view, TeleportToNearestCard card) {
         super(view, card);
     }
+
 
     /**
      * Calls card use method when the {code:drawer}
@@ -31,12 +33,11 @@ public class MoveRelativeCardController extends CardController {
         super.use(user);
         int moveToSquareID = card.getSquareID();
 
-        // move player to ID
+        // move player to prison square ID
         user.moveTo(board.getSquareControllerFromId(moveToSquareID));
 
         // return card
         user.getHeldCards().removeCard(this);
         getReturnDeck().returnCard(this);
     }
-
 }
