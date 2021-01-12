@@ -53,7 +53,6 @@ public class TeleportSquareController extends SquareController {
 
 
     private int PrisonID(Element tag) {
-        String elementName = tag.getNodeName();
         int prisonID;
         prisonID = !tag.getAttribute("ID").equals("") ? parseInt(tag.getAttribute("ID")) : 0;
 
