@@ -6,11 +6,17 @@ public class Game {
     public static final char MIN_PLAYERS = 3;
     public static final char MAX_PLAYERS = 6;
 
+    private static final int INCLUDED_HOUSES = 32;
+    private static final int INCLUDED_HOTELS = 12;
+
+
     private final int initialNumberOfPlayers;
     private int numPlayers;
     private PlayerController[] playerControllers;
     private int currentPlayerIndex = -1;
     private final Board board;
+    private int availableHouses;
+    private int availableHotels;
 
     public Game(Board board, int numPlayers){
         this.board = board;
@@ -18,6 +24,9 @@ public class Game {
         initialNumberOfPlayers = numPlayers;
         this.numPlayers = numPlayers;
         playerControllers = new PlayerController[this.numPlayers];
+
+        availableHouses = INCLUDED_HOUSES;
+        availableHotels = INCLUDED_HOTELS;
 
     }
 
@@ -118,5 +127,41 @@ public class Game {
     public Board getBoard() {
         return board;
     }
+
+    public void removeHouses(int houses){
+        availableHouses -= houses;
+        if (availableHouses < 0) availableHouses = 0;
+    }
+
+    public int getHouses(int desiredNumber){
+        if (availableHouses >= desiredNumber){
+            removeHouses(desiredNumber);
+            return desiredNumber;
+        }
+        else{
+            int available = availableHouses;
+            removeHouses(available);
+            return available;
+        }
+    }
+
+    public void removeHotels(int hotels){
+        availableHotels -= hotels;
+        if (availableHotels < 0) availableHotels = 0;
+    }
+
+    public int getHotels(int desiredNumber){
+        if (availableHotels >= desiredNumber){
+            removeHotels(desiredNumber);
+            return desiredNumber;
+        }
+        else{
+            int available = availableHotels;
+            removeHotels(available);
+            return available;
+        }
+    }
+
+
 }
 
