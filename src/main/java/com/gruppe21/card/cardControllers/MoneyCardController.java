@@ -37,16 +37,12 @@ public class MoneyCardController extends CardController  {
             user.transferMoney(-card.getModifyValue(), null); // (40000) negative number?
         } else if(isHouseAndHotelCard()){
             if(user.getPlayer().getOwnedProperties().length > 0){
-                int totalFee = 0;
+                int feeHouse = card.getMoneyHouse() * user.getTotalNumberOfHouses();
+                int feeHotel = card.getMoneyHotel() * user.getTotalNumberOfHotels();
 
-                // Calculate price for house ??
-                // totalFee += card.getMoneyHouse() * user.getPlayer().getNumberOfHouses;
+                int totalFee = feeHouse + feeHotel;
 
-
-                // Calculate price for hotel ??
-                // totalFee += card.getMoneyHotel() * user.getPlayer().getNumberOfHotels;
-
-                user.transferMoney(totalFee, user);
+                user.transferMoney(totalFee, null);
             }
         }else{
             if (card.isFromBank()) user.addBalance(-card.getModifyValue()); // negative number?
