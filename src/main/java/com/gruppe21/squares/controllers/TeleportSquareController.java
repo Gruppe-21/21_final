@@ -31,10 +31,11 @@ public class TeleportSquareController extends SquareController {
     }
 
 
-
-
-
-
+    /**
+     *
+     *  Virker ikke endnu, men der arbejdes på sagen
+     *
+     * */
 
 
     public void onMoveToFromXML(PlayerController playercontroller, Board board){
