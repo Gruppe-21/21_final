@@ -45,16 +45,16 @@ public class TeleportSquareController extends SquareController {
 
     }
 
-    private String ElementTag(Element tag){            //Skal fungere omvendt så den får en String og returnerer et tag
+    private String ElementTag(Element tag){
         String elementName = tag.getNodeName();
 
         return  elementName;
     }
 
 
-    private int PrisonID(Element tag) {
+    private int PrisonID(String SquareName) {   //Skal somehow ud fra SquareName finde PrisonID
         int prisonID;
-        prisonID = !tag.getAttribute("ID").equals("") ? parseInt(tag.getAttribute("ID")) : 0;
+        prisonID = !tag.getAttribute("ID").equals("") ? parseInt(tag.getAttribute("ID")) : 0; //Skal fungere omvendt så den får en String og returnerer et tag
 
         return prisonID;
     }
