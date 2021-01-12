@@ -31,6 +31,7 @@ public class MoneyCardController extends CardController  {
      */
     @Override
     public void use(PlayerController user) {
+        if (card == null || cardView == null) return; //This should never happen
         super.use(user);
 
         if (card.getIsLegat() && user.getPlayer().getTotalValue() > card.getMinMoney()) { // (15000) Total value or cash value?
