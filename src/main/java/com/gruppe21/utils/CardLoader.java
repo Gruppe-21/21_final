@@ -108,17 +108,6 @@ public class CardLoader {
                 cards[cardsAdded] = legateMoneyControllerMoneyCard;
                 cardsAdded++;
                 break;
-            case "moveRelativeCard":
-                final String squareIDStr = tag.getAttribute("squareID"); // Gemmer indholdet af squareID-tag som String
-                final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
-
-                MoveToSquareCard moveCardModel = new MoveToSquareCard(descriptionOnDrawLabel,descriptionOnUseLabel,squareID);
-                CardView moveView = new CardView();
-                MoveToSquareCardController moveController = new MoveToSquareCardController(moveView,moveCardModel);
-
-                cards[cardsAdded] = moveController;
-                cardsAdded++;
-                break;
             case "modifyMoneyCard":
                 final String moneyCardStr = tag.getAttribute("money");
                 final String bankMoneyCardStr = tag.getAttribute("isBank"); //tilf'jet
@@ -133,38 +122,19 @@ public class CardLoader {
                 cardsAdded++;
                 break;
             case "moveToNearestCard":
-                final String moveNearestStr1 = tag.getAttribute("squareID_1");
-                final int nearSquareInt1 = moveNearestStr1.equals("") ? 0 : Integer.parseInt(moveNearestStr1);
-
-                final String moveNearestStr2 = tag.getAttribute("squareID_2");
-                final int nearSquareInt2 = moveNearestStr2.equals("") ? 0 : Integer.parseInt(moveNearestStr2);
-
-                if(tag.getAttribute("squareID_3").equals("") && tag.getAttribute("squareID_4").equals("")){    // shipping company card (2 squares)
-                    int[] IDSquares = new int[]{nearSquareInt1,nearSquareInt2};
-
-                    MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel,IDSquares);
-                    CardView nearestView = new CardView();
-                    MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestCard);
-
-                    cards[cardsAdded] = moveNearestControllerCard;
-                    cardsAdded++;
-                }else{ // Ferry card (4 squares)
-                    final String moveNearestStr3 = tag.getAttribute("squareID_3");
-                    final int nearSquareInt3 = moveNearestStr3.equals("") ? 0 : Integer.parseInt(moveNearestStr3);
-                    final String moveNearestStr4 = tag.getAttribute("squareID_4");
-                    final int nearSquareInt4 = moveNearestStr4.equals("") ? 0 : Integer.parseInt(moveNearestStr4);
-
-                    int[] IDSquares = new int[]{nearSquareInt1,nearSquareInt2,nearSquareInt3,nearSquareInt4};
-
-                    MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel,IDSquares);
-                    CardView nearestView = new CardView();
-                    MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestCard);
-
-                    cards[cardsAdded] = moveNearestControllerCard;
-                    cardsAdded++;
+                String[] squareIDs = tag.getAttribute("squareID").split(" ");
+                int[] ids = new int[squareIDs.length];
+                for (int i = 0; i < ids.length; i++) {
+                    ids[i] = Integer.parseInt(squareIDs[i]);
                 }
+
+                MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel, ids);
+                CardView nearestView = new CardView();
+                MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestCard);
+                cards[cardsAdded] = moveNearestControllerCard;
+                cardsAdded++;
                 break;
-            case "moveToRelative":
+            case "moveRelativeCard":
                 final String moveSquaresStr = tag.getAttribute("moveSquares");
                 final int moveSquares = moveSquaresStr.equals("") ? 0 : Integer.parseInt(moveSquaresStr);
 
