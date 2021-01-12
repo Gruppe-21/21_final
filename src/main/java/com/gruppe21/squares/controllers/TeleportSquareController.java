@@ -26,15 +26,35 @@ public class TeleportSquareController extends SquareController {
     public void onMoveTo(PlayerController playercontroller, Board board){
 
         playercontroller.getStatusEffects().setImprisoned(true);
-        playercontroller.teleportTo(board.getSquareControllerFromId(PrisonID(MoneySquare))); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 31)
+        playercontroller.teleportTo(board.getSquareControllerFromId(31)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 31)
 
     }
 
 
-    private int PrisonID(Element tag) {
 
-        int prisonID = new int;
-        prisonID= !tag.getAttribute("ID").equals("") ? parseInt(tag.getAttribute("ID")) : 0;
+
+
+
+
+
+    public void onMoveToFromXML(PlayerController playercontroller, Board board){
+
+        playercontroller.getStatusEffects().setImprisoned(true);
+        playercontroller.teleportTo(board.getSquareControllerFromId(PrisonID())); //Skal have et tag somehow
+
+    }
+
+    private String ElementTag(Element tag){            //Skal fungere omvendt så den får en String og returnerer et tag
+        String elementName = tag.getNodeName();
+
+        return  elementName;
+    }
+
+
+    private int PrisonID(Element tag) {
+        String elementName = tag.getNodeName();
+        int prisonID;
+        prisonID = !tag.getAttribute("ID").equals("") ? parseInt(tag.getAttribute("ID")) : 0;
 
         return prisonID;
     }
