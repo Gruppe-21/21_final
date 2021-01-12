@@ -43,6 +43,10 @@ public abstract class OwnableSquare extends Square {
         this.price = price;
     }
 
+    public int getMortgageValue(){
+        return getPrice() / 2;
+    }
+
 
     abstract public int getRent();
 
