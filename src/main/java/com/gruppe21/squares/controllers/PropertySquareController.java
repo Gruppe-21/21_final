@@ -20,6 +20,10 @@ public class PropertySquareController extends OwnableSquareController {
         super.onMoveTo(playerController);
     }
 
+    public int getMaxNumHouses(){
+        return model.getMaxNumHouses();
+    }
+
     public int getNumHouses(){
         return model.getHouses();
     }

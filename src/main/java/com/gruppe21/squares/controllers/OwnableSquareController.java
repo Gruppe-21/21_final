@@ -62,6 +62,10 @@ public class OwnableSquareController extends SquareController {
         //TODO: auction
     }
 
+    public int getMortgageValue(){
+        return model.getMortgageValue();
+    }
+
     public boolean isMortgaged(){
         return model.isMortgaged();
     }
@@ -69,7 +73,13 @@ public class OwnableSquareController extends SquareController {
     public void mortgage(){
         if (isMortgaged()) return;
         model.setMortgaged(true);
-        getOwner().addBalance(model.getPrice() / 2);
+        getOwner().addBalance(model.getMortgageValue());
+    }
+
+    public void payOffMortgage(boolean noInterest){
+        if (!isMortgaged()) return;
+        getOwner().transferMoney((int) (model.getMortgageValue() * (noInterest ? 1 : 1.1)), null);
+        model.setMortgaged(false);
     }
 
     public void setGroup(OwnableSquareController[] group){

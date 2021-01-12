@@ -14,6 +14,7 @@ public class PropertySquareView extends OwnableSquareView{
         }
         else model.getGuiField().setHouses(model.getHouses());
         updateRent(model);
+
     }
 
 

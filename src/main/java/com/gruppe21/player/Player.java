@@ -29,9 +29,6 @@ public class Player {
 
     private GUI_Player guiPlayer;
 
-    private int numSubscribers = 0;
-
-    Object[] onMovedSubscribers = new Object[1]; //Shouldn't be Object
 
     public Player(){
         this.balance = START_FUNDS;
@@ -39,32 +36,6 @@ public class Player {
         heldCards = new Deck();
         ownedProperties = new PropertySquareController[4];
         statusEffects = new StatusEffects();
-    }
-
-    /**
-     *
-     * @param subscriber
-     */
-    public void subscribeToOnMoved(Object subscriber){
-        //Lengthens array if too short
-        if (numSubscribers == onMovedSubscribers.length){
-            Object[] temp = new Object[onMovedSubscribers.length * 2];
-            for (int i = 0; i < onMovedSubscribers.length; i++) {
-                temp[i] = onMovedSubscribers[i];
-            }
-            onMovedSubscribers = temp;
-        }
-        onMovedSubscribers[numSubscribers] = subscriber;
-        numSubscribers++;
-    }
-
-    /**
-     *
-     */
-    private void notifyMove(){
-        for (Object subscriber: onMovedSubscribers) {
-            //notify them!
-        }
     }
 
     /**
@@ -166,11 +137,28 @@ public class Player {
         return tempArray;
     }
 
+    public OwnableSquareController[] getMortgagedProperties(){
+        return getPropertiesWithMortgagedStatus(true);
+    }
+
+    private int getNumMortgagedProperties(){
+        return getNumPropertiesWithMortgagedStatus(true);
+    }
+
     public OwnableSquareController[] getNonMortgagedProperties(){
+        return getPropertiesWithMortgagedStatus(false);
+    }
+
+    private int getNumNonMortgagedProperties(){
+        return getNumPropertiesWithMortgagedStatus(false);
+    }
+
+
+    private OwnableSquareController[] getPropertiesWithMortgagedStatus(boolean mortgaged){
         OwnableSquareController[] nonMortgagedProperties = new OwnableSquareController[getNumNonMortgagedProperties()];
         int addedProperties = 0;
         for (int i = 0; i < getOwnedProperties().length; i++) {
-            if (!ownedProperties[i].isMortgaged()){
+            if (ownedProperties[i].isMortgaged() == mortgaged){
                 nonMortgagedProperties[addedProperties] = ownedProperties[i];
                 addedProperties++;
             }
@@ -178,12 +166,12 @@ public class Player {
         return nonMortgagedProperties;
     }
 
-    private int getNumNonMortgagedProperties(){
-        int numNonMortgagedProperties = 0;
+    private int getNumPropertiesWithMortgagedStatus(boolean mortgaged){
+        int numPropertiesWithMortgagedStatus = 0;
         for (OwnableSquareController property: getOwnedProperties()) {
-            if (!property.isMortgaged()) numNonMortgagedProperties++;
+            if (property.isMortgaged() == mortgaged) numPropertiesWithMortgagedStatus++;
         }
-        return numNonMortgagedProperties;
+        return numPropertiesWithMortgagedStatus;
     }
 
     public GUI_Player getGuiPlayer() {

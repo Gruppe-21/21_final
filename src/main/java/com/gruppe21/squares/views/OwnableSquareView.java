@@ -7,6 +7,7 @@ import java.awt.*;
 public class OwnableSquareView extends SquareView {
     Color borderColor = Color.black;
 
+
     /**
      *
      * @param model

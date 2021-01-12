@@ -47,6 +47,9 @@ public class PlayerController {
                     break;
                 }
                 case 2 : {
+                    payOffMortgages();
+                }
+                case 3 : {
                     liquidateAssets();
                     break;
                 }
@@ -251,6 +254,10 @@ public class PlayerController {
         toBuild.addHouse();
     }
 
+    public void payOffMortgages(){
+        playerView.choosePropertyToPayOffMortgage(getPlayer().getMortgagedProperties()).payOffMortgage(false);
+    }
+
 
     /**
      * Add value of parameter {@code value} to current balance
@@ -282,6 +289,41 @@ public class PlayerController {
     public StatusEffects getStatusEffects(){
         return player.getStatusEffects();
     }
+
+    /**
+     * Returns the total number of buildings owned by the player, that is, the sum of all owned hotels and houses.
+     * @return an {@code int} representing the total number of buildings owned by the player
+     */
+    public int getTotalNumberOfBuildings(){
+        return getTotalNumberOfHouses() + getTotalNumberOfHotels();
+    }
+
+    /**
+     * Returns the total number of houses owned by the player.
+     * @return an {@code int} representing the total number of house owned by the player
+     */
+    public int getTotalNumberOfHouses(){
+        int numberOfHouses = 0;
+        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
+            if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHouses += property.getNumHouses();
+        }
+        return numberOfHouses;
+    }
+
+    /**
+     * Returns the total number of hotels owned by the player.
+     * @return an {@code int} representing the total number of hotels owned by the player
+     */
+    public int getTotalNumberOfHotels(){
+        int numberOfHotels = 0;
+        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
+            if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHotels += property.getNumHouses();
+        }
+        return numberOfHotels;
+    }
+
+
+
 
     //This makes me sad
     public int getLastRollForBrewery(){
