@@ -36,7 +36,7 @@ public class BoardLoader {
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, TAG_BOARD);
 
         SquareController[] squareControllers = getSquaresFromNodeList(boardNodes);
-        Deck deck = new Deck(CARD_DIRECTORY);
+        Deck deck = new Deck("cards");
         for (SquareController squareController: squareControllers) {
             if (squareController.getClass() == CardSquareController.class)
                 ((CardSquareController) squareController).setDeck(deck);
