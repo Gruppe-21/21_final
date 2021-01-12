@@ -128,7 +128,7 @@ public class CardLoader {
                     ids[i] = Integer.parseInt(squareIDs[i]);
                 }
 
-                MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel,IDSquares);
+                MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel, ids);
                 CardView nearestView = new CardView();
                 MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestCard);
                 cards[cardsAdded] = moveNearestControllerCard;
