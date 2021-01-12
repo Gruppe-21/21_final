@@ -9,7 +9,6 @@ import com.gruppe21.squares.views.SquareView;
 public class TeleportSquareController extends SquareController {
 
     private StatusEffects statuseffects;
-    private PlayerController playerController;
 
 
     public TeleportSquareController(Square model, SquareView view){
@@ -25,11 +24,10 @@ public class TeleportSquareController extends SquareController {
 
          */
 
-        this.playerController = playercontroller;
         playercontroller.getStatusEffects().setImprisoned(true);
 
 
-        playerController.teleportTo(board.getSquareControllerFromId(31)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 31)
+        playercontroller.teleportTo(board.getSquareControllerFromId(31)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 31)
 
     }
 }
