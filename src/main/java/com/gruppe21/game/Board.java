@@ -90,24 +90,24 @@ public class Board {
         return -1;
     }
 
-    private PropertySquareController[] getSquaresOfColor(String color){
+    private OwnableSquareController[] getSquaresOfColor(String color){
        int propertyCount = 0;
 
         for (SquareController squareController : squareControllers) {
-            if( squareController.getClass() == PropertySquareController.class)
+            if( squareController.getClass() == OwnableSquareController.class)
             {
                 propertyCount++;
             }
         }
-        PropertySquareController[] group = new PropertySquareController[10];
+        OwnableSquareController[] group = new OwnableSquareController[10];
         int index = 0;
         for (int i = 0; i < squareControllers.length; i++) {
             if(index > propertyCount - 1){
                 break;
             }
-            if( squareControllers[i].getClass() == PropertySquareController.class)
+            if( squareControllers[i].getClass() == OwnableSquareController.class)
             {
-                PropertySquareController pController = (PropertySquareController)squareControllers[i];
+                OwnableSquareController pController = (OwnableSquareController)squareControllers[i];
               //  System.out.println("Color1: " + pController.getGroupColor() + " Color2: " + color);
                 if(pController.getGroupColor().equals(color)){
                   group[index] = pController;
@@ -117,7 +117,7 @@ public class Board {
         }
 
         int actualSize = 0;
-        for (PropertySquareController propertySquareController : group) {
+        for (OwnableSquareController propertySquareController : group) {
             if (propertySquareController == null) {
                 break;
             }
@@ -125,10 +125,10 @@ public class Board {
         }
         index = 0;
         if(group.length != actualSize){
-            PropertySquareController[] newGroup = new PropertySquareController[actualSize];
+            OwnableSquareController[] newGroup = new OwnableSquareController[actualSize];
             //System.out.println("Actual Size: " +  actualSize);
 
-            for (PropertySquareController propertySquareController : group) {
+            for (OwnableSquareController propertySquareController : group) {
                 if (propertySquareController != null && index <= actualSize - 1) {
                     newGroup[index] = propertySquareController;
                     index++;
