@@ -12,7 +12,7 @@ public class MoneySquareController extends SquareController {
     SquareView view;
     PlayerController PlayerController;
 
-    public Test(MoneySquare model, SquareView view){
+    public MoneySquareController(MoneySquare model, SquareView view){
         super(model, view);
         this.model = model;
         this.view = view;
