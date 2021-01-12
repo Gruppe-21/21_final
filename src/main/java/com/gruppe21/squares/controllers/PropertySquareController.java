@@ -31,7 +31,7 @@ public class PropertySquareController extends OwnableSquareController {
 
     public void addHouse(){
         if (model.getHouses() == model.getMaxNumHouses()) return; //Throw exception?
-        if (getNumHouses() == getMaxNumHouses()-1) GameController.getInstance().getHotel(1);
+        if (getNumHouses() == getMaxNumHouses()-1) GameController.getInstance().getHotels(1);
         else GameController.getInstance().getHouses(1);
         model.addHouse(1);
         view.updateHouses(model);
