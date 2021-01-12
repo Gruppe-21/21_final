@@ -26,5 +26,7 @@ public class OwnableSquareView extends SquareView {
 
     public void updateRent(OwnableSquare model){
         model.getGuiField().setRent(Integer.toString(model.getRent()));
+        model.getGuiField().setSubText(Integer.toString(model.getPrice()));
+
     }
 }
