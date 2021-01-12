@@ -32,7 +32,7 @@ public class Player {
     public Player(){
         this.balance = START_FUNDS;
         heldCards = new Deck();
-        ownedProperties = new PropertySquareController[4];
+        ownedProperties = new OwnableSquareController[4];
         statusEffects = new StatusEffects();
     }
 
@@ -92,7 +92,7 @@ public class Player {
      * @return
      */
     public OwnableSquareController[] getOwnedProperties(){
-        OwnableSquareController[] properties = new PropertySquareController[numOwnedProperties];
+        OwnableSquareController[] properties = new OwnableSquareController[numOwnedProperties];
         for (int i = 0; i < numOwnedProperties; i++) {
             properties[i] = ownedProperties[i];
         }
@@ -102,7 +102,7 @@ public class Player {
     public void addOwnedProperty(OwnableSquareController ownableSquareController){
         numOwnedProperties++;
         if (numOwnedProperties > ownedProperties.length){
-            OwnableSquareController[] newArray = new PropertySquareController[numOwnedProperties * 2];
+            OwnableSquareController[] newArray = new OwnableSquareController[numOwnedProperties * 2];
             for (int i = 0; i < ownedProperties.length; i++) {
                 newArray[i] = ownedProperties[i];
             }
@@ -157,15 +157,15 @@ public class Player {
 
 
     private OwnableSquareController[] getPropertiesWithMortgagedStatus(boolean mortgaged){
-        OwnableSquareController[] nonMortgagedProperties = new OwnableSquareController[getNumNonMortgagedProperties()];
+        OwnableSquareController[] propertiesWithMortgagedStatus = new OwnableSquareController[getNumNonMortgagedProperties()];
         int addedProperties = 0;
         for (int i = 0; i < getOwnedProperties().length; i++) {
             if (ownedProperties[i].isMortgaged() == mortgaged){
-                nonMortgagedProperties[addedProperties] = ownedProperties[i];
+                propertiesWithMortgagedStatus[addedProperties] = ownedProperties[i];
                 addedProperties++;
             }
         }
-        return nonMortgagedProperties;
+        return propertiesWithMortgagedStatus;
     }
 
     private int getNumPropertiesWithMortgagedStatus(boolean mortgaged){
