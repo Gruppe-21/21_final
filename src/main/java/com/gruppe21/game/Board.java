@@ -117,8 +117,8 @@ public class Board {
         }
 
         int actualSize = 0;
-        for (OwnableSquareController propertySquareController : group) {
-            if (propertySquareController == null) {
+        for (OwnableSquareController ownableSquareController : group) {
+            if (ownableSquareController == null) {
                 break;
             }
             actualSize++;
@@ -128,9 +128,9 @@ public class Board {
             OwnableSquareController[] newGroup = new OwnableSquareController[actualSize];
             //System.out.println("Actual Size: " +  actualSize);
 
-            for (OwnableSquareController propertySquareController : group) {
-                if (propertySquareController != null && index <= actualSize - 1) {
-                    newGroup[index] = propertySquareController;
+            for (OwnableSquareController ownableSquareController : group) {
+                if (ownableSquareController != null && index <= actualSize - 1) {
+                    newGroup[index] = ownableSquareController;
                     index++;
                 }
             }
