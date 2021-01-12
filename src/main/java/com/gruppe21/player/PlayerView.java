@@ -51,6 +51,9 @@ public class PlayerView {
         guiManager.addPlayer(guiPlayer);
     }
 
+    public void imprisonedDiceCheater(){
+        guiManager.waitForUserAcknowledgement("'GO TO PRISON, DICE CHEATER!' TEXT");
+    }
 
     /**
      * Asks the player to choose a method of release from prison.
@@ -72,7 +75,7 @@ public class PlayerView {
      *
      * @param name
      * @param price
-     * @param liquidate
+     * @param liquidateAssets
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){

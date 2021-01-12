@@ -79,7 +79,7 @@ public class PlayerController {
         }
         playerView.rollDice(diceRolls);
         if (status.getIdenticalDice() == 3){
-            playerView.imprionedDiceCheater();
+            playerView.imprisonedDiceCheater();
             status.setImprisoned(true);
             status.setIdenticalDice(0);
             teleportTo(board.getSquareControllerFromId(31));
