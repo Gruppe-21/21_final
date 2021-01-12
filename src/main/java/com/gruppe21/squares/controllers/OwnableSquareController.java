@@ -66,7 +66,9 @@ public class OwnableSquareController extends SquareController {
 
     public void mortgage(){
         if (isMortgaged()) return;
-        model.setMortgaged(false);
-        getOwner().addBalance(model.getPrice());
+        model.setMortgaged(true);
+        getOwner().addBalance(model.getPrice() / 2);
     }
+
+
 }
