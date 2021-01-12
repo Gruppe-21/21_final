@@ -40,8 +40,17 @@ public class TeleportSquareController extends SquareController {
 
     }
 
-    public int FindSquareControllerID (String SquareName){
+    /**
+     *
+     * Finds the right SquareControllerID
+     */
+    public int FindSquareControllerID (String SquareName, Board board){
+        SquareController[] squareControllers = board.getSquareControllers();
+        int SquareControllerID = new int;
 
+
+
+        return SquareControllerID;
     }
 
 
