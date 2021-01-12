@@ -78,9 +78,16 @@ public class PlayerController {
             }
         }
         playerView.rollDice(diceRolls);
-
+        if (status.getIdenticalDice() == 3){
+            playerView.imprisonedDiceCheater();
+            status.setImprisoned(true);
+            status.setIdenticalDice(0);
+            teleportTo(board.getSquareControllerFromId(31));
+            return;
+        }
         if (!status.isImprisoned())
             moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
+        if (status.getIdenticalDice() > 0) takeTurn(board);
     }
 
     /**
