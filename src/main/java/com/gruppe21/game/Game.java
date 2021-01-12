@@ -145,6 +145,10 @@ public class Game {
         }
     }
 
+    public int getAvailableHouses(){
+        return availableHouses;
+    }
+
     public void removeHotels(int hotels){
         availableHotels -= hotels;
         if (availableHotels < 0) availableHotels = 0;
@@ -160,6 +164,10 @@ public class Game {
             removeHotels(available);
             return available;
         }
+    }
+
+    public int getAvailableHotels(){
+        return availableHouses;
     }
 
 
