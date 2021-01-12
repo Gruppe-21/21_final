@@ -4,6 +4,7 @@ import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.player.StatusEffects;
 import com.gruppe21.squares.models.MoneySquare;
+import com.gruppe21.squares.models.PropertySquare;
 import com.gruppe21.squares.models.Square;
 import com.gruppe21.squares.views.SquareView;
 import org.w3c.dom.Element;
@@ -33,7 +34,7 @@ public class TeleportSquareController extends SquareController {
 
     /**
      *
-     *  Virker ikke endnu, men der arbejdes på sagen
+     *  Resten virker ikke endnu, men der arbejdes på sagen
      *
      * */
 
@@ -54,6 +55,9 @@ public class TeleportSquareController extends SquareController {
 
     private int PrisonID(String SquareName) {   //Skal somehow ud fra SquareName finde PrisonID
         int prisonID;
+        Element tag = null;
+        String elementName = tag.getNodeName();
+
         prisonID = !tag.getAttribute("ID").equals("") ? parseInt(tag.getAttribute("ID")) : 0; //Skal fungere omvendt så den får en String og returnerer et tag
 
         return prisonID;
