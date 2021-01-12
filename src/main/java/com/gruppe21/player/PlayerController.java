@@ -179,15 +179,21 @@ public class PlayerController {
             switch (playerView.chooseHowToLiquidate(optional)) {
                 case 1: {
                     //TODO: implement choice of selling property or building(s)
-                    playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
+                    OwnableSquareController[] properties = player.getOwnedProperties();
+                    if (properties.length > 0)
+                        playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
+                    break;
                 }
                 case 2: {
                     OwnableSquareController[] nonMortgaged = player.getNonMortgagedProperties();
-                    playerView.choosePropertyToMortgage(nonMortgaged).mortgage();
+                    if (nonMortgaged.length > 0)
+                        playerView.choosePropertyToMortgage(nonMortgaged).mortgage();
+                    break;
                 }
                 case 3: {
                     //TODO: implement trade
                     //Sell or trade properties and/or cards to other players.
+                    break;
                 }
                 case 4: {
                     return startBalance - player.getBalance();
