@@ -22,7 +22,7 @@ public class PardonCardController extends CardController {
     @Override
     public void use(PlayerController user) {
         super.use(user);
-    } // text to CardView
+    }
 
 
 

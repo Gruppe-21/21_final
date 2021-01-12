@@ -21,27 +21,31 @@ public class MoveToNearestCardController extends CardController {
         use(drawer);
     }
 
+    /**
+     * Method finds the nearest SquareController in {code:board} with Board's closestSquareController()
+     * method.The method calcualtes the {code:user} position relative to the closest squareController
+     * and uses PlayerControllers moveTo() method.
+     * @param user Player using the card
+     * @param board Board which the game is played with
+     */
     @Override
     public void use(PlayerController user, Board board){
         super.use(user);
 
         int[] squaresIdArr = card.getIDSquares();
-        SquareController[] squareControllers = new SquareController[squaresIdArr.length];
+        SquareController[] squareControllersArr = new SquareController[squaresIdArr.length];
 
         // convert ID to SquareController
         for(int i=0;i<squaresIdArr.length;i++){
-            squareControllers[i] = board.getSquareControllerFromId(squaresIdArr[i]);
+            squareControllersArr[i] = board.getSquareControllerFromId(squaresIdArr[i]);
         }
 
-        // move player to nearest square in squareControllers
-        user.moveTo(board.closestSquareController(user.getPlayer().getPosition(), squareControllers));
+        // move player to nearest SquareController in squareControllersArr
+        user.moveTo(board.closestSquareController(user.getPlayer().getPosition(), squareControllersArr));
 
         // return card
         user.getHeldCards().removeCard(this);
         getReturnDeck().returnCard(this);
     }
-
-
-
 
 }

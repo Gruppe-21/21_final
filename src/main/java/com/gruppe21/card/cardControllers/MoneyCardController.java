@@ -20,7 +20,7 @@ public class MoneyCardController extends CardController  {
     }
 
     /**
-     * Card that manages money transaktions depending on card type
+     * Method that manages money transactions depending on card type
      *
      * <p> if the card is a matadorLegate card and the Player's {code:user} ?total value? is under
      * 15K, the user will receive 40K </p>

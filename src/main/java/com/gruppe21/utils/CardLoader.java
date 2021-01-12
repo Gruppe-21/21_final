@@ -137,7 +137,7 @@ public class CardLoader {
                 final String moveNearestStr2 = tag.getAttribute("squareID_2");
                 final int nearSquareInt2 = moveNearestStr2.equals("") ? 0 : Integer.parseInt(moveNearestStr2);
 
-                if(tag.getAttribute("squareID_3").equals("") && tag.getAttribute("squareID_4").equals("")){    // Redderi
+                if(tag.getAttribute("squareID_3").equals("") && tag.getAttribute("squareID_4").equals("")){    // shipping company card (2 squares)
                     int[] IDSquares = new int[]{nearSquareInt1,nearSquareInt2};
 
                     MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel,IDSquares);
@@ -146,7 +146,7 @@ public class CardLoader {
 
                     cards[cardsAdded] = moveNearestControllerCard;
                     cardsAdded++;
-                }else{
+                }else{ // Ferry card (4 squares)
                     final String moveNearestStr3 = tag.getAttribute("squareID_3");
                     final int nearSquareInt3 = moveNearestStr3.equals("") ? 0 : Integer.parseInt(moveNearestStr3);
                     final String moveNearestStr4 = tag.getAttribute("squareID_4");
@@ -174,7 +174,7 @@ public class CardLoader {
                 cards[cardsAdded] = moveRelativeControllerCard;
                 cardsAdded++;
                 break;
-            case "pardoncard": //skal laves
+            case "pardoncard":
                 PardonCard pardonCard = new PardonCard(descriptionOnDrawLabel,descriptionOnUseLabel);
                 CardView pardonView = new CardView();
                 PardonCardController pardonController = new PardonCardController(pardonView, pardonCard);
