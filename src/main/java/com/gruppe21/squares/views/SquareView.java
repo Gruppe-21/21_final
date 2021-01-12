@@ -20,10 +20,9 @@ public class SquareView {
         String description = localisation.getStringValue(model.getDescriptionLocalisationId());
 
         final GUI_Field guiField = model.getGuiField();
-
         guiField.setTitle(name);
         guiField.setDescription(description);
-
+        guiField.setBackGroundColor(model.getColor());
     }
 
     public void landedOnMessage(Square model, Player player) {

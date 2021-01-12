@@ -3,6 +3,9 @@ package com.gruppe21.squares.controllers;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.models.OwnableSquare;
 import com.gruppe21.squares.views.OwnableSquareView;
+import org.w3c.dom.Element;
+
+import static java.lang.Integer.parseInt;
 
 public class OwnableSquareController extends SquareController {
     OwnableSquare model;
@@ -70,4 +73,12 @@ public class OwnableSquareController extends SquareController {
         model.setMortgaged(false);
         getOwner().addBalance(model.getPrice());
     }
+
+    public void setGroup(OwnableSquareController[] group){
+        model.setGroup(group);
+    }
+
+
+
+
 }
