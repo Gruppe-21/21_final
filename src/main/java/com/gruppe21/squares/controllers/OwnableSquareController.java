@@ -95,7 +95,7 @@ public class OwnableSquareController extends SquareController {
     public void setGroup(OwnableSquareController[] group){
         model.setGroup(group);
     }
-
+    public OwnableSquareController[] getGroup() { return model.getGroup(); }
 
 
 
