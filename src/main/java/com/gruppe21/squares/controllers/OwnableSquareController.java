@@ -74,6 +74,7 @@ public class OwnableSquareController extends SquareController {
     public void mortgage(){
         if (isMortgaged()) return;
         model.setMortgaged(true);
+        view.updateRent(model);
         getOwner().addBalance(model.getMortgageValue());
     }
 
@@ -81,6 +82,7 @@ public class OwnableSquareController extends SquareController {
         if (!isMortgaged()) return;
         getOwner().transferMoney((int) (model.getMortgageValue() * (noInterest ? 1 : 1.1)), null);
         model.setMortgaged(false);
+        view.updateRent(model);
     }
 
     public int getPropertyValue() {
