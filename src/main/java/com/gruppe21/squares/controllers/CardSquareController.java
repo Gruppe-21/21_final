@@ -9,9 +9,10 @@ import com.gruppe21.squares.views.SquareView;
 public class CardSquareController extends SquareController {
     public CardSquareController(Square model, SquareView view) {
         super(model, view);
+        updateView();
+
     }
 
-    @Override
     public CardController onMoveTo(PlayerController playerController, Deck deck) {
         super.onMoveTo(playerController);
         CardController cardController = deck.nextCard();
