@@ -1,4 +1,4 @@
-package com.gruppe21.card.typeOfCards;
+package com.gruppe21.card.cardType;
 
 import com.gruppe21.deck.Deck;
 

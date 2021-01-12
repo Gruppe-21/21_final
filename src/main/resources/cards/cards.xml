@@ -33,24 +33,27 @@
     <modifyMoneyCard onUseDescription="familyParty" money="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
 
     <!-- LegateMoney cards -->
-    <legateMoneyCard onUseDescription="matadorLegate" money="40000" minMoney="15000" type="ModifyMoney" label="Matador Legate" isBank="false"/>   <!-- Kort 20 -->
+    <legateMoneycard onUseDescription="matadorLegate" money="40000" minMoney="15000" type="ModifyMoney" label="Matador Legate" isBank="false" isLegate="true"/>   <!-- Kort 20 -->
+
+    <!-- MoveToSquare cards -->
+    <moveToSquarecard onUseDescription="startCardOnUseDesc" squareID="1" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
+    <moveToSquarecard onUseDescription="startCardOnUseDesc" squareID="1" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 2 -->
+    <moveToSquarecard onUseDescription="frederiksbergCardOnUseDesc" squareID="11" type="MoveToSquare" label="Frederiksberg Allé"/> <!-- Kort 27 -->
+    <moveToSquarecard onUseDescription="mols-linjenCardOnUseDesc" squareID="15" type="MoveToSquare" label="Mols-Linien"/>          <!-- Kort 29 -->
+    <moveToSquarecard onUseDescription="groenningenCardOnUseDesc" squareID="24" type="MoveToSquare" label="Grønningen"/>           <!-- Kort 30 -->
+    <moveToSquarecard onUseDescription="vimmelskaftetCardOnUseDesc" squareID="32" type="MoveToSquare" label="Vimmelskaftet"/>      <!-- Kort 31 -->
+    <moveToSquarecard onUseDescription="strandvejenCardOnUseDesc" squareID="19" type="MoveToSquare" label="Strandvejen"/>          <!-- Kort 33 -->
+    <moveToSquarecard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Rådhuspladsen"/>     <!-- Kort 34 -->
 
     <!-- MoveRelative cards -->
-    <moveRelativeCard onUseDescription="startCardOnUseDesc" squareID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
-    <moveRelativeCard onUseDescription="startCardOnUseDesc" squareID="0" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 2 -->
-    <moveRelativeCard onUseDescription="threeForwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeForward"/>          <!-- Kort 25 -->
-    <moveRelativeCard onUseDescription="threeBackwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeBackward"/>        <!-- Kort 26 nr. 1 -->
-    <moveRelativeCard onUseDescription="threeBackwardCardOnUseDesc" squareID="" type="MoveToSquare" label="ThreeBackward"/>        <!-- Kort 26 nr. 2 -->
-    <moveRelativeCard onUseDescription="frederiksbergCardOnUseDesc" squareID="11" type="MoveToSquare" label="Frederiksberg Allé"/> <!-- Kort 27 -->
-    <moveRelativeCard onUseDescription="mols-linjenCardOnUseDesc" squareID="15" type="MoveToSquare" label="Mols-Linien"/>          <!-- Kort 29 -->
-    <moveRelativeCard onUseDescription="groenningenCardOnUseDesc" squareID="24" type="MoveToSquare" label="Grønningen"/>           <!-- Kort 30 -->
-    <moveRelativeCard onUseDescription="vimmelskaftetCardOnUseDesc" squareID="32" type="MoveToSquare" label="Vimmelskaftet"/>      <!-- Kort 31 -->
-    <moveRelativeCard onUseDescription="strandvejenCardOnUseDesc" squareID="19" type="MoveToSquare" label="Strandvejen"/>          <!-- Kort 33 -->
-    <moveRelativeCard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Rådhuspladsen"/>    <!-- Kort 34 -->
+    <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" moveSquares="3" type="MoveRelative" label="ThreeForward"/>       <!-- Kort 25 -->
+    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 1 -->
+    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 2 -->
+
 
     <!-- MoveToNearest cards -->
-    <moveToNearestCard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Rederi"/>  <!-- Kort 28 -->
-    <moveToNearestCard onUseDescription="moveToNearestCardOnUseDesc" type="MoveNearest" label="Færge"/>   <!-- Kort 32 -->
+    <moveToNearestcard onUseDescription="moveNearestCardOnUsDesc" squareID_1="13" squareID_2="29" squareID_3="" squareID_4="" type="MoveToNearest" label="Rederi"/>      <!-- Kort 28 -->
+    <moveToNearestcard onUseDescription="moveNearestCardOnUseDesc" squareID_1="6" squareID_2="16" squareID_3="26" squareID_4="36" type="MoveToNearest" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
     <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 1 -->

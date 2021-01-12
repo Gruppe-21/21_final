@@ -1,8 +1,7 @@
 package com.gruppe21.card.cardControllers;
 
-import com.gruppe21.card.CardView;
-import com.gruppe21.card.typeOfCards.MoveRelativeCard;
-import com.gruppe21.card.typeOfCards.TeleportToNearestCard;
+import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.cardType.TeleportToNearestCard;
 import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 

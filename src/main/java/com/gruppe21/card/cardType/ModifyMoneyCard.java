@@ -1,11 +1,9 @@
-package com.gruppe21.card.typeOfCards;
-
-import com.gruppe21.card.cardControllers.CardController;
+package com.gruppe21.card.cardType;
 
 public class ModifyMoneyCard extends Card {
     private int modifyValue;
     private boolean isBank;
-    private boolean isLegat;
+    private boolean isLegate;
     private int minMoney;
     private int moneyHouse;
     private int moneyHotel;
@@ -25,11 +23,11 @@ public class ModifyMoneyCard extends Card {
     }
 
     // Used in matadorLegat card
-    public ModifyMoneyCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int modifyValue, boolean isBank,boolean isLegat,int minMoney) {
+    public ModifyMoneyCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int legateMoney, boolean legateIsBank, boolean isLegate,int minMoney) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
-        this.modifyValue = modifyValue;
-        this.isBank = isBank;
-        this.isLegat = isLegat;
+        this.modifyValue = legateMoney;
+        this.isBank = legateIsBank;
+        this.isLegate = isLegate;
         this.minMoney = minMoney;
     }
 
@@ -47,7 +45,7 @@ public class ModifyMoneyCard extends Card {
     }
 
     public boolean getIsLegat(){
-        return isLegat;
+        return isLegate;
     }
 
     public int getMinMoney(){

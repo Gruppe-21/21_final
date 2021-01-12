@@ -1,10 +1,12 @@
 package com.gruppe21.card.cardControllers;
 
-import com.gruppe21.card.CardView;
-import com.gruppe21.card.typeOfCards.Card;
+import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.cardType.Card;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
+
+
 
 public abstract class CardController {
     protected CardView cardView;
@@ -37,16 +39,10 @@ public abstract class CardController {
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }
 
-    // Used for cards with connection to board. blah blah
+    // Used for cards with connection to board.
     public void use(PlayerController user, Board board){
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }
-
-
-
-
-
-
 
     /**
      * Returns the {@code Class} object of the {@code CardController}'s {@code Card}

@@ -1,7 +1,7 @@
 package com.gruppe21.player;
 
 import com.gruppe21.card.cardControllers.CardController;
-import com.gruppe21.card.typeOfCards.PardonCard;
+import com.gruppe21.card.cardType.PardonCard;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.game.Board;
 import com.gruppe21.game.GameController;
@@ -248,7 +248,6 @@ public class PlayerController {
 
 
     public void purchaseBuildings(){
-        //Todo: limit the number of houses and hotels in play at once
         PropertySquareController[] buildableProperties = player.getBuildableProperties();
         if (buildableProperties.length == 0) return;
         PropertySquareController toBuild = playerView.choosePropertyBuildBuilding(buildableProperties);
