@@ -53,7 +53,7 @@
 
     <!-- MoveToNearest cards -->
     <moveToNearestCard onUseDescription="moveNearestCardOnUsDesc" squareID="13 29" type="MoveToNearest" label="Rederi"/>      <!-- Kort 28 -->
-    <moveToNearestCard onUseDescription="moveNearestCardOnUseDesc" squareID_1="6 16 26 36" type="MoveToNearest" label="Færge"/>   <!-- Kort 32 -->
+    <moveToNearestCard onUseDescription="moveNearestCardOnUseDesc" squareID="6 16 26 36" type="MoveToNearest" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
     <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 1 -->
