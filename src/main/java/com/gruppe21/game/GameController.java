@@ -71,9 +71,20 @@ public class GameController {
         return game.getHouses(desiredNumber);
     }
 
+    public int getAvailableHouses(){
+        return game.getAvailableHouses();
+    }
+
     public int getHotels(int desiredNumber){
         return game.getHotels(desiredNumber);
     }
-    
+
+    public int getAvailableHotels(){
+        return game.getAvailableHouses();
+    }
+
+
+
+
 
 }
