@@ -131,13 +131,36 @@ public class CardLoader {
                 cardsAdded++;
                 break;
             case "moveToNearest":
+                final String moveNearestStr1 = tag.getAttribute("squareID_1");
+                final int nearSquareInt1 = moveNearestStr1.equals("") ? 0 : Integer.parseInt(moveNearestStr1);
 
-                MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel);
-                CardView nearestView = new CardView();
-                MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestView);
+                final String moveNearestStr2 = tag.getAttribute("squareID_2");
+                final int nearSquareInt2 = moveNearestStr2.equals("") ? 0 : Integer.parseInt(moveNearestStr2);
 
-                cards[cardsAdded] = moveNearestControllerCard;
-                cardsAdded++;
+                if(tag.getAttribute("squareID_3").equals("") && tag.getAttribute("squareID_4").equals("")){    // Redderi
+                    int[] IDSquares = new int[]{nearSquareInt1,nearSquareInt2};
+
+                    MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel,IDSquares);
+                    CardView nearestView = new CardView();
+                    MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestCard);
+
+                    cards[cardsAdded] = moveNearestControllerCard;
+                    cardsAdded++;
+                }else{
+                    final String moveNearestStr3 = tag.getAttribute("squareID_3");
+                    final int nearSquareInt3 = moveNearestStr3.equals("") ? 0 : Integer.parseInt(moveNearestStr3);
+                    final String moveNearestStr4 = tag.getAttribute("squareID_4");
+                    final int nearSquareInt4 = moveNearestStr4.equals("") ? 0 : Integer.parseInt(moveNearestStr4);
+
+                    int[] IDSquares = new int[]{nearSquareInt1,nearSquareInt2,nearSquareInt3,nearSquareInt4};
+
+                    MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel,IDSquares);
+                    CardView nearestView = new CardView();
+                    MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestCard);
+
+                    cards[cardsAdded] = moveNearestControllerCard;
+                    cardsAdded++;
+                }
                 break;
             case "moveToRelative":
                 final String moveSquaresStr = tag.getAttribute("moveSquares");

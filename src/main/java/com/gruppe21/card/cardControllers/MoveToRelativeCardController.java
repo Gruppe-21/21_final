@@ -23,25 +23,9 @@ public class MoveToRelativeCardController extends CardController {
     public void use(PlayerController user, Board board){
         super.use(user);
         int moveSquare = card.getMoveSquares();
-        boolean isForward = moveSquare>0;
 
-        if(isForward){
-
-        }else{
-
-        }
-
-
-        user.getPlayer().getPosition().;
-
-
-        10+(-3) = 7;
-        10+3=13;
-
-
-        user.
-
-
+        // move player a moveSquare distance forwards or backwards
+        user.moveTo(board.getSquareControllerRelativeTo(user.getPlayer().getPosition(),moveSquare));
 
         // return card
         user.getHeldCards().removeCard(this);
