@@ -78,7 +78,13 @@ public class PlayerController {
             }
         }
         playerView.rollDice(diceRolls);
-
+        if (status.getIdenticalDice() == 3){
+            playerView.imprionedDiceCheater();
+            status.setImprisoned(true);
+            status.setIdenticalDice(0);
+            teleportTo(board.getSquareControllerFromId(31));
+            return;
+        }
         if (!status.isImprisoned())
             moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
     }
