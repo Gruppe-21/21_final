@@ -99,7 +99,7 @@ public class Player {
         return properties;
     }
 
-    public void addOwnedProperty(OwnableSquareController propertySquareController){
+    public void addOwnedProperty(OwnableSquareController ownableSquareController){
         numOwnedProperties++;
         if (numOwnedProperties > ownedProperties.length){
             OwnableSquareController[] newArray = new PropertySquareController[numOwnedProperties * 2];
@@ -108,7 +108,7 @@ public class Player {
             }
             ownedProperties = newArray;
         }
-        ownedProperties[numOwnedProperties-1] = propertySquareController;
+        ownedProperties[numOwnedProperties-1] = ownableSquareController;
     }
 
     public void removeOwnedProperty(OwnableSquareController propertySquareController){
