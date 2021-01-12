@@ -94,10 +94,12 @@ public class CardLoader {
             case "legateMoneycard":
                 final String moneyLegateStr = tag.getAttribute("money");
                 final String minMoneyLegateStr = tag.getAttribute("minMoney");
-                final String legateBankStr = tag.getAttribute("isBank"); //tilf'jet
+                final String legateBankStr = tag.getAttribute("isBank");
+                final String IsLegateStr = tag.getAttribute("isLegate");
+                boolean IsLegate = IsLegateStr.equals("") ? false : Boolean.parseBoolean(IsLegateStr);
                 boolean legateIsBank = legateBankStr.equals("") ? false : Boolean.parseBoolean(legateBankStr);
                 final int legateMoney = moneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
-                final int minMoney = minMoneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
+                final int minMoney = minMoneyLegateStr.equals("") ? 0 : Integer.parseInt(minMoneyLegateStr);
 
                 ModifyMoneyCard legateMoneyCardModelMoneyCard = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,legateMoney,legateIsBank,IsLegate,minMoney);
                 CardView legateMoneyViewMoneyCard = new CardView();

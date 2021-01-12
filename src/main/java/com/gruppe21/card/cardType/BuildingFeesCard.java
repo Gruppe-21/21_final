@@ -10,6 +10,4 @@ public class BuildingFeesCard extends Card {
         this.feeAmount = feeAmount;
     }
 
-
-
 }
