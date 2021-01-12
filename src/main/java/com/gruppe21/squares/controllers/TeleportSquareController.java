@@ -45,7 +45,7 @@ public class TeleportSquareController extends SquareController {
 
     }
 
-    private String ElementTag(Element tag){
+    private String ElementTag(Element tag){ //Skal have den omvendte af den her
         String elementName = tag.getNodeName();
 
         return  elementName;
