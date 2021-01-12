@@ -1,5 +1,6 @@
 package com.gruppe21.squares.controllers;
 
+import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.models.PropertySquare;
 import com.gruppe21.squares.views.PropertySquareView;
@@ -30,15 +31,22 @@ public class PropertySquareController extends OwnableSquareController {
 
     public void addHouse(){
         if (model.getHouses() == model.getMaxNumHouses()) return; //Throw exception?
+        if (getNumHouses() == getMaxNumHouses()-1) GameController.getInstance().getHotel(1);
+        else GameController.getInstance().getHouses(1);
         model.addHouse(1);
         view.updateHouses(model);
     }
     
     public void sellHouses(int numHouses){
         if (numHouses < 1) return;
-        if (numHouses > getNumHouses()) numHouses = getNumHouses(); //We can't have a negative number of buildings
-        else if (getNumHouses() == model.getMaxNumHouses()) numHouses = getNumHouses(); //If we have a hotel, we must sell the entire thing
-
+        if (numHouses > getNumHouses()) { //We can't have a negative number of buildings
+            numHouses = getNumHouses();
+        }
+        else if (getNumHouses() == model.getMaxNumHouses()) { //If we have a hotel, we must sell the entire thing
+            numHouses = getNumHouses();
+            GameController.getInstance().getHotels(-1);
+        }
+        else GameController.getInstance().getHouses(-numHouses);
         model.setHouses(getNumHouses() - numHouses);
         getOwner().addBalance((getBuildingCost() *numHouses)/2);
         view.updateHouses(model);
@@ -51,6 +59,8 @@ public class PropertySquareController extends OwnableSquareController {
     @Override
     public boolean mayBuild(){
         if (this.getOwner() == null || this.getNumHouses() >= model.getMaxNumHouses()) return false;
+        if (((this.getNumHouses() == this.getMaxNumHouses()-1) && GameController.getInstance().getAvailableHotels() == 0) || //We want a hotel but there are none
+                ((this.getNumHouses() != this.getMaxNumHouses()-1)) && GameController.getInstance().getAvailableHouses() == 0) //We want a house but there are none
         for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
             if (property.getOwner() != this.getOwner() || this.getNumHouses() - property.getNumHouses() > 0){
                 return false;

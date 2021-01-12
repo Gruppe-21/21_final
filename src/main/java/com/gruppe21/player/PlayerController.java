@@ -248,7 +248,6 @@ public class PlayerController {
 
 
     public void purchaseBuildings(){
-        //Todo: limit the number of houses and hotels in play at once
         PropertySquareController[] buildableProperties = player.getBuildableProperties();
         if (buildableProperties.length == 0) return;
         PropertySquareController toBuild = playerView.choosePropertyBuildBuilding(buildableProperties);
