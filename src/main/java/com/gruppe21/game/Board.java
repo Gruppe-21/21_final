@@ -1,7 +1,7 @@
 package com.gruppe21.game;
 
+import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
-import com.gruppe21.squares.models.Square;
 import com.gruppe21.utils.BoardLoader;
 import org.xml.sax.SAXException;
 
@@ -15,7 +15,7 @@ public class Board {
     public Board(){
         try {
             squareControllers = BoardLoader.loadBoard("main_board");
-
+            setGroups();
 
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
@@ -87,5 +87,66 @@ public class Board {
             if (squareControllers[i] == squareController) return i;
         }
         return -1;
+    }
+
+    private PropertySquareController[] getSquaresOfColor(String color){
+       int propertyCount = 0;
+
+        for (SquareController squareController : squareControllers) {
+            if( squareController.getClass() == PropertySquareController.class)
+            {
+                propertyCount++;
+            }
+        }
+        PropertySquareController[] group = new PropertySquareController[10];
+        int index = 0;
+        for (int i = 0; i < squareControllers.length; i++) {
+            if(index > propertyCount - 1){
+                break;
+            }
+            if( squareControllers[i].getClass() == PropertySquareController.class)
+            {
+                PropertySquareController pController = (PropertySquareController)squareControllers[i];
+              //  System.out.println("Color1: " + pController.getGroupColor() + " Color2: " + color);
+                if(pController.getGroupColor().equals(color)){
+                  group[index] = pController;
+                 index++;
+                }
+            }
+        }
+
+        int actualSize = 0;
+        for (PropertySquareController propertySquareController : group) {
+            if (propertySquareController == null) {
+                break;
+            }
+            actualSize++;
+        }
+        index = 0;
+        if(group.length != actualSize){
+            PropertySquareController[] newGroup = new PropertySquareController[actualSize];
+            //System.out.println("Actual Size: " +  actualSize);
+
+            for (PropertySquareController propertySquareController : group) {
+                if (propertySquareController != null && index <= actualSize - 1) {
+                    newGroup[index] = propertySquareController;
+                    index++;
+                }
+            }
+            return newGroup;
+        }
+        return group;
+    }
+
+    private void setGroups(){
+        for (SquareController squareController : squareControllers) {
+            if( squareController.getClass() == PropertySquareController.class)
+            {
+                PropertySquareController pController = (PropertySquareController)squareController;
+                pController.setGroup(getSquaresOfColor(pController.getGroupColor()));
+                System.out.println(pController.getGroup().length);
+
+            }
+        }
     }
 }

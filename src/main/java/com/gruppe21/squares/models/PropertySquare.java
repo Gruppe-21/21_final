@@ -1,12 +1,8 @@
 package com.gruppe21.squares.models;
 
-import com.gruppe21.game.Game;
-import com.gruppe21.player.PlayerController;
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
-import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.utils.ColorUtil;
-import gui_fields.GUI_Empty;
-import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
 import org.w3c.dom.Element;
 
@@ -18,9 +14,9 @@ public class PropertySquare extends OwnableSquare {
     private int maxNumHouses;
     private int houses;
     private int buildingCost;
-    private PropertySquareController[] group;
+    private String groupColor;
 
-    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, int... rent) {
+    public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, String group, int... rent) {
         super(id, label, description, color, statusEffect, price);
         this.buildingCost = buildingCost;
         this.rent = rent;
@@ -28,17 +24,20 @@ public class PropertySquare extends OwnableSquare {
         houses = 0;
         GUI_Street street = new GUI_Street();
         setGuiField(street);
+        this.groupColor = group;
     }
 
-    public PropertySquare(Element xmlTag){
-        this(   parseInt(xmlTag.getAttribute("id")), //Id
+    public PropertySquare(Element xmlTag) {
+        this(parseInt(xmlTag.getAttribute("id")), //Id
                 xmlTag.getAttribute("label"), // Name ID
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0, // StatusEffect
                 !xmlTag.getAttribute("buildingCost").equals("") ? parseInt(xmlTag.getAttribute("buildingCost")) : 0,
-                parseInt(xmlTag.getAttribute("price"))  // price
-                //TODO: read rent array
+                parseInt(xmlTag.getAttribute("price")),  // price
+                xmlTag.getAttribute("color"),
+                readRent(xmlTag)
+
         );
     }
 
@@ -50,7 +49,7 @@ public class PropertySquare extends OwnableSquare {
         super.setGuiField(guiField);
     }
 
-    public int getMaxNumHouses(){
+    public int getMaxNumHouses() {
         return maxNumHouses;
     }
 
@@ -63,18 +62,18 @@ public class PropertySquare extends OwnableSquare {
         if (this.houses < 0) this.houses = 0;
     }
 
-    public void addHouse(int numHouses){
+    public void addHouse(int numHouses) {
         setHouses(getHouses() + numHouses);
     }
 
-    public int getBuildingCost(){
+    public int getBuildingCost() {
         return buildingCost;
     }
 
-    public int getRent(){
+    public int getRent() {
         if (owner == null) return 0; //This should never happen
-        if (houses == 0){
-            for (PropertySquareController squareController: group) {
+        if (houses == 0) {
+            for (OwnableSquareController squareController : group) {
                 if (squareController.getOwner() != getOwner()) return rent[0];
             }
             return rent[0] * 2;
@@ -82,7 +81,9 @@ public class PropertySquare extends OwnableSquare {
         return rent[houses];
     }
 
-    public void setGroup(PropertySquareController[] group){
-        super.setGroup(group);
+    public String getGroupColor() {
+        return groupColor;
     }
+
+
 }

@@ -19,10 +19,11 @@ public class PlayerView {
     }
 
     public int startTurn() {
-        return guiManager.getUserButtonPressed("STARTTURNMESG","STARTTURN","BUILDSTUFF","LIQUIDATEASSETS");/*
+        return guiManager.getUserButtonPressed("STARTTURNMESG","STARTTURN","BUILDSTUFF", "PAYOFFMORTGAGEs","LIQUIDATEASSETS");/*
                 localisation.getStringValue("startTurnMesgLabel"),
                 localisation.getStringValue("startTurnButtonLabel"),
                 localisation.getStringValue("purchaseBuildingsButtonLabel"),
+                localisation.getStringValue("payOffMortgagesButtonLabel"),
                 localisation.getStringValue("liquidateAssetsButtonLabel"));*/
     }
 
@@ -51,6 +52,9 @@ public class PlayerView {
         guiManager.addPlayer(guiPlayer);
     }
 
+    public void imprisonedDiceCheater(){
+        guiManager.waitForUserAcknowledgement("'GO TO PRISON, DICE CHEATER!' TEXT");
+    }
 
     /**
      * Asks the player to choose a method of release from prison.
@@ -72,7 +76,7 @@ public class PlayerView {
      *
      * @param name
      * @param price
-     * @param liquidate
+     * @param liquidateAssets
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
@@ -131,6 +135,10 @@ public class PlayerView {
 
     public OwnableSquareController choosePropertyToMortgage(OwnableSquareController[] properties){
         return chooseProperty(properties, "PROPERTY MORTGAGE LABEL HERE");
+    }
+
+    public OwnableSquareController choosePropertyToPayOffMortgage(OwnableSquareController[] properties){
+        return chooseProperty(properties, "PAY OFF PROPERTY MORTGAGE LABEL HERE");
     }
 
 

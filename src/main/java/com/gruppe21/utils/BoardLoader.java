@@ -1,9 +1,11 @@
 package com.gruppe21.utils;
 
 import com.gruppe21.squares.controllers.CardSquareController;
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.squares.models.*;
+import com.gruppe21.squares.views.OwnableSquareView;
 import com.gruppe21.squares.views.PropertySquareView;
 import com.gruppe21.squares.views.SquareView;
 import com.gruppe21.utils.localisation.Localisation;
@@ -65,26 +67,49 @@ public class BoardLoader {
         switch (elementName) {
             case "StartSquare":
                 MoneySquare moneySquareModel = new MoneySquare(tag);
+                moneySquareModel.setSquareType(SquareType.Start);
                 SquareView moneyView = new SquareView();
                 return new SquareController(moneySquareModel, moneyView);
             case "PropertySquare":
                 PropertySquare propertyModel = new PropertySquare(tag);
+                propertyModel.setSquareType(SquareType.Property);
                 PropertySquareView propertyView = new PropertySquareView();
                 return new PropertySquareController(propertyModel, propertyView);
+            case "Brewery":
+                BrewerySquare breweryModel = new BrewerySquare(tag);
+                breweryModel.setSquareType(SquareType.Brewery);
+                OwnableSquareView breweryView = new OwnableSquareView();
+                return new OwnableSquareController(breweryModel, breweryView);
+            case "Shipping":
+                ShippingSquare shippingSquare = new ShippingSquare(tag);
+                shippingSquare.setSquareType(SquareType.Shipping);
+                OwnableSquareView shippingView = new OwnableSquareView();
+                return new OwnableSquareController(shippingSquare, shippingView);
             case "ChanceSquare":
                 CardSquare cardSquareModel = new CardSquare(tag);
+                cardSquareModel.setSquareType(SquareType.Chance);
                 SquareView cardSquareView = new SquareView();
                 return new CardSquareController(cardSquareModel, cardSquareView);
             case "GoToPrisonSquare":
                 TeleportSquare teleportSquareModel = new TeleportSquare(tag);
+                teleportSquareModel.setSquareType(SquareType.Teleport);
                 SquareView teleportSquareView = new SquareView();
                 return new SquareController(teleportSquareModel, teleportSquareView);
             case "PrisonSquare":
-            case "FreeParkingSquare":
-            default:
                 Square squareModel = new Square(tag);
+                squareModel.setSquareType(SquareType.Prison);
                 SquareView squareView = new SquareView();
                 return new SquareController(squareModel, squareView);
+            case "ParkingSquare":
+                Square square1Model = new Square(tag);
+                square1Model.setSquareType(SquareType.Parking);
+                SquareView square1View = new SquareView();
+                return new SquareController(square1Model, square1View);
+            default:
+                Square square2Model = new Square(tag);
+                square2Model.setSquareType(SquareType.Teleport);
+                SquareView square2View = new SquareView();
+                return new SquareController(square2Model, square2View);
         }
     }
 
