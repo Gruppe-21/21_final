@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <board>
-    <MoneySquare id="1" label="start" description="startdesc" value="4000"/>
+    <StartSquare id="1" label="start" description="startdesc" value="4000"/>
 
     <PropertySquare id="2" label="rødovrevej" description="rødovrevejdesc" price="1200" color="blue" rent_base="50"
                     rent_1house="250" rent_2house="750" rent_3house="2250" rent_4house="4000" rent_hotel="6000"
