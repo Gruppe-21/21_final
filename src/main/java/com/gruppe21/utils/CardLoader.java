@@ -76,7 +76,7 @@ public class CardLoader {
 
         // Ud fra tag finder den forskellige oplysninger om kortene
         switch (elementName) {
-            case "buildingFeeCard":
+            case "buildingFeecard":
                 final String moneyHouseStr = tag.getAttribute("moneyHouse");
                 final int moneyHouse = moneyHouseStr.equals("") ? 0 : Integer.parseInt(moneyHouseStr);
                 final String moneyHotelStr = tag.getAttribute("moneyHotel");
@@ -91,7 +91,7 @@ public class CardLoader {
                 cards[cardsAdded] = feeMoneyController;
                 cardsAdded++;
                 break;
-            case "legateMoneyCard":
+            case "legateMoneycard":
                 final String moneyLegateStr = tag.getAttribute("money");
                 final String minMoneyLegateStr = tag.getAttribute("minMoney");
                 final String legateBankStr = tag.getAttribute("isBank"); //tilf'jet
@@ -106,7 +106,7 @@ public class CardLoader {
                 cards[cardsAdded] = legateMoneyControllerMoneyCard;
                 cardsAdded++;
                 break;
-            case "moveRelativeCard":
+            case "moveToSquarecard": //havde navnet moveRelativecard før
                 final String squareIDStr = tag.getAttribute("squareID"); // Gemmer indholdet af squareID-tag som String
                 final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
 
@@ -130,7 +130,36 @@ public class CardLoader {
                 cards[cardsAdded] = moneyControllerMoneyCard;
                 cardsAdded++;
                 break;
-            case "prisonCard":
+            case "moveToNearest":
+
+                MoveToNearestCard nearestCard = new MoveToNearestCard(descriptionOnDrawLabel,descriptionOnUseLabel);
+                CardView nearestView = new CardView();
+                MoveToNearestCardController moveNearestControllerCard = new MoveToNearestCardController(nearestView,nearestView);
+
+                cards[cardsAdded] = moveNearestControllerCard;
+                cardsAdded++;
+                break;
+            case "moveToRelative":
+                final String moveSquaresStr = tag.getAttribute("moveSquares");
+                final int moveSquares = moveSquaresStr.equals("") ? 0 : Integer.parseInt(moveSquaresStr);
+
+
+                MoveRelativeCard relativeCard = new MoveRelativeCard(descriptionOnDrawLabel, descriptionOnUseLabel, moveSquares);
+                CardView relativeView = new CardView();
+                MoveToRelativeCardController moveRelativeControllerCard = new MoveToRelativeCardController(relativeView,relativeCard);
+
+                cards[cardsAdded] = moveRelativeControllerCard;
+                cardsAdded++;
+                break;
+            case "pardoncard": //skal laves
+                PardonCard pardonCard = new PardonCard(descriptionOnDrawLabel,descriptionOnUseLabel);
+                CardView pardonView = new CardView();
+                PardonCardController pardonController = new PardonCardController(pardonView, pardonCard);
+
+                cards[cardsAdded] = pardonController;
+                cardsAdded++;
+                break;
+            case "prisoncard":
                 final String prisonSquareIDStr = tag.getAttribute("squareID"); // 11 (prison square)
                 final int prisonSquareID = prisonSquareIDStr.equals("") ? 0 : Integer.parseInt(prisonSquareIDStr);
 
