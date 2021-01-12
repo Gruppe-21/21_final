@@ -47,6 +47,9 @@ public class PlayerController {
                     break;
                 }
                 case 2 : {
+                    payOffMortgages();
+                }
+                case 3 : {
                     liquidateAssets();
                     break;
                 }
@@ -249,6 +252,10 @@ public class PlayerController {
         }
         transferMoney(toBuild.getBuildingCost(), null);
         toBuild.addHouse();
+    }
+
+    public void payOffMortgages(){
+        playerView.choosePropertyToPayOffMortgage(getPlayer().getMortgagedProperties()).payOffMortgage(false);
     }
 
 
