@@ -113,7 +113,7 @@ public class CardLoader {
                 cards[cardsAdded] = moveController;
                 cardsAdded++;
                 break;
-            case "modifyMoneycard":
+            case "modifyMoneyCard":
                 final String moneyCardStr = tag.getAttribute("money");
                 final String bankMoneyCardStr = tag.getAttribute("isBank"); //tilf'jet
                 boolean isBankMoneyCard = bankMoneyCardStr.equals("") ? false : Boolean.parseBoolean(bankMoneyCardStr);
