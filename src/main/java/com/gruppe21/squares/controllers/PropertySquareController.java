@@ -30,7 +30,9 @@ public class PropertySquareController extends OwnableSquareController {
     
     public void sellHouses(int numHouses){
         if (numHouses < 1) return;
-        if (numHouses > getNumHouses()) numHouses = getNumHouses();
+        if (numHouses > getNumHouses()) numHouses = getNumHouses(); //We can't have a negative number of buildings
+        else if (getNumHouses() == model.getMaxNumHouses()) numHouses = getNumHouses(); //If we have a hotel, we must sell the entire thing
+
         model.setHouses(getNumHouses() - numHouses);
         getOwner().addBalance((getBuildingCost() *numHouses)/2);
         view.updateHouses(model);
