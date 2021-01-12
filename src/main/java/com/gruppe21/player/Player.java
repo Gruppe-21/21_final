@@ -59,6 +59,7 @@ public class Player {
 
     public int setBalance(int balance){
         this.balance = balance;
+        guiPlayer.setBalance(this.balance);
         return getBalance();
     }
 
