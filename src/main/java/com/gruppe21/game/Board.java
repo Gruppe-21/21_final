@@ -144,8 +144,6 @@ public class Board {
             {
                 PropertySquareController pController = (PropertySquareController)squareController;
                 pController.setGroup(getSquaresOfColor(pController.getGroupColor()));
-                System.out.println(pController.getGroup().length);
-
             }
         }
     }
