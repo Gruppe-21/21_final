@@ -26,7 +26,7 @@ public class TeleportSquareController extends SquareController {
     public void onMoveTo(PlayerController playercontroller, Board board){
 
         playercontroller.getStatusEffects().setImprisoned(true);
-        playercontroller.teleportTo(board.getSquareControllerFromId(11)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 11)
+        playercontroller.teleportTo(board.getSquareControllerFromId(10)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 11)
 
     }
 
