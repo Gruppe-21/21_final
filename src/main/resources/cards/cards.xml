@@ -46,9 +46,9 @@
     <moveToSquarecard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Rådhuspladsen"/>     <!-- Kort 34 -->
 
     <!-- MoveRelative cards -->
-    <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" moveSquares="3" type="MoveRelative" label="ThreeForward"/>      <!-- Kort 25 -->
-    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>   <!-- Kort 26 nr. 1 -->
-    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquare="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 2 -->
+    <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" moveSquares="3" type="MoveRelative" label="ThreeForward"/>       <!-- Kort 25 -->
+    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 1 -->
+    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 2 -->
 
 
     <!-- MoveToNearest cards -->
