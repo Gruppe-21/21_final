@@ -255,7 +255,9 @@ public class PlayerController {
     }
 
     public void payOffMortgages(){
-        playerView.choosePropertyToPayOffMortgage(getPlayer().getMortgagedProperties()).payOffMortgage(false);
+        OwnableSquareController[] mortgagedProperties = getPlayer().getMortgagedProperties();
+        if (mortgagedProperties.length == 0) return;
+        playerView.choosePropertyToPayOffMortgage(mortgagedProperties).payOffMortgage(false);
     }
 
 
