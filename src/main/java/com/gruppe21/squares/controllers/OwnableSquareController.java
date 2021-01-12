@@ -16,15 +16,14 @@ public class OwnableSquareController extends SquareController {
 
     @Override
     public void onMoveTo(PlayerController playerController) {
+        super.onMoveTo(playerController);
         if (getOwner() == null) {
             if (!playerController.purchaseProperty(this, model.getPrice())) {
                 //Auction
             }
         } else if (getOwner() != playerController) {
-            playerController.transferMoney(model.getRent(), getOwner());
-        }
-        else{
-            super.onMoveTo(playerController);
+            if (!getOwner().getStatusEffects().isImprisoned())
+                playerController.transferMoney(model.getRent(), getOwner());
         }
     }
 
