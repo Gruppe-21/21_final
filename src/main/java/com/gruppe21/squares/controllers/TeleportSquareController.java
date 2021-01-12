@@ -30,6 +30,37 @@ public class TeleportSquareController extends SquareController {
 
     }
 
+}
+
+
+
+/*
+        Brug getDestinationID() til at finde ud af hvor den skal teleportere hen, returnerer int til ID af det sted man vil hen
+        setDestination() skal tage en squarecontroller hvor man skal hen
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     *
+     *
+     * @param playercontroller
+     * @param board
+     */
 
     public void onMoveToFromBoard(PlayerController playercontroller, Board board) {
 
@@ -61,25 +92,6 @@ public class TeleportSquareController extends SquareController {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**
