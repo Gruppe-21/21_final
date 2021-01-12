@@ -34,10 +34,12 @@ public class MoneyCardController extends CardController  {
         super.use(user);
 
         if (card.getIsLegat() && user.getPlayer().getTotalValue() > card.getMinMoney()) { // (15000) Total value or cash value?
-            user.transferMoney(-card.getModifyValue(), user); // (40000) negative number?
+            user.transferMoney(-card.getModifyValue(), null); // (40000) negative number?
         } else if(isHouseAndHotelCard()){
             if(user.getPlayer().getOwnedProperties().length > 0){
                 int totalFee = 0;
+
+
                 // Calculate price for house ?? --> mangler at blive lavet
                 // totalFee += card.getMoneyHouse() * numberOfhouses
 
