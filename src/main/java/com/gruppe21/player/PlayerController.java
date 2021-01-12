@@ -120,8 +120,7 @@ public class PlayerController {
      */
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
-        //player.getHeldCards().addCard(card);
-        player.getHeldCards().returnCard(card);
+        player.getHeldCards().addCard(card);
         card.onDraw(this);
         return card; //Should it return void?
     }
