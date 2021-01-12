@@ -15,8 +15,6 @@ public class MoneySquareController extends SquareController {
         super(model, view);
         this.model = model;
         this.view = view;
-
-
     }
 
     public MoneySquareController(Square model, SquareView view) {
