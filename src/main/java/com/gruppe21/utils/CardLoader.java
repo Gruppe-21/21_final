@@ -102,6 +102,9 @@ public class CardLoader {
                 cards[cardsAdded] = legateMoneyControllerMoneyCard;
                 cardsAdded++;
                 break;
+            case "moveToNearestCard":
+                //TODO: implement creation of moveToNearest
+                break;
             case "moveRelativeCard":
                 final String squareIDStr = tag.getAttribute("squareID"); // Gemmer indholdet af squareID-tag som String
                 final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
