@@ -1,6 +1,4 @@
-package com.gruppe21.card.typeOfCards;
-
-import com.gruppe21.card.typeOfCards.Card;
+package com.gruppe21.card.cardType;
 
 public class PardonCard extends Card {
 

@@ -1,15 +1,15 @@
 package com.gruppe21.card.cardControllers;
 
-import com.gruppe21.card.CardView;
-import com.gruppe21.card.typeOfCards.MoveRelativeCard;
-import com.gruppe21.player.PlayerController;
+import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.cardType.MoveToSquareCard;
 import com.gruppe21.game.Board;
+import com.gruppe21.player.PlayerController;
 
-public class MoveRelativeCardController extends CardController {
-    private MoveRelativeCard card;
+public class MoveToSquareCardController extends CardController {
+    private MoveToSquareCard card;
     private CardView view;
 
-    public MoveRelativeCardController(CardView view, MoveRelativeCard card) {
+    public MoveToSquareCardController(CardView view, MoveToSquareCard card) {
         super(view, card);
     }
 
@@ -38,5 +38,8 @@ public class MoveRelativeCardController extends CardController {
         user.getHeldCards().removeCard(this);
         getReturnDeck().returnCard(this);
     }
+
+
+
 
 }

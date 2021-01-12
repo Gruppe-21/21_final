@@ -1,7 +1,7 @@
 package com.gruppe21.card.cardControllers;
 
-import com.gruppe21.card.CardView;
-import com.gruppe21.card.typeOfCards.ModifyMoneyCard;
+import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.cardType.ModifyMoneyCard;
 import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
 
@@ -20,7 +20,7 @@ public class MoneyCardController extends CardController  {
     }
 
     /**
-     * Card that manages money transaktions depending on card type
+     * Method that manages money transactions depending on card type
      *
      * <p> if the card is a matadorLegate card and the Player's {code:user} ?total value? is under
      * 15K, the user will receive 40K </p>
@@ -34,15 +34,17 @@ public class MoneyCardController extends CardController  {
         super.use(user);
 
         if (card.getIsLegat() && user.getPlayer().getTotalValue() > card.getMinMoney()) { // (15000) Total value or cash value?
-            user.transferMoney(-card.getModifyValue(), user); // (40000) negative number?
+            user.transferMoney(-card.getModifyValue(), null); // (40000) negative number?
         } else if(isHouseAndHotelCard()){
             if(user.getPlayer().getOwnedProperties().length > 0){
                 int totalFee = 0;
-                // Calculate price for house ?? --> mangler at blive lavet
-                // totalFee += card.getMoneyHouse() * numberOfhouses
 
-                // Calculate price for hotel ?? --> mangler at blive lavet
-                // totalFee += card.getMoneyHotel() * hotelOfhotels
+                // Calculate price for house ??
+                // totalFee += card.getMoneyHouse() * user.getPlayer().getNumberOfHouses;
+
+
+                // Calculate price for hotel ??
+                // totalFee += card.getMoneyHotel() * user.getPlayer().getNumberOfHotels;
 
                 user.transferMoney(totalFee, user);
             }
