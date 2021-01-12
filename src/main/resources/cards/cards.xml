@@ -46,14 +46,14 @@
     <moveToSquarecard onUseDescription="raadhuspladsenCardOnUseDesc" squareID="39" type="MoveToSquare" label="Rådhuspladsen"/>     <!-- Kort 34 -->
 
     <!-- MoveRelative cards -->
-    <moveRelativecard onUseDescription="threeForwardCardOnUseDesc" moveSquares="3" type="MoveRelative" label="ThreeForward"/>       <!-- Kort 25 -->
-    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 1 -->
-    <moveRelativecard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 2 -->
+    <moveRelativeCard onUseDescription="threeForwardCardOnUseDesc" moveSquares="3" type="MoveRelative" label="ThreeForward"/>       <!-- Kort 25 -->
+    <moveRelativeCard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 1 -->
+    <moveRelativeCard onUseDescription="threeBackwardCardOnUseDesc" moveSquares="-3" type="MoveRelative" label="ThreeBackward"/>    <!-- Kort 26 nr. 2 -->
 
 
     <!-- MoveToNearest cards -->
-    <moveToNearestcard onUseDescription="moveNearestCardOnUsDesc" squareID_1="13" squareID_2="29" squareID_3="" squareID_4="" type="MoveToNearest" label="Rederi"/>      <!-- Kort 28 -->
-    <moveToNearestcard onUseDescription="moveNearestCardOnUseDesc" squareID_1="6" squareID_2="16" squareID_3="26" squareID_4="36" type="MoveToNearest" label="Færge"/>   <!-- Kort 32 -->
+    <moveToNearestCard onUseDescription="moveNearestCardOnUsDesc" squareID_1="13" squareID_2="29" squareID_3="" squareID_4="" type="MoveToNearest" label="Rederi"/>      <!-- Kort 28 -->
+    <moveToNearestCard onUseDescription="moveNearestCardOnUseDesc" squareID_1="6" squareID_2="16" squareID_3="26" squareID_4="36" type="MoveToNearest" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
     <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 1 -->
