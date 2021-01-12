@@ -15,10 +15,12 @@ public abstract class OwnableSquare extends Square {
     protected boolean mortgaged = false;
     protected PlayerController owner; //owner = null -> owner is the bank.
     protected OwnableSquareController[] group;
+    protected String groupColor;
 
 
-    public OwnableSquare(int id, String nameLabel, String descriptionLabel, Color color, int statusEffect, int price) {
+    public OwnableSquare(int id, String nameLabel, String descriptionLabel, Color color, int statusEffect, int price, String group) {
         super(id, nameLabel, descriptionLabel, color, statusEffect);
+        this.groupColor = group;
         this.price = price;
         this.owner = null;
     }
@@ -88,5 +90,10 @@ public abstract class OwnableSquare extends Square {
         rent[5] = !tag.getAttribute("rent_hotel").equals("") ? parseInt(tag.getAttribute("rent_hotel")) : 0;
 
         return rent;
+    }
+
+
+    public String getGroupColor() {
+        return groupColor;
     }
 }

@@ -15,8 +15,8 @@ import static java.lang.Integer.parseInt;
 public class ShippingSquare extends OwnableSquare {
     private OwnableSquareController[] group;
 
-    public ShippingSquare(int id, String label, String description, Color color, int statusEffect, int price, int... rent) {
-        super(id, label, description, color, statusEffect, price);
+    public ShippingSquare(int id, String label, String description, Color color, int statusEffect, int price, String group, int... rent) {
+        super(id, label, description, color, statusEffect, price, group);
         this.rent = rent;
         GUI_Shipping guiShipping = new GUI_Shipping();
         setGuiField(guiShipping);
@@ -28,7 +28,8 @@ public class ShippingSquare extends OwnableSquare {
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0, // StatusEffect
-                parseInt(xmlTag.getAttribute("price"))  // price
+                parseInt(xmlTag.getAttribute("price")),  // price
+                xmlTag.getAttribute("color")
                 //TODO: read rent array
         );
     }

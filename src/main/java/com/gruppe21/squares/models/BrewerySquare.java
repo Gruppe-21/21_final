@@ -4,7 +4,6 @@ import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.utils.ColorUtil;
 import gui_fields.GUI_Brewery;
-import gui_fields.GUI_Shipping;
 import org.w3c.dom.Element;
 
 import java.awt.*;
@@ -12,8 +11,8 @@ import java.awt.*;
 import static java.lang.Integer.parseInt;
 
 public class BrewerySquare extends OwnableSquare {
-    public BrewerySquare(int id, String label, String description, Color color, int statusEffect, int price) {
-        super(id, label, description, color, statusEffect, price);
+    public BrewerySquare(int id, String label, String description, Color color, int statusEffect, int price, String group) {
+        super(id, label, description, color, statusEffect, price, group);
 
         GUI_Brewery guiBrewery = new GUI_Brewery();
         setGuiField(guiBrewery);
@@ -25,8 +24,8 @@ public class BrewerySquare extends OwnableSquare {
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0, // StatusEffect
-                parseInt(xmlTag.getAttribute("price"))  // price
-                //TODO: read rent array
+                parseInt(xmlTag.getAttribute("price")),  // price
+                xmlTag.getAttribute("color")
         );
     }
 

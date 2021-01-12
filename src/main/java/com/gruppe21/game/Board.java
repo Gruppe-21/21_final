@@ -1,5 +1,6 @@
 package com.gruppe21.game;
 
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
 import com.gruppe21.utils.BoardLoader;
@@ -140,9 +141,9 @@ public class Board {
 
     private void setGroups(){
         for (SquareController squareController : squareControllers) {
-            if( squareController.getClass() == PropertySquareController.class)
+            if( squareController.getClass() == OwnableSquareController.class)
             {
-                PropertySquareController pController = (PropertySquareController)squareController;
+                OwnableSquareController pController = (OwnableSquareController)squareController;
                 pController.setGroup(getSquaresOfColor(pController.getGroupColor()));
             }
         }

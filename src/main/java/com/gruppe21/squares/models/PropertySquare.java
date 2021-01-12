@@ -14,17 +14,16 @@ public class PropertySquare extends OwnableSquare {
     private int maxNumHouses;
     private int houses;
     private int buildingCost;
-    private String groupColor;
+
 
     public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, String group, int... rent) {
-        super(id, label, description, color, statusEffect, price);
+        super(id, label, description, color, statusEffect, price, group);
         this.buildingCost = buildingCost;
         this.rent = rent;
         maxNumHouses = rent.length - 1;
         houses = 0;
         GUI_Street street = new GUI_Street();
         setGuiField(street);
-        this.groupColor = group;
     }
 
     public PropertySquare(Element xmlTag) {
@@ -80,10 +79,5 @@ public class PropertySquare extends OwnableSquare {
         }
         return rent[houses];
     }
-
-    public String getGroupColor() {
-        return groupColor;
-    }
-
 
 }

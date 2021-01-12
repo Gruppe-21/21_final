@@ -101,5 +101,8 @@ public class OwnableSquareController extends SquareController {
     public OwnableSquareController[] getGroup() { return model.getGroup(); }
 
 
+    public String getGroupColor() {
+        return model.getGroupColor();
+    }
 
 }
