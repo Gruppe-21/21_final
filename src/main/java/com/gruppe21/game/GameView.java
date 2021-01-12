@@ -15,9 +15,9 @@ public class GameView {
     public void selectLanguage(){
         Localisation.getInstance().setCurrentLocale(
                 GUIManager.getInstance().getUserChoiceDropDown(
-                        "SELECT LANGUAGE, GameView selectLanguage",
+                        "🌍",
                         Localisation.getInstance().getAllLocales()
-                )
+                ).substring(0,5)
         );
     }
 

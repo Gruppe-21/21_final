@@ -12,19 +12,20 @@ public class OwnableSquareController extends SquareController {
         super(model, view);
         this.model = model;
         this.view = view;
+        updateView();
+
     }
 
     @Override
     public void onMoveTo(PlayerController playerController) {
+        super.onMoveTo(playerController);
         if (getOwner() == null) {
             if (!playerController.purchaseProperty(this, model.getPrice())) {
                 //Auction
             }
         } else if (getOwner() != playerController) {
-            playerController.transferMoney(model.getRent(), getOwner());
-        }
-        else{
-            super.onMoveTo(playerController);
+            if (!getOwner().getStatusEffects().isImprisoned())
+                playerController.transferMoney(model.getRent(), getOwner());
         }
     }
 
@@ -51,13 +52,51 @@ public class OwnableSquareController extends SquareController {
         return false;
     }
 
+    /**
+     * Sells this property to the bank
+     */
+    public void sell(){
+        this.getOwner().addBalance(model.getPrice());
+        this.getOwner().removeOwnedProperty(this);
+        this.model.setOwner(null);
+        //TODO: auction
+    }
+
+    public int getMortgageValue(){
+        return model.getMortgageValue();
+    }
+
     public boolean isMortgaged(){
         return model.isMortgaged();
     }
 
     public void mortgage(){
         if (isMortgaged()) return;
-        model.setMortgaged(false);
-        getOwner().addBalance(model.getPrice());
+        model.setMortgaged(true);
+        getOwner().addBalance(model.getMortgageValue());
     }
+
+    public void payOffMortgage(boolean noInterest){
+        if (!isMortgaged()) return;
+        getOwner().transferMoney((int) (model.getMortgageValue() * (noInterest ? 1 : 1.1)), null);
+        model.setMortgaged(false);
+    }
+
+    public int getPropertyValue() {
+        int totalValue = model.getPrice();
+        if (isMortgaged()) {
+            totalValue -= getMortgageValue();
+        } else if (this.getClass() == PropertySquareController.class) {
+            totalValue += ((PropertySquareController) (this)).getBuildingCost() * ((PropertySquareController) (this)).getNumHouses();
+        }
+        return totalValue;
+    }
+
+    public void setGroup(OwnableSquareController[] group){
+        model.setGroup(group);
+    }
+
+
+
+
 }

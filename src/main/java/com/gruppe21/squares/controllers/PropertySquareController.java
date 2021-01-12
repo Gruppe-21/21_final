@@ -11,11 +11,17 @@ public class PropertySquareController extends OwnableSquareController {
         super(model, view);
         this.model = model;
         this.view = view;
+        updateView();
+        view.updateRent(model);
     }
 
     @Override
     public void onMoveTo(PlayerController playerController) {
         super.onMoveTo(playerController);
+    }
+
+    public int getMaxNumHouses(){
+        return model.getMaxNumHouses();
     }
 
     public int getNumHouses(){
@@ -30,7 +36,9 @@ public class PropertySquareController extends OwnableSquareController {
     
     public void sellHouses(int numHouses){
         if (numHouses < 1) return;
-        if (numHouses > getNumHouses()) numHouses = getNumHouses();
+        if (numHouses > getNumHouses()) numHouses = getNumHouses(); //We can't have a negative number of buildings
+        else if (getNumHouses() == model.getMaxNumHouses()) numHouses = getNumHouses(); //If we have a hotel, we must sell the entire thing
+
         model.setHouses(getNumHouses() - numHouses);
         getOwner().addBalance((getBuildingCost() *numHouses)/2);
         view.updateHouses(model);
@@ -52,10 +60,23 @@ public class PropertySquareController extends OwnableSquareController {
     }
 
     @Override
+    public void sell() {
+        for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
+            property.sellHouses(property.getNumHouses());
+        }
+        sellHouses(getNumHouses());
+        super.sell();
+    }
+
+    @Override
     public void mortgage(){
         if (isMortgaged()) return;
         sellHouses(getNumHouses());
         super.mortgage();
+    }
+
+    public String getGroupColor() {
+        return model.getGroupColor();
     }
 
 }

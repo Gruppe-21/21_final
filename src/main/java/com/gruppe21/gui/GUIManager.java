@@ -155,6 +155,20 @@ public class GUIManager {
         return gui.getUserButtonPressed(message, buttonText);
     }
 
+    /**
+     *
+     * @param message
+     * @param buttonText
+     * @return the number of the pressed button
+     */
+    public int getUserButtonPressed(String message, String... buttonText) {
+        String pressedText = getUserButtonPress(message, buttonText);
+        for (int i = 0; i < buttonText.length; i++) {
+            if (pressedText.equals(buttonText[i])) return i;
+        }
+        return -1;
+    }
+
 
     //Notice this is different from getUserBoolean, which previously was called get user choice
     /**

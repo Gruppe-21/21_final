@@ -4,8 +4,10 @@ import com.gruppe21.card.CardView;
 import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.cardControllers.MoneyCardController;
 import com.gruppe21.card.cardControllers.MoveRelativeCardController;
+import com.gruppe21.card.cardControllers.TeleportToNearestCardController;
 import com.gruppe21.card.typeOfCards.ModifyMoneyCard;
 import com.gruppe21.card.typeOfCards.MoveRelativeCard;
+import com.gruppe21.card.typeOfCards.TeleportToNearestCard;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -70,11 +72,41 @@ public class CardLoader {
 
         // Ud fra tag finder den forskellige oplysninger om kortene
         switch (elementName) {
-            case "moveRelativeCard":
-                final String square_IDStr = tag.getAttribute("ID"); // Gemmer indholdet af ID-tag som String
-                final int square_ID = square_IDStr.equals("") ? 0 : Integer.parseInt(square_IDStr); // Omdanner String til int
+            case "buildingFeeCard":
+                final String moneyHouseStr = tag.getAttribute("moneyHouse");
+                final int moneyHouse = moneyHouseStr.equals("") ? 0 : Integer.parseInt(moneyHouseStr);
+                final String moneyHotelStr = tag.getAttribute("moneyHotel");
+                final int moneyHotel = moneyHotelStr.equals("") ? 0 : Integer.parseInt(moneyHotelStr);
+                final String feeBankStr = tag.getAttribute("isBank");
+                boolean feeIsBank = feeBankStr.equals("") ? false : Boolean.parseBoolean(feeBankStr);
 
-                MoveRelativeCard moveCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,square_ID);
+                ModifyMoneyCard feeMoneyCardModel = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel, feeIsBank,moneyHouse, moneyHotel);
+                CardView feeMoneyView = new CardView();
+                MoneyCardController feeMoneyController = new MoneyCardController(feeMoneyView,feeMoneyCardModel);
+
+                cards[cardsAdded] = feeMoneyController;
+                cardsAdded++;
+                break;
+            case "legateMoneyCard":
+                final String moneyLegateStr = tag.getAttribute("money");
+                final String minMoneyLegateStr = tag.getAttribute("minMoney");
+                final String legateBankStr = tag.getAttribute("isBank"); //tilf'jet
+                boolean legateIsBank = legateBankStr.equals("") ? false : Boolean.parseBoolean(legateBankStr);
+                final int legateMoney = moneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
+                final int minMoney = minMoneyLegateStr.equals("") ? 0 : Integer.parseInt(moneyLegateStr);
+
+                ModifyMoneyCard legateMoneyCardModelMoneyCard = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,legateIsBank,legateMoney, minMoney);
+                CardView legateMoneyViewMoneyCard = new CardView();
+                MoneyCardController legateMoneyControllerMoneyCard = new MoneyCardController(legateMoneyViewMoneyCard,legateMoneyCardModelMoneyCard);
+
+                cards[cardsAdded] = legateMoneyControllerMoneyCard;
+                cardsAdded++;
+                break;
+            case "moveRelativeCard":
+                final String squareIDStr = tag.getAttribute("squareID"); // Gemmer indholdet af squareID-tag som String
+                final int squareID = squareIDStr.equals("") ? 0 : Integer.parseInt(squareIDStr); // Omdanner String til int
+
+                MoveRelativeCard moveCardModel = new MoveRelativeCard(descriptionOnDrawLabel,descriptionOnUseLabel,squareID);
                 CardView moveView = new CardView();
                 MoveRelativeCardController moveController = new MoveRelativeCardController(moveView,moveCardModel);
 
@@ -82,17 +114,27 @@ public class CardLoader {
                 cardsAdded++;
                 break;
             case "modifyMoneycard":
-                final String moneyStr = tag.getAttribute("money");
-                final String bankStr = tag.getAttribute("isBank"); //tilf'jet
-                boolean isBank = false;
-                if(bankStr.equals("true")) isBank=true;
-                final int money = moneyStr.equals("") ? 0 : Integer.parseInt(moneyStr);
+                final String moneyCardStr = tag.getAttribute("money");
+                final String bankMoneyCardStr = tag.getAttribute("isBank"); //tilf'jet
+                boolean isBankMoneyCard = bankMoneyCardStr.equals("") ? false : Boolean.parseBoolean(bankMoneyCardStr);
+                final int moneyMoneyCard = moneyCardStr.equals("") ? 0 : Integer.parseInt(moneyCardStr);
 
-                ModifyMoneyCard moneyCardModel = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel,money,isBank);
-                CardView moneyView = new CardView();
-                MoneyCardController moneyController = new MoneyCardController(moneyView,moneyCardModel);
+                ModifyMoneyCard moneyCardModelMoneyCard = new ModifyMoneyCard(descriptionOnDrawLabel,descriptionOnUseLabel, moneyMoneyCard,isBankMoneyCard);
+                CardView moneyViewMoneyCard = new CardView();
+                MoneyCardController moneyControllerMoneyCard = new MoneyCardController(moneyViewMoneyCard,moneyCardModelMoneyCard);
 
-                cards[cardsAdded] = moneyController;
+                cards[cardsAdded] = moneyControllerMoneyCard;
+                cardsAdded++;
+                break;
+            case "prisonCard":
+                final String prisonSquareIDStr = tag.getAttribute("squareID"); // 11 (prison square)
+                final int prisonSquareID = prisonSquareIDStr.equals("") ? 0 : Integer.parseInt(prisonSquareIDStr);
+
+                TeleportToNearestCard prisonCard = new TeleportToNearestCard(descriptionOnDrawLabel,descriptionOnDrawLabel,prisonSquareID); // model
+                CardView prisonView = new CardView(); // view
+                TeleportToNearestCardController prisonController = new TeleportToNearestCardController(prisonView,prisonCard); // controller
+
+                cards[cardsAdded] = prisonController;
                 cardsAdded++;
                 break;
             default:

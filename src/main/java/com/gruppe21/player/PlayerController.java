@@ -35,9 +35,26 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
-        purchaseBuildings();
-        //Build houses
-
+        boolean roll = false;
+        while (!roll){
+            switch (playerView.startTurn()){
+                case 0 : {
+                    roll = true;
+                    break;
+                }
+                case 1 : {
+                    purchaseBuildings();
+                    break;
+                }
+                case 2 : {
+                    payOffMortgages();
+                }
+                case 3 : {
+                    liquidateAssets();
+                    break;
+                }
+            }
+        }
 
         int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
         lastRollForBrewery = diceRolls[0] + diceRolls[1];
@@ -64,9 +81,16 @@ public class PlayerController {
             }
         }
         playerView.rollDice(diceRolls);
-
+        if (status.getIdenticalDice() == 3){
+            playerView.imprisonedDiceCheater();
+            status.setImprisoned(true);
+            status.setIdenticalDice(0);
+            teleportTo(board.getSquareControllerFromId(31));
+            return;
+        }
         if (!status.isImprisoned())
             moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
+        if (status.getIdenticalDice() > 0) takeTurn(board);
     }
 
     /**
@@ -145,17 +169,34 @@ public class PlayerController {
     /**
      *
      * @param minAmount
+     * @param optional
      * @return
      */
     public int liquidateAssets(int minAmount, boolean optional){
         int startBalance = player.getBalance();
-        playerView.chooseHowToLiquidate(optional);
 
-        //TODO: Implement liquidateAssets
-        //Sell houses, hotels and/or properties to the bank
-        //Mortgage properties
-        //Sell or trade properties and/or cards to other players.
-        return 0;
+        while (true) {
+            switch (playerView.chooseHowToLiquidate(optional)) {
+                case 1: {
+                    //TODO: implement choice of selling property or building(s)
+                    playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
+                }
+                case 2: {
+                    OwnableSquareController[] nonMortgaged = player.getNonMortgagedProperties();
+                    playerView.choosePropertyToMortgage(nonMortgaged).mortgage();
+                }
+                case 3: {
+                    //TODO: implement trade
+                    //Sell or trade properties and/or cards to other players.
+                }
+                case 4: {
+                    return startBalance - player.getBalance();
+                }
+            }
+            if (!optional){
+                if (startBalance - player.getBalance() > minAmount) return (startBalance - player.getBalance()) + liquidateAssets();
+            }
+        }
     }
 
 
@@ -213,6 +254,12 @@ public class PlayerController {
         toBuild.addHouse();
     }
 
+    public void payOffMortgages(){
+        OwnableSquareController[] mortgagedProperties = getPlayer().getMortgagedProperties();
+        if (mortgagedProperties.length == 0) return;
+        playerView.choosePropertyToPayOffMortgage(mortgagedProperties).payOffMortgage(false);
+    }
+
 
     /**
      * Add value of parameter {@code value} to current balance
@@ -244,6 +291,41 @@ public class PlayerController {
     public StatusEffects getStatusEffects(){
         return player.getStatusEffects();
     }
+
+    /**
+     * Returns the total number of buildings owned by the player, that is, the sum of all owned hotels and houses.
+     * @return an {@code int} representing the total number of buildings owned by the player
+     */
+    public int getTotalNumberOfBuildings(){
+        return getTotalNumberOfHouses() + getTotalNumberOfHotels();
+    }
+
+    /**
+     * Returns the total number of houses owned by the player.
+     * @return an {@code int} representing the total number of house owned by the player
+     */
+    public int getTotalNumberOfHouses(){
+        int numberOfHouses = 0;
+        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
+            if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHouses += property.getNumHouses();
+        }
+        return numberOfHouses;
+    }
+
+    /**
+     * Returns the total number of hotels owned by the player.
+     * @return an {@code int} representing the total number of hotels owned by the player
+     */
+    public int getTotalNumberOfHotels(){
+        int numberOfHotels = 0;
+        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
+            if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHotels += property.getNumHouses();
+        }
+        return numberOfHotels;
+    }
+
+
+
 
     //This makes me sad
     public int getLastRollForBrewery(){
