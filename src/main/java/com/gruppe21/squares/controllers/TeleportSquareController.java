@@ -16,20 +16,45 @@ public class TeleportSquareController extends SquareController {
     Square model;
     SquareView view;
 
-    public TeleportSquareController(Square model, SquareView view){
-        super(model,view);
+    public TeleportSquareController(Square model, SquareView view) {
+        super(model, view);
         this.model = model;
         this.view = view;
     }
 
 
-
-    public void onMoveTo(PlayerController playercontroller, Board board){
+    public void onMoveTo(PlayerController playercontroller, Board board) {
 
         playercontroller.getStatusEffects().setImprisoned(true);
         playercontroller.teleportTo(board.getSquareControllerFromId(10)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 11)
 
     }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /**
@@ -39,6 +64,7 @@ public class TeleportSquareController extends SquareController {
      * */
 
 
+    /*
     public void onMoveToFromXML(PlayerController playercontroller, Board board){
 
         playercontroller.getStatusEffects().setImprisoned(true);
@@ -65,3 +91,6 @@ public class TeleportSquareController extends SquareController {
 }
 
 //Skal have fat i den rigtige squarecontroller ud fra ID fra XML
+
+
+     */
