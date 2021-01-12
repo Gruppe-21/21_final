@@ -25,4 +25,3 @@ public class TeleportSquare extends Square {
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0);
     }
-}
