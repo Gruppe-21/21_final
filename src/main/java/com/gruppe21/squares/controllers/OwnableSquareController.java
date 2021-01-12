@@ -12,6 +12,8 @@ public class OwnableSquareController extends SquareController {
         super(model, view);
         this.model = model;
         this.view = view;
+        updateView();
+
     }
 
     @Override
