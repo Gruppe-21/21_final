@@ -41,7 +41,7 @@ public class TeleportSquareController extends SquareController {
     public void onMoveToFromXML(PlayerController playercontroller, Board board){
 
         playercontroller.getStatusEffects().setImprisoned(true);
-        playercontroller.teleportTo(board.getSquareControllerFromId(PrisonID())); //Skal have et tag somehow
+        playercontroller.teleportTo(board.getSquareControllerFromId(PrisonID("PrisonSquare"))); //Skal have et tag somehow
 
     }
 
