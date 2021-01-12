@@ -1,5 +1,6 @@
 package com.gruppe21.squares.models;
 
+import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.utils.ColorUtil;
 import gui_fields.GUI_Street;
@@ -13,7 +14,6 @@ public class PropertySquare extends OwnableSquare {
     private int maxNumHouses;
     private int houses;
     private int buildingCost;
-    private PropertySquareController[] group;
     private String groupColor;
 
     public PropertySquare(int id, String label, String description, Color color, int statusEffect, int price, int buildingCost, String group, int... rent) {
@@ -73,17 +73,12 @@ public class PropertySquare extends OwnableSquare {
     public int getRent() {
         if (owner == null) return 0; //This should never happen
         if (houses == 0) {
-            for (PropertySquareController squareController : group) {
+            for (OwnableSquareController squareController : group) {
                 if (squareController.getOwner() != getOwner()) return rent[0];
             }
             return rent[0] * 2;
         }
         return rent[houses];
-    }
-
-    public void setGroup(PropertySquareController[] group) {
-        super.setGroup(group);
-
     }
 
     public String getGroupColor() {
