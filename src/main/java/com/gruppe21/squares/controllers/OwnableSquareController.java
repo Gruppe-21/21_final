@@ -80,6 +80,16 @@ public class OwnableSquareController extends SquareController {
         model.setMortgaged(false);
     }
 
+    public int getPropertyValue() {
+        int totalValue = model.getPrice();
+        if (isMortgaged()) {
+            totalValue -= getMortgageValue();
+        } else if (this.getClass() == PropertySquareController.class) {
+            totalValue += ((PropertySquareController) (this)).getBuildingCost() * ((PropertySquareController) (this)).getNumHouses();
+        }
+        return totalValue;
+    }
+
     public void setGroup(OwnableSquareController[] group){
         model.setGroup(group);
     }
