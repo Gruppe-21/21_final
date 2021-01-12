@@ -26,7 +26,7 @@ public class MoneySquareController extends SquareController {
     public void OnMoveTo(PlayerController playercontroller){
         this.PlayerController = playercontroller;
 
-        PlayerController.
+        PlayerController.transferMoney(-10000, null);
     }
 
 }
