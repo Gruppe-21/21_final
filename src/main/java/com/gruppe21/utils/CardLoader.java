@@ -140,6 +140,9 @@ public class CardLoader {
                 cards[cardsAdded] = prisonController;
                 cardsAdded++;
                 break;
+            case "pardonCard":
+                //TODO: implement creation of pardonCard
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + elementName);
         }
