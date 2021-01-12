@@ -52,7 +52,7 @@
 
 
     <!-- MoveToNearest cards -->
-    <moveToNearestcard onUseDescription="moveNearestCardOnUsDesc" squareID_1="13" squareID_2="29" squareID_3="" squareID_4="" type="MoveToNearest" label="Rederi"/>  <!-- Kort 28 -->
+    <moveToNearestcard onUseDescription="moveNearestCardOnUsDesc" squareID_1="13" squareID_2="29" squareID_3="" squareID_4="" type="MoveToNearest" label="Rederi"/>      <!-- Kort 28 -->
     <moveToNearestcard onUseDescription="moveNearestCardOnUseDesc" squareID_1="6" squareID_2="16" squareID_3="26" squareID_4="36" type="MoveToNearest" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
