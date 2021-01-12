@@ -70,5 +70,11 @@ public class OwnableSquareController extends SquareController {
         getOwner().addBalance(model.getPrice() / 2);
     }
 
+    public void setGroup(OwnableSquareController[] group){
+        model.setGroup(group);
+    }
+
+
+
 
 }
