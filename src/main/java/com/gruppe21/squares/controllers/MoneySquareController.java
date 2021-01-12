@@ -10,7 +10,6 @@ public class MoneySquareController extends SquareController {
 
     MoneySquare model;
     SquareView view;
-    PlayerController PlayerController;
 
     public MoneySquareController(MoneySquare model, SquareView view){
         super(model, view);
@@ -28,9 +27,8 @@ public class MoneySquareController extends SquareController {
     *
     * */
     public void OnMoveTo(PlayerController playercontroller){
-        this.PlayerController = playercontroller;
 
-        PlayerController.transferMoney(-4000, null); //ID 5 (4000) og ID 39 (2000)
+        playercontroller.transferMoney(-4000, null); //ID 5 (4000) og ID 39 (2000)
     }
 
 }
