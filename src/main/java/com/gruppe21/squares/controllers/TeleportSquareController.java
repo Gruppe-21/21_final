@@ -8,21 +8,18 @@ import com.gruppe21.squares.views.SquareView;
 
 public class TeleportSquareController extends SquareController {
 
-    private StatusEffects statuseffects;
-
+    Square model;
+    SquareView view;
 
     public TeleportSquareController(Square model, SquareView view){
         super(model,view);
+        this.model = model;
+        this.view = view;
     }
 
 
+
     public void onMoveTo(PlayerController playercontroller, Board board){
-
-        /*
-        this.statuseffects = playercontroller.getStatusEffects();
-        statuseffects.setImprisoned(true);
-
-         */
 
         playercontroller.getStatusEffects().setImprisoned(true);
         playercontroller.teleportTo(board.getSquareControllerFromId(31)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 31)
