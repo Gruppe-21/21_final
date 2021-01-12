@@ -19,10 +19,11 @@ public class PlayerView {
     }
 
     public int startTurn() {
-        return guiManager.getUserButtonPressed("STARTTURNMESG","STARTTURN","BUILDSTUFF","LIQUIDATEASSETS");/*
+        return guiManager.getUserButtonPressed("STARTTURNMESG","STARTTURN","BUILDSTUFF", "PAYOFFMORTGAGEs","LIQUIDATEASSETS");/*
                 localisation.getStringValue("startTurnMesgLabel"),
                 localisation.getStringValue("startTurnButtonLabel"),
                 localisation.getStringValue("purchaseBuildingsButtonLabel"),
+                localisation.getStringValue("payOffMortgagesButtonLabel"),
                 localisation.getStringValue("liquidateAssetsButtonLabel"));*/
     }
 
@@ -134,6 +135,10 @@ public class PlayerView {
 
     public OwnableSquareController choosePropertyToMortgage(OwnableSquareController[] properties){
         return chooseProperty(properties, "PROPERTY MORTGAGE LABEL HERE");
+    }
+
+    public OwnableSquareController choosePropertyToPayOffMortgage(OwnableSquareController[] properties){
+        return chooseProperty(properties, "PAY OFF PROPERTY MORTGAGE LABEL HERE");
     }
 
 

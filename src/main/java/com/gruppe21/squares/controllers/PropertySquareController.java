@@ -11,11 +11,17 @@ public class PropertySquareController extends OwnableSquareController {
         super(model, view);
         this.model = model;
         this.view = view;
+        updateView();
+        view.updateRent(model);
     }
 
     @Override
     public void onMoveTo(PlayerController playerController) {
         super.onMoveTo(playerController);
+    }
+
+    public int getMaxNumHouses(){
+        return model.getMaxNumHouses();
     }
 
     public int getNumHouses(){
