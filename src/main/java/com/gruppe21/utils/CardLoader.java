@@ -37,7 +37,16 @@ public class CardLoader {
         Document document = XMLUtil.getXMLDocument(CARD_DIRECTORY + fileName); // Finder mappen /cards/ i resources
         NodeList cardNodes = XMLUtil.getNodeListFromTag(document, TAG_CARD); // Leder efter root-tag i /cards/ mappen
 
-        cards = new CardController[cardNodes.getLength()];
+        int elementsCount = 0;
+
+        for (int i = 0; i < cardNodes.getLength(); i++) {
+            Node node = cardNodes.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                elementsCount++;
+            }
+        }
+
+        cards = new CardController[elementsCount];
 
         return getCardsFromNodeList(cardNodes); // Return alt indhold af root-tag (cards)
     }
