@@ -87,6 +87,7 @@ public class PlayerController {
         }
         if (!status.isImprisoned())
             moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
+        if (status.getIdenticalDice() > 0) takeTurn(board);
     }
 
     /**
