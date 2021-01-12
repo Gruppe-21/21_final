@@ -19,4 +19,3 @@ public class CardSquareController extends SquareController {
         playerController.drawCard(((CardSquare)model).getDeck());
     }
 }
-}
