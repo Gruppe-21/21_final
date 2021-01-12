@@ -48,6 +48,7 @@ public class PlayerController {
                 }
                 case 2 : {
                     payOffMortgages();
+                    break;
                 }
                 case 3 : {
                     liquidateAssets();
