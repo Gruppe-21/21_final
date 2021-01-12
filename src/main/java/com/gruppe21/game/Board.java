@@ -89,7 +89,27 @@ public class Board {
         }
         return -1;
     }
-
+    
+    private OwnableSquareController[] getSquaresOfColor(String color){
+        int colorCount = 0;
+        for (SquareController squareController : squareControllers) {
+            if (squareController instanceof PropertySquareController || squareController instanceof OwnableSquareController){
+                if (((OwnableSquareController)squareController).getGroupColor().equals(color)){
+                    colorCount++;
+                }
+            }
+        }
+        OwnableSquareController[] group = new OwnableSquareController[colorCount];
+        for (int i = 0; i < squareControllers.length ; i++) {
+            if (squareControllers[i] instanceof PropertySquareController || squareControllers[i] instanceof OwnableSquareController){
+                if (((OwnableSquareController)squareControllers[i]).getGroupColor().equals(color)){
+                    group[--colorCount] = (OwnableSquareController)squareControllers[i];
+                }
+            }
+        }
+        return group;
+    }
+/*
     private OwnableSquareController[] getSquaresOfColor(String color){
        int propertyCount = 0;
 
@@ -138,10 +158,10 @@ public class Board {
         }
         return group;
     }
-
+*/
     private void setGroups(){
         for (SquareController squareController : squareControllers) {
-            if( squareController.getClass() == OwnableSquareController.class)
+            if( squareController instanceof OwnableSquareController)
             {
                 OwnableSquareController pController = (OwnableSquareController)squareController;
                 pController.setGroup(getSquaresOfColor(pController.getGroupColor()));
