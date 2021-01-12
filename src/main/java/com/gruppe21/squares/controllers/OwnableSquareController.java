@@ -59,6 +59,7 @@ public class OwnableSquareController extends SquareController {
         this.getOwner().addBalance(model.getPrice());
         this.getOwner().removeOwnedProperty(this);
         this.model.setOwner(null);
+        view.updateOwner(model);
         //TODO: auction
     }
 
