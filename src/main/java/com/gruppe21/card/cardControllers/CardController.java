@@ -55,12 +55,6 @@ public abstract class CardController {
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }
 
-
-
-
-
-
-
     /**
      * Returns the {@code Class} object of the {@code CardController}'s {@code Card}
      * @return the {@code Class} object of the card
