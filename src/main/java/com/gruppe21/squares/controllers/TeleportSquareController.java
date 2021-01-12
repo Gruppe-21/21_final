@@ -43,10 +43,13 @@ public class TeleportSquareController extends SquareController {
     /**
      *
      * Finds the right SquareControllerID
+     *
+     * Gets the board Square[] finds the name of each Square, and then finds the desired Square
      */
     public int FindSquareControllerID (String SquareName, Board board){
         SquareController[] squareControllers = board.getSquareControllers();
         int SquareControllerID = new int;
+        String[] Name;
 
 
 
