@@ -35,6 +35,7 @@ public abstract class CardController {
      * @param user Player that uses card
      */
     public void use(PlayerController user){
+        if (card == null || cardView == null) return; //This should never happen
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }
 

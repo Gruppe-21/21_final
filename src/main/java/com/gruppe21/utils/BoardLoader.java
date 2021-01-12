@@ -1,5 +1,6 @@
 package com.gruppe21.utils;
 
+import com.gruppe21.deck.Deck;
 import com.gruppe21.squares.controllers.CardSquareController;
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
@@ -8,7 +9,6 @@ import com.gruppe21.squares.models.*;
 import com.gruppe21.squares.views.OwnableSquareView;
 import com.gruppe21.squares.views.PropertySquareView;
 import com.gruppe21.squares.views.SquareView;
-import com.gruppe21.utils.localisation.Localisation;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -35,7 +35,15 @@ public class BoardLoader {
         Document document = XMLUtil.getXMLDocument(BOARD_DIRECTORY + fileName);
         NodeList boardNodes = XMLUtil.getNodeListFromTag(document, TAG_BOARD);
 
-        return getSquaresFromNodeList(boardNodes);
+        SquareController[] squareControllers = getSquaresFromNodeList(boardNodes);
+        Deck deck = new Deck("cards");
+        for (SquareController squareController: squareControllers) {
+            if (squareController.getClass() == CardSquareController.class)
+                ((CardSquareController) squareController).setDeck(deck);
+            //TODO: set destination of teleport square
+        }
+
+        return squareControllers;
     }
 
     private static SquareController[] getSquaresFromNodeList(NodeList boardNodes) {

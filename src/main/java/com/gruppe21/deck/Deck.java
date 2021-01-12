@@ -14,7 +14,7 @@ import java.util.Random;
 public class Deck {
     private int totalCards;
     private int currentNumCards;
-    private CardController[] cards = new CardController[32];
+    private CardController[] cards;
     private CardController[] returnedCards;
     private int numCardsReturned = 0;
     private int cardsDrawn = 0;
@@ -37,7 +37,7 @@ public class Deck {
      * Deck constructor which has an empty array of CardControllers
      */
     public Deck() {
-        CardController[] cards = new CardController[0];
+        cards = new CardController[0];
         totalCards = 0;
         currentNumCards = 0;
         returnedCards = new CardController[0];

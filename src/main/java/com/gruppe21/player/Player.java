@@ -32,7 +32,7 @@ public class Player {
     public Player(){
         this.balance = START_FUNDS;
         heldCards = new Deck();
-        ownedProperties = new PropertySquareController[4];
+        ownedProperties = new OwnableSquareController[4];
         statusEffects = new StatusEffects();
     }
 
@@ -59,6 +59,7 @@ public class Player {
 
     public int setBalance(int balance){
         this.balance = balance;
+        guiPlayer.setBalance(this.balance);
         return getBalance();
     }
 
@@ -91,23 +92,23 @@ public class Player {
      * @return
      */
     public OwnableSquareController[] getOwnedProperties(){
-        OwnableSquareController[] properties = new PropertySquareController[numOwnedProperties];
+        OwnableSquareController[] properties = new OwnableSquareController[numOwnedProperties];
         for (int i = 0; i < numOwnedProperties; i++) {
             properties[i] = ownedProperties[i];
         }
         return properties;
     }
 
-    public void addOwnedProperty(OwnableSquareController propertySquareController){
+    public void addOwnedProperty(OwnableSquareController ownableSquareController){
         numOwnedProperties++;
         if (numOwnedProperties > ownedProperties.length){
-            OwnableSquareController[] newArray = new PropertySquareController[numOwnedProperties * 2];
+            OwnableSquareController[] newArray = new OwnableSquareController[numOwnedProperties * 2];
             for (int i = 0; i < ownedProperties.length; i++) {
                 newArray[i] = ownedProperties[i];
             }
             ownedProperties = newArray;
         }
-        ownedProperties[numOwnedProperties-1] = propertySquareController;
+        ownedProperties[numOwnedProperties-1] = ownableSquareController;
     }
 
     public void removeOwnedProperty(OwnableSquareController propertySquareController){
@@ -156,15 +157,15 @@ public class Player {
 
 
     private OwnableSquareController[] getPropertiesWithMortgagedStatus(boolean mortgaged){
-        OwnableSquareController[] nonMortgagedProperties = new OwnableSquareController[getNumNonMortgagedProperties()];
+        OwnableSquareController[] propertiesWithMortgagedStatus = new OwnableSquareController[getNumNonMortgagedProperties()];
         int addedProperties = 0;
         for (int i = 0; i < getOwnedProperties().length; i++) {
             if (ownedProperties[i].isMortgaged() == mortgaged){
-                nonMortgagedProperties[addedProperties] = ownedProperties[i];
+                propertiesWithMortgagedStatus[addedProperties] = ownedProperties[i];
                 addedProperties++;
             }
         }
-        return nonMortgagedProperties;
+        return propertiesWithMortgagedStatus;
     }
 
     private int getNumPropertiesWithMortgagedStatus(boolean mortgaged){

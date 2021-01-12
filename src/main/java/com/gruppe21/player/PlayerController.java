@@ -25,6 +25,7 @@ public class PlayerController {
         gameController = GameController.getInstance();
         player = new Player();
         playerView = new PlayerView();
+        //TODO: limit names such that they are never the same (like, at a number to the end of duplicates or something)
         player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
         player.setGuiPlayer(new GUI_Player(player.getName(), player.getBalance(), playerView.customiseCar()));
         playerView.addToGui(player.getGuiPlayer());
@@ -119,8 +120,7 @@ public class PlayerController {
      */
     public CardController drawCard(Deck deck){
         CardController card = deck.nextCard();
-        //player.getHeldCards().addCard(card);
-        player.getHeldCards().returnCard(card);
+        player.getHeldCards().addCard(card);
         card.onDraw(this);
         return card; //Should it return void?
     }
