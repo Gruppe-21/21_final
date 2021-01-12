@@ -33,14 +33,14 @@ public class TeleportSquareController extends SquareController {
 
     public void onMoveToFromBoard(PlayerController playercontroller, Board board) {
 
-        board.getSquareControllers();
+        SquareController Prison = board.getSquareControllerFromId(FindSquareControllerID("PrisonSquare"));
 
         playercontroller.getStatusEffects().setImprisoned(true);
-        playercontroller.teleportTo(board.getSquareControllerFromId(10)); //Skal ændres så der bliver fundet et id ud fra XML filen (ID 11)
+        playercontroller.teleportTo(Prison);
 
     }
 
-    public SquareController FindSquareController(String SquareName){
+    public int FindSquareControllerID (String SquareName){
 
     }
 
