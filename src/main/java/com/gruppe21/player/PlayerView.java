@@ -23,6 +23,7 @@ public class PlayerView {
                 localisation.getStringValue("start_turn_msg_label", model.getName()),
                 localisation.getStringValue("start_turn_button_label"),
                 localisation.getStringValue("purchase_buildings_button_label"),
+                localisation.getStringValue("pay_off_mortgages_button_label"),
                 localisation.getStringValue("liquidate_assets_button_label"));
     }
 
