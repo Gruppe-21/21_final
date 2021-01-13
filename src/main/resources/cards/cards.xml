@@ -52,7 +52,7 @@
 
 
     <!-- MoveToNearest cards -->
-    <moveToNearestCard onUseDescription="moveNearestShippingCardOnUsDesc" squareID="13 29" type="MoveToNearestShipping" label="Rederi"/>      <!-- Kort 28 -->
+    <moveToNearestCard onUseDescription="moveNearestShippingCardOnUseDesc" squareID="13 29" type="MoveToNearestShipping" label="Rederi"/>      <!-- Kort 28 -->
     <moveToNearestCard onUseDescription="moveNearestFerryCardOnUseDesc" squareID="6 16 26 36" type="MoveToNearestFerry" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
