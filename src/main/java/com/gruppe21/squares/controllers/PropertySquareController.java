@@ -65,8 +65,9 @@ public class PropertySquareController extends OwnableSquareController {
         if ((this.getNumHouses() < this.getMaxNumHouses() - 1) && GameController.getInstance().getAvailableHouses() == 0)  //We want a house but there are none
             return false;
 
-        for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
-            if (property.getOwner() != this.getOwner() || this.getNumHouses() - property.getNumHouses() > 0){
+        for (OwnableSquareController property: model.getGroup()) {
+            PropertySquareController pProperty = (PropertySquareController) property;
+            if (pProperty.getOwner() != this.getOwner() || this.getNumHouses() - pProperty.getNumHouses() > 0){
                 return false;
             }
         }
