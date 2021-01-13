@@ -11,11 +11,11 @@ import java.awt.*;
 import static java.lang.Integer.parseInt;
 
 public class MoneySquare extends Square {
+    private int modifyAmount;
 
-    public MoneySquare(int id, String label, String description, Color color, int statusEffect) {
+    public MoneySquare(int id, String label, String description, Color color, int statusEffect, int modifyAmount) {
         super(id, label, description, color, statusEffect);
-        GUI_Field field = new GUI_Start();
-        setGuiField(field);
+        this.modifyAmount = modifyAmount;
     }
 
     public MoneySquare(Element xmlTag){
@@ -23,6 +23,12 @@ public class MoneySquare extends Square {
                 xmlTag.getAttribute("label"), // Name ID
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
-                0);
+                0,
+                parseInt(xmlTag.getAttribute("modifyAmount"))
+        );
+    }
+
+    public int getModifyAmount() {
+        return modifyAmount;
     }
 }

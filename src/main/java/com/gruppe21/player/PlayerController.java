@@ -292,6 +292,10 @@ public class PlayerController {
         return player.setBalance(player.getBalance() + value);
     }
 
+    public int getTotalValue(){
+        return player.getTotalValue();
+    }
+
     public String getName(){
         return player.getName();
     }
