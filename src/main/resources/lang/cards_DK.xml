@@ -1,0 +1,58 @@
+<locale lang="cards_DK" name="Prøv Lykken kort">
+
+    <sentence label="word1">Dette er en sætning.</sentence>
+
+    <!-- chancecard desc -->
+    <sentence label="oilPricesDesc">Oliepriserne er steget, og De skal betale kr. 500 pr. hus og kr. 2000 pr. hotel</sentence>
+    <sentence label="propertyTaxDesc">Ejendomsskatten er steget. Ekstraudgifterne er: kr. 800 pr. hus, kr. 2300 pr. hotel</sentence>
+
+    <sentence label="fullStopDesc">De har kørt frem for “fuldt stop”, Betal kr. 1000 i bøde</sentence>
+    <sentence label="carWashDesc">Betal for vognvask og smøring kr. 300</sentence>
+    <sentence label="beerDesc">Betal kr. 200 for levering af 2 kasser øl</sentence>
+    <sentence label="repairCarDesc">Betal  kr. 3000 for reparation af deres vogn</sentence>                                                          <!-- 2 of these-->
+    <sentence label="tiresDesc">De har købt 4 nye dæk til Deres vogn, betal kr. 1000</sentence>
+    <sentence label="payBillDesc">De har fået en parkeringsbøde, betal kr. 200 i bøde</sentence>
+    <sentence label="carInsuranceDesc">Betal deres bilforsikring, kr. 1000</sentence>
+    <sentence label="vacationDesc">De har været udenlands og købt for mange smøger, betal kr. 200 i told</sentence>
+    <sentence label="dentistDesc">Tandlægeregning, betal kr. 2000</sentence>
+
+    <sentence label="lottoDesc">De har vundet i klasselotteriet. Modtag kr. 500</sentence>                                                       <!-- 2 of these-->
+    <sentence label="dividendDesc">De modtager Deres aktieudbytte. Modtag kr. 1000 af banken</sentence>                                             <!-- 3 of these-->
+    <sentence label="quarterTaxDesc">Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3000</sentence>
+    <sentence label="tippingDesc">De havde en række med elleve rigtige i tipning, modtag kr. 1000</sentence>
+    <sentence label="wageIncreaseDesc">Grundet dyrtiden har De fået gageforhøjelse, modtag kr. 1000</sentence>
+    <sentence label="premiumBondDesc">Deres præmieobligation er udtrykket. De modtager kr. 1000 af banken</sentence>                                   <!-- 2 of these-->
+    <sentence label="oldFurnitureDesc">De har solg nogle gamle møbler på auktion. Modtag kr. 1000 af banken</sentence>
+    <sentence label="utilityGardenDesc">Værdien af egen avl fra nyttehaven udgør kr. 200 som de modtager af banken</sentence>
+    <sentence label="matadorLegateDesc">De modtager “Matador-legatet” på kr. 40.000, men kun hvis deres værdier ikke overstiger
+        kr. 15.000</sentence>
+
+    <sentence label="birthdayDesc">Det er deres fødselsdag. Modtag af hver medspiller kr. 200</sentence>
+    <sentence label="partyDesc">De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks.
+        Modtag fra hver medspiller kr. 500</sentence>
+    <sentence label="familyPartyDesc">De skal holde familiefest og får et tilskud fra hver medspiller på kr. 500</sentence>
+
+    <sentence label="startCardDesc">Ryk frem til START</sentence>                                                                                    <!-- 2 of these-->
+    <sentence label="threeForwardCardDesc">Ryk tre felter frem</sentence>
+    <sentence label="threeBackwardCardOnDesc">Ryk tre felter tilbage</sentence> <!-- 2 of these-->
+    <sentence label="frederiksbergCardDesc">Ryk frem til Frederiksberg Allé. Hvis De passere START, indkasser da kr. 4000</sentence>
+    <sentence label="moveNearestShippingCardDesc">Ryk frem til det nærmeste rederi og betal ejeren to gange den leje han ellers er
+        berettiget til, hvis selskabet ikke ejes af nogen kan De købe det af banken</sentence>                                          <!-- 2 of these-->
+    <sentence label="mols-linjenCardDesc">Tag med Mols-Linien, flyt brikken frem og hvis De passerer START indkassér da kr.
+        4000</sentence>
+    <sentence label="groenningenCardOnUseDesc">Ryk frem til Grønningen, hvis De passerer start indkasser da kr. 4000</sentence>
+    <sentence label="vimmelskaftetCardDesc">Ryk frem til Vimmelskaftet, hvis de passerer start indkasser da kr. 4000</sentence>
+    <sentence label="moveNearestFerryCardDesc">Tag med den nærmeste færge, hvis de passerer start indkasser da kr. 4000</sentence>
+    <sentence label="strandvejenCardDesc">Ryk frem til Strandvejen. Hvis De passere START, indkasser da kr. 4000</sentence>
+    <sentence label="raadhuspladsenCardDesc">Tag til Rådhuspladsen</sentence>
+
+    <sentence label="pardonCardDesc">I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan
+        opbevares indtil De får brug for det, eller De kan sælge det.</sentence>                                                        <!-- 2 of these-->
+    <sentence label="teleportCardDesc">Gå i fængsel, De indkasserer ikke kr. 4000 for at passere start</sentence>                                       <!-- 2 of these-->
+
+
+
+
+
+
+</locale>
