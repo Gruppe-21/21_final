@@ -27,8 +27,8 @@ public class SquareController {
         // handle when player has moved to
 
         // Pass data on to view
+        //updateView();
         view.landedOnMessage(model, playerController.getPlayer());
-        updateView();
         playerController.getStatusEffects().enableEffect(model.getStatusEffect());
     }
 
