@@ -3,6 +3,7 @@ package com.gruppe21.game;
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
 import com.gruppe21.squares.controllers.SquareController;
+import com.gruppe21.squares.controllers.TeleportSquareController;
 import com.gruppe21.utils.BoardLoader;
 import org.xml.sax.SAXException;
 
@@ -17,6 +18,11 @@ public class Board {
         try {
             squareControllers = BoardLoader.loadBoard("main_board");
             setGroups();
+            for (SquareController square: squareControllers) {
+                if (square instanceof TeleportSquareController){
+                    ((TeleportSquareController) square).setDestinationController(getSquareControllerFromId(((TeleportSquareController) square).getDestinationId()));
+                }
+            }
 
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();

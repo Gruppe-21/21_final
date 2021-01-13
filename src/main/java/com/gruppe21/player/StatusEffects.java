@@ -37,4 +37,17 @@ public class StatusEffects {
         identicalDice += numDice;
     }
 
+    private static final int numEffects = 1;
+    //Should use an enum probably
+    public void enableEffect(int effect){
+        for (int i = 0; i < numEffects; i++) {
+            if ((effect>>i) == 0){
+                return;
+            }
+            switch (i){
+                case 0 : setImprisoned(true);
+            }
+        }
+    }
+
 }
