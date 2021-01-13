@@ -19,12 +19,11 @@ public class PlayerView {
     }
 
     public int startTurn() {
-        return guiManager.getUserButtonPressed("STARTTURNMESG","STARTTURN","BUILDSTUFF", "PAYOFFMORTGAGEs","LIQUIDATEASSETS");/*
-                localisation.getStringValue("startTurnMesgLabel"),
-                localisation.getStringValue("startTurnButtonLabel"),
-                localisation.getStringValue("purchaseBuildingsButtonLabel"),
-                localisation.getStringValue("payOffMortgagesButtonLabel"),
-                localisation.getStringValue("liquidateAssetsButtonLabel"));*/
+        return guiManager.getUserButtonPressed(
+                localisation.getStringValue("start_turn_msg_label"),
+                localisation.getStringValue("start_turn_button_label"),
+                localisation.getStringValue("purchase_buildings_button_label"),
+                localisation.getStringValue("liquidate_assets_button_label"));
     }
 
 
