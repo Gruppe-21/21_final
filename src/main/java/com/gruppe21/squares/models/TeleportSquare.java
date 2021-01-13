@@ -31,7 +31,7 @@ public class TeleportSquare extends Square {
                 xmlTag.getAttribute("label"), // Name ID
                 xmlTag.getAttribute("description"), // Description ID
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
-                0,
+                parseInt(xmlTag.getAttribute("statusEffect")),
                 parseInt(xmlTag.getAttribute("destinationId"))
         );
     }
