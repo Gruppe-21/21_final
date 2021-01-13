@@ -25,7 +25,7 @@ public class Localisation {
     private static  final String TAG_LOCALE = "locale";
     private static  final String ATTRIBUTE_LANGUAGE_LOCALE = "lang";
     private static  final String ATTRIBUTE_LANGUAGE_NAME = "name";
-    private static final String  START_LOCALE = "en_US";
+    private static final String  START_LOCALE = "da_DK";
 
     private static  final String TAG_SENTENCE = "sentence";
     private static  final String ATTRIBUTE_LABEL = "label";

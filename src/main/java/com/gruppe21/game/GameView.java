@@ -19,7 +19,7 @@ public class GameView {
     public void selectLanguage(){
         localisation.setCurrentLocale(
                 guiManager.getUserChoiceDropDown(
-                        "🌍",
+                        "\uD83C\uDF0D",
                         localisation.getAllLocales()
                 ).substring(0,5)
         );
@@ -30,7 +30,7 @@ public class GameView {
     }
 
     public int askNumberOfPlayers(int minNumPlayers, int maxNumPlayers){
-        return GUIManager.getInstance().getUserInteger("ASK NUM PLAYERS, GameView askNumberOfPlayers", minNumPlayers, maxNumPlayers);
+        return GUIManager.getInstance().getUserInteger(Localisation.getInstance().getStringValue("requestSpecifyNumPlayers"), minNumPlayers, maxNumPlayers);
     }
 
     public PlayerController askForFirstPlayer(PlayerController... playerControllers){
@@ -38,7 +38,7 @@ public class GameView {
         for (int i = 0; i < names.length; i++) {
             names[i] = playerControllers[i].getName();
         }
-        String choosenPlayerName = GUIManager.getInstance().getUserChoiceDropDown("ASK FIRST PLAYER, GameView askForFirstPlayer", names);
+        String choosenPlayerName = GUIManager.getInstance().getUserChoiceDropDown( Localisation.getInstance().getStringValue("askForFirstPlayer"), names);
         for (int i = 0; i < names.length; i++) {
             if (choosenPlayerName.equals(names[i])) return playerControllers[i];
         }
