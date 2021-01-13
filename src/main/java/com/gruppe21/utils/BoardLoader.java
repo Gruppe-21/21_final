@@ -38,7 +38,13 @@ public class BoardLoader {
         for (SquareController squareController: squareControllers) {
             if (squareController.getClass() == CardSquareController.class)
                 ((CardSquareController) squareController).setDeck(deck);
-            //TODO: set destination of teleport square
+            else if (squareController instanceof TeleportSquareController){
+                for (SquareController potentialDestination: squareControllers) {
+                    if (potentialDestination.getId() == ((TeleportSquareController) squareController).getDestinationId()){
+                        ((TeleportSquareController) squareController).setDestinationController(potentialDestination);
+                    }
+                }
+            }
         }
 
         return squareControllers;
