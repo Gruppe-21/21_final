@@ -58,7 +58,7 @@ public class PlayerView {
     }
 
     public void imprisonedDiceCheater(){
-        guiManager.waitForUserAcknowledgement("'GO TO PRISON, DICE CHEATER!' TEXT");
+        guiManager.waitForUserAcknowledgement(Localisation.getInstance().getStringValue("dice_cheater"));
     }
 
     /**
@@ -73,6 +73,7 @@ public class PlayerView {
         for (int i = 0; i < options.length; i++) {
             options[i] = i + ": JAIL REMOVAL CHOICE " + i + ", PlayerView chooseJailRemoval";
         }
+
         int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
         return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
     }
