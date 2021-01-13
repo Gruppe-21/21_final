@@ -164,7 +164,11 @@ public class Board {
             if( squareController instanceof OwnableSquareController)
             {
                 OwnableSquareController pController = (OwnableSquareController)squareController;
-                pController.setGroup(getSquaresOfColor(pController.getGroupColor()));
+                if (pController.getGroup() != null) continue;
+                OwnableSquareController[] group = getSquaresOfColor(pController.getGroupColor());
+                for (OwnableSquareController groupController: group) {
+                    groupController.setGroup(group);
+                }
             }
         }
     }
