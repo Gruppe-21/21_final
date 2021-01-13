@@ -1,5 +1,6 @@
 package com.gruppe21.utils;
 
+
 import com.gruppe21.deck.Deck;
 import com.gruppe21.squares.controllers.*;
 import com.gruppe21.squares.models.*;
@@ -117,6 +118,8 @@ public class BoardLoader {
                 return new SquareController(square2Model, square2View);
         }
     }
+
+
 
 
 }
