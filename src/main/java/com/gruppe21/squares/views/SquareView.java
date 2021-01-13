@@ -34,7 +34,7 @@ public class SquareView {
         String name = localisation.getStringValue(model.getNameLocalisationId());
         String description = localisation.getStringValue(model.getDescriptionLocalisationId());
 
-        guiManager.waitForUserAcknowledgement(model.getDescriptionLocalisationId());
+        guiManager.waitForUserAcknowledgement(description);
     }
 
     public String getName(Square model) {
