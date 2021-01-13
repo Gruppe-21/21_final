@@ -41,9 +41,9 @@ public class PlayerView {
 
     public String chooseName(int minLength, int maxLength){
         String name = "";
-        name = guiManager.getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
+        name = guiManager.getUserTextInput(Localisation.getInstance().getStringValue("request_player_name"), minLength, maxLength, true).trim();
         while (name.isEmpty()){
-            name = guiManager.getUserTextInput("ASK NAME, you did it wrong (PlayerView chooseName)", minLength, maxLength, true).trim();
+            name = guiManager.getUserTextInput(Localisation.getInstance().getStringValue("request_player_name_fail"), minLength, maxLength, true).trim();
         }
         return name;
     }
