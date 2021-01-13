@@ -141,6 +141,10 @@ public class PlayerView {
         return chooseProperty(properties, "PAY OFF PROPERTY MORTGAGE LABEL HERE");
     }
 
+    public void crossStartMessage(){
+        guiManager.waitForUserAcknowledgement("CROSS START MESSAGE (PLAYERVIEW)");
+    }
+
 
     //Temporary
     private static Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
