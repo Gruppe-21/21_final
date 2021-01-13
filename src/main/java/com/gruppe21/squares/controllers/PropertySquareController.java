@@ -76,8 +76,9 @@ public class PropertySquareController extends OwnableSquareController {
 
     @Override
     public void sell() {
-        for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
-            property.sellHouses(property.getNumHouses());
+        for (OwnableSquareController property: model.getGroup()) {
+            PropertySquareController pProperty = (PropertySquareController)property;
+            (pProperty).sellHouses(pProperty.getNumHouses());
         }
         sellHouses(getNumHouses());
         super.sell();
