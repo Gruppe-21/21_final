@@ -83,7 +83,12 @@ public class BoardLoader {
                 moneySquareModel.setSquareType(SquareType.Start);
                 SquareView moneyView = new SquareView();
                 return new MoneySquareController(moneySquareModel, moneyView);
-            case  "AddedTaxSquare":
+            case "MoneySquare":
+                MoneySquare moneySquareModel2 = new MoneySquare(tag);
+                moneySquareModel2.setSquareType(SquareType.Tax);
+                SquareView moneyView2 = new SquareView();
+                return new MoneySquareController(moneySquareModel2, moneyView2);
+            case  "TaxSquare":
                 TaxSquare taxSquareModel = new TaxSquare(tag);
                 taxSquareModel.setSquareType(SquareType.Tax);
                 TaxSquareView taxView = new TaxSquareView();
