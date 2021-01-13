@@ -17,7 +17,7 @@ public class MoneySquareController extends SquareController{
         modifyMoney(playerController);
     }
 
-    private void modifyMoney(PlayerController playerController){
+    protected void modifyMoney(PlayerController playerController){
         playerController.transferMoney(-((MoneySquare)model).getModifyAmount(), null);
     }
 
