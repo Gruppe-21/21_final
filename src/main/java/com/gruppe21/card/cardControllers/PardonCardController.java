@@ -21,6 +21,7 @@ public class PardonCardController extends CardController {
 
     @Override
     public void use(PlayerController user) {
+        user.getStatusEffects().setImprisoned(false);
         super.use(user);
     }
 
