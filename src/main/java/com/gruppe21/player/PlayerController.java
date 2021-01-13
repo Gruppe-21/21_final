@@ -187,7 +187,15 @@ public class PlayerController {
                     //TODO: implement choice of selling property or building(s)
                     OwnableSquareController[] properties = player.getOwnedProperties();
                     if (properties.length > 0)
-                        playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
+                    {
+                        switch (playerView.chooseSellBuildingOrProperty(getTotalNumberOfBuildings() > 0)){
+                            case 0 :
+                                playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
+                                break;
+                            case 1:
+                            //    playerView.chooseBuildngsToSell(player.getBuiltProperties())
+                        }
+                    }
                     break;
                 }
                 case 1: {
