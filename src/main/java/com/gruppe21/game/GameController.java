@@ -2,6 +2,7 @@ package com.gruppe21.game;
 
 
 import com.gruppe21.player.PlayerController;
+import com.gruppe21.squares.controllers.SquareController;
 
 public class GameController {
     private static GameController gameController;
@@ -84,7 +85,9 @@ public class GameController {
     }
 
 
-
-
-
+//This really, really should not be here!
+    public boolean crossedStart(SquareController startPosition, SquareController endPosition){
+        Board board = game.getBoard();
+        return board.getDistanceBetween(startPosition, board.getFirstSquareController()) < board.getDistanceBetween(endPosition, board.getFirstSquareController());
+    }
 }
