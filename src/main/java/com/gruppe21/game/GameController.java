@@ -41,6 +41,9 @@ public class GameController {
     public void startGame(){
         while (game.getNumPlayers() > 1){
             doRound(game.nextPlayer());
+            if (getCurrentPlayer().isBankrupt()){
+                game.removePlayer(getCurrentPlayer());
+            }
         }
     }
 
