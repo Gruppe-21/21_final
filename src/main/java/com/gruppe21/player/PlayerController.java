@@ -152,6 +152,7 @@ public class PlayerController {
             //Sell houses
             //Transfer cash
             //Transfer properties
+            player.setBankrupt(true);
             return;
         }
         if (player.getBalance() < debit) //We can pay but we don't have enough cash
@@ -336,6 +337,13 @@ public class PlayerController {
     }
 
 
+    public void setBankrupt(boolean bankrupt){
+        player.setBankrupt(bankrupt);
+    }
+
+    public boolean isBankrupt(){
+        return player.isBankrupt();
+    }
 
 
     //This makes me sad
