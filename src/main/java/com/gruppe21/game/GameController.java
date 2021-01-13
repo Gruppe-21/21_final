@@ -88,6 +88,8 @@ public class GameController {
 //This really, really should not be here!
     public boolean crossedStart(SquareController startPosition, SquareController endPosition){
         Board board = game.getBoard();
-        return board.getDistanceBetween(startPosition, board.getFirstSquareController()) < board.getDistanceBetween(endPosition, board.getFirstSquareController());
+        SquareController start = board.getFirstSquareController();
+        if (startPosition == start || endPosition == start) return false;
+        return board.getDistanceBetween(startPosition, start) < board.getDistanceBetween(endPosition, start);
     }
 }
