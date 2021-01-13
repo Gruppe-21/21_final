@@ -20,7 +20,7 @@ public class Board {
             setGroups();
             for (SquareController square: squareControllers) {
                 if (square instanceof TeleportSquareController){
-                    ((TeleportSquareController) square).setDestinationController(getSquareControllerFromId(square.));
+                    ((TeleportSquareController) square).setDestinationController(getSquareControllerFromId(((TeleportSquareController) square).getDestinationId()));
                 }
             }
 
