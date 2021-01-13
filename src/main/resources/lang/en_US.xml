@@ -2,6 +2,40 @@
 <locale lang="en_US" name="English">
     <sentence label="word1">This is a sentence.</sentence>
 
+    <sentence label="start">START</sentence>
+    <sentence label="rødovrevej">Rødovrevej</sentence>
+    <sentence label="prøv_lykken">Prøv Lykken</sentence>
+    <sentence label="hvidovrevej"> </sentence>
+    <sentence label="betal_indkomstskat"> </sentence>
+    <sentence label="scandlines1"> </sentence>
+    <sentence label="scandlines2"> </sentence>
+    <sentence label="scandlines3"> </sentence>
+    <sentence label="scandlines4"> </sentence>
+    <sentence label="roskildevej"> </sentence>
+    <sentence label="valby_langgade"> </sentence>
+    <sentence label="allegade"> </sentence>
+    <sentence label="på_besøg"> </sentence>
+    <sentence label="frederiksberg_alle"> </sentence>
+    <sentence label="tuborg_squash_tapperi"> </sentence>
+    <sentence label="bulowsvej"> </sentence>
+    <sentence label="gl_kongevej"> </sentence>
+    <sentence label="bernstorffsvej"> </sentence>
+    <sentence label="hellerupvej"> </sentence>
+    <sentence label="strandvejen"> </sentence>
+    <sentence label="parkering"> </sentence>
+    <sentence label="trianglen"> </sentence>
+    <sentence label="østerbrogade"> </sentence>
+    <sentence label="grønningen"> </sentence>
+    <sentence label="bredgade"> </sentence>
+    <sentence label="kgs_nytorv"> </sentence>
+    <sentence label="østergade"> </sentence>
+    <sentence label="de_fængsles"> </sentence>
+    <sentence label="amagertorv"> </sentence>
+    <sentence label="vimmelskaftet"> </sentence>
+    <sentence label="nygade"> </sentence>
+    <sentence label="frederiksberggade"> </sentence>
+    <sentence label="tax"> </sentence>
+    <sentence label="rådhuspladsen"> </sentence>
 
     <sentence label="currency">₩�[VALUE]</sentence>
     <sentence label="bankName">The Bank®</sentence>
