@@ -6,9 +6,6 @@ import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
 
 public class MoneyCardController extends CardController  {
-    private ModifyMoneyCard card;
-    private CardView view;
-
     public MoneyCardController(CardView view, ModifyMoneyCard card) {
         super(view, card);
     }
@@ -31,25 +28,25 @@ public class MoneyCardController extends CardController  {
      */
     @Override
     public void use(PlayerController user) {
-        if (card == null || cardView == null) return; //This should never happen
+        ModifyMoneyCard mCard = (ModifyMoneyCard)card;
         super.use(user);
 
-        if (card.getIsLegat() && user.getPlayer().getTotalValue() > card.getMinMoney()) { // (15000) Total value or cash value?
-            user.transferMoney(-card.getModifyValue(), null); // (40000) negative number?
+        if (mCard.getIsLegat() && user.getPlayer().getTotalValue() > mCard.getMinMoney()) { // (15000) Total value or cash value?
+            user.transferMoney(-mCard.getModifyValue(), null); // (40000) negative number?
         } else if(isHouseAndHotelCard()){
             if(user.getPlayer().getOwnedProperties().length > 0){
-                int feeHouse = card.getMoneyHouse() * user.getTotalNumberOfHouses();
-                int feeHotel = card.getMoneyHotel() * user.getTotalNumberOfHotels();
+                int feeHouse = mCard.getMoneyHouse() * user.getTotalNumberOfHouses();
+                int feeHotel = mCard.getMoneyHotel() * user.getTotalNumberOfHotels();
 
                 int totalFee = feeHouse + feeHotel;
 
                 user.transferMoney(totalFee, null);
             }
         }else{
-            if (card.isFromBank()) user.addBalance(-card.getModifyValue()); // negative number?
+            if (mCard.isFromBank()) user.transferMoney(mCard.getModifyValue(), null);
             else {
                 for (PlayerController playerController : GameController.getInstance().getPlayerControllers()) {
-                    playerController.transferMoney(card.getModifyValue(), user);
+                    playerController.transferMoney(mCard.getModifyValue(), user);
                 }
             }
         }
@@ -58,7 +55,7 @@ public class MoneyCardController extends CardController  {
     }
 
     public boolean isHouseAndHotelCard(){
-        return this.card.getMoneyHouse() > 0;
+        return ((ModifyMoneyCard)card).getMoneyHouse() > 0;
     }
 
 }

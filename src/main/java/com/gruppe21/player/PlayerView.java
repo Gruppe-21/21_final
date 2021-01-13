@@ -36,7 +36,7 @@ public class PlayerView {
 
     public void rollDice(Player player, int... diceValues){
         //tells the player to roll
-        guiManager.getUserButtonPress(localisation.getStringValue("start_turn_msg_label", player.getName()), localisation.getStringValue("rollButton")); //TODO: use localisation
+        guiManager.getUserButtonPress(localisation.getStringValue("start_turn_msg_label", player.getName()), localisation.getStringValue("rollButton"));
         //What if there isn't two values?
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }
