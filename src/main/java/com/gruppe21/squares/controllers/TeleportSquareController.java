@@ -10,6 +10,7 @@ public class TeleportSquareController extends SquareController {
         super(model, view);
     }
 
+    @Override
     public void onMoveTo(PlayerController playerController){
         super.onMoveTo(playerController);
         playerController.teleportTo(((TeleportSquare)model).getDestinationController());
