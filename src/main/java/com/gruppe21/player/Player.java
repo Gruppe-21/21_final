@@ -142,22 +142,23 @@ public class Player {
     public OwnableSquareController[] getMortgagedProperties(){
         return getPropertiesWithMortgagedStatus(true);
     }
-
+/*
     private int getNumMortgagedProperties(){
         return getNumPropertiesWithMortgagedStatus(true);
     }
-
+*/
     public OwnableSquareController[] getNonMortgagedProperties(){
         return getPropertiesWithMortgagedStatus(false);
     }
 
+    /*
     private int getNumNonMortgagedProperties(){
         return getNumPropertiesWithMortgagedStatus(false);
     }
-
+*/
 
     private OwnableSquareController[] getPropertiesWithMortgagedStatus(boolean mortgaged){
-        OwnableSquareController[] propertiesWithMortgagedStatus = new OwnableSquareController[getNumNonMortgagedProperties()];
+        OwnableSquareController[] propertiesWithMortgagedStatus = new OwnableSquareController[getNumPropertiesWithMortgagedStatus(mortgaged)];
         int addedProperties = 0;
         for (int i = 0; i < getOwnedProperties().length; i++) {
             if (ownedProperties[i].isMortgaged() == mortgaged){
@@ -165,12 +166,7 @@ public class Player {
                 addedProperties++;
             }
         }
-        OwnableSquareController[] resizedArray = new OwnableSquareController[addedProperties];
-        for (int i = 0; i < addedProperties; i++) {
-            resizedArray[i] = propertiesWithMortgagedStatus[i];
-        }
-
-        return resizedArray;
+        return propertiesWithMortgagedStatus;
     }
 
     private int getNumPropertiesWithMortgagedStatus(boolean mortgaged){
