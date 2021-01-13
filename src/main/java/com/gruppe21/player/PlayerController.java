@@ -108,6 +108,9 @@ public class PlayerController {
      * @param squareController
      */
     public void moveTo(SquareController squareController){
+        if (GameController.getInstance().crossedStart(getPlayer().getPosition(), squareController)){
+            addBalance(4000);
+        }
         teleportTo(squareController);
         squareController.onMoveTo(this);
     }
