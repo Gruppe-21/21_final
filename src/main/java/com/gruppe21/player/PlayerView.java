@@ -117,6 +117,7 @@ public class PlayerView {
     }
 
     public OwnableSquareController chooseProperty(OwnableSquareController[] properties, String messageLabel){
+        if (properties == null) return null;
         String[] names = new String[properties.length];
         for (int i = 0; i < names.length; i++) {
             names[i] = properties[i].getName();
