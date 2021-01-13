@@ -18,9 +18,9 @@ public class PlayerView {
         guiManager = GUIManager.getInstance();
     }
 
-    public int startTurn() {
+    public int startTurn(Player model) {
         return guiManager.getUserButtonPressed(
-                localisation.getStringValue("start_turn_msg_label"),
+                localisation.getStringValue("start_turn_msg_label", model.getName()),
                 localisation.getStringValue("start_turn_button_label"),
                 localisation.getStringValue("purchase_buildings_button_label"),
                 localisation.getStringValue("liquidate_assets_button_label"));
@@ -33,7 +33,7 @@ public class PlayerView {
      */
     public void rollDice(int... diceValues){
         //tells the player to roll
-        guiManager.waitForUserAcknowledgement(localisation.getStringValue("rollDiceMesgLabel")); //TODO: use localisation
+        guiManager.waitForUserAcknowledgement(localisation.getStringValue("rollDice")); //TODO: use localisation
         //What if there isn't two values?
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }

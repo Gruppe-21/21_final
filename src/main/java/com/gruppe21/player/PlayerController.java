@@ -39,7 +39,7 @@ public class PlayerController {
         if (isBankrupt()) return;
         boolean roll = false;
         while (!roll){
-            switch (playerView.startTurn()){
+            switch (playerView.startTurn(player)){
                 case 0 : {
                     roll = true;
                     break;
