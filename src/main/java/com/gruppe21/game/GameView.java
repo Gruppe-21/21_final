@@ -19,7 +19,7 @@ public class GameView {
     public void selectLanguage(){
         localisation.setCurrentLocale(
                 guiManager.getUserChoiceDropDown(
-                        localisation.getStringValue("select_language"),
+                        "\uD83C\uDF0D",
                         localisation.getAllLocales()
                 ).substring(0,5)
         );
