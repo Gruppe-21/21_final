@@ -29,11 +29,13 @@ public class PlayerView {
 
     /**
      *
+     * @param player
      * @param diceValues
      */
-    public void rollDice(int... diceValues){
+
+    public void rollDice(Player player, int... diceValues){
         //tells the player to roll
-        guiManager.waitForUserAcknowledgement(localisation.getStringValue("rollDice")); //TODO: use localisation
+        guiManager.getUserButtonPress(localisation.getStringValue("start_turn_msg_label", player.getName()), localisation.getStringValue("rollButton")); //TODO: use localisation
         //What if there isn't two values?
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }

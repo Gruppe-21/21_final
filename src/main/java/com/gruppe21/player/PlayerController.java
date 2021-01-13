@@ -83,7 +83,7 @@ public class PlayerController {
                 }
             }
         }
-        playerView.rollDice(diceRolls);
+        playerView.rollDice(player, diceRolls);
         if (status.getIdenticalDice() == 3){
             playerView.imprisonedDiceCheater();
             status.setImprisoned(true);
