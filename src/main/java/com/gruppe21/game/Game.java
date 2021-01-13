@@ -83,6 +83,7 @@ public class Game {
         int oldIndex = currentPlayerIndex++;
         while (currentPlayerIndex != oldIndex){
             if (getCurrentPlayer() == currentPlayer) return;
+            currentPlayerIndex++;
         }
         //Should throw exception if we get here
     }
@@ -98,6 +99,7 @@ public class Game {
         int oldIndex = currentPlayerIndex++;
         while (currentPlayerIndex != oldIndex){
             if (getNextPlayer() == nextPlayer) return;
+            currentPlayerIndex++;
         }
         //Should throw exception if we get here
     }
