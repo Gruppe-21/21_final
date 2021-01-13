@@ -36,6 +36,7 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
+        if (isBankrupt()) return;
         boolean roll = false;
         while (!roll){
             switch (playerView.startTurn()){
@@ -90,6 +91,7 @@ public class PlayerController {
             teleportTo(board.getSquareControllerFromId(31));
             return;
         }
+        if (isBankrupt()) return;
         if (!status.isImprisoned())
             moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
         if (status.getIdenticalDice() > 0) takeTurn(board);
@@ -149,9 +151,17 @@ public class PlayerController {
         if (creditor == this) return;
         if (player.getTotalValue() < debit){ //We have gone bankrupt
             //We have gone bankrupt
-            //Sell houses
-            //Transfer cash
-            //Transfer properties
+            //Sell houses and transfer properties
+            for (OwnableSquareController ownableSquare: getPlayer().getOwnedProperties()) {
+                if (ownableSquare instanceof PropertySquareController ){
+                    ((PropertySquareController) ownableSquare).sellHouses(((PropertySquareController) ownableSquare).getNumHouses());
+                }
+                creditor.purchaseProperty(ownableSquare, 0);
+            }
+            //Transfer all cash
+            transferMoney(player.getBalance(), creditor);
+
+            player.setBankrupt(true);
             return;
         }
         if (player.getBalance() < debit) //We can pay but we don't have enough cash
@@ -336,6 +346,13 @@ public class PlayerController {
     }
 
 
+    public void setBankrupt(boolean bankrupt){
+        player.setBankrupt(bankrupt);
+    }
+
+    public boolean isBankrupt(){
+        return player.isBankrupt();
+    }
 
 
     //This makes me sad
