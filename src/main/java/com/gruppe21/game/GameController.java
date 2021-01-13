@@ -45,6 +45,7 @@ public class GameController {
                 game.removePlayer(getCurrentPlayer());
             }
         }
+        gameView.displayWinner(game.getCurrentPlayer());
     }
 
     /**
