@@ -11,7 +11,7 @@
     <IncomeTaxSquare id="5" label="betal indkomstskat" description="betalIndkomstskatdesc" value_main="4000"
                      value_alt="10%"/>
     <Shipping id="6" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"
-                    rent_base="500" pawnValue="2000"/>
+                    rent_base="500" rent_1="1000" rent_2="2000" rent_3="4000"  pawnValue="2000"/>
 
     <!-- Husk logik med rent id6-->
 
@@ -46,7 +46,7 @@
                     rent_1house="1250" rent_2house="3750" rent_3house="10000" rent_4house="14000" rent_hotel="18000"
                     buildingCost="2000" pawnValue="1600"/>
     <Shipping id="16" label="mols-linien" description="mols-liniendesc" price="4000" color="shippingCompany"
-                    rent_base="500" pawnValue="2000"/>
+              rent_base="500" rent_1="1000" rent_2="2000" rent_3="4000"  pawnValue="2000"/>
 
     <!-- Husk logik med rent id16-->
 
@@ -74,7 +74,7 @@
                     rent_1house="2000" rent_2house="6000" rent_3house="15000" rent_4house="18500" rent_hotel="22000"
                     buildingCost="3000" pawnValue="2400"/>
     <Shipping id="26" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"
-                    rent_base="500" pawnValue="2000"/>
+              rent_base="500" rent_1="1000" rent_2="2000" rent_3="4000"  pawnValue="2000"/>
 
     <!-- Husk logik med rent id26-->
 
@@ -107,7 +107,7 @@
                     rent_1house="3000" rent_2house="9000" rent_3house="20000" rent_4house="24000" rent_hotel="28000"
                     buildingCost="3000" pawnValue="3200"/>
     <Shipping id="36" label="scandlines" description="scandlinesdesc" price="4000" color="shippingCompany"
-                    rent_base="500" pawnValue="2000"/>
+              rent_base="500" rent_1="1000" rent_2="2000" rent_3="4000"  pawnValue="2000"/>
 
     <!-- Husk logik med rent id36-->
 
