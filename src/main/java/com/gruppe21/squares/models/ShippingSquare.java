@@ -29,8 +29,8 @@ public class ShippingSquare extends OwnableSquare {
                 ColorUtil.getColor(xmlTag.getAttribute("color")), // Color
                 0, // StatusEffect
                 parseInt(xmlTag.getAttribute("price")),  // price
-                xmlTag.getAttribute("color")
-                //TODO: read rent array
+                xmlTag.getAttribute("color"),
+                readRent(xmlTag)
         );
     }
 
@@ -48,7 +48,7 @@ public class ShippingSquare extends OwnableSquare {
         for (OwnableSquareController ownableSquareController : getGroup()) {
             if (ownableSquareController.getOwner() == this.getOwner()) numOwnedInGroup++;
         }
-        return rent[numOwnedInGroup];
+        return rent[numOwnedInGroup - 1];
     }
 
 }
