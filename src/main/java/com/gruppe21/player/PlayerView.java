@@ -40,7 +40,12 @@ public class PlayerView {
     }
 
     public String chooseName(int minLength, int maxLength){
-        return guiManager.getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
+        String name = "";
+        guiManager.getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
+        while (name.isEmpty()){
+            name = guiManager.getUserTextInput("ASK NAME, you did it wrong (PlayerView chooseName)", minLength, maxLength, true).trim();
+        }
+        return name;
     }
 
     public GUI_Car customiseCar(){
