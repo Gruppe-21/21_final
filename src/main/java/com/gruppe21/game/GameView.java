@@ -8,15 +8,19 @@ import gui_fields.GUI_Empty;
 import java.awt.*;
 
 public class GameView {
+    GUIManager guiManager;
+    Localisation localisation;
 
     public GameView(){
+        guiManager = GUIManager.getInstance();
+        localisation = Localisation.getInstance();
     }
 
     public void selectLanguage(){
-        Localisation.getInstance().setCurrentLocale(
-                GUIManager.getInstance().getUserChoiceDropDown(
-                        Localisation.getInstance().getStringValue("select_language"),
-                        Localisation.getInstance().getAllLocales()
+        localisation.setCurrentLocale(
+                guiManager.getUserChoiceDropDown(
+                        localisation.getStringValue("select_language"),
+                        localisation.getAllLocales()
                 ).substring(0,5)
         );
     }
@@ -39,6 +43,10 @@ public class GameView {
             if (choosenPlayerName.equals(names[i])) return playerControllers[i];
         }
         return null;
+    }
+
+    public void displayWinner(PlayerController playerController){
+        guiManager.waitForUserAcknowledgement(localisation.getStringValue("winnerText", playerController.getName()));
     }
 
 }

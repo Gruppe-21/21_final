@@ -1,6 +1,6 @@
 package com.gruppe21.game;
 
-import com.gruppe21.player.PlayerController;;
+import com.gruppe21.player.PlayerController;
 
 public class Game {
     public static final char MIN_PLAYERS = 3;
