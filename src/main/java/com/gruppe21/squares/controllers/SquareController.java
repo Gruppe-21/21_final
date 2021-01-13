@@ -29,6 +29,7 @@ public class SquareController {
         // Pass data on to view
         view.landedOnMessage(model, playerController.getPlayer());
         updateView();
+        playerController.getStatusEffects().enableEffect(model.getStatusEffect());
     }
 
     public GUI_Field getSquareField(){return model.getGuiField();}
