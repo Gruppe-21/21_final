@@ -71,20 +71,35 @@
     <sentence label="tax_desc">De skal nu betale kr. 2000</sentence>
     <sentence label="rådhuspladsen_desc">De er landet på Rådhuspladsen</sentence>
 
-    <sentence label="dice_cheater"> GO TO PRISON, DICE CHEATER! </sentence>
+    <sentence label="dice_cheater"> Gå i fængsel din snyder! </sentence>
     <sentence label="jail_removal_message"> Fængsel: </sentence>
     <sentence label="jail_removal_choice1"> Gør intet</sentence>
     <sentence label="jail_removal_choice2"> Brug kort</sentence>
     <sentence label="jail_removal_choice3"> Kast for løsladelse</sentence>
 
-    <sentence label="purchase_text">køb </sentence>
-    <sentence label="price_text">PRICE TEXT </sentence>
+    <sentence label="purchase_text">Køb �[Property] for </sentence>
     <sentence label="liquidate_text">LIQUIDATE ASSETS TEXT </sentence>
+    <sentence label="currency">�[VALUE] kr.</sentence>
 
     <sentence label="yes">Ja</sentence>
     <sentence label="no">Nej</sentence>
 
     <sentence label="select_language">Vælg et sprog</sentence>
+
+    <sentence label="liquidate_assets_text">Likvider aktier</sentence>
+    <sentence label="build_text">BYG</sentence>
+    <sentence label="sell_property_menu_button">SÆLG EJENDOM</sentence>
+    <sentence label="mortgage_menu_button">PANTSÆTNING</sentence>
+    <sentence label="trade_menu_button">HANDEL</sentence>
+    <sentence label="back_menu_button">TILBAGE</sentence>
+    <sentence label="liquidation_method_button">Likvideringsmetode </sentence>
+    <sentence label="sell_property">Sælg</sentence>
+    <sentence label="pay_off_mortgage">Betal pantsætning</sentence>
+    <sentence label="crossed_start">Du har passeret start, modtag kr. 4000!</sentence>
+    <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
+    <sentence label="purchase_buildings_button_label">KØB BYGNINGER</sentence>
+    <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
+    <sentence label="start_turn_button_label">START TUR</sentence>
 
     <!-- chancecard buttons -->
     <sentence label="moveButton">Ryk</sentence>
@@ -121,49 +136,9 @@
     <sentence label="request_player_name">Indtast navn</sentence>
     <sentence label="request_player_name_fail">Dette navn kan ikke bruges</sentence>
     <sentence label="askForFirstPlayer">Hvem skal starte?</sentence>
-
-    <sentence label="purchase_text">Køb</sentence>
-    <sentence label="price_text">$</sentence>
-    <sentence label="liquidate_assets_text">Likvider aktier</sentence>
-    <sentence label="build_text">BYG</sentence>
-    <sentence label="sell_property_menu_button">SÆLG EJENDOM</sentence>
-    <sentence label="mortgage_menu_button">PANTSÆTNING</sentence>
-    <sentence label="trade_menu_button">HANDEL</sentence>
-    <sentence label="back_menu_button">TILBAGE</sentence>
-    <sentence label="liquidation_method_button">Likvideringsmetode </sentence>
-    <sentence label="sell_property">Sælg</sentence>
-    <sentence label="pay_off_mortgage">Betal pantsætning</sentence>
-    <sentence label="crossed_start">Du har passeret start, modtag kr. 4000!</sentence>
-    <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
-    <sentence label="purchase_buildings_button_label">KØB BYGNINGER</sentence>
-    <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
-    <sentence label="start_turn_button_label">START TUR</sentence>
-
-
-
-    <sentence label="choosePiece">�[PLAYER_NAME]: Vælg en brik.</sentence>
-    <sentence label="winningMessage">�[PLAYER_BANKRUPT_NAME] er gået konkurs og efterlader �[WINNING_PLAYER_NAME] som vinderen.</sentence>
-    <sentence label="winningMessageTie">�[PLAYER_BANKRUPT_NAME] er gået konkurs og efterlader �[WINNING_PLAYER_NAME] lige med vinderen.</sentence>
-    <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE_NAME] tur!</sentence>
     <sentence label="rollButton">Kast</sentence>
-    <sentence label="buyplace">Du køber nu �[PROPERTY_NAME] for �[PRICE]</sentence>
-    <sentence label="payRent">Du skylder �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
-    <sentence label="paidRelease">Du skal betale �[PRICE_FOR_FREEDOM] for at forlade dette elendige sted og genvinde din frihed.</sentence>
-    <sentence label="startMessage">�[PLAYER_NAME] er yngst og vil derfor starte.</sentence>
-    <sentence label="askPlayerAdvanced">Vil I spille med avanceret regler? (Nu du ellers ville gå bankerot, kan du sælge dine ejendomme)</sentence>
 
 
-    <sentence label="sellProperties">Du skylder �[DEBT] til �[CREDITOR_NAME]. Vælg nedenunder de ejendomme, du ønsker at sælge til �[CREDITOR_NAME]:</sentence>
-    <sentence label="sellPropertiesBankrupt">Du skylder �[DEBT] til �[CREDITOR_NAME] men alt i alt ejer du kun �[NET_WORTH]. Du er gået fallit.</sentence>
-    <sentence label="nextBtn">Næste</sentence>
-    <sentence label="previousBtn">Forrige</sentence>
-
-
-
-    <!-- Error messages -->
-    <sentence label="unknownError">En ukendt fejl er sket.</sentence>
-    <sentence label="invalidNumber">Skal være et nummer mellem �[MIN_NUMBER] og �[MAX_NUMBER].</sentence>
-    <sentence label="invalidName">Ugyldigt navn</sentence>
 
     <!-- chancecard desc -->
     <sentence label="oilPricesDesc">Oliepriserne er steget, og De skal betale kr. 500 pr. hus og kr. 2000 pr. hotel</sentence>
