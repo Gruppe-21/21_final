@@ -7,10 +7,10 @@ import com.gruppe21.player.PlayerController;
 
 public class TeleportToNearestCardController extends CardController{
     private TeleportToNearestCard card;
-    private CardView view;
 
     public TeleportToNearestCardController(CardView view, TeleportToNearestCard card) {
         super(view, card);
+        this.card = card;
     }
 
 
