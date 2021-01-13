@@ -58,9 +58,13 @@ public class PropertySquareController extends OwnableSquareController {
 
     @Override
     public boolean mayBuild(){
-        if (this.getOwner() == null || this.getNumHouses() >= model.getMaxNumHouses()) return false;
-        if (((this.getNumHouses() == this.getMaxNumHouses()-1) && GameController.getInstance().getAvailableHotels() == 0) || //We want a hotel but there are none
-                ((this.getNumHouses() != this.getMaxNumHouses()-1)) && GameController.getInstance().getAvailableHouses() == 0) //We want a house but there are none
+        if (this.getOwner() == null || this.getNumHouses() >= model.getMaxNumHouses())
+            return false;
+        if ((this.getNumHouses() == this.getMaxNumHouses()-1) &&  GameController.getInstance().getAvailableHotels() == 0) //We want a hotel but there are none
+            return false;
+        if ((this.getNumHouses() < this.getMaxNumHouses() - 1) && GameController.getInstance().getAvailableHouses() == 0)  //We want a house but there are none
+            return false;
+
         for (PropertySquareController property: (PropertySquareController[]) model.getGroup()) {
             if (property.getOwner() != this.getOwner() || this.getNumHouses() - property.getNumHouses() > 0){
                 return false;
