@@ -25,6 +25,7 @@ public class Player {
     private OwnableSquareController[] ownedProperties;
     private int numOwnedProperties = 0;
     private StatusEffects statusEffects;
+    private boolean bankrupt;
 
     private GUI_Player guiPlayer;
 
@@ -188,6 +189,14 @@ public class Player {
 
     public Color[] getColors(){
         return new Color[] {guiPlayer.getPrimaryColor(), guiPlayer.getSecondaryColor()};
+    }
+
+    public boolean isBankrupt() {
+        return bankrupt;
+    }
+
+    public void setBankrupt(boolean bankrupt) {
+        this.bankrupt = bankrupt;
     }
 }
 
