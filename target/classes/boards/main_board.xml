@@ -93,7 +93,7 @@
     <PropertySquare id="30" label="østergade" description="østergadedesc" price="5600" color="milk" rent_base="500"
                     rent_1house="2400" rent_2house="7200" rent_3house="17000" rent_4house="20500" rent_hotel="24000"
                     houseCost="3000" hotelCost="3000" pawnValue="2800"/>
-    <GotoPrisonSquare id="31" label="de fængsles" description="deFængslesdesc"/>
+    <GotoPrisonSquare id="31" destinationId = "11" label="de fængsles" description="deFængslesdesc"/>
 
     <PropertySquare id="32" label="amagertorv" description="amagertorvdesc" price="6000" color="yellow" rent_base="550"
                     rent_1house="2600" rent_2house="7800" rent_3house="18000" rent_4house="22000" rent_hotel="25000"
