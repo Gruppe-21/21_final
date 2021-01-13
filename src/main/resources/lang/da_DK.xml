@@ -117,10 +117,27 @@
 
 
     <!-- Player instructions -->
-    <sentence label="requestSpecifyNumPlayers">Angiv antallet af spillere</sentence>
-    <sentence label="requestPlayerName">Skriv venligst dit navn, spiller �[PLAYER_NUMBER]</sentence>
-    <sentence label="requestPlayerAge">Skriv din alder, �[PLAYER_NAME]</sentence>
+    <sentence label="requestSpecifyNumPlayers">Hvor mange spiller? (min 3, max 6)</sentence>
+    <sentence label="request_player_name">Skriv venligst dit navn, spiller �[PLAYER_NUMBER]</sentence>
+    <sentence label="request_player_name_fail">Dette navn kan ikke bruges</sentence>
     <sentence label="askForFirstPlayer">Hvem skal starte?</sentence>
+
+    <sentence label="purchase_text">Køb</sentence>
+    <sentence label="price_text">$</sentence>
+    <sentence label="liquidate_assets_text">Likvider aktier</sentence>
+    <sentence label="build_text">BYG</sentence>
+    <sentence label="sell_property_menu_button">SÆLG EJENDOM</sentence>
+    <sentence label="mortgage_menu_button">PANTSÆTNING</sentence>
+    <sentence label="trade_menu_button">HANDEL</sentence>
+    <sentence label="back_menu_button">TILBAGE</sentence>
+    <sentence label="liquidation_method_button">Likvideringsmetode </sentence>
+    <sentence label="sell_property">Sælg</sentence>
+    <sentence label="pay_off_mortgage">Betal pantsætning</sentence>
+    <sentence label="crossed_start">Du har passeret start, modtag kr. 4000!</sentence>
+    <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
+    <sentence label="purchase_buildings_button_label">KØB BYGNINGER</sentence>
+    <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
+    <sentence label="start_turn_button_label">START TUR</sentence>
 
 
 
