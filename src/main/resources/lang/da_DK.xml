@@ -118,7 +118,7 @@
 
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Hvor mange spiller? (min 3, max 6)</sentence>
-    <sentence label="request_player_name">Skriv venligst dit navn, spiller �[PLAYER_NUMBER]</sentence>
+    <sentence label="request_player_name">Indtast navn</sentence>
     <sentence label="request_player_name_fail">Dette navn kan ikke bruges</sentence>
     <sentence label="askForFirstPlayer">Hvem skal starte?</sentence>
 
