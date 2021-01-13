@@ -112,24 +112,6 @@
     <sentence label="takeButton">Tag et andet kort</sentence>
     <sentence label="takecard">Tag et chancekort</sentence>
 
-    <!-- chancecard desc -->
-    <sentence label="startCardOnUseDesc">Ryk til �[START_SQUARE_NAME]. Du vil da få �[MONEY]</sentence> <!-- money value instead of '2'? -->
-    <sentence label="jailCardOnDrawDesc">Med dette kort kan du komme ud af fængslet gratis. Opbevar det, indtil det er nødvendigt.</sentence>
-    <sentence label="jailCardOnUseDesc">Du bruger dit komme ud af fængsel til gratis kort og frigives; kortet returneres til bunken</sentence>
-    <sentence label="homeworkCardOnUseDesc">Du har lavet alle dine lektier! Du modtager �[MONEY].
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="candyCardOnUseDesc">Du har spist for meget slik. Du skal betale �[PRICE] til �[BANK_NAME].
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdayCardOnUseDesc">Det er din fødselsdag! Alle skal betale dig �[PRICE].
-    </sentence> <!-- money value instead of '1'? -->
-    <sentence label="boardwalkCardOnUseDesc">Ryk til strandpromenaden</sentence>
-    <sentence label="moveUpToCardOnUseDesc">Ryk op til 5 felter frem.</sentence>
-    <sentence label="takeCardOrMoveCardOnUseDesc">Ryk 1 felt frem eller tag et andet chancekort.</sentence>
-    <sentence label="propertyCardOnUseDesc">WRITE_DESCRIPTION_HERE</sentence>
-
-    <sentence label="figureCardOnDrawDesc">Giv dette kort til [PLAYER_PIECE] og tag et andet chancekort.\n�[PLAYER_PIECE]: På din næste tur skal du flytte til en tilgængelig ejendom og købe den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
-    <sentence label="figureCardOnUseDesc">�[PLAYER_NAME]: Flyt til enhver tilgængelig ejendom og køb den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
-
 
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Hvor mange spiller? (min 3, max 6)</sentence>
