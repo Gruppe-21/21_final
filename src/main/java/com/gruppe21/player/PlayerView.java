@@ -86,7 +86,13 @@ public class PlayerView {
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
-        return guiManager.getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
+        String purchaseText = Localisation.getInstance().getStringValue("purchase_text");
+        String priceText = Localisation.getInstance().getStringValue("price_text");
+        String liquidateAssetsText = Localisation.getInstance().getStringValue("liquidate_assets_text");
+        String yesText = Localisation.getInstance().getStringValue("yes");
+        String noText = Localisation.getInstance().getStringValue("no");
+
+        return guiManager.getUserBoolean(purchaseText + name + priceText + price  + (liquidateAssets ? liquidateAssetsText : ""), yesText, noText);
     }
 
     /**
@@ -99,7 +105,11 @@ public class PlayerView {
         for (int i = 0; i < properties.length; i++) {
             choices[i] = properties[i].getName() + " " + properties[i].getBuildingCost();
         }
-        String choice = GUIManager.getInstance().getUserChoiceDropDown("BUILD TEXT", choices);
+
+        String buildText = Localisation.getInstance().getStringValue("build_text");
+
+
+        String choice = GUIManager.getInstance().getUserChoiceDropDown(buildText, choices);
         for (int i = 0; i < choice.length(); i++) {
             if (choice.equals(choices[i])) return properties[i];
         }
