@@ -132,11 +132,11 @@ public class Player {
                 numBuildableProperties++;
             }
         }
-        PropertySquareController[] tempArray = new PropertySquareController[numBuildableProperties];
+        PropertySquareController[] resizedArray = new PropertySquareController[numBuildableProperties];
         for (int i = 0; i < numBuildableProperties; i++) {
-            tempArray[i] = buildableProperties[i];
+            resizedArray[i] = buildableProperties[i];
         }
-        return tempArray;
+        return resizedArray;
     }
 
     public OwnableSquareController[] getMortgagedProperties(){
@@ -165,7 +165,12 @@ public class Player {
                 addedProperties++;
             }
         }
-        return propertiesWithMortgagedStatus;
+        OwnableSquareController[] resizedArray = new OwnableSquareController[addedProperties];
+        for (int i = 0; i < addedProperties; i++) {
+            resizedArray[i] = propertiesWithMortgagedStatus[i];
+        }
+
+        return resizedArray;
     }
 
     private int getNumPropertiesWithMortgagedStatus(boolean mortgaged){
