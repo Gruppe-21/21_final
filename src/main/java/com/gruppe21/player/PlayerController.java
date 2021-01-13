@@ -58,7 +58,7 @@ public class PlayerController {
             }
         }
 
-        int[] diceRolls = {random.nextInt(7), random.nextInt(7)};
+        int[] diceRolls = {random.nextInt(6) + 1, random.nextInt(6) + 1};
         lastRollForBrewery = diceRolls[0] + diceRolls[1];
         StatusEffects status = player.getStatusEffects();
         if (diceRolls[0] == diceRolls[1])
