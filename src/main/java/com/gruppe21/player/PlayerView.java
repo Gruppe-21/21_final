@@ -18,32 +18,33 @@ public class PlayerView {
         guiManager = GUIManager.getInstance();
     }
 
-    public int startTurn() {
-        return guiManager.getUserButtonPressed("STARTTURNMESG","STARTTURN","BUILDSTUFF", "PAYOFFMORTGAGEs","LIQUIDATEASSETS");/*
-                localisation.getStringValue("startTurnMesgLabel"),
-                localisation.getStringValue("startTurnButtonLabel"),
-                localisation.getStringValue("purchaseBuildingsButtonLabel"),
-                localisation.getStringValue("payOffMortgagesButtonLabel"),
-                localisation.getStringValue("liquidateAssetsButtonLabel"));*/
+    public int startTurn(Player model) {
+        return guiManager.getUserButtonPressed(
+                localisation.getStringValue("start_turn_msg_label", model.getName()),
+                localisation.getStringValue("start_turn_button_label"),
+                localisation.getStringValue("purchase_buildings_button_label"),
+                localisation.getStringValue("liquidate_assets_button_label"));
     }
 
 
     /**
      *
+     * @param player
      * @param diceValues
      */
-    public void rollDice(int... diceValues){
+
+    public void rollDice(Player player, int... diceValues){
         //tells the player to roll
-        guiManager.waitForUserAcknowledgement(localisation.getStringValue("rollDiceMesgLabel")); //TODO: use localisation
+        guiManager.getUserButtonPress(localisation.getStringValue("start_turn_msg_label", player.getName()), localisation.getStringValue("rollButton")); //TODO: use localisation
         //What if there isn't two values?
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }
 
     public String chooseName(int minLength, int maxLength){
         String name = "";
-        name = guiManager.getUserTextInput("ASK NAME (PlayerView chooseName)", minLength, maxLength, true).trim();
+        name = guiManager.getUserTextInput(Localisation.getInstance().getStringValue("request_player_name"), minLength, maxLength, true).trim();
         while (name.isEmpty()){
-            name = guiManager.getUserTextInput("ASK NAME, you did it wrong (PlayerView chooseName)", minLength, maxLength, true).trim();
+            name = guiManager.getUserTextInput(Localisation.getInstance().getStringValue("request_player_name_fail"), minLength, maxLength, true).trim();
         }
         return name;
     }
@@ -58,7 +59,7 @@ public class PlayerView {
     }
 
     public void imprisonedDiceCheater(){
-        guiManager.waitForUserAcknowledgement("'GO TO PRISON, DICE CHEATER!' TEXT");
+        guiManager.waitForUserAcknowledgement(Localisation.getInstance().getStringValue("dice_cheater"));
     }
 
     /**
@@ -73,6 +74,7 @@ public class PlayerView {
         for (int i = 0; i < options.length; i++) {
             options[i] = i + ": JAIL REMOVAL CHOICE " + i + ", PlayerView chooseJailRemoval";
         }
+
         int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
         return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
     }
@@ -85,7 +87,13 @@ public class PlayerView {
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
-        return guiManager.getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
+        String purchaseText = Localisation.getInstance().getStringValue("purchase_text", name);
+        String priceText = Localisation.getInstance().getStringValue("currency", Integer.toString(price));
+        String liquidateAssetsText = Localisation.getInstance().getStringValue("liquidate_assets_text");
+        String yesText = Localisation.getInstance().getStringValue("yes");
+        String noText = Localisation.getInstance().getStringValue("no");
+
+        return guiManager.getUserBoolean(purchaseText + priceText  + (liquidateAssets ? liquidateAssetsText : ""), yesText, noText);
     }
 
     /**
@@ -98,7 +106,11 @@ public class PlayerView {
         for (int i = 0; i < properties.length; i++) {
             choices[i] = properties[i].getName() + " " + properties[i].getBuildingCost();
         }
-        String choice = GUIManager.getInstance().getUserChoiceDropDown("BUILD TEXT", choices);
+
+        String buildText = Localisation.getInstance().getStringValue("build_text");
+
+
+        String choice = GUIManager.getInstance().getUserChoiceDropDown(buildText, choices);
         for (int i = 0; i < choice.length(); i++) {
             if (choice.equals(choices[i])) return properties[i];
         }
@@ -112,12 +124,18 @@ public class PlayerView {
      */
     public int chooseHowToLiquidate(boolean optional) {
         String[] buttons;
+        String SELL_PROPERTY = Localisation.getInstance().getStringValue("sell_property_menu_button");
+        String MORTGAGE = Localisation.getInstance().getStringValue("mortgage_menu_button");
+        String TRADE = Localisation.getInstance().getStringValue("trade_menu_button");
+        String BACK = Localisation.getInstance().getStringValue("back_menu_button");
+        String CHOOSE_METHOD = Localisation.getInstance().getStringValue("liquidation_method_button");
+
         if (optional) {
-            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE", "4: BACK"};
+            buttons = new String[] {"1: " + SELL_PROPERTY, "2: " + MORTGAGE, "3: " + TRADE, "4: " + BACK};
         } else {
-            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE"};
+            buttons = new String[] {"1: " + SELL_PROPERTY, "2: " + MORTGAGE, "3: " + TRADE};
         }
-        String choice = guiManager.getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
+        String choice = guiManager.getUserButtonPress(CHOOSE_METHOD, buttons);
         return (choice.charAt(0) - '1');
     }
 
@@ -136,24 +154,25 @@ public class PlayerView {
     }
 
     public OwnableSquareController choosePropertyToSell(OwnableSquareController[] properties){
-        return chooseProperty(properties, "PROPERTY SELL LABEL HERE");
+        return chooseProperty(properties, "sell_property");
 
     }
 
     public OwnableSquareController choosePropertyToMortgage(OwnableSquareController[] properties){
-        return chooseProperty(properties, "PROPERTY MORTGAGE LABEL HERE");
+        return chooseProperty(properties, "mortgage_property");
     }
 
     public OwnableSquareController choosePropertyToPayOffMortgage(OwnableSquareController[] properties){
-        return chooseProperty(properties, "PAY OFF PROPERTY MORTGAGE LABEL HERE");
+        return chooseProperty(properties, "pay_off_mortgage");
     }
 
     public void crossStartMessage(){
-        guiManager.waitForUserAcknowledgement("CROSS START MESSAGE (PLAYERVIEW)");
+        final String crossed_start = localisation.getStringValue("crossed_start");
+        guiManager.waitForUserAcknowledgement(crossed_start);
     }
 
 
     //Temporary
-    private static Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
+    private static final Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
     private static int colorToUse = 0;
 }

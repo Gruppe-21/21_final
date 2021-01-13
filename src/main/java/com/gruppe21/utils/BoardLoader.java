@@ -7,6 +7,7 @@ import com.gruppe21.squares.models.*;
 import com.gruppe21.squares.views.OwnableSquareView;
 import com.gruppe21.squares.views.PropertySquareView;
 import com.gruppe21.squares.views.SquareView;
+import com.gruppe21.squares.views.TaxSquareView;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -38,7 +39,13 @@ public class BoardLoader {
         for (SquareController squareController: squareControllers) {
             if (squareController.getClass() == CardSquareController.class)
                 ((CardSquareController) squareController).setDeck(deck);
-            //TODO: set destination of teleport square
+            else if (squareController instanceof TeleportSquareController){
+                for (SquareController potentialDestination: squareControllers) {
+                    if (potentialDestination.getId() == ((TeleportSquareController) squareController).getDestinationId()){
+                        ((TeleportSquareController) squareController).setDestinationController(potentialDestination);
+                    }
+                }
+            }
         }
 
         return squareControllers;
@@ -75,7 +82,17 @@ public class BoardLoader {
                 MoneySquare moneySquareModel = new MoneySquare(tag);
                 moneySquareModel.setSquareType(SquareType.Start);
                 SquareView moneyView = new SquareView();
-                return new SquareController(moneySquareModel, moneyView);
+                return new MoneySquareController(moneySquareModel, moneyView);
+            case "MoneySquare":
+                MoneySquare moneySquareModel2 = new MoneySquare(tag);
+                moneySquareModel2.setSquareType(SquareType.Tax);
+                SquareView moneyView2 = new SquareView();
+                return new MoneySquareController(moneySquareModel2, moneyView2);
+            case  "TaxSquare":
+                TaxSquare taxSquareModel = new TaxSquare(tag);
+                taxSquareModel.setSquareType(SquareType.Tax);
+                TaxSquareView taxView = new TaxSquareView();
+                return new TaxSquareController(taxSquareModel, taxView);
             case "PropertySquare":
                 PropertySquare propertyModel = new PropertySquare(tag);
                 propertyModel.setSquareType(SquareType.Property);

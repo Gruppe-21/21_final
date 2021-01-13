@@ -1,114 +1,117 @@
 <locale lang="da_DK" name="Dansk">
-    <sentence label="word1">Dette er en sætning.</sentence>
-    <sentence label="go">START</sentence>
-    <sentence label="burgerjoint">BURGERBAREN</sentence>
-    <sentence label="pizzeria">PIZZARIAET</sentence>
-    <sentence label="candystore">SLIKBUTIKKEN</sentence>
-    <sentence label="icecreamparlor">ISKIOSKEN</sentence>
-    <sentence label="museum">MUSEET</sentence>
-    <sentence label="library">BIBLIOTEKET</sentence>
-    <sentence label="skatepark">SKATERPARKEN</sentence>
-    <sentence label="swimmingpool">SWIMMINGPOOLEN</sentence>
-    <sentence label="arcade">SPILLEHALLEN</sentence>
-    <sentence label="cinema">BIOGRAFEN</sentence>
-    <sentence label="toystore">LEGETØJSBUTIKKEN</sentence>
-    <sentence label="petstore">DYREHANDLEN</sentence>
-    <sentence label="bowlingalley">BOWLINGHALLEN</sentence>
-    <sentence label="zoo">ZOO</sentence>
-    <sentence label="waterpark">VANDLANDET</sentence>
-    <sentence label="boardwalk">STRANDPROMENADEN</sentence>
-    <sentence label="gotoprison">GÅ I FÆNGSEL</sentence>
-    <sentence label="prison">I FÆNGSEL / PÅ BESØG</sentence>
-    <sentence label="chance">CHANCE</sentence>
-    <sentence label="freeparking">GRATIS PARKERING</sentence>
+    <sentence label="start">START</sentence>
+    <sentence label="rødovrevej">Rødovrevej</sentence>
+    <sentence label="prøv_lykken">Prøv Lykken</sentence>
+    <sentence label="hvidovrevej">Hvidovrevej</sentence>
+    <sentence label="betal_indkomstskat">Indkomstskat</sentence>
+    <sentence label="scandlines1">Scandlines Gedser-Rostock</sentence>
+    <sentence label="scandlines2">Scandlines Helsingør-Helsingborg</sentence>
+    <sentence label="scandlines3">Scandlines Rødby-Puttgarden</sentence>
+    <sentence label="scandlines4">Mols-Linien</sentence>
+    <sentence label="roskildevej">Roskildevej</sentence>
+    <sentence label="valby_langgade">Valby Langgade</sentence>
+    <sentence label="allegade">Allégade</sentence>
+    <sentence label="på_besøg">På besøg i fængsel</sentence>
+    <sentence label="frederiksberg_alle">Frederiksberg Allé</sentence>
+    <sentence label="tuborg_squash_tapperi">Tuborg Squash</sentence>
+    <sentence label="bulowsvej">Bülowsvej</sentence>
+    <sentence label="gl_kongevej">Gl. Kongevej</sentence>
+    <sentence label="bernstorffsvej">Bernstorffsvej</sentence>
+    <sentence label="hellerupvej">Hellerupsvej</sentence>
+    <sentence label="strandvejen">Strandvejen</sentence>
+    <sentence label="parkering">Gratis parkering</sentence>
+    <sentence label="trianglen">Trianglen</sentence>
+    <sentence label="østerbrogade">Østerbrogade</sentence>
+    <sentence label="grønningen">Grønningen</sentence>
+    <sentence label="bredgade">Bredgade</sentence>
+    <sentence label="kgs_nytorv">Kgs. Nytorv</sentence>
+    <sentence label="coca_cola_tapperi">Coca Cola</sentence>
+    <sentence label="østergade">Østergade</sentence>
+    <sentence label="de_fængsles">De fængsles</sentence>
+    <sentence label="amagertorv">Amagertorv</sentence>
+    <sentence label="vimmelskaftet">Vimmelskaftet</sentence>
+    <sentence label="nygade">Nygade</sentence>
+    <sentence label="frederiksberggade">Frederiksggade</sentence>
+    <sentence label="tax">Statsskat</sentence>
+    <sentence label="rådhuspladsen">Rådhuspladsen</sentence>
 
-    <sentence label="currency">₩�[VALUE]</sentence>
-    <sentence label="bankName">Banken®</sentence>
+    <sentence label="start_desc">Hver gang de passerer START, modtag da kr. 4000</sentence>
+    <sentence label="rødovrevej_desc">De er landet på Rødovrevej</sentence>
+    <sentence label="prøv_lykken_desc">Træk et kort fra bunken</sentence>
+    <sentence label="hvidovrevej_desc">De er landet på Hvidovrevej</sentence>
+    <sentence label="betal_indkomstskat_desc">Betal indkomstskat 10% eller kr. 4000</sentence>
+    <sentence label="scandlines1_desc"> </sentence>
+    <sentence label="scandlines2_desc"> </sentence>
+    <sentence label="scandlines3_desc"> </sentence>
+    <sentence label="scandlines4_desc">De er landet på Mols-linien</sentence>
+    <sentence label="roskildevej_desc">De er landet på Roskildevej</sentence>
+    <sentence label="valby_langgade_desc">De er landet på Valby Langgade</sentence>
+    <sentence label="allegade_desc">De er landet på Allégade</sentence>
+    <sentence label="på_besøg_desc">De er nu på besøg i fængsel</sentence>
+    <sentence label="frederiksberg_alle_desc">De er landet på Frederiksberg Allé</sentence>
+    <sentence label="tuborg_squash_tapperi_desc">De er landet på Tuborg Squash tapperiet</sentence>
+    <sentence label="bulowsvej_desc">De er landet på Bülowsvej</sentence>
+    <sentence label="gl_kongevej_desc">De er landet på Gl. Kongevej</sentence>
+    <sentence label="bernstorffsvej_desc">De er landet på Bernstorffsvej</sentence>
+    <sentence label="hellerupvej_desc">De er landet på Hellerupvej</sentence>
+    <sentence label="strandvejen_desc">De er landet på Strandvejen</sentence>
+    <sentence label="parkering_desc">De er landet på Parkering</sentence>
+    <sentence label="trianglen_desc">De er landet på Trianglen</sentence>
+    <sentence label="østerbrogade_desc">De er landet på Østerbrogade</sentence>
+    <sentence label="grønningen_desc">De er landet på Grønningen</sentence>
+    <sentence label="bredgade_desc">De er landet på Bredgade</sentence>
+    <sentence label="kgs_nytorv_desc">De er landet på Kgs. Nytorv</sentence>
+    <sentence label="coca_cola_tapperi_desc">De er landet på Coca Cola</sentence>
+    <sentence label="østergade_desc">De er landet på Østergade</sentence>
+    <sentence label="de_fængsles_desc">De fængsles</sentence>
+    <sentence label="amagertorv_desc">De er landet på Amagertorv</sentence>
+    <sentence label="vimmelskaftet_desc">De er landet på Vimmelskaftet</sentence>
+    <sentence label="nygade_desc">De er landet på Nygade</sentence>
+    <sentence label="frederiksberggade_desc">De er landet på Frederiksggade</sentence>
+    <sentence label="tax_desc">De skal nu betale kr. 2000</sentence>
+    <sentence label="rådhuspladsen_desc">De er landet på Rådhuspladsen</sentence>
 
-    <!-- square descriptions -->
-    <sentence label="burgerjointdesc">Du er ankommet til din yndlings Burger Joint. Deres kartoffelfries er dannet som dinosaurer</sentence>
-    <sentence label="pizzeriadesc">Du er ankommet til byens bedste Pizza Place. De er berømte for deres pepperoni-pizza</sentence>
-    <sentence label="candystoredesc">Du er ankommet til den farverige slikbutik. På fredage kan du lave dit eget slik og vælge smagen</sentence>
-    <sentence label="icecreamparlordesc">Du er ankommet til den altid åbne isbar. De har altid 50 forskellige varianter at vælge imellem</sentence>
-    <sentence label="museumdesc">Du er ankommet til museet. I øjeblikket har de en særlig udstilling om rummet</sentence>
-    <sentence label="librarydesc">Du er ankommet til biblioteket. De har den største tegneseriesektion i hele verden</sentence>
-    <sentence label="skateparkdesc">Du er ankommet til Skatepark. De udlejer gratis farverige hjelme til alle, der har brug for en</sentence>
-    <sentence label="swimmingpooldesc">Du er ankommet til swimmingpoolen. Svøm indtil din hud ligner en rosin</sentence>
-    <sentence label="arcadedesc">Du er ankommet til Arcade. De har alt fra Pac Man til Donkey Kong</sentence>
-    <sentence label="cinemadesc">Du er ankommet til biografen. De tilbyder 4D-filmvisninger og gratis popcorn til børn</sentence>
-    <sentence label="toystoredesc">Du er ankommet til legetøjsbutikken. Deres mest populære solgte vare er Monopoly Junior</sentence>
-    <sentence label="petstoredesc">Du er ankommet til Dyrehandlen. Hvis du køber et dyr, kan du få et navneskilt med det</sentence>
-    <sentence label="bowlingalleydesc">Du er ankommet til bowlinghallen. Hvis du vinder, får du en gratis sodavand</sentence>
-    <sentence label="zoodesc">Du er ankommet til zoologisk have. Du kan gå og kæledyrsvenlige geder i petting-sektionen</sentence>
-    <sentence label="waterparkdec">Du er ankommet til vandlandet. Du kan vælge at få en løveflåd eller en enhjørningsflåd</sentence>
-    <sentence label="boardwalkdesc">Du er ankommet til Board Walk. Hvis du er heldig, kan du se delfiner lege i vandet</sentence>
-    <sentence label="gotoprisondesc">Du skal gå i fængsel. Dit stykke flyttes til fængselspladsen</sentence>
-    <sentence label="prisondesc">Du er kommet på besøg i fængslet. Husk at sige hej til spillerne der er i øjeblikket</sentence>
-    <sentence label="chancedesc">Du får lov til at trække et chancekort</sentence>
-    <sentence label="freeparkingdesc">SCORE! Du har en gratis parkeringsplads. Du kan hvile, indtil det bliver din tur igen</sentence>
-    <sentence label="startdesc">Du får en startbonus!</sentence>
+    <sentence label="dice_cheater"> Gå i fængsel din snyder! </sentence>
+    <sentence label="jail_removal_message"> Fængsel: </sentence>
+    <sentence label="jail_removal_choice1"> Gør intet</sentence>
+    <sentence label="jail_removal_choice2"> Brug kort</sentence>
+    <sentence label="jail_removal_choice3"> Kast for løsladelse</sentence>
 
-    <!-- chancecard buttons -->
-    <sentence label="moveButton">Ryk</sentence>
-    <sentence label="moveButton1">1</sentence>
-    <sentence label="moveButton2">2</sentence>
-    <sentence label="moveButton3">3</sentence>
-    <sentence label="moveButton4">4</sentence>
-    <sentence label="moveButton5">5</sentence>
+    <sentence label="purchase_text">Køb �[Property] for </sentence>
+    <sentence label="liquidate_text">LIQUIDATE ASSETS TEXT </sentence>
+    <sentence label="currency">�[VALUE] kr.</sentence>
+
+    <sentence label="yes">Ja</sentence>
+    <sentence label="no">Nej</sentence>
+
+    <sentence label="select_language">Vælg et sprog</sentence>
+
+    <sentence label="liquidate_assets_text">Likvider aktier</sentence>
+    <sentence label="build_text">BYG</sentence>
+    <sentence label="sell_property_menu_button">SÆLG EJENDOM</sentence>
+    <sentence label="mortgage_menu_button">PANTSÆTNING</sentence>
+    <sentence label="trade_menu_button">HANDEL</sentence>
+    <sentence label="back_menu_button">TILBAGE</sentence>
+    <sentence label="liquidation_method_button">Likvideringsmetode </sentence>
+    <sentence label="sell_property">Sælg</sentence>
+    <sentence label="pay_off_mortgage">Betal pantsætning</sentence>
+    <sentence label="crossed_start">Du har passeret start, modtag kr. 4000!</sentence>
+    <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
+    <sentence label="purchase_buildings_button_label">KØB BYGNINGER</sentence>
+    <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
+    <sentence label="start_turn_button_label">START TUR</sentence>
 
     <sentence label="takeButton">Tag et andet kort</sentence>
     <sentence label="takecard">Tag et chancekort</sentence>
 
-    <!-- chancecard desc -->
-    <sentence label="startCardOnUseDesc">Ryk til �[START_SQUARE_NAME]. Du vil da få �[MONEY]</sentence> <!-- money value instead of '2'? -->
-    <sentence label="jailCardOnDrawDesc">Med dette kort kan du komme ud af fængslet gratis. Opbevar det, indtil det er nødvendigt.</sentence>
-    <sentence label="jailCardOnUseDesc">Du bruger dit komme ud af fængsel til gratis kort og frigives; kortet returneres til bunken</sentence>
-    <sentence label="homeworkCardOnUseDesc">Du har lavet alle dine lektier! Du modtager �[MONEY].
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="candyCardOnUseDesc">Du har spist for meget slik. Du skal betale �[PRICE] til �[BANK_NAME].
-    </sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdayCardOnUseDesc">Det er din fødselsdag! Alle skal betale dig �[PRICE].
-    </sentence> <!-- money value instead of '1'? -->
-    <sentence label="boardwalkCardOnUseDesc">Ryk til strandpromenaden</sentence>
-    <sentence label="moveUpToCardOnUseDesc">Ryk op til 5 felter frem.</sentence>
-    <sentence label="takeCardOrMoveCardOnUseDesc">Ryk 1 felt frem eller tag et andet chancekort.</sentence>
-    <sentence label="propertyCardOnUseDesc">WRITE_DESCRIPTION_HERE</sentence>
-
-    <sentence label="figureCardOnDrawDesc">Giv dette kort til [PLAYER_PIECE] og tag et andet chancekort.\n�[PLAYER_PIECE]: På din næste tur skal du flytte til en tilgængelig ejendom og købe den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
-    <sentence label="figureCardOnUseDesc">�[PLAYER_NAME]: Flyt til enhver tilgængelig ejendom og køb den. Hvis der ikke er nogen tilgængelige ejendomme, skal du købe en fra en anden spiller</sentence>
-
-    <!-- Simple words -->
-    <sentence label="yes">Ja</sentence>
-    <sentence label="no">Nej</sentence>
-
-
     <!-- Player instructions -->
-    <sentence label="requestSpecifyNumPlayers">Angiv antallet af spillere</sentence>
-    <sentence label="requestPlayerName">Skriv venligst dit navn, spiller �[PLAYER_NUMBER] (Efterlad et tomt navn for at få et tilfældigt navn)</sentence>
-    <sentence label="requestPlayerAge">Skriv din alder, �[PLAYER_NAME]</sentence>
-    <sentence label="choosePiece">�[PLAYER_NAME]: Vælg en brik.</sentence>
-    <sentence label="winningMessage">�[PLAYER_BANKRUPT_NAME] er gået konkurs og efterlader �[WINNING_PLAYER_NAME] som vinderen.</sentence>
-    <sentence label="winningMessageTie">�[PLAYER_BANKRUPT_NAME] er gået konkurs og efterlader �[WINNING_PLAYER_NAME] lige med vinderen.</sentence>
-    <sentence label="rollDiceMessage">�[CURRENT_PLAYER_POSSESSIVE_NAME] tur!</sentence>
+    <sentence label="requestSpecifyNumPlayers">Hvor mange spiller? (min 3, max 6)</sentence>
+    <sentence label="request_player_name">Indtast navn</sentence>
+    <sentence label="request_player_name_fail">Dette navn kan ikke bruges</sentence>
+    <sentence label="askForFirstPlayer">Hvem skal starte?</sentence>
     <sentence label="rollButton">Kast</sentence>
-    <sentence label="buyplace">Du køber nu �[PROPERTY_NAME] for �[PRICE]</sentence>
-    <sentence label="payRent">Du skylder �[PROPERTY_OWNER] �[RENT_PRICE]</sentence>
-    <sentence label="paidRelease">Du skal betale �[PRICE_FOR_FREEDOM] for at forlade dette elendige sted og genvinde din frihed.</sentence>
-    <sentence label="startMessage">�[PLAYER_NAME] er yngst og vil derfor starte.</sentence>
-    <sentence label="askPlayerAdvanced">Vil I spille med avanceret regler? (Nu du ellers ville gå bankerot, kan du sælge dine ejendomme)</sentence>
 
 
-    <sentence label="sellProperties">Du skylder �[DEBT] til �[CREDITOR_NAME]. Vælg nedenunder de ejendomme, du ønsker at sælge til �[CREDITOR_NAME]:</sentence>
-    <sentence label="sellPropertiesBankrupt">Du skylder �[DEBT] til �[CREDITOR_NAME] men alt i alt ejer du kun �[NET_WORTH]. Du er gået fallit.</sentence>
-    <sentence label="nextBtn">Næste</sentence>
-    <sentence label="previousBtn">Forrige</sentence>
-
-
-
-    <!-- Error messages -->
-    <sentence label="unknownError">En ukendt fejl er sket.</sentence>
-    <sentence label="invalidNumber">Skal være et nummer mellem �[MIN_NUMBER] og �[MAX_NUMBER].</sentence>
-    <sentence label="invalidName">Ugyldigt navn</sentence>
 
     <!-- chancecard desc -->
     <sentence label="oilPricesDesc">Oliepriserne er steget, og De skal betale kr. 500 pr. hus og kr. 2000 pr. hotel</sentence>
