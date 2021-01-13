@@ -101,17 +101,8 @@
     <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
     <sentence label="start_turn_button_label">START TUR</sentence>
 
-    <!-- chancecard buttons -->
-    <sentence label="moveButton">Ryk</sentence>
-    <sentence label="moveButton1">1</sentence>
-    <sentence label="moveButton2">2</sentence>
-    <sentence label="moveButton3">3</sentence>
-    <sentence label="moveButton4">4</sentence>
-    <sentence label="moveButton5">5</sentence>
-
     <sentence label="takeButton">Tag et andet kort</sentence>
     <sentence label="takecard">Tag et chancekort</sentence>
-
 
     <!-- Player instructions -->
     <sentence label="requestSpecifyNumPlayers">Hvor mange spiller? (min 3, max 6)</sentence>
