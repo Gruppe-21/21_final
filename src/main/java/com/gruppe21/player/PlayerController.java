@@ -108,10 +108,12 @@ public class PlayerController {
      * @param squareController
      */
     public void moveTo(SquareController squareController){
-        if (GameController.getInstance().crossedStart(getPlayer().getPosition(), squareController)){
-            addBalance(4000);
-        }
+        boolean crossedStart = GameController.getInstance().crossedStart(getPlayer().getPosition(), squareController);
         teleportTo(squareController);
+        if (crossedStart){
+            addBalance(4000);
+            playerView.crossStartMessage();
+        }
         squareController.onMoveTo(this);
     }
 
