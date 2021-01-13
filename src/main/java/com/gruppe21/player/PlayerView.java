@@ -123,12 +123,18 @@ public class PlayerView {
      */
     public int chooseHowToLiquidate(boolean optional) {
         String[] buttons;
+        String SELL_PROPERTY = Localisation.getInstance().getStringValue("sell_property_menu_button");
+        String MORTGAGE = Localisation.getInstance().getStringValue("mortgage_menu_button");
+        String TRADE = Localisation.getInstance().getStringValue("trade_menu_button");
+        String BACK = Localisation.getInstance().getStringValue("back_menu_button");
+        String CHOOSE_METHOD = Localisation.getInstance().getStringValue("liquidation_method_button");
+
         if (optional) {
-            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE", "4: BACK"};
+            buttons = new String[] {"1: " + SELL_PROPERTY, "2: " + MORTGAGE, "3: " + TRADE, "4: " + BACK};
         } else {
-            buttons = new String[] {"1: SELL PROPERTY", "2: MORTGAGE", "3: TRADE"};
+            buttons = new String[] {"1: " + SELL_PROPERTY, "2: " + MORTGAGE, "3: " + TRADE};
         }
-        String choice = guiManager.getUserButtonPress("CHOOSE LIQUIDATION METHOD", buttons);
+        String choice = guiManager.getUserButtonPress(CHOOSE_METHOD, buttons);
         return (choice.charAt(0) - '1');
     }
 
@@ -147,24 +153,25 @@ public class PlayerView {
     }
 
     public OwnableSquareController choosePropertyToSell(OwnableSquareController[] properties){
-        return chooseProperty(properties, "PROPERTY SELL LABEL HERE");
+        return chooseProperty(properties, "sell_property");
 
     }
 
     public OwnableSquareController choosePropertyToMortgage(OwnableSquareController[] properties){
-        return chooseProperty(properties, "PROPERTY MORTGAGE LABEL HERE");
+        return chooseProperty(properties, "mortgage_property");
     }
 
     public OwnableSquareController choosePropertyToPayOffMortgage(OwnableSquareController[] properties){
-        return chooseProperty(properties, "PAY OFF PROPERTY MORTGAGE LABEL HERE");
+        return chooseProperty(properties, "pay_off_mortgage");
     }
 
     public void crossStartMessage(){
-        guiManager.waitForUserAcknowledgement("CROSS START MESSAGE (PLAYERVIEW)");
+        final String crossed_start = localisation.getStringValue("crossed_start");
+        guiManager.waitForUserAcknowledgement(crossed_start);
     }
 
 
     //Temporary
-    private static Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
+    private static final Color[] colors = {Color.GREEN, Color.BLUE, Color.RED, Color.ORANGE, Color.CYAN, Color.magenta};
     private static int colorToUse = 0;
 }
