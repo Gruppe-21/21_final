@@ -85,13 +85,13 @@ public class PlayerView {
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
-        String purchaseText = Localisation.getInstance().getStringValue("purchase_text");
-        String priceText = Localisation.getInstance().getStringValue("price_text");
+        String purchaseText = Localisation.getInstance().getStringValue("purchase_text", name);
+        String priceText = Localisation.getInstance().getStringValue("currency", Integer.toString(price));
         String liquidateAssetsText = Localisation.getInstance().getStringValue("liquidate_assets_text");
         String yesText = Localisation.getInstance().getStringValue("yes");
         String noText = Localisation.getInstance().getStringValue("no");
 
-        return guiManager.getUserBoolean(purchaseText + name + priceText + price  + (liquidateAssets ? liquidateAssetsText : ""), yesText, noText);
+        return guiManager.getUserBoolean(purchaseText + priceText  + (liquidateAssets ? liquidateAssetsText : ""), yesText, noText);
     }
 
     /**
