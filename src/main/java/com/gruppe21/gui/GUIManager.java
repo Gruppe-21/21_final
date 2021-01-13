@@ -1,4 +1,5 @@
 package com.gruppe21.gui;
+import com.gruppe21.game.Board;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
@@ -22,15 +23,19 @@ public class GUIManager {
 
     /**
      *
-     * @param board
+     *
      */
     private GUIManager(){
-        gui = new GUI(fields, backgroundColor);
+        GUI_Street invisibleField = new GUI_Street();
+        invisibleField.setBorder(Color.WHITE);
+        invisibleField.setBackGroundColor(Color.WHITE);
+        invisibleField.setForeGroundColor(Color.WHITE);
+        gui = new GUI(new GUI_Field[] {invisibleField}, backgroundColor);
     }
 
     /**
      *
-     * @param playerControllers
+     *
      */
     /*
     public void addPlayers(PlayerController... playerControllers){
@@ -150,6 +155,20 @@ public class GUIManager {
         return gui.getUserButtonPressed(message, buttonText);
     }
 
+    /**
+     *
+     * @param message
+     * @param buttonText
+     * @return the number of the pressed button
+     */
+    public int getUserButtonPressed(String message, String... buttonText) {
+        String pressedText = getUserButtonPress(message, buttonText);
+        for (int i = 0; i < buttonText.length; i++) {
+            if (pressedText.equals(buttonText[i])) return i;
+        }
+        return -1;
+    }
+
 
     //Notice this is different from getUserBoolean, which previously was called get user choice
     /**
@@ -159,7 +178,7 @@ public class GUIManager {
      * @return
      */
     public String getUserChoiceDropDown(String message, String... options){
-        if (gui == null) return buttonText[(int) (Math.random() * (options.length + 1))];
+        if (gui == null) return options[(int) (Math.random() * (options.length + 1))];
         return gui.getUserSelection(message, options);
     }
 
@@ -216,7 +235,7 @@ public class GUIManager {
      * @return
      */
     public int getUserInteger(String message, int minValue, int maxValue){
-        if (gui == null) return (int) (Math.random() * (maxValue - minValue + 1))
+        if (gui == null) return (int) (Math.random() * (maxValue - minValue + 1));
         return gui.getUserInteger(message, minValue, maxValue);
     }
 

@@ -1,8 +1,7 @@
 package com.gruppe21.squares.models;
 
 import com.gruppe21.utils.ColorUtil;
-import gui_fields.GUI_Empty;
-import gui_fields.GUI_Field;
+import gui_fields.*;
 import org.w3c.dom.Element;
 
 import java.awt.*;
@@ -15,6 +14,7 @@ public class Square {
      */
     private int statusEffect;
 
+    private SquareType squareType = SquareType.Start;
     /**
      * Identifier for the square.
      * Use this for referencing on the board.
@@ -42,7 +42,9 @@ public class Square {
     private Color color;
 
     public Square(int id, String nameLocalisationId, String descriptionLocalisationId, Color color, int statusEffect) {
-        this.guiField = new GUI_Empty();
+
+
+        this.guiField = new GUI_Street();
         this.id = id;
         this.nameLocalisationId = nameLocalisationId;
         this.descriptionLocalisationId = descriptionLocalisationId;
@@ -104,5 +106,40 @@ public class Square {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public SquareType getSquareType() {
+        return squareType;
+    }
+
+    public void setSquareType(SquareType squareType) {
+        this.squareType = squareType;
+        switch (squareType) {
+            case Shipping:
+                this.guiField = new GUI_Shipping();
+                break;
+            case Brewery:
+                this.guiField = new GUI_Brewery();
+                break;
+            case Parking:
+                this.guiField = new GUI_Refuge();
+                break;
+            case Start:
+                this.guiField = new GUI_Start();
+                break;
+            case Prison:
+                this.guiField = new GUI_Jail();
+                break;
+            case Tax:
+                this.guiField = new GUI_Tax();
+                break;
+            case Chance:
+                this.guiField = new GUI_Chance();
+                guiField.setBackGroundColor(Color.green);
+                break;
+            default:
+                this.guiField = new GUI_Street();
+                break;
+        }
     }
 }

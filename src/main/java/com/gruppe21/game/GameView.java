@@ -3,6 +3,9 @@ package com.gruppe21.game;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.utils.localisation.Localisation;
+import gui_fields.GUI_Empty;
+
+import java.awt.*;
 
 public class GameView {
 
@@ -12,9 +15,9 @@ public class GameView {
     public void selectLanguage(){
         Localisation.getInstance().setCurrentLocale(
                 GUIManager.getInstance().getUserChoiceDropDown(
-                        "SELECT LANGUAGE, GameView selectLanguage",
+                        "🌍",
                         Localisation.getInstance().getAllLocales()
-                )
+                ).substring(0,5)
         );
     }
 
