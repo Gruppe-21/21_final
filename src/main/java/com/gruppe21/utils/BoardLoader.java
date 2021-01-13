@@ -1,10 +1,7 @@
 package com.gruppe21.utils;
 
 import com.gruppe21.deck.Deck;
-import com.gruppe21.squares.controllers.CardSquareController;
-import com.gruppe21.squares.controllers.OwnableSquareController;
-import com.gruppe21.squares.controllers.PropertySquareController;
-import com.gruppe21.squares.controllers.SquareController;
+import com.gruppe21.squares.controllers.*;
 import com.gruppe21.squares.models.*;
 import com.gruppe21.squares.views.OwnableSquareView;
 import com.gruppe21.squares.views.PropertySquareView;
@@ -102,7 +99,7 @@ public class BoardLoader {
                 TeleportSquare teleportSquareModel = new TeleportSquare(tag);
                 teleportSquareModel.setSquareType(SquareType.Teleport);
                 SquareView teleportSquareView = new SquareView();
-                return new SquareController(teleportSquareModel, teleportSquareView);
+                return new TeleportSquareController(teleportSquareModel, teleportSquareView);
             case "PrisonSquare":
                 Square squareModel = new Square(tag);
                 squareModel.setSquareType(SquareType.Prison);
