@@ -83,6 +83,11 @@ public class PlayerView {
         return guiManager.getUserBoolean("PURCHASE TEXT " + name + "PRICE TEXT " + price  + (liquidateAssets ? "LIQUIDATE ASSETS TEXT" : ""), "YESTEXT", "NOTEXT");
     }
 
+    public int chooseSellBuildingOrProperty(boolean hasBuildings){
+        if (!hasBuildings) return 0;
+        return guiManager.getUserButtonPressed("message", "PROPERTY", "BUILDINGS");
+    }
+
     /**
      *
      * @param properties
@@ -100,6 +105,7 @@ public class PlayerView {
         return null;
         //Throw exception
     }
+
 
     /**
      *
