@@ -121,6 +121,7 @@ public class PlayerView {
         String[] names = new String[properties.length];
         for (int i = 0; i < names.length; i++) {
             names[i] = properties[i].getName();
+            if (names[i].isEmpty()) names[i] += "TEST";
         }
         String choice = guiManager.getUserChoiceDropDown(localisation.getStringValue(messageLabel), names);
         for (int i = 0; i < names.length; i++) {
