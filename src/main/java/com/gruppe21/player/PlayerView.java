@@ -114,13 +114,13 @@ public class PlayerView {
         String[] buttonTexts;
         if (property.getNumHouses() == property.getMaxNumHouses()) buttonTexts = new String[2];
         else buttonTexts = new String[property.getNumHouses() + 1];
-        for (int i = 0; i < property.getNumHouses(); i++) {
-            buttonTexts[i] = Integer.toString(i);
+        for (int i = 0; i < buttonTexts.length; i++) {
+            buttonTexts[i] = Integer.toString(i + 1);
         }
         buttonTexts[property.getNumHouses()] = localisation.getStringValue("cancel_menu_button");
 
-        int choice = guiManager.getUserButtonPressed(localisation.getStringValue( "choose_num_building_sell"), buttonTexts);
-        return choice == buttonTexts.length - 1 ? 0 : choice;
+        int choice = guiManager.getUserButtonPressed(localisation.getStringValue( "choose_num_building_sell"), buttonTexts) + 1;
+        return choice == buttonTexts.length ? 0 : choice;
     }
 
     /**
