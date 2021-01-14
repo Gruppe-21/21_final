@@ -22,14 +22,34 @@ public class PlayerController {
     private static final Random random = new Random();
     private int lastRollForBrewery = 0;
 
-    public PlayerController(){
+    public PlayerController(String... bannedNames){
         gameController = GameController.getInstance();
         player = new Player();
         playerView = new PlayerView();
-        //TODO: limit names such that they are never the same (like, at a number to the end of duplicates or something)
-        player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
+        selectName(bannedNames);
+
         player.setGuiPlayer(new GUI_Player(player.getName(), player.getBalance(), playerView.customiseCar()));
         playerView.addToGui(player.getGuiPlayer());
+    }
+
+    private void selectName(String... bannedNames){
+        player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
+        for (String name: bannedNames) {
+            if (getName().equals(name)){
+                boolean invalidName = false;
+                String newName;
+                int numRounds = 0;
+                do {
+                    newName = name + " " + ++numRounds;
+                    for (String callsign: bannedNames) {
+                        if (callsign.equals(newName)){
+                            invalidName = true;
+                        }
+                    }
+                } while (invalidName);
+                player.setName(newName);
+            }
+        }
     }
 
     /**
