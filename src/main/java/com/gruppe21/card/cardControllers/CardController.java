@@ -37,6 +37,11 @@ public abstract class CardController {
         cardView.displayCard(card.getDescriptionOnUseLabel());
     }
 
+    protected void returnToDeck(){
+        user.getHeldCards().removeCard(this);
+        getReturnDeck().returnCard(this);
+    }
+
 
     /**
      * Returns the {@code Class} object of the {@code CardController}'s {@code Card}
