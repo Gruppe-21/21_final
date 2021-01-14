@@ -33,21 +33,24 @@ public class PlayerController {
     }
 
     private void selectName(String... bannedNames){
-        player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
+        player.setName(playerView.chooseName(1, Player.getMaxNameLength()));
         for (String name: bannedNames) {
             if (getName().equals(name)){
-                boolean invalidName = false;
+                boolean invalidName;
                 String newName;
-                int numRounds = 0;
+                int numRounds = 1;
                 do {
+                    invalidName = false;
                     newName = name + " " + ++numRounds;
                     for (String callsign: bannedNames) {
                         if (newName.equals(callsign)){
                             invalidName = true;
+                            break;
                         }
                     }
                 } while (invalidName);
                 player.setName(newName);
+                return;
             }
         }
     }
