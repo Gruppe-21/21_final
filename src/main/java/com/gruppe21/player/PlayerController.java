@@ -42,7 +42,7 @@ public class PlayerController {
                 do {
                     newName = name + " " + ++numRounds;
                     for (String callsign: bannedNames) {
-                        if (callsign.equals(newName)){
+                        if (newName.equals(callsign)){
                             invalidName = true;
                         }
                     }
