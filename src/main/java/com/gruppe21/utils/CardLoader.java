@@ -92,7 +92,7 @@ public class CardLoader {
                 cards[cardsAdded] = feeMoneyController;
                 cardsAdded++;
                 break;
-            case "legateMoneyCard":
+            case "grantMoneyCard":
                 GrantCard grantCard = new GrantCard(tag);
                 GrantCardController grantCardController = new GrantCardController(view, grantCard);
                 cards[cardsAdded] = grantCardController;
