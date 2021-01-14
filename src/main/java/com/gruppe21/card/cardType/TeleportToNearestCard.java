@@ -27,6 +27,7 @@ public class TeleportToNearestCard extends Card {
         for (int i = 0; i < ids.length; i++) {
             ids[i] = parseInt(idStr[i]);
         }
+        return ids;
     }
 
     public int[] getSquareIDs() {
@@ -34,7 +35,7 @@ public class TeleportToNearestCard extends Card {
     }
 
     public SquareController[] getPossibleDestinations(){
-        return possibleDestinations
+        return possibleDestinations;
     }
 
     public void setPossibleDestinations(SquareController[] possibleDestinations) {
