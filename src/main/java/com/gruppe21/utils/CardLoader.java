@@ -26,7 +26,7 @@ public class CardLoader {
     private final static String CARD_DIRECTORY = "/cards/";
     private final static String TAG_CARD = "cards";
     private static CardController[] cards;
-    private static int cardsAdded = 0;
+    public static int cardsAdded = 0;
 
     /**
      * Receives cards from XML
