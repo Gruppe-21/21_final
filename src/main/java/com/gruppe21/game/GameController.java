@@ -27,9 +27,11 @@ public class GameController {
     }
 
     private void initPlayers(){
+        String[] names = new String[game.getNumPlayers()];
         for (int i = 0; i < game.getNumPlayers(); i++) {
-            game.getPlayerControllers()[i] = new PlayerController();
+            game.getPlayerControllers()[i] = new PlayerController(names);
             game.getPlayerControllers()[i].teleportTo(game.getBoard().getFirstSquareController()); //Maybe this happens automatically
+            names[i] = game.getPlayerControllers()[i].getName();
         }
         PlayerController first = gameView.askForFirstPlayer(game.getPlayerControllers());
         game.setNextPlayer(first);
