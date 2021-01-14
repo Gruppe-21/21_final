@@ -1,21 +1,17 @@
 package com.gruppe21.card.moneyCards.controllers;
 
 import com.gruppe21.card.cardControllers.controllers.CardController;
+import com.gruppe21.card.cardControllers.controllers.UseOnDrawCardController;
 import com.gruppe21.card.view.CardView;
 import com.gruppe21.card.moneyCards.model.ModifyMoneyCard;
 import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
 
-public class MoneyCardController extends CardController {
+public class MoneyCardController extends UseOnDrawCardController {
     public MoneyCardController(CardView view, ModifyMoneyCard card) {
         super(view, card);
     }
 
-
-    @Override
-    public void onDraw(PlayerController drawer) {
-        use(drawer);
-    }
 
     /**
      * Method that manages money transactions depending on card type
