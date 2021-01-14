@@ -48,7 +48,7 @@ public class TeleportToNearestCardController extends CardController {
         ((TeleportToNearestCard) card).setPossibleDestinations(possibleDestinations);
     }
 
-    public int getSquareIDs() {
+    public int[] getSquareIDs() {
         return ((TeleportToNearestCard) card).getSquareIDs();
     }
 }
