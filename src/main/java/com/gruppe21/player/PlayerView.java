@@ -119,7 +119,7 @@ public class PlayerView {
         }
         buttonTexts[property.getNumHouses()] = "cancel_menu_button";
 
-        int choice = guiManager.getUserButtonPressed("choose_num_building_sell");
+        int choice = guiManager.getUserButtonPressed("choose_num_building_sell", buttonTexts);
         return choice == buttonTexts.length - 1 ? 0 : choice;
     }
 
