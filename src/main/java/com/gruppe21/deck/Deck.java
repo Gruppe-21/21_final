@@ -51,7 +51,7 @@ public class Deck {
      */
     public CardController drawCardOfClass(Class cardClass){
         for (int i = cardsDrawn; i < currentNumCards; i++) {
-            if(cards[i].getCardClass().equals(cardClass)){
+            if(cards[i].getClass().equals(cardClass)){
                 CardController drawnCard = cards[i];
                 cards[i] = cards[cardsDrawn];
                 cards[cardsDrawn] = drawnCard;

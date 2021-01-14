@@ -2,6 +2,7 @@ package com.gruppe21.player;
 
 import com.gruppe21.card.cardControllers.CardController;
 
+import com.gruppe21.card.cardControllers.PardonCardController;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.game.Board;
 import com.gruppe21.game.GameController;
