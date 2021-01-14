@@ -1,9 +1,8 @@
-package com.gruppe21.card.cardControllers;
+package com.gruppe21.card.cardControllers.controllers;
 
-import com.gruppe21.card.cardView.CardView;
-import com.gruppe21.card.cardType.Card;
+import com.gruppe21.card.view.CardView;
+import com.gruppe21.card.model.Card;
 import com.gruppe21.deck.Deck;
-import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 
 
@@ -28,21 +27,25 @@ public abstract class CardController {
     /**
      * @param drawer Player that draws card
      */
-    public abstract void onDraw(PlayerController drawer);
+    public void onDraw(PlayerController drawer){
+        use(drawer);
+    }
 
     /**
      * Method that display the cards description
      * @param user Player that uses card
      */
     public void use(PlayerController user){
-        if (card == null || cardView == null) return; //This should never happen
         cardView.displayCard(card.getDescriptionOnUseLabel());
+        user.getStatusEffects().enableEffect(card.getStatusEffect());
+        returnToDeck(user);
     }
 
-    // Used for cards with connection to board.
-    public void use(PlayerController user, Board board){
-        cardView.displayCard(card.getDescriptionOnUseLabel());
+    protected void returnToDeck(PlayerController user){
+        user.getHeldCards().removeCard(this);
+        getReturnDeck().returnCard(this);
     }
+
 
     /**
      * Returns the {@code Class} object of the {@code CardController}'s {@code Card}
