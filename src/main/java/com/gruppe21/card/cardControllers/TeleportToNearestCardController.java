@@ -6,21 +6,10 @@ import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 
-public class TeleportToNearestCardController extends CardController {
+public class TeleportToNearestCardController extends UseOnDrawCardController {
 
     public TeleportToNearestCardController(CardView view, TeleportToNearestCard card) {
         super(view, card);
-    }
-
-
-    /**
-     * Calls card use method when the {code:drawer}
-     *
-     * @param drawer Player that draws card
-     */
-    @Override
-    public void onDraw(PlayerController drawer) {
-        use(drawer);
     }
 
     /**
