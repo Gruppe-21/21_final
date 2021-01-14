@@ -33,7 +33,7 @@
                     rent_1house="1000" rent_2house="3000" rent_3house="9000" rent_4house="12500" rent_hotel="15000"
                     buildingCost="2000" pawnValue="1400"/>
     <Brewery id="13" label="tuborg_squash_tapperi" description="tuborg_squash_tapperi_desc" price="3000"
-                    color="brewery" rent_base="100" pawnValue="1500"/>
+             color="brewery" rent_base="100" pawnValue="1500"/>
 
     <!-- Husk logik med rent id13-->
 
@@ -85,7 +85,7 @@
                     rent_1house="2200" rent_2house="6600" rent_3house="16000" rent_4house="19500" rent_hotel="23000"
                     buildingCost="3000" pawnValue="2600"/>
     <Brewery id="29" label="coca_cola_tapperi" description="coca_cola_tapperi_desc" price="3000" color="brewery"
-                    rent_base="100" pawnValue="1500"/>
+             rent_base="100" pawnValue="1500"/>
 
     <!-- Husk logik med rent id29-->
 

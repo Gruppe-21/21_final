@@ -10,13 +10,14 @@ public class TeleportToNearestCard extends Card {
     int[] squareIDs;
     SquareController[] possibleDestinations;
 
-    public TeleportToNearestCard(String descriptionOnUseLabel,int... squareIDs) {
-        super(descriptionOnUseLabel);
+    public TeleportToNearestCard(String descriptionOnUseLabel, int statusEffect, int... squareIDs) {
+        super(descriptionOnUseLabel, statusEffect);
         this.squareIDs = squareIDs;
     }
 
     public TeleportToNearestCard(Element xmlTag){
         this(xmlTag.getAttribute("onUseDescription"),
+                readStatusEffect(xmlTag),
                 readIds(xmlTag)
         );
     }

@@ -9,17 +9,9 @@ public class PardonCardController extends CardController {
         super(view, card);
     }
 
-
     @Override
     public void onDraw(PlayerController drawer) {
         cardView.displayCard(((PardonCard)card).getDescriptionOnDrawLabel());
     }
-
-    @Override
-    public void use(PlayerController user) {
-        user.getStatusEffects().setImprisoned(false);
-        super.use(user);
-    }
-
 
 }

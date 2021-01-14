@@ -56,11 +56,11 @@
     <moveToNearestCard onUseDescription="moveNearestFerryCardOnUseDesc" squareID="6 16 26 36" type="MoveToNearestFerry" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
-    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 1 -->
-    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 2 -->
+    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc" statusEffect="2"/> <!-- kort 35 nr. 1 -->
+    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc" statusEffect="2"/> <!-- kort 35 nr. 2 -->
 
     <!-- TeleportToNearest cards (Prison) -->
-    <teleportToNearestCard onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 1 -->
-    <teleportToNearestCard onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 2 -->
+    <teleportToNearestCard onUseDescription="teleportCardOnUseDesc" statusEffect="1" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 1 -->
+    <teleportToNearestCard onUseDescription="teleportCardOnUseDesc" statusEffect="1" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 2 -->
 
 </cards>

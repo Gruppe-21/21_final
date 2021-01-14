@@ -13,13 +13,14 @@ class BoardTest {
 
     @BeforeEach
     void setUp() {
+        CardLoader.cardsAdded = 0;
         board = new Board();
     }
 
     @AfterEach
     void tearDown() {
-        board = null;
         CardLoader.cardsAdded = 0;
+        board = null;
     }
 
     /**
