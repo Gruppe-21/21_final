@@ -18,10 +18,12 @@ public class GameView {
     }
 
     public void selectLanguage(){
+        final String[] allLocales = localisation.getAllLocales();
+        if(allLocales == null  && allLocales.length == 0) return;
         localisation.setCurrentLocale(
                 guiManager.getUserChoiceDropDown(
                         "\uD83C\uDF0D",
-                        localisation.getAllLocales()
+                        allLocales
                 ).substring(0,5)
         );
     }

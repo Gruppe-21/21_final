@@ -179,7 +179,7 @@ public class GUIManager {
      */
     public String getUserChoiceDropDown(String message, String... options){
         if (gui == null) return options[(int) (Math.random() * (options.length + 1))];
-        if(options == null) return "";
+        if(options == null && options.length == 0) return "";
         return gui.getUserSelection(message, options);
     }
 
