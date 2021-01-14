@@ -24,9 +24,6 @@ public abstract class RelocationCardController extends CardController {
         super.use(user);
         Board board = GameController.getInstance().getBoard();
         relocate(user, getDestination(user, board));
-
-        // return card
-        returnToDeck(user);
     }
 
     protected abstract void relocate(PlayerController user, SquareController destination);

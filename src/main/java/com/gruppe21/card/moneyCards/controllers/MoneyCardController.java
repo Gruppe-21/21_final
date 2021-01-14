@@ -13,7 +13,6 @@ public class MoneyCardController extends CardController {
     public void use(PlayerController user) {
         super.use(user);
         modifyMoney(user);
-        returnToDeck(user);
     }
 
     protected void modifyMoney(PlayerController user){
