@@ -1,6 +1,6 @@
-package com.gruppe21.card.cardControllers;
+package com.gruppe21.card.cardControllers.controllers;
 
-import com.gruppe21.card.cardType.Card;
+import com.gruppe21.card.model.Card;
 import com.gruppe21.card.view.CardView;
 import com.gruppe21.player.PlayerController;
 

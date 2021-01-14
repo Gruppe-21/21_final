@@ -1,11 +1,12 @@
-package com.gruppe21.card.cardControllers;
+package com.gruppe21.card.moneyCards.controllers;
 
+import com.gruppe21.card.cardControllers.controllers.CardController;
 import com.gruppe21.card.view.CardView;
-import com.gruppe21.card.cardType.ModifyMoneyCard;
+import com.gruppe21.card.moneyCards.model.ModifyMoneyCard;
 import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
 
-public class MoneyCardController extends CardController  {
+public class MoneyCardController extends CardController {
     public MoneyCardController(CardView view, ModifyMoneyCard card) {
         super(view, card);
     }

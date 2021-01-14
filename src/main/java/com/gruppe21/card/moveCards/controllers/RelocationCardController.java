@@ -1,7 +1,7 @@
 package com.gruppe21.card.moveCards.controllers;
 
-import com.gruppe21.card.cardControllers.UseOnDrawCardController;
-import com.gruppe21.card.cardType.Card;
+import com.gruppe21.card.cardControllers.controllers.UseOnDrawCardController;
+import com.gruppe21.card.model.Card;
 import com.gruppe21.card.view.CardView;
 import com.gruppe21.game.Board;
 import com.gruppe21.game.GameController;

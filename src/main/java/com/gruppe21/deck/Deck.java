@@ -1,6 +1,6 @@
 package com.gruppe21.deck;
 
-import com.gruppe21.card.cardControllers.CardController;
+import com.gruppe21.card.cardControllers.controllers.CardController;
 import com.gruppe21.utils.CardLoader;
 
 import javax.xml.parsers.ParserConfigurationException;

@@ -1,6 +1,6 @@
 package com.gruppe21.card.moveCards.model;
 
-import com.gruppe21.card.cardType.Card;
+import com.gruppe21.card.model.Card;
 import org.w3c.dom.Element;
 
 import static java.lang.Integer.parseInt;

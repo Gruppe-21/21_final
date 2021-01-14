@@ -1,4 +1,4 @@
-package com.gruppe21.card.cardType;
+package com.gruppe21.card.model;
 
 import com.gruppe21.deck.Deck;
 import org.w3c.dom.Element;
