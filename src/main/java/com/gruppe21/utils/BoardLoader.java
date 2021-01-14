@@ -41,8 +41,8 @@ public class BoardLoader {
                 int[] ids = ((TeleportToNearestCardController) card).getSquareIDs();
                 SquareController[] destinationArray = new SquareController[ids.length];
                 for (int i = 0; i < destinationArray.length; i++) {
-                    for (int j = i; j < squareControllers.length; j++) {
-                        if (squareControllers[i].getId() == ids[j]){
+                    for (int j = 0; j < squareControllers.length; j++) {
+                        if (squareControllers[j].getId() == ids[i]){
                             destinationArray[i] = squareControllers[i];
                             break;
                         }
