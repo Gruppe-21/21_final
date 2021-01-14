@@ -218,7 +218,6 @@ public class PlayerController {
         while (true) {
             switch (playerView.chooseHowToLiquidate(optional)) {
                 case 0: {
-                    //TODO: implement choice of selling property or building(s)
                     OwnableSquareController[] properties = player.getOwnedProperties();
                     if (properties.length > 0)
                     {
@@ -363,7 +362,7 @@ public class PlayerController {
      */
     public int getTotalNumberOfHouses(){
         int numberOfHouses = 0;
-        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
+        for (PropertySquareController property: getPlayer().getBuiltProperties()) {
             if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHouses += property.getNumHouses();
         }
         return numberOfHouses;
@@ -375,8 +374,8 @@ public class PlayerController {
      */
     public int getTotalNumberOfHotels(){
         int numberOfHotels = 0;
-        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
-            if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHotels += property.getNumHouses();
+        for (PropertySquareController property: getPlayer().getBuiltProperties()) {
+            if (property.getNumHouses() == property.getMaxNumHouses()) numberOfHotels++;
         }
         return numberOfHotels;
     }
