@@ -2,7 +2,7 @@ package com.gruppe21.card.cardType;
 
 import com.gruppe21.deck.Deck;
 
-public abstract class Card {
+public class Card {
     protected String descriptionOnDrawLabel;
     protected String descriptionOnUseLabel;
     protected Deck deckToReturnTo;
