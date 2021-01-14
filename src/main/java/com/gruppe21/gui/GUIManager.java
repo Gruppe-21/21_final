@@ -202,7 +202,7 @@ public class GUIManager {
         if (gui == null) {
             //Maybe should be in a different class. (Stringutils)
             String randASCIIString = "";
-            int stringLength = minLength; // (int) (Math.random() * 21); //((25-5)+1) == 21
+            int stringLength = 1; // (int) (Math.random() * 21); //((25-5)+1) == 21
             for (int i = 0; i < stringLength; i++) {
                 randASCIIString += ((int) (Math.random() * (('Z' - 'A') + 1))) + Math.random() < 0.5 ? 0 : 20;
             }
