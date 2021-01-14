@@ -4,6 +4,7 @@ import com.gruppe21.card.cardControllers.UseOnDrawCardController;
 import com.gruppe21.card.cardType.Card;
 import com.gruppe21.card.view.CardView;
 import com.gruppe21.game.Board;
+import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 
@@ -19,9 +20,9 @@ public abstract class RelocationCardController extends UseOnDrawCardController {
      * @param user Player that uses card
      */
     @Override
-    public void use(PlayerController user, Board board) {
+    public void use(PlayerController user) {
         super.use(user);
-
+        Board board = GameController.getInstance().getBoard();
         relocate(user, getDestination(user, board));
 
         // return card
