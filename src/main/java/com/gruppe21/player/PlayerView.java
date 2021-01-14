@@ -23,6 +23,7 @@ public class PlayerView {
                 localisation.getStringValue("start_turn_msg_label", model.getName()),
                 localisation.getStringValue("start_turn_button_label"),
                 localisation.getStringValue("purchase_buildings_button_label"),
+                localisation.getStringValue("pay_off_mortgages_button_label"),
                 localisation.getStringValue("liquidate_assets_button_label"));
     }
 
@@ -35,7 +36,7 @@ public class PlayerView {
 
     public void rollDice(Player player, int... diceValues){
         //tells the player to roll
-        guiManager.getUserButtonPress(localisation.getStringValue("start_turn_msg_label", player.getName()), localisation.getStringValue("rollButton")); //TODO: use localisation
+        guiManager.getUserButtonPress(localisation.getStringValue("start_turn_msg_label", player.getName()), localisation.getStringValue("rollButton"));
         //What if there isn't two values?
         guiManager.rollDice(diceValues[0], diceValues[1]);
     }
@@ -144,7 +145,6 @@ public class PlayerView {
         String[] names = new String[properties.length];
         for (int i = 0; i < names.length; i++) {
             names[i] = properties[i].getName();
-            if (names[i].isEmpty()) names[i] += "TEST";
         }
         String choice = guiManager.getUserChoiceDropDown(localisation.getStringValue(messageLabel), names);
         for (int i = 0; i < names.length; i++) {

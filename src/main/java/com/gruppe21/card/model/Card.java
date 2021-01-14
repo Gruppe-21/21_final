@@ -1,8 +1,9 @@
-package com.gruppe21.card.cardType;
+package com.gruppe21.card.model;
 
 import com.gruppe21.deck.Deck;
+import org.w3c.dom.Element;
 
-public abstract class Card {
+public class Card {
     protected String descriptionOnDrawLabel;
     protected String descriptionOnUseLabel;
     protected Deck deckToReturnTo;
@@ -10,6 +11,10 @@ public abstract class Card {
     public Card(String descriptionOnDrawLabel, String descriptionOnUseLabel) {
         this.descriptionOnDrawLabel = descriptionOnDrawLabel;
         this.descriptionOnUseLabel = descriptionOnUseLabel;
+    }
+
+    public Card(Element xmlTag){
+        this(xmlTag.getAttribute("onDrawDescription"), xmlTag.getAttribute("onUseDescription"));
     }
 
     public String getDescriptionOnDrawLabel() {

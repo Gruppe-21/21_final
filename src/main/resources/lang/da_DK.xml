@@ -99,6 +99,7 @@
     <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
     <sentence label="purchase_buildings_button_label">KØB BYGNINGER</sentence>
     <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
+    <sentence label="pay_off_mortgages_button_label">BETAL PANTSÆTNINGER</sentence>
     <sentence label="start_turn_button_label">START TUR</sentence>
 
     <sentence label="takeButton">Tag et andet kort</sentence>

@@ -97,4 +97,9 @@ public class GameController {
         if (startPosition == start || endPosition == start) return false;
         return board.getDistanceBetween(startPosition, start) < board.getDistanceBetween(endPosition, start);
     }
+
+    //Please don't use this if possible
+    public Board getBoard(){
+        return game.getBoard();
+    }
 }

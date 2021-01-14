@@ -1,7 +1,8 @@
 package com.gruppe21.player;
 
-import com.gruppe21.card.cardControllers.CardController;
-import com.gruppe21.card.cardType.PardonCard;
+import com.gruppe21.card.cardControllers.controllers.CardController;
+
+import com.gruppe21.card.cardControllers.controllers.PardonCardController;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.board.Board;
 import com.gruppe21.game.GameController;
@@ -66,7 +67,7 @@ public class PlayerController {
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCard.class);
+            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCardController.class);
             switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
