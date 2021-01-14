@@ -27,7 +27,9 @@ public abstract class CardController {
     /**
      * @param drawer Player that draws card
      */
-    public abstract void onDraw(PlayerController drawer);
+    public void onDraw(PlayerController drawer){
+        use(drawer);
+    }
 
     /**
      * Method that display the cards description
