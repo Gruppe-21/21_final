@@ -52,6 +52,7 @@ public class PlayerView {
 
     public GUI_Car customiseCar(){
         //TODO: ask player to customise their car.
+        if(colorToUse > colors.length - 1) colorToUse=0;
         return new GUI_Car(colors[colorToUse++], Color.black, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
     }
 

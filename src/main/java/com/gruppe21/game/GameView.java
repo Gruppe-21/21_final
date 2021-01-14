@@ -1,5 +1,6 @@
 package com.gruppe21.game;
 
+import com.gruppe21.board.Board;
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.utils.localisation.Localisation;
@@ -17,10 +18,15 @@ public class GameView {
     }
 
     public void selectLanguage(){
+        final String[] allLocales = localisation.getAllLocales();
+        final String[] defaultLocales = {"da_DK", "en_US"};
+        if(allLocales == null || allLocales.length == 0) return;
+        guiManager.getUserButtonPress("MATADOR: JAVA EDITION", "START SPIL!");
+
         localisation.setCurrentLocale(
                 guiManager.getUserChoiceDropDown(
                         "\uD83C\uDF0D",
-                        localisation.getAllLocales()
+                        allLocales.length != 0 ? allLocales : defaultLocales
                 ).substring(0,5)
         );
     }

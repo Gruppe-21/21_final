@@ -1,5 +1,6 @@
 package com.gruppe21.game;
 
+import com.gruppe21.board.Board;
 import com.gruppe21.player.PlayerController;
 
 public class Game {
