@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
     <!-- BuildingFees cards -->
-    <buildingFeeCard onUseDescription="oilPricesDesc" houseFee="500" hotelFee="-2000" type="BuildingFee" label="Oil Prices"/>         <!-- Kort 1  -->
-    <buildingFeeCard onUseDescription="propertyTaxDesc" houseFee="800" hotelFee="-2300" type="BuildingFee" label="Property Tax"/>     <!-- Kort 2 -->
+    <buildingFeeCard onUseDescription="oilPricesDesc" houseFee="500" hotelFee="2000" type="BuildingFee" label="Oil Prices"/>         <!-- Kort 1  -->
+    <buildingFeeCard onUseDescription="propertyTaxDesc" houseFee="800" hotelFee="2300" type="BuildingFee" label="Property Tax"/>     <!-- Kort 2 -->
 
     <!-- ModifyMoney cards -->
     <modifyMoneyCard onUseDescription="fullStopOnUseDesc" modifyValue="-1000" type="ModifyMoney" label="FullStop"/>         <!-- Kort 3  -->
