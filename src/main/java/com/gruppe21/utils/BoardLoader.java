@@ -1,6 +1,8 @@
 package com.gruppe21.utils;
 
 
+import com.gruppe21.card.cardControllers.controllers.CardController;
+import com.gruppe21.card.moveCards.controllers.TeleportToNearestCardController;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.squares.controllers.*;
 import com.gruppe21.squares.models.*;
@@ -25,9 +27,7 @@ import java.io.IOException;
 public class BoardLoader {
 
     public static String BOARD_DIRECTORY = "/boards/";
-    public static String CARD_DIRECTORY = "/cards/";
     public static String TAG_BOARD = "board";
-    public static String TAG_CARD = "cards";
 
 
     public static SquareController[] loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
@@ -36,6 +36,21 @@ public class BoardLoader {
 
         SquareController[] squareControllers = getSquaresFromNodeList(boardNodes);
         Deck deck = new Deck("cards");
+        for (CardController card: deck.getCards()) {
+            if (card instanceof TeleportToNearestCardController){
+                int[] ids = ((TeleportToNearestCardController) card).getSquareIDs();
+                SquareController[] destinationArray = new SquareController[ids.length];
+                for (int i = 0; i < destinationArray.length; i++) {
+                    for (int j = i; j < squareControllers.length; j++) {
+                        if (squareControllers[i].getId() == ids[j]){
+                            destinationArray[i] = squareControllers[i];
+                            break;
+                        }
+                    }
+                }
+                ((TeleportToNearestCardController) card).setPossibleDestinations(destinationArray);
+            }
+        }
         for (SquareController squareController: squareControllers) {
             if (squareController.getClass() == CardSquareController.class)
                 ((CardSquareController) squareController).setDeck(deck);
