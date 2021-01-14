@@ -16,6 +16,7 @@ public class BuildingFeesCardController extends MoneyCardController {
         user.transferMoney(totalFee, null);
     }
 
+    @Override
     protected BuildingFeesCard getCard(){
         return (BuildingFeesCard)card;
     }

@@ -20,8 +20,6 @@ public class ModifyMoneyCard extends Card {
         );
     }
 
-
-
     public int getModifyValue() {
         return modifyValue;
     }
