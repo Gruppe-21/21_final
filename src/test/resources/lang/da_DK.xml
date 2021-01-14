@@ -1,45 +1,163 @@
 <locale lang="da_DK" name="Dansk">
-    <sentence label="word1">Dette er en sætning.</sentence>
-    <sentence label="go">START</sentence>
-    <sentence label="burgerjoint">BURGERBAREN</sentence>
-    <sentence label="pizzeria">PIZZARIAET</sentence>
-    <sentence label="candystore">SLIKBUTIKKEN</sentence>
-    <sentence label="icecreamparlor">ISKIOSKEN</sentence>
-    <sentence label="museum">MUSEET</sentence>
-    <sentence label="library">BIBLIOTEKET</sentence>
-    <sentence label="skatepark">SKATERPARKEN</sentence>
-    <sentence label="swimmingpool">SWIMMINGPOOLEN</sentence>
-    <sentence label="arcade">SPILLEHALLEN</sentence>
-    <sentence label="cinema">BIOGRAFEN</sentence>
-    <sentence label="toystore">LEGETØJSBUTIKKEN</sentence>
-    <sentence label="petstore">DYREHANDLEN</sentence>
-    <sentence label="bowlingalley">BOWLINGHALLEN</sentence>
-    <sentence label="zoo">ZOO</sentence>
-    <sentence label="waterpark">VANDLANDET</sentence>
-    <sentence label="boardwalk">STRANDPROMENADEN</sentence>
-    <sentence label="gotoprison">GÅ I FÆNGSEL</sentence>
-    <sentence label="prison">I FÆNGSEL / PÅ BESØG</sentence>
-    <sentence label="chance">CHANCE</sentence>
-    <sentence label="freeparking">GRATIS PARKERING</sentence>
+    <sentence label="start">START</sentence>
+    <sentence label="rødovrevej">Rødovrevej</sentence>
+    <sentence label="prøv_lykken">Prøv Lykken</sentence>
+    <sentence label="hvidovrevej">Hvidovrevej</sentence>
+    <sentence label="betal_indkomstskat">Indkomstskat</sentence>
+    <sentence label="scandlines1">Scandlines Gedser-Rostock</sentence>
+    <sentence label="scandlines2">Scandlines Helsingør-Helsingborg</sentence>
+    <sentence label="scandlines3">Scandlines Rødby-Puttgarden</sentence>
+    <sentence label="scandlines4">Mols-Linien</sentence>
+    <sentence label="roskildevej">Roskildevej</sentence>
+    <sentence label="valby_langgade">Valby Langgade</sentence>
+    <sentence label="allegade">Allégade</sentence>
+    <sentence label="på_besøg">På besøg i fængsel</sentence>
+    <sentence label="frederiksberg_alle">Frederiksberg Allé</sentence>
+    <sentence label="tuborg_squash_tapperi">Tuborg Squash</sentence>
+    <sentence label="bulowsvej">Bülowsvej</sentence>
+    <sentence label="gl_kongevej">Gl. Kongevej</sentence>
+    <sentence label="bernstorffsvej">Bernstorffsvej</sentence>
+    <sentence label="hellerupvej">Hellerupsvej</sentence>
+    <sentence label="strandvejen">Strandvejen</sentence>
+    <sentence label="parkering">Gratis parkering</sentence>
+    <sentence label="trianglen">Trianglen</sentence>
+    <sentence label="østerbrogade">Østerbrogade</sentence>
+    <sentence label="grønningen">Grønningen</sentence>
+    <sentence label="bredgade">Bredgade</sentence>
+    <sentence label="kgs_nytorv">Kgs. Nytorv</sentence>
+    <sentence label="coca_cola_tapperi">Coca Cola</sentence>
+    <sentence label="østergade">Østergade</sentence>
+    <sentence label="de_fængsles">De fængsles</sentence>
+    <sentence label="amagertorv">Amagertorv</sentence>
+    <sentence label="vimmelskaftet">Vimmelskaftet</sentence>
+    <sentence label="nygade">Nygade</sentence>
+    <sentence label="frederiksberggade">Frederiksggade</sentence>
+    <sentence label="tax">Statsskat</sentence>
+    <sentence label="rådhuspladsen">Rådhuspladsen</sentence>
 
-    <!-- chancecard buttons -->
-    <sentence label="moveButton">Ryk</sentence>
-    <sentence label="moveButton1">1</sentence>
-    <sentence label="moveButton2">2</sentence>
-    <sentence label="moveButton3">3</sentence>
-    <sentence label="moveButton4">4</sentence>
-    <sentence label="moveButton5">5</sentence>
+    <sentence label="start_desc">Hver gang de passerer START, modtag da kr. 4000</sentence>
+    <sentence label="rødovrevej_desc">De er landet på Rødovrevej</sentence>
+    <sentence label="prøv_lykken_desc">Træk et kort fra bunken</sentence>
+    <sentence label="hvidovrevej_desc">De er landet på Hvidovrevej</sentence>
+    <sentence label="betal_indkomstskat_desc">Betal indkomstskat 10% eller kr. 4000</sentence>
+    <sentence label="scandlines1_desc"> </sentence>
+    <sentence label="scandlines2_desc"> </sentence>
+    <sentence label="scandlines3_desc"> </sentence>
+    <sentence label="scandlines4_desc">De er landet på Mols-linien</sentence>
+    <sentence label="roskildevej_desc">De er landet på Roskildevej</sentence>
+    <sentence label="valby_langgade_desc">De er landet på Valby Langgade</sentence>
+    <sentence label="allegade_desc">De er landet på Allégade</sentence>
+    <sentence label="på_besøg_desc">De er nu på besøg i fængsel</sentence>
+    <sentence label="frederiksberg_alle_desc">De er landet på Frederiksberg Allé</sentence>
+    <sentence label="tuborg_squash_tapperi_desc">De er landet på Tuborg Squash tapperiet</sentence>
+    <sentence label="bulowsvej_desc">De er landet på Bülowsvej</sentence>
+    <sentence label="gl_kongevej_desc">De er landet på Gl. Kongevej</sentence>
+    <sentence label="bernstorffsvej_desc">De er landet på Bernstorffsvej</sentence>
+    <sentence label="hellerupvej_desc">De er landet på Hellerupvej</sentence>
+    <sentence label="strandvejen_desc">De er landet på Strandvejen</sentence>
+    <sentence label="parkering_desc">De er landet på Parkering</sentence>
+    <sentence label="trianglen_desc">De er landet på Trianglen</sentence>
+    <sentence label="østerbrogade_desc">De er landet på Østerbrogade</sentence>
+    <sentence label="grønningen_desc">De er landet på Grønningen</sentence>
+    <sentence label="bredgade_desc">De er landet på Bredgade</sentence>
+    <sentence label="kgs_nytorv_desc">De er landet på Kgs. Nytorv</sentence>
+    <sentence label="coca_cola_tapperi_desc">De er landet på Coca Cola</sentence>
+    <sentence label="østergade_desc">De er landet på Østergade</sentence>
+    <sentence label="de_fængsles_desc">De fængsles</sentence>
+    <sentence label="amagertorv_desc">De er landet på Amagertorv</sentence>
+    <sentence label="vimmelskaftet_desc">De er landet på Vimmelskaftet</sentence>
+    <sentence label="nygade_desc">De er landet på Nygade</sentence>
+    <sentence label="frederiksberggade_desc">De er landet på Frederiksggade</sentence>
+    <sentence label="tax_desc">De skal nu betale kr. 2000</sentence>
+    <sentence label="rådhuspladsen_desc">De er landet på Rådhuspladsen</sentence>
 
-    <sentence label="takeButton">Træk nyt kort</sentence>
+    <sentence label="dice_cheater"> Gå i fængsel din snyder! </sentence>
+    <sentence label="jail_removal_message"> Fængsel: </sentence>
+    <sentence label="jail_removal_choice1"> Gør intet</sentence>
+    <sentence label="jail_removal_choice2"> Brug kort</sentence>
+    <sentence label="jail_removal_choice3"> Kast for løsladelse</sentence>
+
+    <sentence label="purchase_text">Køb �[Property] for </sentence>
+    <sentence label="liquidate_text">LIQUIDATE ASSETS TEXT </sentence>
+    <sentence label="currency">�[VALUE] kr.</sentence>
+
+    <sentence label="yes">Ja</sentence>
+    <sentence label="no">Nej</sentence>
+
+    <sentence label="select_language">Vælg et sprog</sentence>
+
+    <sentence label="liquidate_assets_text">Likvider aktier</sentence>
+    <sentence label="build_text">BYG</sentence>
+    <sentence label="sell_property_menu_button">SÆLG EJENDOM</sentence>
+    <sentence label="mortgage_menu_button">PANTSÆTNING</sentence>
+    <sentence label="trade_menu_button">HANDEL</sentence>
+    <sentence label="back_menu_button">TILBAGE</sentence>
+    <sentence label="liquidation_method_button">Likvideringsmetode </sentence>
+    <sentence label="sell_property">Sælg</sentence>
+    <sentence label="pay_off_mortgage">Betal pantsætning</sentence>
+    <sentence label="crossed_start">Du har passeret start, modtag kr. 4000!</sentence>
+    <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
+    <sentence label="purchase_buildings_button_label">KØB BYGNINGER</sentence>
+    <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
+    <sentence label="start_turn_button_label">START TUR</sentence>
+
+    <sentence label="takeButton">Tag et andet kort</sentence>
+    <sentence label="takecard">Tag et chancekort</sentence>
+
+    <!-- Player instructions -->
+    <sentence label="requestSpecifyNumPlayers">Hvor mange spiller? (min 3, max 6)</sentence>
+    <sentence label="request_player_name">Indtast navn</sentence>
+    <sentence label="request_player_name_fail">Dette navn kan ikke bruges</sentence>
+    <sentence label="askForFirstPlayer">Hvem skal starte?</sentence>
+    <sentence label="rollButton">Kast</sentence>
+
+
 
     <!-- chancecard desc -->
-    <sentence label="jailcard">Du løslades uden omkostninger. Behold dette kort indtil du får brug for det.</sentence>
-    <sentence label="homeworkcard">Du har lavet alle dine lektier! MODTAG '2'M fra banken.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="candycard">Du har spist for meget slik. BETAL '2'M til banken.</sentence> <!-- money value instead of '2'? -->
-    <sentence label="birthdaycard">Det er din fødselsdag! Alle giver dig '1'M</sentence> <!-- money value instead of '1'? -->
-    <sentence label="startcard">Ryk frem til START feltet. Modtag '2'M</sentence> <!-- money value instead of '2'? -->
-    <sentence label="boardwalkcard">Ryk frem til STRANDPROMENADEN.</sentence>
-    <sentence label="moveuptocard">Ryk OP TIL 5 felter frem.</sentence>
-    <sentence label="cardOrmovecard">Ryk 1 felt frem, ELLER tag et chancekort mere.</sentence>
+    <sentence label="oilPricesDesc">Oliepriserne er steget, og De skal betale kr. 500 pr. hus og kr. 2000 pr. hotel</sentence>
+    <sentence label="propertyTaxDesc">Ejendomsskatten er steget. Ekstraudgifterne er: kr. 800 pr. hus, kr. 2300 pr. hotel</sentence>
 
+    <sentence label="fullStopDesc">De har kørt frem for “fuldt stop”, Betal kr. 1000 i bøde</sentence>
+    <sentence label="carWashDesc">Betal for vognvask og smøring kr. 300</sentence>
+    <sentence label="beerDesc">Betal kr. 200 for levering af 2 kasser øl</sentence>
+    <sentence label="repairCarDesc">Betal  kr. 3000 for reparation af deres vogn</sentence>                                                          <!-- 2 of these-->
+    <sentence label="tiresDesc">De har købt 4 nye dæk til Deres vogn, betal kr. 1000</sentence>
+    <sentence label="payBillDesc">De har fået en parkeringsbøde, betal kr. 200 i bøde</sentence>
+    <sentence label="carInsuranceDesc">Betal deres bilforsikring, kr. 1000</sentence>
+    <sentence label="vacationDesc">De har været udenlands og købt for mange smøger, betal kr. 200 i told</sentence>
+    <sentence label="dentistDesc">Tandlægeregning, betal kr. 2000</sentence>
+
+    <sentence label="lottoDesc">De har vundet i klasselotteriet. Modtag kr. 500</sentence>                                                       <!-- 2 of these-->
+    <sentence label="dividendDesc">De modtager Deres aktieudbytte. Modtag kr. 1000 af banken</sentence>                                             <!-- 3 of these-->
+    <sentence label="quarterTaxDesc">Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3000</sentence>
+    <sentence label="tippingDesc">De havde en række med elleve rigtige i tipning, modtag kr. 1000</sentence>
+    <sentence label="wageIncreaseDesc">Grundet dyrtiden har De fået gageforhøjelse, modtag kr. 1000</sentence>
+    <sentence label="premiumBondDesc">Deres præmieobligation er udtrykket. De modtager kr. 1000 af banken</sentence>                                   <!-- 2 of these-->
+    <sentence label="oldFurnitureDesc">De har solg nogle gamle møbler på auktion. Modtag kr. 1000 af banken</sentence>
+    <sentence label="utilityGardenDesc">Værdien af egen avl fra nyttehaven udgør kr. 200 som de modtager af banken</sentence>
+    <sentence label="matadorLegateDesc">De modtager “Matador-legatet” på kr. 40.000, men kun hvis deres værdier ikke overstiger
+        kr. 15.000</sentence>
+
+    <sentence label="birthdayDesc">Det er deres fødselsdag. Modtag af hver medspiller kr. 200</sentence>
+    <sentence label="partyDesc">De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks.
+        Modtag fra hver medspiller kr. 500</sentence>
+    <sentence label="familyPartyDesc">De skal holde familiefest og får et tilskud fra hver medspiller på kr. 500</sentence>
+
+    <sentence label="startCardDesc">Ryk frem til START</sentence>                                                                                    <!-- 2 of these-->
+    <sentence label="threeForwardCardDesc">Ryk tre felter frem</sentence>
+    <sentence label="threeBackwardCardOnDesc">Ryk tre felter tilbage</sentence> <!-- 2 of these-->
+    <sentence label="frederiksbergCardDesc">Ryk frem til Frederiksberg Allé. Hvis De passere START, indkasser da kr. 4000</sentence>
+    <sentence label="moveNearestShippingCardDesc">Ryk frem til det nærmeste rederi og betal ejeren to gange den leje han ellers er
+        berettiget til, hvis selskabet ikke ejes af nogen kan De købe det af banken</sentence>                                          <!-- 2 of these-->
+    <sentence label="mols-linjenCardDesc">Tag med Mols-Linien, flyt brikken frem og hvis De passerer START indkassér da kr.
+        4000</sentence>
+    <sentence label="groenningenCardOnUseDesc">Ryk frem til Grønningen, hvis De passerer start indkasser da kr. 4000</sentence>
+    <sentence label="vimmelskaftetCardDesc">Ryk frem til Vimmelskaftet, hvis de passerer start indkasser da kr. 4000</sentence>
+    <sentence label="moveNearestFerryCardDesc">Tag med den nærmeste færge, hvis de passerer start indkasser da kr. 4000</sentence>
+    <sentence label="strandvejenCardDesc">Ryk frem til Strandvejen. Hvis De passere START, indkasser da kr. 4000</sentence>
+    <sentence label="raadhuspladsenCardDesc">Tag til Rådhuspladsen</sentence>
+
+    <sentence label="pardonCardDesc">I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan
+        opbevares indtil De får brug for det, eller De kan sælge det.</sentence>                                                        <!-- 2 of these-->
+    <sentence label="teleportCardDesc">Gå i fængsel, De indkasserer ikke kr. 4000 for at passere start</sentence>                                       <!-- 2 of these-->
 </locale>
