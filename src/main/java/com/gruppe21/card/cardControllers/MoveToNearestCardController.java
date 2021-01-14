@@ -1,18 +1,13 @@
 package com.gruppe21.card.cardControllers;
 
-import com.gruppe21.card.cardType.Card;
 import com.gruppe21.card.cardType.MoveToNearestCard;
 import com.gruppe21.card.cardView.CardView;
-import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 
 public class MoveToNearestCardController extends CardController {
-    MoveToNearestCard card;
-    CardView view;
 
-
-    public MoveToNearestCardController(CardView cardView, Card card) {
+    public MoveToNearestCardController(CardView cardView, MoveToNearestCard card) {
         super(cardView, card);
     }
 
@@ -29,16 +24,12 @@ public class MoveToNearestCardController extends CardController {
      * @param board Board which the game is played with
      */
     @Override
-    public void use(PlayerController user, Board board){
+    public void use(PlayerController user){
+        MoveToNearestCard mnCard = (MoveToNearestCard)card;
         super.use(user);
 
-        int[] squaresIdArr = card.getIDSquares();
+        int[] squaresIdArr = mnCard.getIDSquares();
         SquareController[] squareControllersArr = new SquareController[squaresIdArr.length];
-
-        // convert ID to SquareController
-        for(int i=0;i<squaresIdArr.length;i++){
-            squareControllersArr[i] = board.getSquareControllerFromId(squaresIdArr[i]);
-        }
 
         // move player to nearest SquareController in squareControllersArr
         user.moveTo(board.closestSquareController(user.getPlayer().getPosition(), squareControllersArr));
