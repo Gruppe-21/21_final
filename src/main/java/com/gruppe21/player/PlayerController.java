@@ -1,9 +1,10 @@
 package com.gruppe21.player;
 
-import com.gruppe21.card.cardControllers.CardController;
-import com.gruppe21.card.cardType.PardonCard;
+import com.gruppe21.card.cardControllers.controllers.CardController;
+
+import com.gruppe21.card.cardControllers.controllers.PardonCardController;
 import com.gruppe21.deck.Deck;
-import com.gruppe21.game.Board;
+import com.gruppe21.board.Board;
 import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
@@ -21,14 +22,37 @@ public class PlayerController {
     private static final Random random = new Random();
     private int lastRollForBrewery = 0;
 
-    public PlayerController(){
+    public PlayerController(String... bannedNames){
         gameController = GameController.getInstance();
         player = new Player();
         playerView = new PlayerView();
-        //TODO: limit names such that they are never the same (like, at a number to the end of duplicates or something)
-        player.setName(playerView.chooseName(0, Player.getMaxNameLength()));
+        selectName(bannedNames);
+
         player.setGuiPlayer(new GUI_Player(player.getName(), player.getBalance(), playerView.customiseCar()));
         playerView.addToGui(player.getGuiPlayer());
+    }
+
+    private void selectName(String... bannedNames){
+        player.setName(playerView.chooseName(1, Player.getMaxNameLength()));
+        for (String name: bannedNames) {
+            if (getName().equals(name)){
+                boolean invalidName;
+                String newName;
+                int numRounds = 1;
+                do {
+                    invalidName = false;
+                    newName = name + " " + ++numRounds;
+                    for (String callsign: bannedNames) {
+                        if (newName.equals(callsign)){
+                            invalidName = true;
+                            break;
+                        }
+                    }
+                } while (invalidName);
+                player.setName(newName);
+                return;
+            }
+        }
     }
 
     /**
@@ -36,9 +60,10 @@ public class PlayerController {
      * @param board
      */
     public void takeTurn(Board board){
+        if (isBankrupt()) return;
         boolean roll = false;
         while (!roll){
-            switch (playerView.startTurn()){
+            switch (playerView.startTurn(player)){
                 case 0 : {
                     roll = true;
                     break;
@@ -65,7 +90,7 @@ public class PlayerController {
             status.addIdenticalDice(1);
         else status.setIdenticalDice(0);
         if (status.isImprisoned()){
-            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCard.class);
+            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCardController.class);
             switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
                 case 49 : { // '1'
                     //Use pardon card
@@ -82,7 +107,7 @@ public class PlayerController {
                 }
             }
         }
-        playerView.rollDice(diceRolls);
+        playerView.rollDice(player, diceRolls);
         if (status.getIdenticalDice() == 3){
             playerView.imprisonedDiceCheater();
             status.setImprisoned(true);
@@ -90,6 +115,7 @@ public class PlayerController {
             teleportTo(board.getSquareControllerFromId(31));
             return;
         }
+        if (isBankrupt()) return;
         if (!status.isImprisoned())
             moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
         if (status.getIdenticalDice() > 0) takeTurn(board);
@@ -149,9 +175,17 @@ public class PlayerController {
         if (creditor == this) return;
         if (player.getTotalValue() < debit){ //We have gone bankrupt
             //We have gone bankrupt
-            //Sell houses
-            //Transfer cash
-            //Transfer properties
+            //Sell houses and transfer properties
+            for (OwnableSquareController ownableSquare: getPlayer().getOwnedProperties()) {
+                if (ownableSquare instanceof PropertySquareController ){
+                    ((PropertySquareController) ownableSquare).sellHouses(((PropertySquareController) ownableSquare).getNumHouses());
+                }
+                creditor.purchaseProperty(ownableSquare, 0);
+            }
+            //Transfer all cash
+            transferMoney(player.getBalance(), creditor);
+
+            player.setBankrupt(true);
             return;
         }
         if (player.getBalance() < debit) //We can pay but we don't have enough cash
@@ -290,6 +324,10 @@ public class PlayerController {
         return player.setBalance(player.getBalance() + value);
     }
 
+    public int getTotalValue(){
+        return player.getTotalValue();
+    }
+
     public String getName(){
         return player.getName();
     }
@@ -344,6 +382,13 @@ public class PlayerController {
     }
 
 
+    public void setBankrupt(boolean bankrupt){
+        player.setBankrupt(bankrupt);
+    }
+
+    public boolean isBankrupt(){
+        return player.isBankrupt();
+    }
 
 
     //This makes me sad

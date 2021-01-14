@@ -11,7 +11,7 @@ import gui_fields.GUI_Field;
  */
 public class SquareController {
     final protected Square model;
-    final private SquareView view;
+    final protected SquareView view;
 
     public SquareController(Square model, SquareView view) {
         this.model = model;
@@ -46,6 +46,7 @@ public class SquareController {
     }
 
 
+    public String getLabel() { return model.getNameLocalisationId(); }
 }
 
 

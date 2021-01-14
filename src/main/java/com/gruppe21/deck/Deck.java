@@ -1,6 +1,6 @@
 package com.gruppe21.deck;
 
-import com.gruppe21.card.cardControllers.CardController;
+import com.gruppe21.card.cardControllers.controllers.CardController;
 import com.gruppe21.utils.CardLoader;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,6 +28,9 @@ public class Deck {
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
+        for (CardController card: cards) {
+            card.setReturnDeck(this);
+        }
         totalCards = cards.length;
         currentNumCards = totalCards;
         returnedCards = new CardController[totalCards];
@@ -51,7 +54,7 @@ public class Deck {
      */
     public CardController drawCardOfClass(Class cardClass){
         for (int i = cardsDrawn; i < currentNumCards; i++) {
-            if(cards[i].getCardClass().equals(cardClass)){
+            if(cards[i].getClass().equals(cardClass)){
                 CardController drawnCard = cards[i];
                 cards[i] = cards[cardsDrawn];
                 cards[cardsDrawn] = drawnCard;
@@ -148,5 +151,9 @@ public class Deck {
             cards[i] = cards[rand_int];
             cards[rand_int] = tempController;
         }
+    }
+
+    public CardController[] getCards(){
+        return cards;
     }
 }

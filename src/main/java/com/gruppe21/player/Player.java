@@ -24,6 +24,7 @@ public class Player {
     private OwnableSquareController[] ownedProperties;
     private int numOwnedProperties = 0;
     private StatusEffects statusEffects;
+    private boolean bankrupt;
 
     private GUI_Player guiPlayer;
 
@@ -123,11 +124,12 @@ public class Player {
      * @return a {@code PropertySquareController} array of the players buildable properties.
      */
     public PropertySquareController[] getBuildableProperties(){
-        PropertySquareController[] buildableProperties = new PropertySquareController[ownedProperties.length];
+        OwnableSquareController[] properties = getOwnedProperties();
+        PropertySquareController[] buildableProperties = new PropertySquareController[properties.length];
         int numBuildableProperties = 0;
-        for (int i = 0; i < getOwnedProperties().length; i++) {
-            if (ownedProperties[i].mayBuild()) {
-                buildableProperties[i] = (PropertySquareController) ownedProperties[i];
+        for (int i = 0; i < properties.length; i++) {
+            if (properties[i].mayBuild()) {
+                buildableProperties[numBuildableProperties] = (PropertySquareController) properties[i];
                 numBuildableProperties++;
             }
         }
@@ -206,6 +208,14 @@ public class Player {
 
     public Color[] getColors(){
         return new Color[] {guiPlayer.getPrimaryColor(), guiPlayer.getSecondaryColor()};
+    }
+
+    public boolean isBankrupt() {
+        return bankrupt;
+    }
+
+    public void setBankrupt(boolean bankrupt) {
+        this.bankrupt = bankrupt;
     }
 }
 

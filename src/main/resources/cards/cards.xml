@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cards>
     <!-- BuildingFees cards -->
-    <buildingFeeCard onUseDescription="oilPrices" moneyHouse="-500" moneyHotel="-2000" type="BuildingFee" label="Oil Prices" isBank="false"/>         <!-- Kort 1  -->
-    <buildingFeeCard onUseDescription="propertyTax" moneyHouse="-800" moneyHotel="-2300" type="BuildingFee" label="Property Tax" isBank="false"/>     <!-- Kort 2 -->
+    <buildingFeeCard onUseDescription="oilPricesDesc" houseFee="500" hotelFee="2000" type="BuildingFee" label="Oil Prices"/>         <!-- Kort 1  -->
+    <buildingFeeCard onUseDescription="propertyTaxDesc" houseFee="800" hotelFee="2300" type="BuildingFee" label="Property Tax"/>     <!-- Kort 2 -->
 
     <!-- ModifyMoney cards -->
-    <modifyMoneyCard onUseDescription="fullStopOnUse" money="-1000" type="ModifyMoney" label="FullStop" isBank="false"/>         <!-- Kort 3  -->
-    <modifyMoneyCard onUseDescription="carWashOnUse" money="-300" type="MoveToSquare" label="Carwash" isBank="false"/>           <!-- Kort 4 -->
-    <modifyMoneyCard onUseDescription="beerOnUse" money="-200" type="ModifyMoney" label="Beer" isBank="false"/>                  <!-- Kort 5 -->
-    <modifyMoneyCard onUseDescription="repairCarOnUse" money="-3000" type="ModifyMoney" label="RepairCar" isBank="false"/>       <!-- Kort 6 nr. 1-->
-    <modifyMoneyCard onUseDescription="repairCarOnUse" money="-3000" type="ModifyMoney" label="RepairCar" isBank="false"/>       <!-- Kort 6 nr. 2-->
-    <modifyMoneyCard onUseDescription="tiresOnUse" money="-1000" type="ModifyMoney" label="NewTires" isBank="false"/>            <!-- Kort 7 -->
-    <modifyMoneyCard onUseDescription="payBillOnUse" money="-200" type="ModifyMoney" label="PayBill" isBank="false"/>            <!-- Kort 8 -->
-    <modifyMoneyCard onUseDescription="carInsuranceOnUse" money="-1000" type="ModifyMoney" label="CarInsurance" isBank="false"/> <!-- Kort 9 -->
-    <modifyMoneyCard onUseDescription="vacationOnUse" money="-200" type="ModifyMoney" label="Vacation" isBank="false"/>          <!-- Kort 10 -->
-    <modifyMoneyCard onUseDescription="dentistOnUse" money="-2000" type="ModifyMoney" label="Dentist" isBank="false"/>           <!-- Kort 11 -->
+    <modifyMoneyCard onUseDescription="fullStopOnUseDesc" modifyValue="-1000" type="ModifyMoney" label="FullStop"/>         <!-- Kort 3  -->
+    <modifyMoneyCard onUseDescription="carWashOnUseDesc" modifyValue="-300" type="MoveToSquare" label="Carwash"/>           <!-- Kort 4 -->
+    <modifyMoneyCard onUseDescription="beerOnUseDesc" modifyValue="-200" type="ModifyMoney" label="Beer"/>                  <!-- Kort 5 -->
+    <modifyMoneyCard onUseDescription="repairCarOnUseDesc" modifyValue="-3000" type="ModifyMoney" label="RepairCar"/>       <!-- Kort 6 nr. 1-->
+    <modifyMoneyCard onUseDescription="repairCarOnUseDesc" modifyValue="-3000" type="ModifyMoney" label="RepairCar"/>       <!-- Kort 6 nr. 2-->
+    <modifyMoneyCard onUseDescription="tiresOnUseDesc" modifyValue="-1000" type="ModifyMoney" label="NewTires"/>            <!-- Kort 7 -->
+    <modifyMoneyCard onUseDescription="payBillOnUseDesc" modifyValue="-200" type="ModifyMoney" label="PayBill"/>            <!-- Kort 8 -->
+    <modifyMoneyCard onUseDescription="carInsuranceOnUseDesc" modifyValue="-1000" type="ModifyMoney" label="CarInsurance"/> <!-- Kort 9 -->
+    <modifyMoneyCard onUseDescription="vacationOnUseDesc" modifyValue="-200" type="ModifyMoney" label="Vacation"/>          <!-- Kort 10 -->
+    <modifyMoneyCard onUseDescription="dentistOnUseDesc" modifyValue="-2000" type="ModifyMoney" label="Dentist"/>           <!-- Kort 11 -->
 
-    <modifyMoneyCard onUseDescription="lotto" money="500" type="ModifyMoney" label="Lotto" isBank="false"/>                      <!-- Kort 12 nr. 1-->
-    <modifyMoneyCard onUseDescription="lotto" money="500" type="ModifyMoney" label="Lotto" isBank="false"/>                      <!-- Kort 12 nr. 2-->
-    <modifyMoneyCard onUseDescription="dividend" money="1000" type="ModifyMoney" label="Dividend" isBank="false"/>               <!-- Kort 13 nr. 1-->
-    <modifyMoneyCard onUseDescription="dividend" money="1000" type="ModifyMoney" label="Dividend" isBank="false"/>               <!-- Kort 13 nr. 2-->
-    <modifyMoneyCard onUseDescription="dividend" money="1000" type="ModifyMoney" label="Dividend" isBank="false"/>               <!-- Kort 13 nr. 3-->
-    <modifyMoneyCard onUseDescription="quarterTax" money="3000" type="ModifyMoney" label="Quarter Tax" isBank="false"/>          <!-- Kort 14 -->
-    <modifyMoneyCard onUseDescription="tipping" money="1000" type="ModifyMoney" label="Tipping" isBank="false"/>                 <!-- Kort 15 -->
-    <modifyMoneyCard onUseDescription="wageIncrease" money="1000" type="ModifyMoney" label="Wage Increase" isBank="false"/>      <!-- Kort 16 -->
-    <modifyMoneyCard onUseDescription="premiumBond" money="1000" type="ModifyMoney" label="Premium Bond" isBank="false"/>        <!-- Kort 17 nr. 1-->
-    <modifyMoneyCard onUseDescription="premiumBond" money="1000" type="ModifyMoney" label="Premium Bond" isBank="false"/>        <!-- Kort 17 nr. 2-->
-    <modifyMoneyCard onUseDescription="oldFurniture" money="1000" type="ModifyMoney" label="Old Furniture" isBank="false"/>      <!-- Kort 18 -->
-    <modifyMoneyCard onUseDescription="utilityGarden" money="200" type="ModifyMoney" label="Utility Garden" isBank="false"/>     <!-- Kort 19 -->
-    <modifyMoneyCard onUseDescription="birthday" money="200" type="ModifyMoney" label="Birthday" isBank="true"/>                 <!-- Kort 21 -->
-    <modifyMoneyCard onUseDescription="party" money="500" type="ModifyMoney" label="Party" isBank="true"/>                       <!-- Kort 22 -->
-    <modifyMoneyCard onUseDescription="familyParty" money="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
+    <modifyMoneyCard onUseDescription="lottoDesc" modifyValue="500" type="ModifyMoney" label="Lotto"/>                      <!-- Kort 12 nr. 1-->
+    <modifyMoneyCard onUseDescription="lottoDesc" modifyValue="500" type="ModifyMoney" label="Lotto"/>                      <!-- Kort 12 nr. 2-->
+    <modifyMoneyCard onUseDescription="dividendDesc" modifyValue="1000" type="ModifyMoney" label="Dividend"/>               <!-- Kort 13 nr. 1-->
+    <modifyMoneyCard onUseDescription="dividendDesc" modifyValue="1000" type="ModifyMoney" label="Dividend"/>               <!-- Kort 13 nr. 2-->
+    <modifyMoneyCard onUseDescription="dividendDesc" modifyValue="1000" type="ModifyMoney" label="Dividend"/>               <!-- Kort 13 nr. 3-->
+    <modifyMoneyCard onUseDescription="quarterTaxDesc" modifyValue="3000" type="ModifyMoney" label="Quarter Tax"/>          <!-- Kort 14 -->
+    <modifyMoneyCard onUseDescription="tippingDesc" modifyValue="1000" type="ModifyMoney" label="Tipping"/>                 <!-- Kort 15 -->
+    <modifyMoneyCard onUseDescription="wageIncreaseDesc" modifyValue="1000" type="ModifyMoney" label="Wage Increase"/>      <!-- Kort 16 -->
+    <modifyMoneyCard onUseDescription="premiumBondDesc" modifyValue="1000" type="ModifyMoney" label="Premium Bond"/>        <!-- Kort 17 nr. 1-->
+    <modifyMoneyCard onUseDescription="premiumBondDesc" modifyValue="1000" type="ModifyMoney" label="Premium Bond"/>        <!-- Kort 17 nr. 2-->
+    <modifyMoneyCard onUseDescription="oldFurnitureDesc" modifyValue="1000" type="ModifyMoney" label="Old Furniture"/>      <!-- Kort 18 -->
+    <modifyMoneyCard onUseDescription="utilityGardenDesc" modifyValue="200" type="ModifyMoney" label="Utility Garden"/>     <!-- Kort 19 -->
+    <modifyMoneyCard onUseDescription="birthdayDesc" modifyValue="200" type="ModifyMoney" label="Birthday" isBank="true"/>                 <!-- Kort 21 -->
+    <modifyMoneyCard onUseDescription="partyDesc" modifyValue="500" type="ModifyMoney" label="Party" isBank="true"/>                       <!-- Kort 22 -->
+    <modifyMoneyCard onUseDescription="familyPartyDesc" modifyValue="500" type="ModifyMoney" label="Family Party" isBank="true"/>          <!-- Kort 23 -->
 
     <!-- LegateMoney cards -->
-    <legateMoneyCard onUseDescription="matadorLegate" money="40000" minMoney="15000" type="ModifyMoney" label="Matador Legate" isBank="false" isLegate="true"/>   <!-- Kort 20 -->
+    <grantMoneyCard onUseDescription="matadorLegateDesc" modifyValue="40000" maxOwnedValue="15000" type="ModifyMoney" label="Matador Legate"/>   <!-- Kort 20 -->
 
     <!-- MoveToSquare cards -->
     <moveToNearestCard onUseDescription="startCardOnUseDesc" squareID="1" type="MoveToSquare" label="Start"/>                       <!-- Kort 24 nr. 1 -->
@@ -52,15 +52,15 @@
 
 
     <!-- MoveToNearest cards -->
-    <moveToNearestCard onUseDescription="moveNearestCardOnUsDesc" squareID="13 29" type="MoveToNearest" label="Rederi"/>      <!-- Kort 28 -->
-    <moveToNearestCard onUseDescription="moveNearestCardOnUseDesc" squareID="6 16 26 36" type="MoveToNearest" label="Færge"/>   <!-- Kort 32 -->
+    <moveToNearestCard onUseDescription="moveNearestShippingCardOnUseDesc" squareID="13 29" type="MoveToNearestShipping" label="Rederi"/>      <!-- Kort 28 -->
+    <moveToNearestCard onUseDescription="moveNearestFerryCardOnUseDesc" squareID="6 16 26 36" type="MoveToNearestFerry" label="Færge"/>   <!-- Kort 32 -->
 
     <!-- Pardon cards (Prison) -->
-    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 1 -->
-    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 2 -->
+    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc" statusEffect="2"/> <!-- kort 35 nr. 1 -->
+    <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc" statusEffect="2"/> <!-- kort 35 nr. 2 -->
 
     <!-- TeleportToNearest cards (Prison) -->
-    <prisonCard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 1 -->
-    <prisonCard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 2 -->
+    <teleportToNearestCard onUseDescription="teleportCardOnUseDesc" statusEffect="1" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 1 -->
+    <teleportToNearestCard onUseDescription="teleportCardOnUseDesc" statusEffect="1" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 2 -->
 
 </cards>

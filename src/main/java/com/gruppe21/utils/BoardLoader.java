@@ -1,11 +1,15 @@
 package com.gruppe21.utils;
 
+
+import com.gruppe21.card.cardControllers.controllers.CardController;
+import com.gruppe21.card.moveCards.controllers.TeleportToNearestCardController;
 import com.gruppe21.deck.Deck;
 import com.gruppe21.squares.controllers.*;
 import com.gruppe21.squares.models.*;
 import com.gruppe21.squares.views.OwnableSquareView;
 import com.gruppe21.squares.views.PropertySquareView;
 import com.gruppe21.squares.views.SquareView;
+import com.gruppe21.squares.views.TaxSquareView;
 import com.gruppe21.utils.xmlutils.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -23,9 +27,7 @@ import java.io.IOException;
 public class BoardLoader {
 
     public static String BOARD_DIRECTORY = "/boards/";
-    public static String CARD_DIRECTORY = "/cards/";
     public static String TAG_BOARD = "board";
-    public static String TAG_CARD = "cards";
 
 
     public static SquareController[] loadBoard(String fileName) throws ParserConfigurationException, IOException, SAXException {
@@ -34,13 +36,44 @@ public class BoardLoader {
 
         SquareController[] squareControllers = getSquaresFromNodeList(boardNodes);
         Deck deck = new Deck("cards");
+        assignDecksAndDestinations(deck, squareControllers);
+        assignDestinationsToCards(deck, squareControllers);
+
+
+        return squareControllers;
+    }
+
+    private static void assignDestinationsToCards(Deck deck, SquareController[] squareControllers){
+        for (CardController card: deck.getCards()) {
+            if (card instanceof TeleportToNearestCardController){
+                int[] ids = ((TeleportToNearestCardController) card).getSquareIDs();
+                SquareController[] destinationArray = new SquareController[ids.length];
+                for (int i = 0; i < destinationArray.length; i++) {
+                    for (int j = 0; j < squareControllers.length; j++) {
+                        if (squareControllers[j].getId() == ids[i]){
+                            destinationArray[i] = squareControllers[i];
+                            break;
+                        }
+                    }
+                }
+                ((TeleportToNearestCardController) card).setPossibleDestinations(destinationArray);
+            }
+        }
+    }
+
+
+    private static void assignDecksAndDestinations(Deck deck, SquareController[] squareControllers){
         for (SquareController squareController: squareControllers) {
             if (squareController.getClass() == CardSquareController.class)
                 ((CardSquareController) squareController).setDeck(deck);
-            //TODO: set destination of teleport square
+            else if (squareController instanceof TeleportSquareController){
+                for (SquareController potentialDestination: squareControllers) {
+                    if (potentialDestination.getId() == ((TeleportSquareController) squareController).getDestinationId()){
+                        ((TeleportSquareController) squareController).setDestinationController(potentialDestination);
+                    }
+                }
+            }
         }
-
-        return squareControllers;
     }
 
     private static SquareController[] getSquaresFromNodeList(NodeList boardNodes) {
@@ -74,7 +107,17 @@ public class BoardLoader {
                 MoneySquare moneySquareModel = new MoneySquare(tag);
                 moneySquareModel.setSquareType(SquareType.Start);
                 SquareView moneyView = new SquareView();
-                return new SquareController(moneySquareModel, moneyView);
+                return new MoneySquareController(moneySquareModel, moneyView);
+            case "MoneySquare":
+                MoneySquare moneySquareModel2 = new MoneySquare(tag);
+                moneySquareModel2.setSquareType(SquareType.Tax);
+                SquareView moneyView2 = new SquareView();
+                return new MoneySquareController(moneySquareModel2, moneyView2);
+            case  "TaxSquare":
+                TaxSquare taxSquareModel = new TaxSquare(tag);
+                taxSquareModel.setSquareType(SquareType.Tax);
+                TaxSquareView taxView = new TaxSquareView();
+                return new TaxSquareController(taxSquareModel, taxView);
             case "PropertySquare":
                 PropertySquare propertyModel = new PropertySquare(tag);
                 propertyModel.setSquareType(SquareType.Property);
@@ -117,6 +160,8 @@ public class BoardLoader {
                 return new SquareController(square2Model, square2View);
         }
     }
+
+
 
 
 }

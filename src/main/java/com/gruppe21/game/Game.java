@@ -1,6 +1,7 @@
 package com.gruppe21.game;
 
-import com.gruppe21.player.PlayerController;;
+import com.gruppe21.board.Board;
+import com.gruppe21.player.PlayerController;
 
 public class Game {
     public static final char MIN_PLAYERS = 3;
@@ -83,6 +84,7 @@ public class Game {
         int oldIndex = currentPlayerIndex++;
         while (currentPlayerIndex != oldIndex){
             if (getCurrentPlayer() == currentPlayer) return;
+            currentPlayerIndex++;
         }
         //Should throw exception if we get here
     }
@@ -98,6 +100,7 @@ public class Game {
         int oldIndex = currentPlayerIndex++;
         while (currentPlayerIndex != oldIndex){
             if (getNextPlayer() == nextPlayer) return;
+            currentPlayerIndex++;
         }
         //Should throw exception if we get here
     }
