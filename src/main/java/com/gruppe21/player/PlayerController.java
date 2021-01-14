@@ -38,9 +38,9 @@ public class PlayerController {
             if (getName().equals(name)){
                 boolean invalidName = false;
                 String newName;
-                int numRounds = 1;
+                int numRounds = 0;
                 do {
-                    newName = name + " " + 1;
+                    newName = name + " " + ++numRounds;
                     for (String callsign: bannedNames) {
                         if (callsign.equals(newName)){
                             invalidName = true;
