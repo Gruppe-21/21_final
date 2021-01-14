@@ -1,7 +1,7 @@
-package com.gruppe21.card.cardControllers;
+package com.gruppe21.card.moveCards.controllers;
 
-import com.gruppe21.card.cardType.TeleportToNearestCard;
-import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.moveCards.model.TeleportToNearestCard;
+import com.gruppe21.card.view.CardView;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 

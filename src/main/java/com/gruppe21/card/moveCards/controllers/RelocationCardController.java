@@ -1,12 +1,13 @@
-package com.gruppe21.card.cardControllers;
+package com.gruppe21.card.moveCards.controllers;
 
+import com.gruppe21.card.cardControllers.UseOnDrawCardController;
 import com.gruppe21.card.cardType.Card;
-import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.view.CardView;
 import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 
-public abstract class RelocationCardController extends UseOnDrawCardController{
+public abstract class RelocationCardController extends UseOnDrawCardController {
 
     public RelocationCardController(CardView cardView, Card card){
         super(cardView, card);

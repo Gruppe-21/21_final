@@ -1,6 +1,6 @@
 package com.gruppe21.card.cardControllers;
 
-import com.gruppe21.card.cardView.CardView;
+import com.gruppe21.card.view.CardView;
 import com.gruppe21.card.cardType.ModifyMoneyCard;
 import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
