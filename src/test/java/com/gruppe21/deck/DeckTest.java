@@ -2,6 +2,7 @@ package com.gruppe21.deck;
 
 import com.gruppe21.card.cardControllers.controllers.CardController;
 import com.gruppe21.card.moneyCards.controllers.MoneyCardController;
+import com.gruppe21.card.moneyCards.model.BuildingFeesCard;
 import com.gruppe21.utils.CardLoader;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +31,7 @@ class DeckTest {
 */
     @Test
     void nextCard() {
-        assertSame(deck.nextCard().getCardClass(), MoneyCardController.class);
+        assertSame(deck.nextCard().getCardClass(), BuildingFeesCard.class);
     }
 
     @Test
