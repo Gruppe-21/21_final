@@ -23,6 +23,7 @@ public class GUIManager {
     }
 
     public void enableTesting() {
+        if(gui == null) return;
         gui.close();
         gui = null;
     }
