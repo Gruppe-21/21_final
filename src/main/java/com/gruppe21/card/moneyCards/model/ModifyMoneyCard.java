@@ -8,13 +8,14 @@ import static java.lang.Integer.parseInt;
 public class ModifyMoneyCard extends Card {
     private final int modifyValue;
 
-    public ModifyMoneyCard(String descriptionOnUseLabel, int modifyValue) {
-        super(descriptionOnUseLabel);
+    public ModifyMoneyCard(String descriptionOnUseLabel, int statusEffect, int modifyValue) {
+        super(descriptionOnUseLabel, statusEffect);
         this.modifyValue = modifyValue;
     }
 
     public ModifyMoneyCard(Element xmlTag){
         this(xmlTag.getAttribute("onUseDescription"),
+                readStatusEffect(xmlTag),
                 parseInt(xmlTag.getAttribute("modifyValue"))
         );
     }
