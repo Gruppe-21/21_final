@@ -106,3 +106,6 @@ hs_err_pid*
 
 *.idea
 *.iml
+
+# maven output
+target/*
