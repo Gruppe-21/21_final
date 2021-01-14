@@ -37,6 +37,7 @@ public abstract class CardController {
      */
     public void use(PlayerController user){
         cardView.displayCard(card.getDescriptionOnUseLabel());
+        user.getStatusEffects().enableEffect(card.getStatusEffect());
         returnToDeck(user);
     }
 
