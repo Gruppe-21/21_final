@@ -1,6 +1,7 @@
 package com.gruppe21.card.cardType;
 
 import com.gruppe21.deck.Deck;
+import org.w3c.dom.Element;
 
 public class Card {
     protected String descriptionOnDrawLabel;
@@ -10,6 +11,10 @@ public class Card {
     public Card(String descriptionOnDrawLabel, String descriptionOnUseLabel) {
         this.descriptionOnDrawLabel = descriptionOnDrawLabel;
         this.descriptionOnUseLabel = descriptionOnUseLabel;
+    }
+
+    public Card(Element xmlTag){
+        this(xmlTag.getAttribute("onDrawDescription"), xmlTag.getAttribute("onUseDescription"));
     }
 
     public String getDescriptionOnDrawLabel() {
