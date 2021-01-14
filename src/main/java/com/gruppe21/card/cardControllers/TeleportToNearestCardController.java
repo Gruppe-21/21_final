@@ -4,18 +4,18 @@ import com.gruppe21.card.cardView.CardView;
 import com.gruppe21.card.cardType.TeleportToNearestCard;
 import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
+import com.gruppe21.squares.controllers.SquareController;
 
-public class TeleportToNearestCardController extends CardController{
-    private TeleportToNearestCard card;
+public class TeleportToNearestCardController extends CardController {
 
     public TeleportToNearestCardController(CardView view, TeleportToNearestCard card) {
         super(view, card);
-        this.card = card;
     }
 
 
     /**
      * Calls card use method when the {code:drawer}
+     *
      * @param drawer Player that draws card
      */
     @Override
@@ -25,18 +25,30 @@ public class TeleportToNearestCardController extends CardController{
 
     /**
      * Method that shows description and moves player {code user} to specific squareID
+     *
      * @param user Player that uses card
      */
     @Override
-    public void use(PlayerController user, Board board){
+    public void use(PlayerController user, Board board) {
         super.use(user);
-        int moveToSquareID = card.getSquareID();
 
-        // move player to prison square ID
-        user.moveTo(board.getSquareControllerFromId(moveToSquareID));
+        SquareController destination = board.closestSquareController(user.getPlayer().getPosition(), ((TeleportToNearestCard) card).getPossibleDestinations());
+        relocate(user, destination);
 
         // return card
-        user.getHeldCards().removeCard(this);
-        getReturnDeck().returnCard(this);
+        returnToDeck(user);
+    }
+
+    protected void relocate(PlayerController user, SquareController destination){
+        user.teleportTo(destination);
+    }
+
+
+    public void setPossibleDestinations(SquareController[] possibleDestinations) {
+        ((TeleportToNearestCard) card).setPossibleDestinations(possibleDestinations);
+    }
+
+    public int getSquareIDs() {
+        return ((TeleportToNearestCard) card).getSquareIDs();
     }
 }
