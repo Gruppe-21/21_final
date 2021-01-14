@@ -1,4 +1,4 @@
-package com.gruppe21.game;
+package com.gruppe21.board;
 
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;
