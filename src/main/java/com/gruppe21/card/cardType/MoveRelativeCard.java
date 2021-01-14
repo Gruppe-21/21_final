@@ -1,12 +1,23 @@
 package com.gruppe21.card.cardType;
 
+import org.w3c.dom.Element;
+
+import static java.lang.Integer.parseInt;
+
 public class MoveRelativeCard extends Card {
-    private int moveSquares;
+    private final int moveSquares;
 
 
     public MoveRelativeCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int moveSquares) {
         super(descriptionOnDrawLabel, descriptionOnUseLabel);
         this.moveSquares = moveSquares;
+    }
+
+    public MoveRelativeCard(Element xmlTag){
+        this(xmlTag.getAttribute("onDrawDescription"),
+                xmlTag.getAttribute("onUseDescription"),
+                parseInt(xmlTag.getAttribute("moveSquares"))
+        );
     }
 
 
