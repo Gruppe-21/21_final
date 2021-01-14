@@ -19,11 +19,14 @@ public class GameView {
 
     public void selectLanguage(){
         final String[] allLocales = localisation.getAllLocales();
+        final String[] defaultLocales = {"da_DK", "en_US"};
         if(allLocales == null  && allLocales.length == 0) return;
+        guiManager.getUserButtonPress("MATADOR: JAVA EDITION", "START SPIL!");
+
         localisation.setCurrentLocale(
                 guiManager.getUserChoiceDropDown(
                         "\uD83C\uDF0D",
-                        allLocales
+                        allLocales.length != 0 ? allLocales : defaultLocales
                 ).substring(0,5)
         );
     }
