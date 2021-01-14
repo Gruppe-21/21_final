@@ -112,7 +112,7 @@ public class PlayerView {
 
     public int chooseNumBuildings(PropertySquareController property) {
         String[] buttonTexts;
-        if (property.getNumHouses() == property.getNumHouses()) buttonTexts = new String[2];
+        if (property.getNumHouses() == property.getMaxNumHouses()) buttonTexts = new String[2];
         else buttonTexts = new String[property.getNumHouses() + 1];
         for (int i = 0; i < property.getNumHouses(); i++) {
             buttonTexts[i] = Integer.toString(i);
