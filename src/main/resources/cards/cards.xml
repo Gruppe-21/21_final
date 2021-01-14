@@ -60,7 +60,7 @@
     <pardonCard onDrawDescription="pardonCardOnDrawDesc" onUseDescription="pardonCardOnUseDesc"/> <!-- kort 35 nr. 2 -->
 
     <!-- TeleportToNearest cards (Prison) -->
-    <prisonCard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 1 -->
-    <prisonCard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 2 -->
+    <teleportToNearestCard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 1 -->
+    <teleportToNearestCard onDrawDescription="teleportCardOnDrawDesc" onUseDescription="teleportCardOnUseDesc" squareID="11" type="Teleport" label="Fængslet"/>  <!-- Kort 36 nr. 2 -->
 
 </cards>
