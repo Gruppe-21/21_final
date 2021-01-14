@@ -1,4 +1,4 @@
-package com.gruppe21.card.cardView;
+package com.gruppe21.card.view;
 
 import com.gruppe21.gui.GUIManager;
 import com.gruppe21.utils.localisation.Localisation;
