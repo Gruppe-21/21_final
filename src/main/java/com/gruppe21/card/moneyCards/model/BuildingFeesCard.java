@@ -1,15 +1,19 @@
 package com.gruppe21.card.moneyCards.model;
 
-import com.gruppe21.card.model.Card;
+public class BuildingFeesCard extends ModifyMoneyCard {
+    private final int hotelFee;
 
-public class BuildingFeesCard extends Card {
-    private boolean hasBuilding; //Check for house or hotel
-    private int feeAmount; //
+    public BuildingFeesCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int houseFee, int hotelFee) {
+        super(descriptionOnDrawLabel, descriptionOnUseLabel, houseFee);
+        this.hotelFee = hotelFee;
+    }
 
-    public BuildingFeesCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, boolean hasBuilding, int feeAmount) {
-        super(descriptionOnDrawLabel, descriptionOnUseLabel);
-        this.hasBuilding = hasBuilding; // skal laves om til at tjekke huse og hoteller
-        this.feeAmount = feeAmount;
+    public int getHouseFee(){
+        return getModifyValue();
+    }
+
+    public int getHotelFee() {
+        return hotelFee;
     }
 
 }
