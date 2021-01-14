@@ -2,7 +2,7 @@ package com.gruppe21.card.cardControllers;
 
 import com.gruppe21.card.cardView.CardView;
 import com.gruppe21.card.cardType.MoveToSquareCard;
-import com.gruppe21.game.Board;
+import com.gruppe21.board.Board;
 import com.gruppe21.player.PlayerController;
 
 public class MoveToSquareCardController extends CardController {

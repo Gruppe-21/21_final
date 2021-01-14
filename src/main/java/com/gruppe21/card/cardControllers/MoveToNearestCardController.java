@@ -3,7 +3,7 @@ package com.gruppe21.card.cardControllers;
 import com.gruppe21.card.cardType.Card;
 import com.gruppe21.card.cardType.MoveToNearestCard;
 import com.gruppe21.card.cardView.CardView;
-import com.gruppe21.game.Board;
+import com.gruppe21.board.Board;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 

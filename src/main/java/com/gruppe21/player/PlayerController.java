@@ -3,7 +3,7 @@ package com.gruppe21.player;
 import com.gruppe21.card.cardControllers.CardController;
 import com.gruppe21.card.cardType.PardonCard;
 import com.gruppe21.deck.Deck;
-import com.gruppe21.game.Board;
+import com.gruppe21.board.Board;
 import com.gruppe21.game.GameController;
 import com.gruppe21.squares.controllers.OwnableSquareController;
 import com.gruppe21.squares.controllers.PropertySquareController;

@@ -1,5 +1,5 @@
 package com.gruppe21.gui;
-import com.gruppe21.game.Board;
+import com.gruppe21.board.Board;
 import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.*;
 import gui_main.GUI;
