@@ -117,7 +117,7 @@ public class PlayerView {
         for (int i = 0; i < buttonTexts.length; i++) {
             buttonTexts[i] = Integer.toString(i + 1);
         }
-        buttonTexts[property.getNumHouses()] = localisation.getStringValue("cancel_menu_button");
+        buttonTexts[buttonTexts.length - 1] = localisation.getStringValue("cancel_menu_button");
 
         int choice = guiManager.getUserButtonPressed(localisation.getStringValue( "choose_num_building_sell"), buttonTexts) + 1;
         return choice == buttonTexts.length ? 0 : choice;
