@@ -6,32 +6,19 @@ import com.gruppe21.game.Board;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 
-public class TeleportToNearestCardController extends UseOnDrawCardController {
+public class TeleportToNearestCardController extends RelocationCardController {
 
     public TeleportToNearestCardController(CardView view, TeleportToNearestCard card) {
         super(view, card);
     }
 
-    /**
-     * Method that shows description and moves player {code user} to specific squareID
-     *
-     * @param user Player that uses card
-     */
-    @Override
-    public void use(PlayerController user, Board board) {
-        super.use(user);
-
-        SquareController destination = board.closestSquareController(user.getPlayer().getPosition(), ((TeleportToNearestCard) card).getPossibleDestinations());
-        relocate(user, destination);
-
-        // return card
-        returnToDeck(user);
+    protected SquareController getDestination(PlayerController user, Board board){
+        return board.closestSquareController(user.getPlayer().getPosition(), ((TeleportToNearestCard) card).getPossibleDestinations());
     }
 
     protected void relocate(PlayerController user, SquareController destination){
         user.teleportTo(destination);
     }
-
 
     public void setPossibleDestinations(SquareController[] possibleDestinations) {
         ((TeleportToNearestCard) card).setPossibleDestinations(possibleDestinations);
