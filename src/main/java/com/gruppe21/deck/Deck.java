@@ -28,6 +28,9 @@ public class Deck {
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
+        for (CardController card: cards) {
+            card.setReturnDeck(this);
+        }
         totalCards = cards.length;
         currentNumCards = totalCards;
         returnedCards = new CardController[totalCards];
@@ -148,5 +151,9 @@ public class Deck {
             cards[i] = cards[rand_int];
             cards[rand_int] = tempController;
         }
+    }
+
+    public CardController[] getCards(){
+        return cards;
     }
 }
