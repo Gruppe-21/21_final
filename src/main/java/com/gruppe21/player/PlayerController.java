@@ -219,14 +219,13 @@ public class PlayerController {
             switch (playerView.chooseHowToLiquidate(optional)) {
                 case 0: {
                     OwnableSquareController[] properties = player.getOwnedProperties();
-                    if (properties.length > 0)
-                    {
-                        switch (playerView.chooseSellBuildingOrProperty(getTotalNumberOfBuildings() > 0)){
-                            case 0 :
-                                playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
-                                break;
-                            case 1:
-                            //    playerView.chooseBuildngsToSell(player.getBuiltProperties())
+                    if (properties.length > 0) {
+                        if (playerView.chooseSellBuildingOrProperty(getTotalNumberOfBuildings() > 0)) {
+                            playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
+                        } else {
+                            PropertySquareController property = playerView.chooseBuildngsToSell(player.getBuiltProperties());
+                            int num = playerView.chooseNumBuildings(property);
+                            property.sellHouses(num);
                         }
                     }
                     break;
