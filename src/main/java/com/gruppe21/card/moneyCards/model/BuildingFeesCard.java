@@ -1,15 +1,30 @@
 package com.gruppe21.card.moneyCards.model;
 
-import com.gruppe21.card.model.Card;
+import org.w3c.dom.Element;
 
-public class BuildingFeesCard extends Card {
-    private boolean hasBuilding; //Check for house or hotel
-    private int feeAmount; //
+import static java.lang.Integer.parseInt;
 
-    public BuildingFeesCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, boolean hasBuilding, int feeAmount) {
-        super(descriptionOnDrawLabel, descriptionOnUseLabel);
-        this.hasBuilding = hasBuilding; // skal laves om til at tjekke huse og hoteller
-        this.feeAmount = feeAmount;
+public class BuildingFeesCard extends ModifyMoneyCard {
+    private final int hotelFee;
+
+    public BuildingFeesCard(String descriptionOnUseLabel, int houseFee, int hotelFee) {
+        super(descriptionOnUseLabel, houseFee);
+        this.hotelFee = hotelFee;
+    }
+
+    public BuildingFeesCard(Element xmlTag){
+        this(xmlTag.getAttribute("onUseDescription"),
+                parseInt(xmlTag.getAttribute("houseFee")),
+                parseInt(xmlTag.getAttribute("hotelFee"))
+        );
+    }
+
+    public int getHouseFee(){
+        return getModifyValue();
+    }
+
+    public int getHotelFee() {
+        return hotelFee;
     }
 
 }

@@ -9,14 +9,13 @@ public class MoveRelativeCard extends Card {
     private final int moveSquares;
 
 
-    public MoveRelativeCard(String descriptionOnDrawLabel, String descriptionOnUseLabel, int moveSquares) {
-        super(descriptionOnDrawLabel, descriptionOnUseLabel);
+    public MoveRelativeCard(String descriptionOnUseLabel, int moveSquares) {
+        super(descriptionOnUseLabel);
         this.moveSquares = moveSquares;
     }
 
     public MoveRelativeCard(Element xmlTag){
-        this(xmlTag.getAttribute("onDrawDescription"),
-                xmlTag.getAttribute("onUseDescription"),
+        this(xmlTag.getAttribute("onUseDescription"),
                 parseInt(xmlTag.getAttribute("moveSquares"))
         );
     }
