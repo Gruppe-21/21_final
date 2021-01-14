@@ -147,7 +147,7 @@ public class CardLoader {
                 cardsAdded++;
                 break;
             case "pardonCard":
-                Card pardonCard = new Card(descriptionOnDrawLabel,descriptionOnUseLabel);
+                Card pardonCard = new Card(tag);
                 CardView pardonView = new CardView();
                 PardonCardController pardonController = new PardonCardController(pardonView, pardonCard);
 
