@@ -86,7 +86,7 @@
 
     <sentence label="select_language">Vælg et sprog</sentence>
 
-    <sentence label="liquidate_assets_text">Likvider aktier</sentence>
+    <sentence label="liquidate_assets_text">Likvider aktiver</sentence>
     <sentence label="build_text">Byg</sentence>
     <sentence label="sell_property_menu_button">Sælg ejendom</sentence>
     <sentence label="sell_deed_or_building">Sælg ejendom</sentence>
@@ -100,7 +100,7 @@
     <sentence label="liquidation_method_button">Likvideringsmetode </sentence>
     <sentence label="sell_property">Sælg</sentence>
     <sentence label="sell_building">Sælg</sentence>
-    <sentence label="pay_off_mortgage">Betal pantsætning</sentence>
+    <sentence label="pay_off_mortgage">Betal pant</sentence>
     <sentence label="crossed_start">Du har passeret start, modtag kr. 4000!</sentence>
     <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
     <sentence label="purchase_buildings_button_label">Køb bygninger</sentence>
