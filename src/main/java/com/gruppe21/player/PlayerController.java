@@ -115,20 +115,24 @@ public class PlayerController {
         StatusEffects status = player.getStatusEffects();
         CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCardController.class);
         switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)) {
-            case 49: { // '1'
-                //Use pardon card
+            case 0: {
+                transferMoney(1000, null);
+                break;
+            }
+            case 1: {
                 pardonCard.use(this);
                 break;
             }
-            case 50: { // '2'
-                if (status.getIdenticalDice() > 0) player.getStatusEffects().setImprisoned(false);
+            case 2: {
+                if (!(status.getIdenticalDice() > 0)) {
+                    status.addTimeInJail(1);
+                    return;
+                }
                 break;
             }
-            case 51: { // '3'
-                transferMoney(1000, null);
-                player.getStatusEffects().setImprisoned(false);
-            }
         }
+        player.getStatusEffects().setImprisoned(false);
+        status.setTimeInJail(0);
     }
 
     /**

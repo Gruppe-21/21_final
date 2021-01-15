@@ -68,14 +68,14 @@
     <sentence label="vimmelskaftet_desc">De er landet på Vimmelskaftet</sentence>
     <sentence label="nygade_desc">De er landet på Nygade</sentence>
     <sentence label="frederiksberggade_desc">De er landet på Frederiksggade</sentence>
-    <sentence label="tax_desc">De skal nu betale kr. 2000</sentence>
+    <sentence label="tax_desc">De skal nu betale 2000 kr.</sentence>
     <sentence label="rådhuspladsen_desc">De er landet på Rådhuspladsen</sentence>
 
     <sentence label="dice_cheater"> Gå i fængsel din snyder! </sentence>
     <sentence label="jail_removal_message"> Fængsel: </sentence>
-    <sentence label="jail_removal_choice1"> Gør intet</sentence>
-    <sentence label="jail_removal_choice2"> Brug kort</sentence>
-    <sentence label="jail_removal_choice3"> Kast for løsladelse</sentence>
+    <sentence label="jail_removal_choice0"> Betal 1000 kr.</sentence>
+    <sentence label="jail_removal_choice1"> Brug kort</sentence>
+    <sentence label="jail_removal_choice2"> Kast for løsladelse</sentence>
 
     <sentence label="purchase_text">Køb �[Property] for </sentence>
     <sentence label="liquidate_text">LIQUIDATE ASSETS TEXT </sentence>

@@ -71,14 +71,18 @@ public class PlayerView {
      * @return an {@code int} representing the players choice. 49 ('1') means they chose to use a pardon,
      *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay.
      */
-    public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom){
+    public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom) {
+        String message = localisation.getStringValue("jail_removal_message");
         String[] options = new String[1 + (hasPardon ? 1 : 0) + (mayRollForFreedom ? 1 : 0)];
-        for (int i = 0; i < options.length; i++) {
-            options[i] = i + ": JAIL REMOVAL CHOICE " + i + ", PlayerView chooseJailRemoval";
-        }
+        options[0] = localisation.getStringValue("jail_removal_choice0");
+        if (hasPardon) options[1] = localisation.getStringValue("jail_removal_choice1");
+        if (mayRollForFreedom) options[1 + (hasPardon ? 1 : 0)] = localisation.getStringValue("jail_removal_choice2");
 
-        int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
-        return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
+        String choice = guiManager.getUserChoiceDropDown(message, options);
+        for (int i = 0; i < 3; i++) {
+            if (choice.equals(localisation.getStringValue("jail_removal_choice" + i))) return i;
+        }
+        return -1;
     }
 
     /**
