@@ -89,38 +89,13 @@ public class PlayerView {
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
-        String purchaseText = localisation.getStringValue("purchase_text", name);
-        String priceText = localisation.getStringValue("currency", Integer.toString(price));
-        String liquidateAssetsText = localisation.getStringValue("liquidate_assets_text");
-        String yesText = localisation.getStringValue("yes");
-        String noText = localisation.getStringValue("no");
+        String purchaseText = Localisation.getInstance().getStringValue("purchase_text", name);
+        String priceText = Localisation.getInstance().getStringValue("currency", Integer.toString(price));
+        String liquidateAssetsText = Localisation.getInstance().getStringValue("liquidate_assets_text");
+        String yesText = Localisation.getInstance().getStringValue("yes");
+        String noText = Localisation.getInstance().getStringValue("no");
 
         return guiManager.getUserBoolean(purchaseText + priceText  + (liquidateAssets ? liquidateAssetsText : ""), yesText, noText);
-    }
-
-    public boolean chooseSellBuildingOrProperty(boolean hasBuildings){
-        if (!hasBuildings) return true;
-        String messageText = localisation.getStringValue("sell_deed_or_building");
-        String deed = localisation.getStringValue("sell_deed_menu_button");
-        String building = localisation.getStringValue("sell_building_menu_button");
-        return guiManager.getUserBoolean(messageText, deed, building);
-    }
-
-    public PropertySquareController chooseBuildngsToSell(PropertySquareController[] properties){
-        return (PropertySquareController) chooseProperty(properties, "sell_building");
-    }
-
-    public int chooseNumBuildings(PropertySquareController property) {
-        String[] buttonTexts;
-        if (property.getNumHouses() == property.getMaxNumHouses()) buttonTexts = new String[2];
-        else buttonTexts = new String[property.getNumHouses() + 1];
-        for (int i = 0; i < buttonTexts.length; i++) {
-            buttonTexts[i] = Integer.toString(i + 1);
-        }
-        buttonTexts[buttonTexts.length - 1] = localisation.getStringValue("cancel_menu_button");
-
-        int choice = guiManager.getUserButtonPressed(localisation.getStringValue( "choose_num_building_sell"), buttonTexts) + 1;
-        return choice == buttonTexts.length ? 0 : choice;
     }
 
     /**
@@ -133,9 +108,9 @@ public class PlayerView {
         for (int i = 0; i < properties.length; i++) {
             choices[i] = properties[i].getName() + " " + properties[i].getBuildingCost();
         }
-        //Use chooseProperty
 
         String buildText = Localisation.getInstance().getStringValue("build_text");
+
 
         String choice = GUIManager.getInstance().getUserChoiceDropDown(buildText, choices);
         for (int i = 0; i < choice.length(); i++) {
@@ -144,7 +119,6 @@ public class PlayerView {
         return null;
         //Throw exception
     }
-
 
     /**
      *
