@@ -218,16 +218,10 @@ public class PlayerController {
         while (true) {
             switch (playerView.chooseHowToLiquidate(optional)) {
                 case 0: {
+                    //TODO: implement choice of selling property or building(s)
                     OwnableSquareController[] properties = player.getOwnedProperties();
-                    if (properties.length > 0) {
-                        if (playerView.chooseSellBuildingOrProperty(getTotalNumberOfBuildings() > 0)) {
-                            playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
-                        } else {
-                            PropertySquareController property = playerView.chooseBuildngsToSell(player.getBuiltProperties());
-                            int num = playerView.chooseNumBuildings(property);
-                            property.sellHouses(num);
-                        }
-                    }
+                    if (properties.length > 0)
+                        playerView.choosePropertyToSell(player.getOwnedProperties()).sell();
                     break;
                 }
                 case 1: {
@@ -361,7 +355,7 @@ public class PlayerController {
      */
     public int getTotalNumberOfHouses(){
         int numberOfHouses = 0;
-        for (PropertySquareController property: getPlayer().getBuiltProperties()) {
+        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
             if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHouses += property.getNumHouses();
         }
         return numberOfHouses;
@@ -373,8 +367,8 @@ public class PlayerController {
      */
     public int getTotalNumberOfHotels(){
         int numberOfHotels = 0;
-        for (PropertySquareController property: getPlayer().getBuiltProperties()) {
-            if (property.getNumHouses() == property.getMaxNumHouses()) numberOfHotels++;
+        for (PropertySquareController property: getPlayer().getBuildableProperties()) {
+            if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHotels += property.getNumHouses();
         }
         return numberOfHotels;
     }
