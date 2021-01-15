@@ -59,8 +59,36 @@ public class PlayerController {
      *
      * @param board
      */
-    public void takeTurn(Board board){
+    public void takeTurn(Board board) {
         if (isBankrupt()) return;
+        startTurn();
+
+        int[] diceRolls = {random.nextInt(6) + 1, random.nextInt(6) + 1};
+        lastRollForBrewery = diceRolls[0] + diceRolls[1];
+        StatusEffects status = player.getStatusEffects();
+        if (diceRolls[0] == diceRolls[1])
+            status.addIdenticalDice(1);
+        else status.setIdenticalDice(0);
+
+        if (status.isImprisoned()) {
+            getOutOfJail();
+            if (isBankrupt()) return;
+        }
+
+        playerView.rollDice(player, diceRolls);
+        if (status.getIdenticalDice() == 3) {
+            playerView.imprisonedDiceCheater();
+            status.setImprisoned(true);
+            status.setIdenticalDice(0);
+            teleportTo(board.getSquareControllerFromId(31));
+            return;
+        }
+        if (!status.isImprisoned())
+            moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
+        if (status.getIdenticalDice() > 0) takeTurn(board);
+    }
+
+    private void startTurn(){
         boolean roll = false;
         while (!roll){
             switch (playerView.startTurn(player)){
@@ -82,43 +110,26 @@ public class PlayerController {
                 }
             }
         }
+    }
 
-        int[] diceRolls = {random.nextInt(6) + 1, random.nextInt(6) + 1};
-        lastRollForBrewery = diceRolls[0] + diceRolls[1];
+    private void getOutOfJail(){
         StatusEffects status = player.getStatusEffects();
-        if (diceRolls[0] == diceRolls[1])
-            status.addIdenticalDice(1);
-        else status.setIdenticalDice(0);
-        if (status.isImprisoned()){
-            CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCardController.class);
-            switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
-                case 49 : { // '1'
-                    //Use pardon card
-                    pardonCard.use(this);
-                    break;
-                }
-                case 50 : { // '2'
-                    if(status.getIdenticalDice() > 0) player.getStatusEffects().setImprisoned(false);
-                    break;
-                }
-                case 51 : { // '3'
-                    transferMoney(1000, null);
-                    player.getStatusEffects().setImprisoned(false);
-                }
+        CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCardController.class);
+        switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
+            case 49 : { // '1'
+                //Use pardon card
+                pardonCard.use(this);
+                break;
+            }
+            case 50 : { // '2'
+                if(status.getIdenticalDice() > 0) player.getStatusEffects().setImprisoned(false);
+                break;
+            }
+            case 51 : { // '3'
+                transferMoney(1000, null);
+                player.getStatusEffects().setImprisoned(false);
             }
         }
-        playerView.rollDice(player, diceRolls);
-        if (status.getIdenticalDice() == 3){
-            playerView.imprisonedDiceCheater();
-            status.setImprisoned(true);
-            status.setIdenticalDice(0);
-            teleportTo(board.getSquareControllerFromId(31));
-            return;
-        }
-        if (isBankrupt()) return;
-        if (!status.isImprisoned())
-            moveTo(board.getSquareControllerRelativeTo(player.getPosition(), diceRolls[0] + diceRolls[1]));
-        if (status.getIdenticalDice() > 0) takeTurn(board);
     }
 
     /**
