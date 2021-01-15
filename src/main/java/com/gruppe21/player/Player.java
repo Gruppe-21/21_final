@@ -140,26 +140,6 @@ public class Player {
         return resizedArray;
     }
 
-    public PropertySquareController[] getBuiltProperties(){
-        OwnableSquareController[] properties = getOwnedProperties();
-        PropertySquareController[] builtProperties = new PropertySquareController[properties.length];
-        int numBuiltProperties = 0;
-        for (int i = 0; i < properties.length; i++) {
-            if (ownedProperties[i] instanceof PropertySquareController) {
-                if (((PropertySquareController)ownedProperties[i]).getNumHouses() > 0){
-                    builtProperties[i] = (PropertySquareController) ownedProperties[i];
-                    numBuiltProperties++;
-                }
-            }
-        }
-
-        PropertySquareController[] resizedArray = new PropertySquareController[numBuiltProperties];
-        for (int i = 0; i < numBuiltProperties; i++) {
-            resizedArray[i] = builtProperties[i];
-        }
-        return resizedArray;
-    }
-
     public OwnableSquareController[] getMortgagedProperties(){
         return getPropertiesWithMortgagedStatus(true);
     }
