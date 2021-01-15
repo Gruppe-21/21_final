@@ -22,7 +22,7 @@ public class PlayerController {
     private static final Random random = new Random();
     private int lastRollForBrewery = 0;
 
-    public PlayerController(String... bannedNames){
+    public PlayerController(String... bannedNames) {
         gameController = GameController.getInstance();
         player = new Player();
         playerView = new PlayerView();
@@ -32,18 +32,18 @@ public class PlayerController {
         playerView.addToGui(player.getGuiPlayer());
     }
 
-    private void selectName(String... bannedNames){
+    private void selectName(String... bannedNames) {
         player.setName(playerView.chooseName(1, Player.getMaxNameLength()));
-        for (String name: bannedNames) {
-            if (getName().equals(name)){
+        for (String name : bannedNames) {
+            if (getName().equals(name)) {
                 boolean invalidName;
                 String newName;
                 int numRounds = 1;
                 do {
                     invalidName = false;
                     newName = name + " " + ++numRounds;
-                    for (String callsign: bannedNames) {
-                        if (newName.equals(callsign)){
+                    for (String callsign : bannedNames) {
+                        if (newName.equals(callsign)) {
                             invalidName = true;
                             break;
                         }
@@ -56,7 +56,6 @@ public class PlayerController {
     }
 
     /**
-     *
      * @param board
      */
     public void takeTurn(Board board) {
@@ -88,23 +87,23 @@ public class PlayerController {
         if (status.getIdenticalDice() > 0) takeTurn(board);
     }
 
-    private void startTurn(){
+    private void startTurn() {
         boolean roll = false;
-        while (!roll){
-            switch (playerView.startTurn(player)){
-                case 0 : {
+        while (!roll) {
+            switch (playerView.startTurn(player)) {
+                case 0: {
                     roll = true;
                     break;
                 }
-                case 1 : {
+                case 1: {
                     purchaseBuildings();
                     break;
                 }
-                case 2 : {
+                case 2: {
                     payOffMortgages();
                     break;
                 }
-                case 3 : {
+                case 3: {
                     liquidateAssets();
                     break;
                 }
@@ -112,20 +111,20 @@ public class PlayerController {
         }
     }
 
-    private void getOutOfJail(){
+    private void getOutOfJail() {
         StatusEffects status = player.getStatusEffects();
         CardController pardonCard = player.getHeldCards().drawCardOfClass(PardonCardController.class);
-        switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)){
-            case 49 : { // '1'
+        switch (playerView.chooseJailRemoval(pardonCard != null, status.getTimeInJail() < 3)) {
+            case 49: { // '1'
                 //Use pardon card
                 pardonCard.use(this);
                 break;
             }
-            case 50 : { // '2'
-                if(status.getIdenticalDice() > 0) player.getStatusEffects().setImprisoned(false);
+            case 50: { // '2'
+                if (status.getIdenticalDice() > 0) player.getStatusEffects().setImprisoned(false);
                 break;
             }
-            case 51 : { // '3'
+            case 51: { // '3'
                 transferMoney(1000, null);
                 player.getStatusEffects().setImprisoned(false);
             }
@@ -133,21 +132,19 @@ public class PlayerController {
     }
 
     /**
-     *
      * @param squareController
      */
-    public void teleportTo(SquareController squareController){
+    public void teleportTo(SquareController squareController) {
         getPlayer().updatePosition(squareController);
     }
 
     /**
-     *
      * @param squareController
      */
-    public void moveTo(SquareController squareController){
+    public void moveTo(SquareController squareController) {
         boolean crossedStart = GameController.getInstance().crossedStart(getPlayer().getPosition(), squareController);
         teleportTo(squareController);
-        if (crossedStart){
+        if (crossedStart) {
             addBalance(4000);
             playerView.crossStartMessage();
         }
@@ -156,18 +153,15 @@ public class PlayerController {
 
 
     /**
-     *
      * @param deck
      * @return
      */
-    public CardController drawCard(Deck deck){
+    public CardController drawCard(Deck deck) {
         CardController card = deck.nextCard();
         player.getHeldCards().addCard(card);
         card.onDraw(this);
         return card; //Should it return void?
     }
-
-
 
 
     /**
@@ -176,19 +170,19 @@ public class PlayerController {
      * then everything the own is transferred to the creditor.</p>
      * <p>Otherwise, if the player does not have enough cash
      * assets of their own choosing are liquidated.</p>
-     * @param debit the amount of money transferred out of the account.
-     *              Can be a negative number in which case money is transferred into the account instead.
+     *
+     * @param debit    the amount of money transferred out of the account.
+     *                 Can be a negative number in which case money is transferred into the account instead.
      * @param creditor the player which receives the money.
      *                 if creditor == null the money is given to the bank.
-     *
      */
-    public void transferMoney(int debit, PlayerController creditor){
+    public void transferMoney(int debit, PlayerController creditor) {
         if (creditor == this) return;
-        if (player.getTotalValue() < debit){ //We have gone bankrupt
+        if (player.getTotalValue() < debit) { //We have gone bankrupt
             //We have gone bankrupt
             //Sell houses and transfer properties
-            for (OwnableSquareController ownableSquare: getPlayer().getOwnedProperties()) {
-                if (ownableSquare instanceof PropertySquareController ){
+            for (OwnableSquareController ownableSquare : getPlayer().getOwnedProperties()) {
+                if (ownableSquare instanceof PropertySquareController) {
                     ((PropertySquareController) ownableSquare).sellHouses(((PropertySquareController) ownableSquare).getNumHouses());
                 }
                 creditor.purchaseProperty(ownableSquare, 0);
@@ -204,26 +198,24 @@ public class PlayerController {
             liquidateAssets(debit - player.getBalance(), false);
         }
         addBalance(-debit);
-        if (creditor != null){ //creditor == null -> creditor is the bank
+        if (creditor != null) { //creditor == null -> creditor is the bank
             creditor.addBalance(debit);
         }
     }
 
     /**
-     *
      * @return
      */
-    public int liquidateAssets(){
-         return liquidateAssets(-1, true);
+    public int liquidateAssets() {
+        return liquidateAssets(-1, true);
     }
 
     /**
-     *
      * @param minAmount
      * @param optional
      * @return
      */
-    public int liquidateAssets(int minAmount, boolean optional){
+    public int liquidateAssets(int minAmount, boolean optional) {
         int startBalance = player.getBalance();
 
         while (true) {
@@ -256,26 +248,29 @@ public class PlayerController {
                     return startBalance - player.getBalance();
                 }
             }
-            if (!optional){
-                if (startBalance - player.getBalance() > minAmount) return (startBalance - player.getBalance()) + liquidateAssets();
+            if (!optional) {
+                if (startBalance - player.getBalance() > minAmount)
+                    return (startBalance - player.getBalance()) + liquidateAssets();
             }
         }
     }
 
 
     //TODO: split into askToPurchaseProperty and purchaseProperty? That way it can be called after fx players has traded
+
     /**
      * <p>Asks the player if they want to purchase the property. If they do, payment is transferred to the current owner,
      * the property it is added to their list of owned properties, the owner of the property is changed to the player
      * and the method returns true. Otherwise it simply returns false.</p>
+     *
      * @param property the {@code PropertySquareController} of the property to, potentially, be purchased.
-     * @param price the price of the property.
+     * @param price    the price of the property.
      * @return true if the property was purchased and false if it was not.
      */
     public boolean purchaseProperty(OwnableSquareController property, int price) {
         if (price > player.getTotalValue()) return false; //tell them maybe
         int missingCash = price - player.getBalance();
-        do{
+        do {
             if (!playerView.askPurchase(property.getName(), price, missingCash > 0))
                 return false;
             if (missingCash > 0)
@@ -287,28 +282,26 @@ public class PlayerController {
     }
 
     /**
-     *
      * @param propertySquareController
      */
-    public void addOwnedProperty(OwnableSquareController propertySquareController){
+    public void addOwnedProperty(OwnableSquareController propertySquareController) {
         player.addOwnedProperty(propertySquareController);
     }
 
     /**
-     *
      * @param propertySquareController
      */
-    public void removeOwnedProperty(OwnableSquareController propertySquareController){
+    public void removeOwnedProperty(OwnableSquareController propertySquareController) {
         player.removeOwnedProperty(propertySquareController);
     }
 
 
-    public void purchaseBuildings(){
+    public void purchaseBuildings() {
         PropertySquareController[] buildableProperties = player.getBuildableProperties();
         if (buildableProperties.length == 0) return;
         PropertySquareController toBuild = playerView.choosePropertyBuildBuilding(buildableProperties);
         //TODO: the player should be able to change their mind.
-        while (player.getBalance() < toBuild.getBuildingCost()){
+        while (player.getBalance() < toBuild.getBuildingCost()) {
             liquidateAssets(toBuild.getBuildingCost() - player.getBalance(), true);
             //TODO: the player should be able to pick another property
         }
@@ -316,7 +309,7 @@ public class PlayerController {
         toBuild.addHouse();
     }
 
-    public void payOffMortgages(){
+    public void payOffMortgages() {
         OwnableSquareController[] mortgagedProperties = getPlayer().getMortgagedProperties();
         if (mortgagedProperties == null || mortgagedProperties.length == 0) return;
         playerView.choosePropertyToPayOffMortgage(mortgagedProperties).payOffMortgage(false);
@@ -333,19 +326,19 @@ public class PlayerController {
         return player.setBalance(player.getBalance() + value);
     }
 
-    public int getTotalValue(){
+    public int getTotalValue() {
         return player.getTotalValue();
     }
 
-    public String getName(){
+    public String getName() {
         return player.getName();
     }
 
-    public Color[] getColors(){
+    public Color[] getColors() {
         return player.getColors();
     }
 
-    public Deck getHeldCards(){
+    public Deck getHeldCards() {
         return player.getHeldCards();
     }
 
@@ -354,25 +347,27 @@ public class PlayerController {
         return player;
     }
 
-    public StatusEffects getStatusEffects(){
+    public StatusEffects getStatusEffects() {
         return player.getStatusEffects();
     }
 
     /**
      * Returns the total number of buildings owned by the player, that is, the sum of all owned hotels and houses.
+     *
      * @return an {@code int} representing the total number of buildings owned by the player
      */
-    public int getTotalNumberOfBuildings(){
+    public int getTotalNumberOfBuildings() {
         return getTotalNumberOfHouses() + getTotalNumberOfHotels();
     }
 
     /**
      * Returns the total number of houses owned by the player.
+     *
      * @return an {@code int} representing the total number of house owned by the player
      */
-    public int getTotalNumberOfHouses(){
+    public int getTotalNumberOfHouses() {
         int numberOfHouses = 0;
-        for (PropertySquareController property: getPlayer().getBuiltProperties()) {
+        for (PropertySquareController property : getPlayer().getBuiltProperties()) {
             if (property.getNumHouses() != property.getMaxNumHouses()) numberOfHouses += property.getNumHouses();
         }
         return numberOfHouses;
@@ -380,30 +375,30 @@ public class PlayerController {
 
     /**
      * Returns the total number of hotels owned by the player.
+     *
      * @return an {@code int} representing the total number of hotels owned by the player
      */
-    public int getTotalNumberOfHotels(){
+    public int getTotalNumberOfHotels() {
         int numberOfHotels = 0;
-        for (PropertySquareController property: getPlayer().getBuiltProperties()) {
+        for (PropertySquareController property : getPlayer().getBuiltProperties()) {
             if (property.getNumHouses() == property.getMaxNumHouses()) numberOfHotels++;
         }
         return numberOfHotels;
     }
 
 
-    public void setBankrupt(boolean bankrupt){
+    public void setBankrupt(boolean bankrupt) {
         player.setBankrupt(bankrupt);
     }
 
-    public boolean isBankrupt(){
+    public boolean isBankrupt() {
         return player.isBankrupt();
     }
 
 
     //This makes me sad
-    public int getLastRollForBrewery(){
+    public int getLastRollForBrewery() {
         return lastRollForBrewery;
     }
-
 
 }
