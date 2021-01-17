@@ -52,6 +52,7 @@ public class PlayerView {
 
     public GUI_Car customiseCar(){
         //TODO: ask player to customise their car.
+        if(colorToUse > colors.length - 1) colorToUse=0;
         return new GUI_Car(colors[colorToUse++], Color.black, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
     }
 
@@ -70,14 +71,18 @@ public class PlayerView {
      * @return an {@code int} representing the players choice. 49 ('1') means they chose to use a pardon,
      *         50 ('2') means they chose to roll the dice and 51 ('3') means they chose to pay.
      */
-    public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom){
+    public int chooseJailRemoval(boolean hasPardon, boolean mayRollForFreedom) {
+        String message = localisation.getStringValue("jail_removal_message");
         String[] options = new String[1 + (hasPardon ? 1 : 0) + (mayRollForFreedom ? 1 : 0)];
-        for (int i = 0; i < options.length; i++) {
-            options[i] = i + ": JAIL REMOVAL CHOICE " + i + ", PlayerView chooseJailRemoval";
-        }
+        options[0] = localisation.getStringValue("jail_removal_choice0");
+        if (hasPardon) options[1] = localisation.getStringValue("jail_removal_choice1");
+        if (mayRollForFreedom) options[1 + (hasPardon ? 1 : 0)] = localisation.getStringValue("jail_removal_choice2");
 
-        int choice = GUIManager.getInstance().getUserChoiceDropDown("CHOOSE JAIL REMOVAL MESSAGE, PlayerView chooseJailRemoval").charAt(0) + (hasPardon ? 0 : 1);
-        return choice + ( (mayRollForFreedom && choice == 49) ? 0 : 1);
+        String choice = guiManager.getUserChoiceDropDown(message, options);
+        for (int i = 0; i < 3; i++) {
+            if (choice.equals(localisation.getStringValue("jail_removal_choice" + i))) return i;
+        }
+        return -1;
     }
 
     /**
@@ -88,13 +93,38 @@ public class PlayerView {
      * @return
      */
     public boolean askPurchase(String name, int price, boolean liquidateAssets){
-        String purchaseText = Localisation.getInstance().getStringValue("purchase_text", name);
-        String priceText = Localisation.getInstance().getStringValue("currency", Integer.toString(price));
-        String liquidateAssetsText = Localisation.getInstance().getStringValue("liquidate_assets_text");
-        String yesText = Localisation.getInstance().getStringValue("yes");
-        String noText = Localisation.getInstance().getStringValue("no");
+        String purchaseText = localisation.getStringValue("purchase_text", name);
+        String priceText = localisation.getStringValue("currency", Integer.toString(price));
+        String liquidateAssetsText = localisation.getStringValue("liquidate_assets_text");
+        String yesText = localisation.getStringValue("yes");
+        String noText = localisation.getStringValue("no");
 
         return guiManager.getUserBoolean(purchaseText + priceText  + (liquidateAssets ? liquidateAssetsText : ""), yesText, noText);
+    }
+
+    public boolean chooseSellBuildingOrProperty(boolean hasBuildings){
+        if (!hasBuildings) return true;
+        String messageText = localisation.getStringValue("sell_deed_or_building");
+        String deed = localisation.getStringValue("sell_deed_menu_button");
+        String building = localisation.getStringValue("sell_building_menu_button");
+        return guiManager.getUserBoolean(messageText, deed, building);
+    }
+
+    public PropertySquareController chooseBuildngsToSell(PropertySquareController[] properties){
+        return (PropertySquareController) chooseProperty(properties, "sell_building");
+    }
+
+    public int chooseNumBuildings(PropertySquareController property) {
+        String[] buttonTexts;
+        if (property.getNumHouses() == property.getMaxNumHouses()) buttonTexts = new String[2];
+        else buttonTexts = new String[property.getNumHouses() + 1];
+        for (int i = 0; i < buttonTexts.length; i++) {
+            buttonTexts[i] = Integer.toString(i + 1);
+        }
+        buttonTexts[buttonTexts.length - 1] = localisation.getStringValue("cancel_menu_button");
+
+        int choice = guiManager.getUserButtonPressed(localisation.getStringValue( "choose_num_building_sell"), buttonTexts) + 1;
+        return choice == buttonTexts.length ? 0 : choice;
     }
 
     /**
@@ -107,9 +137,9 @@ public class PlayerView {
         for (int i = 0; i < properties.length; i++) {
             choices[i] = properties[i].getName() + " " + properties[i].getBuildingCost();
         }
+        //Use chooseProperty
 
         String buildText = Localisation.getInstance().getStringValue("build_text");
-
 
         String choice = GUIManager.getInstance().getUserChoiceDropDown(buildText, choices);
         for (int i = 0; i < choice.length(); i++) {
@@ -118,6 +148,7 @@ public class PlayerView {
         return null;
         //Throw exception
     }
+
 
     /**
      *

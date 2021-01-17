@@ -46,6 +46,7 @@ public class SquareController {
     }
 
 
+    public String getLabel() { return model.getNameLocalisationId(); }
 }
 
 

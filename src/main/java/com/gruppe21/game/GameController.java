@@ -1,6 +1,7 @@
 package com.gruppe21.game;
 
 
+import com.gruppe21.board.Board;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;
 
@@ -27,9 +28,11 @@ public class GameController {
     }
 
     private void initPlayers(){
+        String[] names = new String[game.getNumPlayers()];
         for (int i = 0; i < game.getNumPlayers(); i++) {
-            game.getPlayerControllers()[i] = new PlayerController();
+            game.getPlayerControllers()[i] = new PlayerController(names);
             game.getPlayerControllers()[i].teleportTo(game.getBoard().getFirstSquareController()); //Maybe this happens automatically
+            names[i] = game.getPlayerControllers()[i].getName();
         }
         PlayerController first = gameView.askForFirstPlayer(game.getPlayerControllers());
         game.setNextPlayer(first);

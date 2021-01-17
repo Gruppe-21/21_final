@@ -6,7 +6,6 @@ import com.gruppe21.deck.Deck;
 import com.gruppe21.player.PlayerController;
 
 
-
 public abstract class CardController {
     protected CardView cardView;
     protected Card card;

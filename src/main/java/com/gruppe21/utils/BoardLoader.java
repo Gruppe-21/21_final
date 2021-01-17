@@ -36,13 +36,21 @@ public class BoardLoader {
 
         SquareController[] squareControllers = getSquaresFromNodeList(boardNodes);
         Deck deck = new Deck("cards");
+        assignDecksAndDestinations(deck, squareControllers);
+        assignDestinationsToCards(deck, squareControllers);
+
+
+        return squareControllers;
+    }
+
+    private static void assignDestinationsToCards(Deck deck, SquareController[] squareControllers){
         for (CardController card: deck.getCards()) {
             if (card instanceof TeleportToNearestCardController){
                 int[] ids = ((TeleportToNearestCardController) card).getSquareIDs();
                 SquareController[] destinationArray = new SquareController[ids.length];
                 for (int i = 0; i < destinationArray.length; i++) {
-                    for (int j = i; j < squareControllers.length; j++) {
-                        if (squareControllers[i].getId() == ids[j]){
+                    for (int j = 0; j < squareControllers.length; j++) {
+                        if (squareControllers[j].getId() == ids[i]){
                             destinationArray[i] = squareControllers[i];
                             break;
                         }
@@ -51,6 +59,10 @@ public class BoardLoader {
                 ((TeleportToNearestCardController) card).setPossibleDestinations(destinationArray);
             }
         }
+    }
+
+
+    private static void assignDecksAndDestinations(Deck deck, SquareController[] squareControllers){
         for (SquareController squareController: squareControllers) {
             if (squareController.getClass() == CardSquareController.class)
                 ((CardSquareController) squareController).setDeck(deck);
@@ -62,8 +74,6 @@ public class BoardLoader {
                 }
             }
         }
-
-        return squareControllers;
     }
 
     private static SquareController[] getSquaresFromNodeList(NodeList boardNodes) {

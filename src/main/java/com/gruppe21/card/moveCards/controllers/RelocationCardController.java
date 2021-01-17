@@ -3,7 +3,7 @@ package com.gruppe21.card.moveCards.controllers;
 import com.gruppe21.card.cardControllers.controllers.CardController;
 import com.gruppe21.card.model.Card;
 import com.gruppe21.card.view.CardView;
-import com.gruppe21.game.Board;
+import com.gruppe21.board.Board;
 import com.gruppe21.game.GameController;
 import com.gruppe21.player.PlayerController;
 import com.gruppe21.squares.controllers.SquareController;

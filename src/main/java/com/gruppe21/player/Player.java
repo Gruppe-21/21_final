@@ -6,7 +6,6 @@ import com.gruppe21.squares.controllers.SquareController;
 import gui_fields.GUI_Player;
 
 import java.awt.*;
-import java.util.Objects;
 
 //Todo: add possesiveName
 
@@ -137,6 +136,26 @@ public class Player {
         PropertySquareController[] resizedArray = new PropertySquareController[numBuildableProperties];
         for (int i = 0; i < numBuildableProperties; i++) {
             resizedArray[i] = buildableProperties[i];
+        }
+        return resizedArray;
+    }
+
+    public PropertySquareController[] getBuiltProperties(){
+        OwnableSquareController[] properties = getOwnedProperties();
+        PropertySquareController[] builtProperties = new PropertySquareController[properties.length];
+        int numBuiltProperties = 0;
+        for (int i = 0; i < properties.length; i++) {
+            if (ownedProperties[i] instanceof PropertySquareController) {
+                if (((PropertySquareController)ownedProperties[i]).getNumHouses() > 0){
+                    builtProperties[i] = (PropertySquareController) ownedProperties[i];
+                    numBuiltProperties++;
+                }
+            }
+        }
+
+        PropertySquareController[] resizedArray = new PropertySquareController[numBuiltProperties];
+        for (int i = 0; i < numBuiltProperties; i++) {
+            resizedArray[i] = builtProperties[i];
         }
         return resizedArray;
     }

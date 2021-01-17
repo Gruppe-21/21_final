@@ -68,14 +68,14 @@
     <sentence label="vimmelskaftet_desc">De er landet på Vimmelskaftet</sentence>
     <sentence label="nygade_desc">De er landet på Nygade</sentence>
     <sentence label="frederiksberggade_desc">De er landet på Frederiksggade</sentence>
-    <sentence label="tax_desc">De skal nu betale kr. 2000</sentence>
+    <sentence label="tax_desc">De skal nu betale 2000 kr.</sentence>
     <sentence label="rådhuspladsen_desc">De er landet på Rådhuspladsen</sentence>
 
     <sentence label="dice_cheater"> Gå i fængsel din snyder! </sentence>
     <sentence label="jail_removal_message"> Fængsel: </sentence>
-    <sentence label="jail_removal_choice1"> Gør intet</sentence>
-    <sentence label="jail_removal_choice2"> Brug kort</sentence>
-    <sentence label="jail_removal_choice3"> Kast for løsladelse</sentence>
+    <sentence label="jail_removal_choice0"> Betal 1000 kr.</sentence>
+    <sentence label="jail_removal_choice1"> Brug kort</sentence>
+    <sentence label="jail_removal_choice2"> Kast for løsladelse</sentence>
 
     <sentence label="purchase_text">Køb �[Property] for </sentence>
     <sentence label="liquidate_text">LIQUIDATE ASSETS TEXT </sentence>
@@ -86,21 +86,27 @@
 
     <sentence label="select_language">Vælg et sprog</sentence>
 
-    <sentence label="liquidate_assets_text">Likvider aktier</sentence>
-    <sentence label="build_text">BYG</sentence>
-    <sentence label="sell_property_menu_button">SÆLG EJENDOM</sentence>
-    <sentence label="mortgage_menu_button">PANTSÆTNING</sentence>
-    <sentence label="trade_menu_button">HANDEL</sentence>
-    <sentence label="back_menu_button">TILBAGE</sentence>
+    <sentence label="liquidate_assets_text">Likvider aktiver</sentence>
+    <sentence label="build_text">Byg</sentence>
+    <sentence label="sell_property_menu_button">Sælg ejendom</sentence>
+    <sentence label="sell_deed_or_building">Sælg ejendom</sentence>
+    <sentence label="sell_deed_menu_button">Sælg skøde</sentence>
+    <sentence label="sell_building_menu_button">Sælg bygning</sentence>
+    <sentence label="choose_num_building_sell">Hvor mange bygninger ønsker De at sælge?</sentence>
+    <sentence label="cancel_menu_button">Annuller</sentence>
+    <sentence label="mortgage_menu_button">Pantsætning</sentence>
+    <sentence label="trade_menu_button">Handel</sentence>
+    <sentence label="back_menu_button">Tilbage</sentence>
     <sentence label="liquidation_method_button">Likvideringsmetode </sentence>
     <sentence label="sell_property">Sælg</sentence>
-    <sentence label="pay_off_mortgage">Betal pantsætning</sentence>
+    <sentence label="sell_building">Sælg</sentence>
+    <sentence label="pay_off_mortgage">Betal pant</sentence>
     <sentence label="crossed_start">Du har passeret start, modtag kr. 4000!</sentence>
     <sentence label="start_turn_msg_label">�[PLAYER_NAME], det er nu din tur!</sentence>
-    <sentence label="purchase_buildings_button_label">KØB BYGNINGER</sentence>
+    <sentence label="purchase_buildings_button_label">Køb bygninger</sentence>
     <sentence label="liquidate_assets_button_label">Likvidere aktier</sentence>
-    <sentence label="pay_off_mortgages_button_label">BETAL PANTSÆTNINGER</sentence>
-    <sentence label="start_turn_button_label">START TUR</sentence>
+    <sentence label="pay_off_mortgages_button_label">Betal pantsætninger</sentence>
+    <sentence label="start_turn_button_label">Start tur</sentence>
 
     <sentence label="takeButton">Tag et andet kort</sentence>
     <sentence label="takecard">Tag et chancekort</sentence>
