@@ -12,7 +12,7 @@ public class BuildingFeesCardController extends MoneyCardController {
 
     @Override
     protected void modifyMoney(PlayerController user){
-        int totalFee = user.getTotalNumberOfHouses() * getCard().getHouseFee() + user.getTotalNumberOfHotels() + getCard().getHotelFee();
+        int totalFee = user.getTotalNumberOfHouses() * getCard().getHouseFee() + user.getTotalNumberOfHotels() * getCard().getHotelFee();
         user.transferMoney(totalFee, null);
     }
 

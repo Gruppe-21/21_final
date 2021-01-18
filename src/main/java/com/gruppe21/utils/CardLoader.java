@@ -3,6 +3,7 @@ package com.gruppe21.utils;
 import com.gruppe21.card.cardControllers.controllers.CardController;
 import com.gruppe21.card.cardControllers.controllers.PardonCardController;
 import com.gruppe21.card.model.*;
+import com.gruppe21.card.moneyCards.controllers.BuildingFeesCardController;
 import com.gruppe21.card.moneyCards.controllers.GrantCardController;
 import com.gruppe21.card.moneyCards.controllers.MoneyCardController;
 import com.gruppe21.card.moneyCards.model.BuildingFeesCard;
@@ -88,7 +89,7 @@ public class CardLoader {
         switch (elementName) {
             case "buildingFeeCard":
                 BuildingFeesCard feeMoneyCardModel = new BuildingFeesCard(tag);
-                MoneyCardController feeMoneyController = new MoneyCardController(view, feeMoneyCardModel);
+                BuildingFeesCardController feeMoneyController = new BuildingFeesCardController(view, feeMoneyCardModel);
                 cards[cardsAdded] = feeMoneyController;
                 cardsAdded++;
                 break;
