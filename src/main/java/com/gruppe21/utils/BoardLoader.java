@@ -36,6 +36,7 @@ public class BoardLoader {
 
         SquareController[] squareControllers = getSquaresFromNodeList(boardNodes);
         Deck deck = new Deck("cards");
+        deck.shuffleDeck();
         assignDecksAndDestinations(deck, squareControllers);
         assignDestinationsToCards(deck, squareControllers);
 
